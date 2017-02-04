@@ -2,8 +2,8 @@
 <PluginConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>903</Id>
   <Name>TitanBar</Name>
-  <Author>Habna (Patch by Thorondor)</Author>
-  <Version>v1.29.00</Version>
+  <Author>Habna (Patch by Technical_13)</Author>
+  <Version>v1.29.01</Version>
   <InfoUrl>http://www.lotrointerface.com/downloads/info903</InfoUrl>
   <DownloadUrl>http://www.lotrointerface.com/downloads/download903</DownloadUrl>
   <Descriptors>
