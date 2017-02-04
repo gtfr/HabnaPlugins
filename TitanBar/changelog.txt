@@ -14,7 +14,7 @@ Known Issues:
 - Some low res icons. Searching for replacements.
 
 =======================================================================================================
-v1.29.00 (21 mar 2015)
+v1.29.00 (2015)
 New:
 - Tooltip for Vault (requested by Pulse). 
 - Tooltip for Shared Storage (requested by Pulse).

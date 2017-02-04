@@ -39,7 +39,7 @@ function DIRefreshListBox()
 	local DIitemLblScore = {};
 	local DIitemBG, DIitemU, DIitemS, DIitem = {}, {}, {}, {};
 	DIListBox:ClearItems();
-	DITTPosY = 36;
+	DITLPosY = 36;
 
 	mis, mts, nint = 0, 0, false;
 
@@ -78,14 +78,14 @@ function DIRefreshListBox()
 		DIListBox:SetWidth( 250 );
 		DIListBox:AddItem( lblName );
 		
-		DITTPosY = DITTPosY + 36;
+		DITLPosY = DITLPosY + 36;
 	else
 		for i = 1, 20 do
 			if itemEquip[i].WearStatePts ~= 100 and itemEquip[i].WearState ~= 0 then
 				cw=32;
 				iFound = iFound + 1;
 
-				TheColor = Color["TurbineYellow"];
+				TheColor = Color["SSGYellow"];
 				if itemEquip[i].WearStatePts == "50" then TheColor = Color["orange"];
 				elseif itemEquip[i].WearStatePts == "0" then TheColor = Color["red"]; end
 
@@ -178,17 +178,17 @@ function DIRefreshListBox()
 				end
 
 				DIitemCtl[i]:SetWidth( cw );
-				DIListBox:SetSize( cw, DITTPosY );
+				DIListBox:SetSize( cw, DITLPosY );
 
 				DIListBox:AddItem( DIitemCtl[i] );
 			
-				DITTPosY = DITTPosY + 36;
+				DITLPosY = DITLPosY + 36;
 			end
 		end
 	end
 
-	if iFound == 0 then _G.ToolTipWin:SetSize( cw, DITTPosY-10 );
-	else _G.ToolTipWin:SetSize( cw+30, DITTPosY-10 ); end
+	if iFound == 0 then _G.ToolTipWin:SetSize( cw, DITLPosY-10 );
+	else _G.ToolTipWin:SetSize( cw+30, DITLPosY-10 ); end
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 			

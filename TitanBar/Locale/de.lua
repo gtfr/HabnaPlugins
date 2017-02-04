@@ -27,7 +27,7 @@ L["MHT"] = "Zeichen der Hytbold";
 L["MMP"] = "Medaillon";
 L["MSL"] = "Siegel";
 L["MCP"] = "Anerkennung";
-L["MTP"] = "Turbine Punkte";
+L["MLP"] = "LOTRO Punkte";
 L["MBI"] = "Rucksack Infos";-- Thx Wicky!
 L["MPI"] = "Spieler Infos";-- Thx Wicky!
 L["MEI"] = "Ausr\195\188stung Infos";-- Thx Wicky! -- Ausrüstung
@@ -346,8 +346,8 @@ L["SLh"] = "Deine Siegel";--Thx DaBear78!
 -- Commodations control
 L["CPh"] = "Deine Anerkennung";--Thx DaBear78!
 
--- Turbine Points control
-L["TPh"] = "Dies sind Ihre Turbine Punkte";
+-- LOTRO Points control
+L["LPh"] = "Dies sind Ihre LOTRO Punkte";
 
 -- Bag Infos control
 --L["BIh"] = "Rucksack Informationen";

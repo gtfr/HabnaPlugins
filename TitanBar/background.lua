@@ -81,7 +81,7 @@ function frmBackground()
 	if sFrom == "BK" then curSelAlpha = BKbcAlpha; curSelRed = BKbcRed; curSelGreen = BKbcGreen; curSelBlue = BKbcBlue; end
 	if sFrom == "DN" then curSelAlpha = DNbcAlpha; curSelRed = DNbcRed; curSelGreen = DNbcGreen; curSelBlue = DNbcBlue; end
 	if sFrom == "RP" then curSelAlpha = RPbcAlpha; curSelRed = RPbcRed; curSelGreen = RPbcGreen; curSelBlue = RPbcBlue; end
-	if sFrom == "TP" then curSelAlpha = TPbcAlpha; curSelRed = TPbcRed; curSelGreen = TPbcGreen; curSelBlue = TPbcBlue; end
+	if sFrom == "LP" then curSelAlpha = LPbcAlpha; curSelRed = LPbcRed; curSelGreen = LPbcGreen; curSelBlue = LPbcBlue; end
 
 	if sFrom == "PL" then curSelAlpha = PLbcAlpha; curSelRed = PLbcRed; curSelGreen = PLbcGreen; curSelBlue = PLbcBlue; end
 	if sFrom == "GT" then curSelAlpha = GTbcAlpha; curSelRed = GTbcRed; curSelGreen = GTbcGreen; curSelBlue = GTbcBlue; end
@@ -318,10 +318,10 @@ end
 function UpdateBCvariable()
 	curSelAlpha = curAlpha;
 	if BGWToAll then
-		bcAlpha, WIbcAlpha, MIbcAlpha, DPbcAlpha, SPbcAlpha, SMbcAlpha, MCbcAlpha, HTbcAlpha, MPbcAlpha, SLbcAlpha, CPbcAlpha, BIbcAlpha, PIbcAlpha, EIbcAlpha, DIbcAlpha, TIbcAlpha, IFbcAlpha, VTbcAlpha, SSbcAlpha, BKbcAlpha, DNbcAlpha, RPbcAlpha, TPbcAlpha, PLbcAlpha, GTbcAlpha = curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha;
-		bcRed, WIbcRed, MIbcRed, DPbcRed, SPbcRed, SMbcRed, MCbcRed, HTbcRed, MPbcRed, SLbcRed, CPbcRed, BIbcRed, PIbcRed, EIbcRed, DIbcRed, TIbcRed, IFbcRed, VTbcRed, SSbcRed, BKbcRed, DNbcRed, RPbcRed, TPbcRed, PLbcRed, GTbcRed = curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed;
-		bcGreen, WIbcGreen, MIbcGreen, DPbcGreen, SPbcGreen, SMbcGreen, MCbcGreen, HTbcGreen, MPbcGreen, SLbcGreen, CPbcGreen, BIbcGreen, PIbcGreen, EIbcGreen, DIbcGreen, TIbcGreen, IFbcGreen, VTbcGreen, SSbcGreen, BKbcGreen, DNbcGreen, RPbcGreen, TPbcGreen, PLbcGreen, GTbcGreen = curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen;
-		bcBlue, WIbcBlue, MIbcBlue, DPbcBlue, SPbcBlue, SMbcBlue, MCbcBlue, HTbcBlue, MPbcBlue, SLbcBlue, CPbcBlue, BIbcBlue, PIbcBlue, EIbcBlue, DIbcBlue, TIbcBlue, IFbcBlue, VTbcBlue, SSbcBlue, BKbcBlue, DNbcBlue, RPbcBlue, TPbcBlue, PLbcBlue, GTbcBlue = curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue;
+		bcAlpha, WIbcAlpha, MIbcAlpha, DPbcAlpha, SPbcAlpha, SMbcAlpha, MCbcAlpha, HTbcAlpha, MPbcAlpha, SLbcAlpha, CPbcAlpha, BIbcAlpha, PIbcAlpha, EIbcAlpha, DIbcAlpha, TIbcAlpha, IFbcAlpha, VTbcAlpha, SSbcAlpha, BKbcAlpha, DNbcAlpha, RPbcAlpha, LPbcAlpha, PLbcAlpha, GTbcAlpha = curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha;
+		bcRed, WIbcRed, MIbcRed, DPbcRed, SPbcRed, SMbcRed, MCbcRed, HTbcRed, MPbcRed, SLbcRed, CPbcRed, BIbcRed, PIbcRed, EIbcRed, DIbcRed, TIbcRed, IFbcRed, VTbcRed, SSbcRed, BKbcRed, DNbcRed, RPbcRed, LPbcRed, PLbcRed, GTbcRed = curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed;
+		bcGreen, WIbcGreen, MIbcGreen, DPbcGreen, SPbcGreen, SMbcGreen, MCbcGreen, HTbcGreen, MPbcGreen, SLbcGreen, CPbcGreen, BIbcGreen, PIbcGreen, EIbcGreen, DIbcGreen, TIbcGreen, IFbcGreen, VTbcGreen, SSbcGreen, BKbcGreen, DNbcGreen, RPbcGreen, LPbcGreen, PLbcGreen, GTbcGreen = curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen;
+		bcBlue, WIbcBlue, MIbcBlue, DPbcBlue, SPbcBlue, SMbcBlue, MCbcBlue, HTbcBlue, MPbcBlue, SLbcBlue, CPbcBlue, BIbcBlue, PIbcBlue, EIbcBlue, DIbcBlue, TIbcBlue, IFbcBlue, VTbcBlue, SSbcBlue, BKbcBlue, DNbcBlue, RPbcBlue, LPbcBlue, PLbcBlue, GTbcBlue = curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue;
 		-- AU3 MARKER 2 - DO NOT REMOVE
 	    ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
@@ -351,7 +351,7 @@ function UpdateBCvariable()
 		if sFrom == "BK" then BKbcAlpha = curSelAlpha; BKbcRed = curSelRed; BKbcGreen = curSelGreen; BKbcBlue = curSelBlue; end
 		if sFrom == "DN" then DNbcAlpha = curSelAlpha; DNbcRed = curSelRed; DNbcGreen = curSelGreen; DNbcBlue = curSelBlue; end
 		if sFrom == "RP" then RPbcAlpha = curSelAlpha; RPbcRed = curSelRed; RPbcGreen = curSelGreen; RPbcBlue = curSelBlue; end
-		if sFrom == "TP" then TPbcAlpha = curSelAlpha; TPbcRed = curSelRed; TPbcGreen = curSelGreen; TPbcBlue = curSelBlue; end
+		if sFrom == "LP" then LPbcAlpha = curSelAlpha; LPbcRed = curSelRed; LPbcGreen = curSelGreen; LPbcBlue = curSelBlue; end
 
 		if sFrom == "PL" then PLbcAlpha = curSelAlpha; PLbcRed = curSelRed; PLbcGreen = curSelGreen; PLbcBlue = curSelBlue; end
 		if sFrom == "GT" then GTbcAlpha = curSelAlpha; GTbcRed = curSelRed; GTbcGreen = curSelGreen; GTbcBlue = curSelBlue; end

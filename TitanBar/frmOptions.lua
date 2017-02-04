@@ -310,8 +310,8 @@ function ResizeControls()
 	if ShowReputation then RP["Ctr"]:SetHeight( CTRHeight );
 		AjustIcon("RP");
 	end
-	if ShowTurbinePoints then TP["Ctr"]:SetHeight( CTRHeight ); TP["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("TP");
+	if ShowLOTROPoints then LP["Ctr"]:SetHeight( CTRHeight ); LP["Lbl"]:SetHeight( CTRHeight );
+		AjustIcon("LP");
 	end
 	-- AU3 MARKER 1 - DO NOT REMOVE
 	if ShowAmrothSilverPiece then ASP["Ctr"]:SetHeight( CTRHeight ); ASP["Lbl"]:SetHeight( CTRHeight );
@@ -353,7 +353,7 @@ function ResizeIcon()
 	--if ShowBank then AjustIcon("BK"); end
 	if ShowDayNight then AjustIcon("DN"); end
 	if ShowReputation then AjustIcon("RP"); end
-	if ShowTurbinePoints then AjustIcon("TP"); end
+	if ShowLOTROPoints then AjustIcon("LP"); end
 	-- AU3 MARKER 2 - DO NOT REMOVE
 	if ShowAmrothSilverPiece then AjustIcon("ASP"); end
 	if ShowStarsofMerit then AjustIcon("SOM"); end

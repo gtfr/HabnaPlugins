@@ -120,54 +120,54 @@ function frmWalletWindow()
 	for k,v in pairs(WICBO) do WIDD:AddItem(v, k); end
 
 	--** Turbine Point box
-	TPWCtr = Turbine.UI.Control();
-	TPWCtr:SetParent( WIWCtr );
-	TPWCtr:SetPosition( WIListBox:GetLeft(), WIDD:GetTop()+WIDD:GetHeight()+10 );
-	TPWCtr:SetZOrder( 2 );
-	--TPWCtr:SetBackColor( Color["red"] ); -- debug purpose
+	LPWCtr = Turbine.UI.Control();
+	LPWCtr:SetParent( WIWCtr );
+	LPWCtr:SetPosition( WIListBox:GetLeft(), WIDD:GetTop()+WIDD:GetHeight()+10 );
+	LPWCtr:SetZOrder( 2 );
+	--LPWCtr:SetBackColor( Color["red"] ); -- debug purpose
 
-	local WIlblTurbinePTS = Turbine.UI.Label();
-	WIlblTurbinePTS:SetParent( TPWCtr );
-	--WIlblTurbinePTS:SetFont( Turbine.UI.Lotro.Font.TrajanPro14 );
-	WIlblTurbinePTS:SetText( L["MTP"] );
-	WIlblTurbinePTS:SetPosition( 0, 2 );
-	WIlblTurbinePTS:SetSize( WIlblTurbinePTS:GetTextLength() * 7.5, 15 ); --Auto size with text lenght
-	WIlblTurbinePTS:SetForeColor( Color["rustedgold"] );
-	WIlblTurbinePTS:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
-	--WIlblTurbinePTS:SetBackColor( Color["red"] ); -- debug purpose
+	local WIlblLOTROPTS = Turbine.UI.Label();
+	WIlblLOTROPTS:SetParent( LPWCtr );
+	--WIlblLOTROPTS:SetFont( Turbine.UI.Lotro.Font.TrajanPro14 );
+	WIlblLOTROPTS:SetText( L["MLP"] );
+	WIlblLOTROPTS:SetPosition( 0, 2 );
+	WIlblLOTROPTS:SetSize( WIlblLOTROPTS:GetTextLength() * 7.5, 15 ); --Auto size with text lenght
+	WIlblLOTROPTS:SetForeColor( Color["rustedgold"] );
+	WIlblLOTROPTS:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
+	--WIlblLOTROPTS:SetBackColor( Color["red"] ); -- debug purpose
 
-	WItxtTurbinePTS = Turbine.UI.Lotro.TextBox();
-	WItxtTurbinePTS:SetParent( TPWCtr );
-	WItxtTurbinePTS:SetFont( Turbine.UI.Lotro.Font.TrajanPro14 );
-	--WItxtTurbinePTS:SetText( _G.TurbinePTS );
-	WItxtTurbinePTS:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
-	WItxtTurbinePTS:SetPosition( WIlblTurbinePTS:GetLeft()+WIlblTurbinePTS:GetWidth()+5, WIlblTurbinePTS:GetTop()-2 );
-	WItxtTurbinePTS:SetSize( 80, 20 );
-	WItxtTurbinePTS:SetMultiline( false );
-	if PlayerAlign == 2 then WItxtTurbinePTS:SetBackColor( Color["red"] ); end
+	WItxtLOTROPTS = Turbine.UI.Lotro.TextBox();
+	WItxtLOTROPTS:SetParent( LPWCtr );
+	WItxtLOTROPTS:SetFont( Turbine.UI.Lotro.Font.TrajanPro14 );
+	--WItxtLOTROPTS:SetText( _G.LOTROPTS );
+	WItxtLOTROPTS:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
+	WItxtLOTROPTS:SetPosition( WIlblLOTROPTS:GetLeft()+WIlblLOTROPTS:GetWidth()+5, WIlblLOTROPTS:GetTop()-2 );
+	WItxtLOTROPTS:SetSize( 80, 20 );
+	WItxtLOTROPTS:SetMultiline( false );
+	if PlayerAlign == 2 then WItxtLOTROPTS:SetBackColor( Color["red"] ); end
 
-	WItxtTurbinePTS.FocusGained = function( sender, args )
-		WItxtTurbinePTS:SelectAll();
-		WItxtTurbinePTS:SetWantsUpdates( true );
+	WItxtLOTROPTS.FocusGained = function( sender, args )
+		WItxtLOTROPTS:SelectAll();
+		WItxtLOTROPTS:SetWantsUpdates( true );
 	end
 
-	WItxtTurbinePTS.FocusLost = function( sender, args )
-		WItxtTurbinePTS:SetWantsUpdates( false );
+	WItxtLOTROPTS.FocusLost = function( sender, args )
+		WItxtLOTROPTS:SetWantsUpdates( false );
 	end
 
-	WItxtTurbinePTS.Update = function( sender, args )
-		local parsed_text = WItxtTurbinePTS:GetText();
+	WItxtLOTROPTS.Update = function( sender, args )
+		local parsed_text = WItxtLOTROPTS:GetText();
 
 		if tonumber(parsed_text) == nil or string.find(parsed_text,"%.") ~= nil then
-			WItxtTurbinePTS:SetText( string.sub( parsed_text, 1, string.len(parsed_text)-1 ) );
+			WItxtLOTROPTS:SetText( string.sub( parsed_text, 1, string.len(parsed_text)-1 ) );
 			return
 		elseif string.len(parsed_text) > 1 and string.sub(parsed_text,1,1) == "0" then
-			WItxtTurbinePTS:SetText( string.sub( parsed_text, 2 ) );
+			WItxtLOTROPTS:SetText( string.sub( parsed_text, 2 ) );
 			return
 		end
 	end
 
-	TPWCtr:SetSize( WIListBox:GetWidth(), 20 );
+	LPWCtr:SetSize( WIListBox:GetWidth(), 20 );
 	--**
 
 	WIbutSave = Turbine.UI.Lotro.Button();
@@ -236,25 +236,25 @@ function frmWalletWindow()
 			if SelIndex == 1 then if not ShowGiftgiversBrand then ShowHideGiftgiversBrand(); end
 			else if ShowGiftgiversBrand then ShowHideGiftgiversBrand(); end end
 		-- AU3 MARKER 1 END
-		elseif wcur == L["MTP"] then
-			_G.TPWhere = SelIndex; settings.TurbinePoints.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowTurbinePoints then ShowHideTurbinePoints(); end
-			else if ShowTurbinePoints then ShowHideTurbinePoints(); end end
+		elseif wcur == L["MLP"] then
+			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
+			else if ShowLOTROPoints then ShowHideLOTROPoints(); end end
 
-			local parsed_text = WItxtTurbinePTS:GetText();
+			local parsed_text = WItxtLOTROPTS:GetText();
 
 			if parsed_text == "" then
-				WItxtTurbinePTS:SetText( "0" );
-				WItxtTurbinePTS:Focus();
+				WItxtLOTROPTS:SetText( "0" );
+				WItxtLOTROPTS:Focus();
 				return
-			elseif parsed_text == _G.TurbinePTS then
-				WItxtTurbinePTS:Focus();
+			elseif parsed_text == _G.LOTROPTS then
+				WItxtLOTROPTS:Focus();
 				return
 			end
 			
-			_G.TurbinePTS = WItxtTurbinePTS:GetText();
-			if _G.TPWhere == 1 then UpdateTurbinePoints(); end
-			SavePlayerTurbinePoints();
+			_G.LOTROPTS = WItxtLOTROPTS:GetText();
+			if _G.LPWhere == 1 then UpdateLOTROPoints(); end
+			SavePlayerLOTROPoints();
 		end
 
 		SaveSettings( false );
@@ -288,7 +288,7 @@ function RefreshWIListBox()
 			if ( args.Button == Turbine.UI.MouseButton.Right ) then
 				wcur = MenuItem[WalletOrder[i]];
 				WIlblFN:SetText( wcur );
-				TPWCtr:SetVisible( false );
+				LPWCtr:SetVisible( false );
 				WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, WIDD:GetTop()+WIDD:GetHeight()+10 );
 
 				if wcur == L["MGSC"] then tw = _G.MIWhere;
@@ -300,7 +300,7 @@ function RefreshWIListBox()
 				elseif wcur == L["MMP"] then tw = _G.MPWhere;
 				elseif wcur == L["MSL"] then tw = _G.SLWhere;
 				elseif wcur == L["MCP"] then tw = _G.CPWhere;
-				elseif wcur == L["MTP"] then tw = _G.TPWhere; TPWCtr:SetVisible( true ); WItxtTurbinePTS:SetText( _G.TurbinePTS ); WItxtTurbinePTS:Focus(); WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, TPWCtr:GetTop()+TPWCtr:GetHeight()+10);
+				elseif wcur == L["MLP"] then tw = _G.LPWhere; LPWCtr:SetVisible( true ); WItxtLOTROPTS:SetText( _G.LOTROPTS ); WItxtLOTROPTS:Focus(); WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, LPWCtr:GetTop()+LPWCtr:GetHeight()+10);
 				-- AU3 MARKER 2 - DO NOT REMOVE
 				elseif wcur == L["MASP"] then tw = _G.ASPWhere;
 				elseif wcur == L["MSOM"] then tw = _G.SOMWhere;

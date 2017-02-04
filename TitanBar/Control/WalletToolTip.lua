@@ -32,7 +32,7 @@ end
 
 function RefreshWITTListBox()
 	WITTListBox:ClearItems();
-	WITTPosY, totWidth = 0, 0;
+	WITLPosY, totWidth = 0, 0;
 	local bFound = false;
 	
 	for i = 1, #MenuItem do
@@ -46,7 +46,7 @@ function RefreshWITTListBox()
 		elseif wttcur == L["MMP"] then ttw = _G.MPWhere; CtrIconCodeIs=WalletItem.Medallion.Icon; CtrQteIs=GetCurrency( pwMedallion );
 		elseif wttcur == L["MSL"] then ttw = _G.SLWhere; CtrIconCodeIs=WalletItem.Seal.Icon; CtrQteIs=GetCurrency( pwSeal );
 		elseif wttcur == L["MCP"] then ttw = _G.CPWhere; CtrIconCodeIs=WalletItem.Commendation.Icon; CtrQteIs=GetCurrency( pwCommendation );
-		elseif wttcur == L["MTP"] then ttw = _G.TPWhere; CtrIconCodeIs=WalletItem.TurbinePTS.Icon; CtrQteIs=_G.TurbinePTS;
+		elseif wttcur == L["MLP"] then ttw = _G.LPWhere; CtrIconCodeIs=WalletItem.LOTROPTS.Icon; CtrQteIs=_G.LOTROPTS;
 		-- AU3 MARKER 1 - DO NOT REMOVE
 	    elseif wttcur == L["MASP"] then ttw = _G.ASPWhere; CtrIconCodeIs=WalletItem.AmrothSilverPiece.Icon; CtrQteIs=GetCurrency( pwAmrothSilverPiece );
 		elseif wttcur == L["MSOM"] then ttw = _G.SOMWhere; CtrIconCodeIs=WalletItem.StarsofMerit.Icon; CtrQteIs=GetCurrency( pwStarsofMerit );
@@ -56,7 +56,7 @@ function RefreshWITTListBox()
 		end
 		
 		if tonumber(ttw) == 2 then
-			WITTPosY = WITTPosY + 32;
+			WITLPosY = WITLPosY + 32;
 			bFound = true;
 		
 			--**v Control of all data v**
@@ -110,7 +110,7 @@ function RefreshWITTListBox()
 				ttIcon:SetPosition( 0, 0 );
 				ttIcon:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 			
-				if wttcur == L["MSL"] or wttcur == L["MTP"] then ttIcon:SetBackground( CtrIconCodeIs );
+				if wttcur == L["MSL"] or wttcur == L["MLP"] then ttIcon:SetBackground( CtrIconCodeIs );
 				else ttIcon:SetBackground( tonumber(CtrIconCodeIs) ); end
 				--ttIcon:SetBackColor( Color["blue"] ); -- Debug purpose
 				--**^
@@ -131,13 +131,13 @@ function RefreshWITTListBox()
 				WITTListBox:SetWidth(totWidth);
 				_G.ToolTipWin:SetWidth( totWidth+40 );
 				--**
-				--** Resize Destiny points & Turbine points icon since it's not in 32x32 **--
+				--** Resize Destiny points & LOTRO points icon since it's not in 32x32 **--
 				if wttcur == L["MDP"] then
 					ttIcon:SetSize( 21, 22 );
 					ttIcon:SetStretchMode( 1 );
 					ttIcon:SetSize( 32, 32 );
 					ttIcon:SetStretchMode( 3 );
-				elseif wttcur == L["MTP"] then
+				elseif wttcur == L["MLP"] then
 					ttIcon:SetSize( 30, 32 )
 					ttIcon:SetStretchMode( 1 );
 					ttIcon:SetSize( 32, 32 );
@@ -149,7 +149,7 @@ function RefreshWITTListBox()
 		end
 	end
 	if not bFound then --If not showing any control
-		WITTPosY = WITTPosY + 32;
+		WITLPosY = WITLPosY + 32;
 
 		_G.ToolTipWin:SetWidth( 300 );
 		WITTListBox:SetWidth( _G.ToolTipWin:GetWidth()-40 );
@@ -166,8 +166,8 @@ function RefreshWITTListBox()
 		WITTListBox:AddItem( lblName );
 	end
 
-	WITTListBox:SetHeight( WITTPosY );
-	_G.ToolTipWin:SetHeight( WITTPosY + 37 );
+	WITTListBox:SetHeight( WITLPosY );
+	_G.ToolTipWin:SetHeight( WITLPosY + 37 );
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 			

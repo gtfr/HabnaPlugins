@@ -151,7 +151,7 @@ function frmMain()
 	--LoadPlayerMount();
 	--LoadPlayerPet();
 	LoadPlayerReputation();
-	LoadPlayerTurbinePoints();
+	LoadPlayerLOTROPoints();
 	LoadPlayerItemTrackingList();
 	LoadPlayerProfile();
 
@@ -188,7 +188,7 @@ function frmMain()
 		if PlayerWalletSize ~= nil or PlayerWalletSize ~= 0 then
 			if ShowWallet then ImportCtr( "WI" ); end
 			if _G.CPWhere ~= 3 then ImportCtr( "CP" ); end
-			if _G.TPWhere ~= 3 then ImportCtr( "TP" ); end
+			if _G.LPWhere ~= 3 then ImportCtr( "LP" ); end
 		end
 	end
 
@@ -207,7 +207,7 @@ function frmMain()
 	--if ShowBank then ImportCtr( "BK" ); end --Bank
 	if ShowDayNight then ImportCtr( "DN" ); end --Day & Night time
 	if ShowReputation then ImportCtr( "RP" ); end --Reputation Points
-	if _G.TPWhere ~= 3 then ImportCtr( "TP" ); end --Turbine Points
+	if _G.LPWhere ~= 3 then ImportCtr( "LP" ); end --LOTRO Points
 
 	--**v Workaround for the ItemRemoved that fire before the backpack was updated (Turnine API issue) v**
 	ItemRemovedTimer = Turbine.UI.Control();
@@ -311,7 +311,7 @@ function frmMain()
 				if _G.HTWhere ~= 3 then ImportCtr( "HT" ); end
 				if _G.MPWhere ~= 3 then ImportCtr( "MP" ); end
 				if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end
-				if _G.TPWhere ~= 3 then ImportCtr( "CP" ); end
+				if _G.LPWhere ~= 3 then ImportCtr( "CP" ); end
 				-- AU3 MARKER 3 - DO NOT REMOVE
 	            if _G.ASPWhere ~= 3 then ImportCtr( "ASP" ); end
 				if _G.SOMWhere ~= 3 then ImportCtr( "SOM" ); end

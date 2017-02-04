@@ -264,39 +264,39 @@ function ImportCtr( value )
 		--import (AppCtrD.."DayNightToolTip");
 		UpdateDayNight();
 		DN["Ctr"]:SetPosition( _G.DNLocX, _G.DNLocY );
-	elseif value == "TP" then --Turbine points
-		if _G.TPWhere == 1 then	import (AppCtrD.."TurbinePoints"); TP["Ctr"]:SetPosition( _G.TPLocX, _G.TPLocY ); UpdateTurbinePoints(); end
-		if _G.TPWhere ~= 3 then
-			--PlayerTP = Player:GetTurbinePoints();
-			--AddCallback(PlayerTP, "TurbinePointsChanged", function(sender, args) UpdateTurbinePoints(); end);
-			TPcb = AddCallback(Turbine.Chat, "Received", function(sender, args)
+	elseif value == "LP" then --LOTRO points
+		if _G.LPWhere == 1 then	import (AppCtrD.."LOTROPoints"); LP["Ctr"]:SetPosition( _G.LPLocX, _G.LPLocY ); UpdateLOTROPoints(); end
+		if _G.LPWhere ~= 3 then
+			--PlayerLP = Player:GetLOTROPoints();
+			--AddCallback(PlayerLP, "LOTROPointsChanged", function(sender, args) UpdateLOTROPoints(); end);
+			LPcb = AddCallback(Turbine.Chat, "Received", function(sender, args)
 				if args.ChatType == Turbine.ChatType.Advancement then
 					tpMess = args.Message;
-					--write("TP message");
+					--write("LP message");
 				
-					--tpMess = "You've earned 10 Turbine Points"; -- EN debug purpose
-					--tpMess = "Vous avez gagn\195\169 10 points Turbine"; --FR debug purpose
+					--tpMess = "You've earned 10 LOTRO Points"; -- EN debug purpose
+					--tpMess = "Vous avez gagn\195\169 10 points LOTRO"; --FR debug purpose
 					--tpMess = "Ihr habt 10 Punkte erhalten"; --DE debug purpose
 				
 					if tpMess ~= nil then
 						local tpPattern;
-						if GLocale == "en" then tpPattern = "earned ([%d%p]*) Turbine Points";
-						elseif GLocale == "fr" then tpPattern = "gagn\195\169 ([%d%p]*) points Turbine";
+						if GLocale == "en" then tpPattern = "earned ([%d%p]*) LOTRO Points";
+						elseif GLocale == "fr" then tpPattern = "gagn\195\169 ([%d%p]*) points LOTRO";
 						elseif GLocale == "de" then tpPattern = "habt ([%d%p]*) Punkte erhalten"; end
 					
-						local tmpTP = string.match(tpMess,tpPattern);
-						if tmpTP ~= nil then
-							TPTS = tmpTP;
-							--write("Turbine points capture: '"..TPTS.."'"); -- debug purpose
-							_G.TurbinePTS = _G.TurbinePTS + TPTS;
-							if _G.TPWhere == 1 then UpdateTurbinePoints(); end
-							SavePlayerTurbinePoints();
+						local tmpLP = string.match(tpMess,tpPattern);
+						if tmpLP ~= nil then
+							LPTS = tmpLP;
+							--write("LOTRO points capture: '"..LPTS.."'"); -- debug purpose
+							_G.LOTROPTS = _G.LOTROPTS + LPTS;
+							if _G.LPWhere == 1 then UpdateLOTROPoints(); end
+							SavePlayerLOTROPoints();
 						end
 					end
 				end
 			end);
 		else
-			RemoveCallback(Turbine.Chat, "Received", TPcb);
+			RemoveCallback(Turbine.Chat, "Received", LPcb);
 		end
 	elseif value == "GT" then --Game Time
 		import (AppCtrD.."GameTime");
@@ -901,16 +901,16 @@ function SavePlayerReputation()
 	Turbine.PluginData.Save( Turbine.DataScope.Server, "TitanBarReputation", PlayerReputation );
 end
 
-function LoadPlayerTurbinePoints()
-	PlayerTurbinePoints = Turbine.PluginData.Load( Turbine.DataScope.Account, "TitanBarTurbinePoints" );
-	if PlayerTurbinePoints == nil then PlayerTurbinePoints = {}; end
-	if PlayerTurbinePoints.PTS == nil then PlayerTurbinePoints.PTS = "0"; end
-	_G.TurbinePTS = PlayerTurbinePoints.PTS;
+function LoadPlayerLOTROPoints()
+	PlayerLOTROPoints = Turbine.PluginData.Load( Turbine.DataScope.Account, "TitanBarLOTROPoints" );
+	if PlayerLOTROPoints == nil then PlayerLOTROPoints = {}; end
+	if PlayerLOTROPoints.PTS == nil then PlayerLOTROPoints.PTS = "0"; end
+	_G.LOTROPTS = PlayerLOTROPoints.PTS;
 end
 
-function SavePlayerTurbinePoints()
-	PlayerTurbinePoints.PTS = string.format("%.0f", _G.TurbinePTS);
-	Turbine.PluginData.Save( Turbine.DataScope.Account, "TitanBarTurbinePoints", PlayerTurbinePoints );
+function SavePlayerLOTROPoints()
+	PlayerLOTROPoints.PTS = string.format("%.0f", _G.LOTROPTS);
+	Turbine.PluginData.Save( Turbine.DataScope.Account, "TitanBarLOTROPoints", PlayerLOTROPoints );
 end
 
 function UpdateCurrency(str)

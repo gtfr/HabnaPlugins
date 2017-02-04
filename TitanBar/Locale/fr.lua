@@ -27,7 +27,7 @@ L["MHT"] = "Jetons d'Hytbold";
 L["MMP"] = "M\195\169daillon";
 L["MSL"] = "Sceau";
 L["MCP"] = "Commendation";
-L["MTP"] = "Points Turbine";
+L["MLP"] = "Points LOTRO";
 L["MBI"] = "Informations de vos sacs";
 L["MPI"] = "Information du joueur";
 L["MEI"] = "Points pour tous vos articles";
@@ -345,8 +345,8 @@ L["SLh"] = "Ce sont vos sceaux";
 -- Commodations control
 L["CPh"] = "Ce sont vos Commendations";
 
--- Turbine Points control
-L["TPh"] = "Ce sont vos points Turbine";
+-- LOTRO Points control
+L["LPh"] = "Ce sont vos points LOTRO";
 
 -- Bag Infos control
 --L["BIh"] = "Informations de vos sacs";

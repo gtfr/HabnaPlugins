@@ -344,28 +344,28 @@ function LoadSettings()
 	if _G.CPWhere == 3 and ShowCommendations then _G.CPWhere = 1; settings.Commendations.W = string.format("%.0f", _G.CPWhere); end --Remove after Oct, 15th 2013
 
 
-	if settings.TurbinePoints == nil then settings.TurbinePoints = {}; end
-	if settings.TurbinePoints.V == nil then settings.TurbinePoints.V = false; end
-	if settings.TurbinePoints.A == nil then settings.TurbinePoints.A = string.format("%.3f", tA); end
-	if settings.TurbinePoints.R == nil then settings.TurbinePoints.R = string.format("%.3f", tR); end
-	if settings.TurbinePoints.G == nil then settings.TurbinePoints.G = string.format("%.3f", tG); end
-	if settings.TurbinePoints.B == nil then settings.TurbinePoints.B = string.format("%.3f", tB); end
-	if settings.TurbinePoints.X == nil then settings.TurbinePoints.X = string.format("%.0f", tX); end
-	if settings.TurbinePoints.Y == nil then settings.TurbinePoints.Y = string.format("%.0f", tY); end
-	if settings.TurbinePoints.L == nil then settings.TurbinePoints.L = string.format("%.0f", tL); end
-	if settings.TurbinePoints.T == nil then settings.TurbinePoints.T = string.format("%.0f", tT); end
-	if settings.TurbinePoints.W == nil then settings.TurbinePoints.W = string.format("%.0f", tW); end
-	ShowTurbinePoints = settings.TurbinePoints.V;
-	TPbcAlpha = tonumber(settings.TurbinePoints.A);
-	TPbcRed = tonumber(settings.TurbinePoints.R);
-	TPbcGreen = tonumber(settings.TurbinePoints.G);
-	TPbcBlue = tonumber(settings.TurbinePoints.B);
-	_G.TPLocX = tonumber(settings.TurbinePoints.X);
-	_G.TPLocY = tonumber(settings.TurbinePoints.Y);
-	TPWLeft = tonumber(settings.TurbinePoints.L);
-	TPWTop = tonumber(settings.TurbinePoints.T);
-	_G.TPWhere = tonumber(settings.TurbinePoints.W);
-	if _G.TPWhere == 3 and ShowTurbinePoints then _G.TPWhere = 1; settings.TurbinePoints.W = string.format("%.0f", _G.TPWhere); end --Remove after Oct, 15th 2013
+	if settings.LOTROPoints == nil then settings.LOTROPoints = {}; end
+	if settings.LOTROPoints.V == nil then settings.LOTROPoints.V = false; end
+	if settings.LOTROPoints.A == nil then settings.LOTROPoints.A = string.format("%.3f", tA); end
+	if settings.LOTROPoints.R == nil then settings.LOTROPoints.R = string.format("%.3f", tR); end
+	if settings.LOTROPoints.G == nil then settings.LOTROPoints.G = string.format("%.3f", tG); end
+	if settings.LOTROPoints.B == nil then settings.LOTROPoints.B = string.format("%.3f", tB); end
+	if settings.LOTROPoints.X == nil then settings.LOTROPoints.X = string.format("%.0f", tX); end
+	if settings.LOTROPoints.Y == nil then settings.LOTROPoints.Y = string.format("%.0f", tY); end
+	if settings.LOTROPoints.L == nil then settings.LOTROPoints.L = string.format("%.0f", tL); end
+	if settings.LOTROPoints.T == nil then settings.LOTROPoints.T = string.format("%.0f", tT); end
+	if settings.LOTROPoints.W == nil then settings.LOTROPoints.W = string.format("%.0f", tW); end
+	ShowLOTROPoints = settings.LOTROPoints.V;
+	LPbcAlpha = tonumber(settings.LOTROPoints.A);
+	LPbcRed = tonumber(settings.LOTROPoints.R);
+	LPbcGreen = tonumber(settings.LOTROPoints.G);
+	LPbcBlue = tonumber(settings.LOTROPoints.B);
+	_G.LPLocX = tonumber(settings.LOTROPoints.X);
+	_G.LPLocY = tonumber(settings.LOTROPoints.Y);
+	LPWLeft = tonumber(settings.LOTROPoints.L);
+	LPWTop = tonumber(settings.LOTROPoints.T);
+	_G.LPWhere = tonumber(settings.LOTROPoints.W);
+	if _G.LPWhere == 3 and ShowLOTROPoints then _G.LPWhere = 1; settings.LOTROPoints.W = string.format("%.0f", _G.LPWhere); end --Remove after Oct, 15th 2013
 	
 
 	if settings.BagInfos == nil then settings.BagInfos = {}; end
@@ -902,17 +902,17 @@ function SaveSettings(str)
 		settings.Commendations.Y = string.format("%.0f", _G.CPLocY);
 		settings.Commendations.W = string.format("%.0f", _G.CPWhere);
 
-		settings.TurbinePoints = {};
-		settings.TurbinePoints.V = ShowTurbinePoints;
-		settings.TurbinePoints.A = string.format("%.3f", TPbcAlpha);
-		settings.TurbinePoints.R = string.format("%.3f", TPbcRed);
-		settings.TurbinePoints.G = string.format("%.3f", TPbcGreen);
-		settings.TurbinePoints.B = string.format("%.3f", TPbcBlue);
-		settings.TurbinePoints.X = string.format("%.0f", _G.TPLocX);
-		settings.TurbinePoints.Y = string.format("%.0f", _G.TPLocY);
-		settings.TurbinePoints.L = string.format("%.0f", TPWLeft);
-		settings.TurbinePoints.T = string.format("%.0f", TPWTop);
-		settings.TurbinePoints.W = string.format("%.0f", _G.TPWhere);
+		settings.LOTROPoints = {};
+		settings.LOTROPoints.V = ShowLOTROPoints;
+		settings.LOTROPoints.A = string.format("%.3f", LPbcAlpha);
+		settings.LOTROPoints.R = string.format("%.3f", LPbcRed);
+		settings.LOTROPoints.G = string.format("%.3f", LPbcGreen);
+		settings.LOTROPoints.B = string.format("%.3f", LPbcBlue);
+		settings.LOTROPoints.X = string.format("%.0f", _G.LPLocX);
+		settings.LOTROPoints.Y = string.format("%.0f", _G.LPLocY);
+		settings.LOTROPoints.L = string.format("%.0f", LPWLeft);
+		settings.LOTROPoints.T = string.format("%.0f", LPWTop);
+		settings.LOTROPoints.W = string.format("%.0f", _G.LPWhere);
 
 		settings.BagInfos = {};
 		settings.BagInfos.V = ShowBagInfos;
@@ -1145,7 +1145,7 @@ function ResetSettings()
 	--ShowBank, BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue, _G.BKLocX, _G.BKLocX = false, tA, tR, tG, tB, tX, tY --for Bank Control
 	ShowDayNight, _G.DNNextT, DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue, _G.DNLocX, _G.DNLocX = false, true, tA, tR, tG, tB, tX, tY --for DayNight Control
 	ShowReputation, RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue, _G.RPLocX, _G.RPLocX = false, tA, tR, tG, tB, tX, tY --for Reputation Control
-	ShowTurbinePoints, TPbcAlpha, TPbcRed, TPbcGreen, TPbcBlue, _G.TPLocX, _G.TPLocY, _G.TPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Turbine points Control
+	ShowLOTROPoints, LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue, _G.LPLocX, _G.LPLocY, _G.LPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for LOTRO points Control
 	
 	ShowPlayerLoc, PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue, _G.PLLocX, _G.PLLocX = true, tA, tR, tG, tB, screenWidth - 205, tY; --for Player Location Control
 	ShowGameTime, _G.Clock24h, _G.ShowST, _G.ShowBT, GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue, _G.GTLocX, _G.GTLocX = true, false, false, false, tA, tR, tG, tB, screenWidth - 60, tY --for Game time Control
@@ -1279,10 +1279,10 @@ function ReplaceCtr()
 	settings.Reputation.X = string.format("%.0f", _G.RPLocX);
 	if ShowReputation then RP["Ctr"]:SetPosition( _G.RPLocX, _G.RPLocY ); end
 
-	oldLocX = settings.TurbinePoints.X / oldScreenWidth;
-	_G.TPLocX = oldLocX * screenWidth;
-	settings.TurbinePoints.X = string.format("%.0f", _G.TPLocX);
-	if ShowTurbinePoints and _G.TPWhere == 1 then TP["Ctr"]:SetPosition( _G.TPLocX, _G.TPLocY ); end
+	oldLocX = settings.LOTROPoints.X / oldScreenWidth;
+	_G.LPLocX = oldLocX * screenWidth;
+	settings.LOTROPoints.X = string.format("%.0f", _G.LPLocX);
+	if ShowLOTROPoints and _G.LPWhere == 1 then LP["Ctr"]:SetPosition( _G.LPLocX, _G.LPLocY ); end
 
 	oldLocX = settings.GameTime.X / oldScreenWidth;
 	_G.GTLocX = oldLocX * screenWidth;

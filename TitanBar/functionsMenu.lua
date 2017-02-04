@@ -175,22 +175,22 @@ function ShowHideCommendations()
 	CP["Ctr"]:SetVisible( ShowCommendations );
 end
 -- **^
--- **v Show/Hide Turbine Points v**
-function ShowHideTurbinePoints()
-	ShowTurbinePoints = not ShowTurbinePoints;
-	settings.TurbinePoints.V = ShowTurbinePoints;
-	settings.TurbinePoints.W = string.format("%.0f", _G.TPWhere);
+-- **v Show/Hide LOTRO Points v**
+function ShowHideLOTROPoints()
+	ShowLOTROPoints = not ShowLOTROPoints;
+	settings.LOTROPoints.V = ShowLOTROPoints;
+	settings.LOTROPoints.W = string.format("%.0f", _G.LPWhere);
 	SaveSettings( false );
-	ImportCtr( "TP" );
-	if ShowTurbinePoints then
-		--write( "TitanBar: Showing Trubine Points");
-		--ImportCtr( "TP" );
-		TP["Ctr"]:SetBackColor( Turbine.UI.Color( TPbcAlpha, TPbcRed, TPbcGreen, TPbcBlue ) );
+	ImportCtr( "LP" );
+	if ShowLOTROPoints then
+		--write( "TitanBar: Showing LOTRO Points");
+		--ImportCtr( "LP" );
+		LP["Ctr"]:SetBackColor( Turbine.UI.Color( LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue ) );
 	else
-		--write( "TitanBar: Hiding Turbine Points");
-		if _G.frmTP then wTP:Close(); end
+		--write( "TitanBar: Hiding LOTRO Points");
+		if _G.frmLP then wLP:Close(); end
 	end
-	TP["Ctr"]:SetVisible( ShowTurbinePoints );
+	LP["Ctr"]:SetVisible( ShowLOTROPoints );
 end
 -- **^
 -- **v Show/Hide backpack Infos v**
@@ -442,8 +442,8 @@ end
 function SavePlayerProfile()
 	-- The table key is saved with "," in DE & FR clients. Ex. [1,000000]. This causes a parse error.
 	-- If you change [1,000000] to [1.000000] error is not there any more. [1] would be easier! Why all those zeroes!
-	-- So Turbine saves the table key in the client language, but lua is unable to read it since "," is a special character.
-	-- Turbine just has to save the key in english and the value in the client language.
+	-- So LOTRO saves the table key in the client language, but lua is unable to read it since "," is a special character.
+	-- LOTRO just has to save the key in english and the value in the client language.
 
 	-- So I'm converting the key [1,000000] into a string like this ["1"]
 	-- That's VindarPatch's doing, it converts the whole table into string (key and value)

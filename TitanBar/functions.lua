@@ -242,11 +242,11 @@ function ShowToolTipWin( ToShow )
 		h = 80;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["MDayNight"], L["EIt1"], L["EIt2"], L["EIt3"] );
-	elseif ToShow == "TP" then -- Turbine points
+	elseif ToShow == "LP" then -- LOTRO points
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 80;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["TPh"], L["EIt1"], L["EIt2"], L["EIt3"] );
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["LPh"], L["EIt1"], L["EIt2"], L["EIt3"] );
 	-- AU3 MARKER 1 - DO NOT REMOVE
 	elseif ToShow == "ASP" then -- Amroth Silver Piece
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
@@ -441,14 +441,14 @@ function UpdateCommendations()
 	end
 end
 --**^
---**v Update Turbine points on TitanBar v**
-function UpdateTurbinePoints()
-	if _G.TPWhere == 1 then
-		TP["Lbl"]:SetText( _G.TurbinePTS );
-		TP["Lbl"]:SetSize( TP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
-		AjustIcon( "TP" );
+--**v Update LOTRO points on TitanBar v**
+function UpdateLOTROPoints()
+	if _G.LPWhere == 1 then
+		LP["Lbl"]:SetText( _G.LOTROPTS );
+		LP["Lbl"]:SetSize( LP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		AjustIcon( "LP" );
 	end
-	SavePlayerTurbinePoints();
+	SavePlayerLOTROPoints();
 end
 --**^
 -- AU3 MARKER 2 - DO NOT REMOVE
@@ -782,7 +782,7 @@ function ChangeColor(tColor)
 		--if ShowBank then BK["Ctr"]:SetBackColor( tColor ); end
 		if ShowDayNight then DN["Ctr"]:SetBackColor( tColor ); end
 		if ShowReputation then RP["Ctr"]:SetBackColor( tColor ); end
-		if ShowTurbinePoints then TP["Ctr"]:SetBackColor( tColor ); end
+		if ShowLOTROPoints then LP["Ctr"]:SetBackColor( tColor ); end
 
 		if ShowPlayerLoc then PL["Ctr"]:SetBackColor( tColor ); end
 		if ShowGameTime then GT["Ctr"]:SetBackColor( tColor ); end
@@ -815,7 +815,7 @@ function ChangeColor(tColor)
 		--if sFrom == "BK" then BK["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "DN" then DN["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "RP" then RP["Ctr"]:SetBackColor( tColor ); end
-		if sFrom == "TP" then TP["Ctr"]:SetBackColor( tColor ); end
+		if sFrom == "LP" then LP["Ctr"]:SetBackColor( tColor ); end
 
 		if sFrom == "PL" then PL["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "GT" then GT["Ctr"]:SetBackColor( tColor ); end
@@ -1062,12 +1062,12 @@ function AjustIcon(str)
 		RP["Ctr"]:SetSize( TBIconSize, CTRHeight );
 		RP["Icon"]:SetSize( TBIconSize, TBIconSize );
 		RP["Icon"]:SetStretchMode( 3 );
-	elseif str == "TP" then
-		TP["Icon"]:SetStretchMode( 1 );
-		TP["Icon"]:SetPosition( TP["Lbl"]:GetLeft() + TP["Lbl"]:GetWidth() + 2, Y + 1 );
-		TP["Ctr"]:SetSize( TP["Icon"]:GetLeft() + TBIconSize, CTRHeight );
-		TP["Icon"]:SetSize( TBIconSize, TBIconSize );
-		TP["Icon"]:SetStretchMode( 3 );
+	elseif str == "LP" then
+		LP["Icon"]:SetStretchMode( 1 );
+		LP["Icon"]:SetPosition( LP["Lbl"]:GetLeft() + LP["Lbl"]:GetWidth() + 2, Y + 1 );
+		LP["Ctr"]:SetSize( LP["Icon"]:GetLeft() + TBIconSize, CTRHeight );
+		LP["Icon"]:SetSize( TBIconSize, TBIconSize );
+		LP["Icon"]:SetStretchMode( 3 );
 	-- AU3 MARKER 5 - DO NOT REMOVE
 	elseif str == "ASP" then
 		ASP["Icon"]:SetStretchMode( 1 );

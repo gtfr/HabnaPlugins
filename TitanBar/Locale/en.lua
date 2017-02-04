@@ -27,7 +27,7 @@ L["MHT"] = "Token of Hytbold";
 L["MMP"] = "Medallion";
 L["MSL"] = "Seal";
 L["MCP"] = "Commendation";
-L["MTP"] = "Turbine points";
+L["MLP"] = "LOTRO points";
 L["MBI"] = "Backpack infos";
 L["MPI"] = "Player infos";
 L["MEI"] = "Equipment infos";
@@ -346,8 +346,8 @@ L["SLh"] = "These are your seal";
 -- Commendations control
 L["CPh"] = "These are your Commendation";
 
--- Turbine Points control
-L["TPh"] = "These are your Turbine points";
+-- LOTRO Points control
+L["LPh"] = "These are your LOTRO points";
 
 -- Bag Infos control
 --L["BIh"] = "Backpack informations";

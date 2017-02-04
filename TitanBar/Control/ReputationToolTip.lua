@@ -32,12 +32,12 @@ end
 
 function RPRefreshListBox()
 	RPTTListBox:ClearItems();
-	RPTTPosY = 0;
+	RPTLPosY = 0;
 	local bFound = false;
 	
 	for i = 1, #FactionOrder do
 		if PlayerReputation[PN][tostring(FactionOrder[i])].V then
-			RPTTPosY = RPTTPosY + 35;
+			RPTLPosY = RPTLPosY + 35;
 			bFound = true;
 			--**v Control of all data v**
 			local RPTTCtr = Turbine.UI.Control();
@@ -126,11 +126,11 @@ function RPRefreshListBox()
 
 		RPTTListBox:AddItem( lblName );
 
-		RPTTPosY = RPTTPosY + 35;
+		RPTLPosY = RPTLPosY + 35;
 	end
 
-	RPTTListBox:SetHeight( RPTTPosY );
-	_G.ToolTipWin:SetHeight( RPTTPosY + 30 );
+	RPTTListBox:SetHeight( RPTLPosY );
+	_G.ToolTipWin:SetHeight( RPTLPosY + 30 );
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 			

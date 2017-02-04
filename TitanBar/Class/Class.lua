@@ -1,5 +1,5 @@
 -- Class.lua
--- Written by Rod of Turbine, originally part of the LotRO Lua Examples.
+-- Written by Rod of Turbine, originally part of the LOTRO Lua Examples.
 -- Compatible with Lua 5.1 (not 5.0).
 
 _G.class = function( base )

@@ -24,7 +24,7 @@ end
 
 function MIRefreshMITTListBox()	
 	MITTListBox:ClearItems();
-	MITTPosY = 0;
+	MITLPosY = 0;
 	iFound = false;
 
 	--Create an array of character name, sort it, then use it as a reference.
@@ -64,7 +64,7 @@ function MIRefreshMITTListBox()
 		--**^
 
 		MITTListBox:AddItem( MsgCtr );
-		MITTPosY = MITTPosY + 19;
+		MITLPosY = MITLPosY + 19;
 	end
 
 	--**v Line Control v**
@@ -84,7 +84,7 @@ function MIRefreshMITTListBox()
 	LineLbl:SetBackColor( Color["trueblue"] );
 
 	MITTListBox:AddItem( LineCtr );
-	MITTPosY = MITTPosY + 7;
+	MITLPosY = MITLPosY + 7;
 	--**^
 
 	--**v Control of total Gold/Silver/Copper v**
@@ -161,18 +161,18 @@ function MIRefreshMITTListBox()
 	--**^
 	
 	MITTListBox:AddItem( TotMoneyCtr );
-	MITTPosY = MITTPosY + 19;
-	MITTListBox:SetHeight( MITTPosY );
+	MITLPosY = MITLPosY + 19;
+	MITTListBox:SetHeight( MITLPosY );
 
 	--**v Statistics section v**
 	local PN = Player:GetName();
 	
 	if _G.SSS then --Show session statistics if true
-		MITTPosY = MITTPosY + 25;
+		MITLPosY = MITLPosY + 25;
 		local LblStat = Turbine.UI.Label();
 		LblStat:SetParent( _G.ToolTipWin );
 		LblStat:SetZOrder( 2 );
-		LblStat:SetPosition( MITTListBox:GetLeft(), MITTPosY );
+		LblStat:SetPosition( MITTListBox:GetLeft(), MITLPosY );
 		LblStat:SetForeColor( Color["rustedgold"] );
 		LblStat:SetSize( 140, 19 );
 		LblStat:SetFont(Turbine.UI.Lotro.Font.TrajanPro14);
@@ -180,21 +180,21 @@ function MIRefreshMITTListBox()
 		LblStat:SetText( L["MISession"] .. " " .. L["Stats"] );
 		if TBLocale == "fr" then LblStat:SetText( L["Stats"] .. " " .. L["MISession"] ); end
 		--LblStat:SetBackColor( Color["white"] ); -- Debug purpose
-		MITTPosY = MITTPosY + 19;
+		MITLPosY = MITLPosY + 19;
 
 		local StatsSeparator = Turbine.UI.Control();
 		StatsSeparator:SetParent( _G.ToolTipWin );
 		StatsSeparator:SetZOrder( 2 );
 		StatsSeparator:SetSize( LblStat:GetWidth(), 1 );
-		StatsSeparator:SetPosition( LblStat:GetLeft(), MITTPosY );
+		StatsSeparator:SetPosition( LblStat:GetLeft(), MITLPosY );
 		StatsSeparator:SetBackColor( Color["trueblue"] );
-		MITTPosY = MITTPosY + 1;
+		MITLPosY = MITLPosY + 1;
 		--[[
 		-- Starting Gold/Silver/Copper
 		local StartCtr = Turbine.UI.Control();
 		StartCtr:SetParent( _G.ToolTipWin );
 		StartCtr:SetZOrder( 2 );
-		StartCtr:SetPosition( LblStat:GetLeft(), MITTPosY );
+		StartCtr:SetPosition( LblStat:GetLeft(), MITLPosY );
 		StartCtr:SetSize( MITTListBox:GetWidth(), 19 );
 		StartCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 		--StartCtr:SetBackColor( Color["red"] ); -- Debug purpose
@@ -265,14 +265,14 @@ function MIRefreshMITTListBox()
 		GoldLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
 		--GoldLbl:SetBackColor( Color["white"] ); -- Debug purpose
 
-		MITTPosY = MITTPosY + 19;
+		MITLPosY = MITLPosY + 19;
 		]]
 
 		-- Earned Gold/Silver/Copper
 		local EarnedCtr = Turbine.UI.Control();
 		EarnedCtr:SetParent( _G.ToolTipWin );
 		EarnedCtr:SetZOrder( 2 );
-		EarnedCtr:SetPosition( LblStat:GetLeft(), MITTPosY );
+		EarnedCtr:SetPosition( LblStat:GetLeft(), MITLPosY );
 		EarnedCtr:SetSize( MITTListBox:GetWidth(), 19 );
 		EarnedCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 		--EarnedCtr:SetBackColor( Color["red"] ); -- Debug purpose
@@ -342,14 +342,14 @@ function MIRefreshMITTListBox()
 		GoldLbl:SetPosition( GoldIcon:GetLeft() - 48, 0 );
 		GoldLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
 		--GoldLbl:SetBackColor( Color["white"] ); -- Debug purpose
-		MITTPosY = MITTPosY + 19;
+		MITLPosY = MITLPosY + 19;
 
 
 		-- Spent Gold/Silver/Copper
 		local SpentCtr = Turbine.UI.Control();
 		SpentCtr:SetParent( _G.ToolTipWin );
 		SpentCtr:SetZOrder( 2 );
-		SpentCtr:SetPosition( EarnedCtr:GetLeft(), MITTPosY );
+		SpentCtr:SetPosition( EarnedCtr:GetLeft(), MITLPosY );
 		SpentCtr:SetSize( MITTListBox:GetWidth(), 19 );
 		SpentCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 		--SpentCtr:SetBackColor( Color["red"] ); -- Debug purpose
@@ -419,14 +419,14 @@ function MIRefreshMITTListBox()
 		GoldLbl:SetPosition( GoldIcon:GetLeft() - 48, 0 );
 		GoldLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
 		--GoldLbl:SetBackColor( Color["white"] ); -- Debug purpose
-		MITTPosY = MITTPosY + 19;
+		MITLPosY = MITLPosY + 19;
 
 
 		-- Session Summary (Earned - Spent)
 		local SumSSCtr = Turbine.UI.Control();
 		SumSSCtr:SetParent( _G.ToolTipWin );
 		SumSSCtr:SetZOrder( 2 );
-		SumSSCtr:SetPosition( SpentCtr:GetLeft(), MITTPosY );
+		SumSSCtr:SetPosition( SpentCtr:GetLeft(), MITLPosY );
 		SumSSCtr:SetSize( MITTListBox:GetWidth(), 19 );
 		SumSSCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 		--SumSSCtr:SetBackColor( Color["red"] ); -- Debug purpose
@@ -506,11 +506,11 @@ function MIRefreshMITTListBox()
 	
 
 	if _G.STS then --Show today statistics if true
-		MITTPosY = MITTPosY + 25;
+		MITLPosY = MITLPosY + 25;
 		local LblStat = Turbine.UI.Label();
 		LblStat:SetParent( _G.ToolTipWin );
 		LblStat:SetZOrder( 2 );
-		LblStat:SetPosition( MITTListBox:GetLeft(), MITTPosY );
+		LblStat:SetPosition( MITTListBox:GetLeft(), MITLPosY );
 		LblStat:SetForeColor( Color["rustedgold"] );
 		LblStat:SetSize( 140, 19 );
 		LblStat:SetFont(Turbine.UI.Lotro.Font.TrajanPro14);
@@ -518,20 +518,20 @@ function MIRefreshMITTListBox()
 		LblStat:SetText( L["MIDaily"] .. " " .. L["Stats"] );
 		if TBLocale == "fr" then LblStat:SetText( L["Stats"] .. " " .. L["MIDaily"] ); end
 		--LblStat:SetBackColor( Color["white"] ); -- Debug purpose
-		MITTPosY = MITTPosY + 19;
+		MITLPosY = MITLPosY + 19;
 
 		local StatsSeparator = Turbine.UI.Control();
 		StatsSeparator:SetParent( _G.ToolTipWin );
 		StatsSeparator:SetZOrder( 2 );
 		StatsSeparator:SetSize( LblStat:GetWidth(), 1 );
-		StatsSeparator:SetPosition( LblStat:GetLeft(), MITTPosY );
+		StatsSeparator:SetPosition( LblStat:GetLeft(), MITLPosY );
 		StatsSeparator:SetBackColor( Color["trueblue"] );
-		MITTPosY = MITTPosY + 2;
+		MITLPosY = MITLPosY + 2;
 
 		local TotEarnedCtr = Turbine.UI.Control();
 		TotEarnedCtr:SetParent( _G.ToolTipWin );
 		TotEarnedCtr:SetZOrder( 2 );
-		TotEarnedCtr:SetPosition( StatsSeparator:GetLeft(), MITTPosY );
+		TotEarnedCtr:SetPosition( StatsSeparator:GetLeft(), MITLPosY );
 		TotEarnedCtr:SetSize( MITTListBox:GetWidth(), 19 );
 		TotEarnedCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 		--TotEarnedCtr:SetBackColor( Color["red"] ); -- Debug purpose
@@ -601,14 +601,14 @@ function MIRefreshMITTListBox()
 		GoldLbl:SetPosition( GoldIcon:GetLeft() - 48, 0 );
 		GoldLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
 		--GoldLbl:SetBackColor( Color["white"] ); -- Debug purpose
-		MITTPosY = MITTPosY + 19;
+		MITLPosY = MITLPosY + 19;
 		
 		DecryptMoney(totsm);
 
 		local TotSpentCtr = Turbine.UI.Control();
 		TotSpentCtr:SetParent( _G.ToolTipWin );
 		TotSpentCtr:SetZOrder( 2 );
-		TotSpentCtr:SetPosition( TotEarnedCtr:GetLeft(), MITTPosY );
+		TotSpentCtr:SetPosition( TotEarnedCtr:GetLeft(), MITLPosY );
 		TotSpentCtr:SetSize( MITTListBox:GetWidth(), 19 );
 		TotSpentCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 		--TotSpentCtr:SetBackColor( Color["red"] ); -- Debug purpose
@@ -676,7 +676,7 @@ function MIRefreshMITTListBox()
 		GoldLbl:SetPosition( GoldIcon:GetLeft() - 48, 0 );
 		GoldLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleRight );
 		--GoldLbl:SetBackColor( Color["white"] ); -- Debug purpose
-		MITTPosY = MITTPosY + 19;
+		MITLPosY = MITLPosY + 19;
 		--**^
 
 
@@ -684,7 +684,7 @@ function MIRefreshMITTListBox()
 		local SumTSCtr = Turbine.UI.Control();
 		SumTSCtr:SetParent( _G.ToolTipWin );
 		SumTSCtr:SetZOrder( 2 );
-		SumTSCtr:SetPosition( TotSpentCtr:GetLeft(), MITTPosY );
+		SumTSCtr:SetPosition( TotSpentCtr:GetLeft(), MITLPosY );
 		SumTSCtr:SetSize( MITTListBox:GetWidth(), 19 );
 		SumTSCtr:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
 		--SumTSCtr:SetBackColor( Color["red"] ); -- Debug purpose
@@ -763,7 +763,7 @@ function MIRefreshMITTListBox()
 		--GoldLbl:SetBackColor( Color["white"] ); -- Debug purpose
 	end
 
-	_G.ToolTipWin:SetHeight( MITTPosY + 40);
+	_G.ToolTipWin:SetHeight( MITLPosY + 40);
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 			
@@ -862,5 +862,5 @@ function MITTShowData(k)
 	end
 	
 	MITTListBox:AddItem( MoneyCtr );
-	MITTPosY = MITTPosY + 19;
+	MITLPosY = MITLPosY + 19;
 end

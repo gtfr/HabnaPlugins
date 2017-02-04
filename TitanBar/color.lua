@@ -36,10 +36,10 @@ Color["brown"] = Turbine.UI.Color( 0.5, 0.4, 0.2);
 
 Color["menuborder"] = Turbine.UI.Color( 0.5, 0, 0.138, 0.863 );
 
-Color["TurbineWhite"] = Turbine.UI.Color(1, 0.9, 0.9, 0.9);
-Color["TurbineYellow"] = Turbine.UI.Color( 1, 231/255, 231/255, 69/231);
+Color["SSGWhite"] = Turbine.UI.Color(1, 0.9, 0.9, 0.9);
+Color["SSGYellow"] = Turbine.UI.Color( 1, 231/255, 231/255, 69/231);
 Color["TurineOrange"] = Turbine.UI.Color( 1, 190/255, 148/255, 0 );
-Color["TurbineLightYellow"] = Turbine.UI.Color( 1, 232/255, 229/255, 174/255 );
-Color["TurbineGrey"] = Turbine.UI.Color( 1, 0.5, 0.5, 0.5 );
+Color["SSGLightYellow"] = Turbine.UI.Color( 1, 232/255, 229/255, 174/255 );
+Color["SSGGrey"] = Turbine.UI.Color( 1, 0.5, 0.5, 0.5 );
 
 Color["none"] = Turbine.UI.Color();

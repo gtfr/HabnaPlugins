@@ -85,8 +85,8 @@ import (AppDirD.."background");
 import (AppDirD.."frmMain");
 frmMain();
 
-if PlayerAlign == 1 then MenuItem = { L["MGSC"], L["MDP"], L["MSP"], L["MSM"], L["MMC"], L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MTP"], L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"]};
-else MenuItem = { L["MCP"], L["MTP"], L["MSOM"], L["MCGSP"], L["MGGB"] }; end
+if PlayerAlign == 1 then MenuItem = { L["MGSC"], L["MDP"], L["MSP"], L["MSM"], L["MMC"], L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"]};
+else MenuItem = { L["MCP"], L["MLP"], L["MSOM"], L["MCGSP"], L["MGGB"] }; end
 
 TitanBarCommand = Turbine.ShellCommand()
 

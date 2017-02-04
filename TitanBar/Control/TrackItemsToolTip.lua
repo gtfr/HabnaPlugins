@@ -35,7 +35,7 @@ end
 
 function TIRefreshListBox()
 	TITTListBox:ClearItems();
-	TITTPosY = 35;
+	TITLPosY = 35;
 	
 	-- Convert the table key that is in string format into a number, so it can be viewed by lua correctly.
 	local newt = {}
@@ -55,7 +55,7 @@ function TIRefreshListBox()
 
 		TITTListBox:AddItem( lblName );
 
-		TITTPosY = TITTPosY + 35;
+		TITLPosY = TITLPosY + 35;
 	else
 		bItemInListFoundInBag = false;
 		for i = 1, #ITL do
@@ -109,7 +109,7 @@ function TIRefreshListBox()
 							BITTitem:SetBlendMode( Turbine.UI.BlendMode.Overlay );
 
 							TITTListBox:AddItem( BITTCtr );
-							TITTListBox:SetHeight( TITTPosY );
+							TITTListBox:SetHeight( TITLPosY );
 
 							-- Item Quantity
 							itemQTE = Turbine.UI.Label();
@@ -153,7 +153,7 @@ function TIRefreshListBox()
 								itemsLbl:SetForeColor( Color["red"] );
 							end
 		
-							TITTPosY = TITTPosY + 35;
+							TITLPosY = TITLPosY + 35;
 						end
 						if bFound then break end
 					end
@@ -173,14 +173,14 @@ function TIRefreshListBox()
 
 			TITTListBox:AddItem( lblName );
 
-			TITTPosY = TITTPosY + 35;
+			TITLPosY = TITLPosY + 35;
 		end
 	end
 
-	TITTListBox:SetHeight( TITTPosY );
+	TITTListBox:SetHeight( TITLPosY );
 
-	if #ITL == 0 or not bItemInListFoundInBag then _G.ToolTipWin:SetSize( 250, TITTPosY - 7 );
-	else _G.ToolTipWin:SetSize( 320, TITTPosY - 7 ); end
+	if #ITL == 0 or not bItemInListFoundInBag then _G.ToolTipWin:SetSize( 250, TITLPosY - 7 );
+	else _G.ToolTipWin:SetSize( 320, TITLPosY - 7 ); end
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 			
