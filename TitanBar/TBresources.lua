@@ -1,5 +1,6 @@
 -- resources.lua
 -- written by Thorondor
+-- patched by Technical_13
 
 
 AppRes = "HabnaPlugins/TitanBar/Resources/";
@@ -31,7 +32,7 @@ _G.resources = {
 	Storage = { Shared = 0x41003830, Vault = 0x41005e9d }, --0x410e76b7 in-game icon 16x16 (Need 32x32)
 	Sun = 0x4101f898, Moon = 0x4101f89a,
 	TrackItems = 0x410d42cc, -- in-game icon 32x32 (0x41005bd6 / 0x410d42cc)
-	TurbinePoints = 0x4113478C,
+	LOTROPoints = 0x4113478C,
 	Wallet = 0x41004641, --0x41007f7c,
 	WalletWindow = 0x4100014c,
 	WalletWindowRefresh = 0x4100013B
@@ -61,7 +62,7 @@ _G.WalletItem = {
 	CentralGondorSilverPiece = { Icon = 0x41155957 },
 	GiftgiversBrand = { Icon = 0x4115c888 },
 	-- AU3 MARKER END
-	TurbinePTS = { Icon = 0x4113478C }
+	LOTROPTS = { Icon = 0x4113478C }
 };
 
 _G.DurabilitySlotsBG = { 0x41007eed, 0x41007ef6, 0x41007ef7, 0x41007eef, 0x41007eee, 0x41007ee9, 0x41007ef0, 0x41007ef9, 0x41007ef8,
@@ -103,7 +104,7 @@ _G.Wallet = {
 						  ToolTip = { DE = , EN = , FR = } },
 	-- AU3 MARKER 1 - DO NOT REMOVE
 	-- AU3 MARKER 1 END
-	TurbinePTS = { Icon = 0x4113478C,
+	LOTROPTS = { Icon = 0x4113478C,
 						  String = { DE = , EN = , FR = }, -- NAME = String.EN
 						  ToolTip = { DE = , EN = , FR = } }
 };]]
