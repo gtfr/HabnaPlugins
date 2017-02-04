@@ -229,7 +229,7 @@ function frmOptions()
 	PILayoutCB:SetParent( wOptions );
 	PILayoutCB:SetText( L["Layout"] );
 	PILayoutCB:SetPosition(TBTopCB:GetLeft(), TBTopCB:GetTop()+20);
-	PILayoutCB:SetSize( PILayoutCB:GetTextLength() * 8.5, 30 ); --Auto size with text lenght
+	PILayoutCB:SetSize( PILayoutCB:GetTextLength() * 8.5, 30 ); --Auto size with text length
 	PILayoutCB:SetChecked( PILayout );
 	PILayoutCB:SetForeColor( Color["rustedgold"] );
 	

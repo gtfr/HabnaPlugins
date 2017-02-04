@@ -292,9 +292,9 @@ function UpdateMoney()
 
 		SavePlayerMoney( false );
 
-		MI["GLbl"]:SetSize( MI["GLbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
-		MI["SLbl"]:SetSize( 3 * NM, CTRHeight ); --Auto size with text lenght
-		MI["CLbl"]:SetSize( 3 * NM, CTRHeight ); --Auto size with text lenght
+		MI["GLbl"]:SetSize( MI["GLbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
+		MI["SLbl"]:SetSize( 3 * NM, CTRHeight ); --Auto size with text length
+		MI["CLbl"]:SetSize( 3 * NM, CTRHeight ); --Auto size with text length
 
 		MI["GLblT"]:SetVisible( _G.STM );
 		MI["GLbl"]:SetVisible( not _G.STM );
@@ -373,7 +373,7 @@ end
 function UpdateDestinyPoints()
 	if _G.DPWhere == 1 then
 		DP["Lbl"]:SetText( PlayerAtt:GetDestinyPoints() );
-		DP["Lbl"]:SetSize( DP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		DP["Lbl"]:SetSize( DP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "DP" );
 	end
 end
@@ -382,7 +382,7 @@ end
 function UpdateShards()
 	if _G.SPWhere == 1 then
 		SP["Lbl"]:SetText( GetCurrency( pwShard ) );
-		SP["Lbl"]:SetSize( SP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		SP["Lbl"]:SetSize( SP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "SP" );
 	end
 end
@@ -391,7 +391,7 @@ end
 function UpdateMarks()
 	if _G.SMWhere == 1 then
 		SM["Lbl"]:SetText( GetCurrency( pwMark ) );
-		SM["Lbl"]:SetSize( SM["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		SM["Lbl"]:SetSize( SM["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "SM" );
 	end
 end
@@ -400,7 +400,7 @@ end
 function UpdateMithril()
 	if _G.MCWhere == 1 then
 		MC["Lbl"]:SetText( GetCurrency( pwMithril ) );
-		MC["Lbl"]:SetSize( MC["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		MC["Lbl"]:SetSize( MC["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "MC" );
 	end
 end
@@ -409,7 +409,7 @@ end
 function UpdateHytboldTokens()
 	if _G.HTWhere == 1 then
 		HT["Lbl"]:SetText( GetCurrency( pwHytbold ) );
-		HT["Lbl"]:SetSize( HT["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		HT["Lbl"]:SetSize( HT["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "HT" );
 	end
 end
@@ -418,7 +418,7 @@ end
 function UpdateMedallions()
 	if _G.MPWhere == 1 then
 		MP["Lbl"]:SetText( GetCurrency( pwMedallion ) );
-		MP["Lbl"]:SetSize( MP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		MP["Lbl"]:SetSize( MP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "MP" );
 	end
 end
@@ -427,7 +427,7 @@ end
 function UpdateSeals()
 	if _G.SLWhere == 1 then
 		SL["Lbl"]:SetText( GetCurrency( pwSeal ) );
-		SL["Lbl"]:SetSize( SL["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		SL["Lbl"]:SetSize( SL["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "SL" );
 	end
 end
@@ -436,7 +436,7 @@ end
 function UpdateCommendations()
 	if _G.CPWhere == 1 then
 		CP["Lbl"]:SetText( GetCurrency( pwCommendation ) );
-		CP["Lbl"]:SetSize( CP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		CP["Lbl"]:SetSize( CP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "CP" );
 	end
 end
@@ -445,7 +445,7 @@ end
 function UpdateLOTROPoints()
 	if _G.LPWhere == 1 then
 		LP["Lbl"]:SetText( _G.LOTROPTS );
-		LP["Lbl"]:SetSize( LP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		LP["Lbl"]:SetSize( LP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "LP" );
 	end
 	SavePlayerLOTROPoints();
@@ -456,7 +456,7 @@ end
 function UpdateAmrothSilverPiece()
 	if _G.ASPWhere == 1 then
 		ASP["Lbl"]:SetText( GetCurrency( pwAmrothSilverPiece ) );
-		ASP["Lbl"]:SetSize( ASP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		ASP["Lbl"]:SetSize( ASP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "ASP" );
 	end
 end
@@ -465,7 +465,7 @@ end
 function UpdateStarsofMerit()
 	if _G.SOMWhere == 1 then
 		SOM["Lbl"]:SetText( GetCurrency( pwStarsofMerit ) );
-		SOM["Lbl"]:SetSize( SOM["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		SOM["Lbl"]:SetSize( SOM["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "SOM" );
 	end
 end
@@ -474,7 +474,7 @@ end
 function UpdateCentralGondorSilverPiece()
 	if _G.CGSPWhere == 1 then
 		CGSP["Lbl"]:SetText( GetCurrency( pwCentralGondorSilverPiece ) );
-		CGSP["Lbl"]:SetSize( CGSP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		CGSP["Lbl"]:SetSize( CGSP["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "CGSP" );
 	end
 end
@@ -483,7 +483,7 @@ end
 function UpdateGiftgiversBrand()
 	if _G.GGBWhere == 1 then
 		GGB["Lbl"]:SetText( GetCurrency( pwGiftgiversBrand ) );
-		GGB["Lbl"]:SetSize( GGB["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+		GGB["Lbl"]:SetSize( GGB["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 		AjustIcon( "GGB" );
 	end
 end
@@ -503,7 +503,7 @@ function UpdateBackpackInfos()
 	elseif _G.BIUsed and not _G.BIMax then BI["Lbl"]:SetText( max - freeslots );
 	elseif not _G.BIUsed and _G.BIMax then BI["Lbl"]:SetText( freeslots .. "/" .. max );
 	elseif not _G.BIUsed and not _G.BIMax then BI["Lbl"]:SetText( freeslots ); end
-	BI["Lbl"]:SetSize( BI["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+	BI["Lbl"]:SetSize( BI["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 
 	--Change bag icon with capacity
 	local i = nil;
@@ -563,11 +563,11 @@ function UpdatePlayersInfos()
 	PI["Icon"]:SetBackground( PlayerIconCodeIs );
 	
 	PI["Lvl"]:SetText( Player:GetLevel() );
-	PI["Lvl"]:SetSize( PI["Lvl"]:GetTextLength() * NM+1, CTRHeight ); --Auto size with text lenght
+	PI["Lvl"]:SetSize( PI["Lvl"]:GetTextLength() * NM+1, CTRHeight ); --Auto size with text length
 	PI["Name"]:SetPosition( PI["Lvl"]:GetLeft() + PI["Lvl"]:GetWidth() + 5, 0 );
 	--PI["Name"]:SetText( "OneVeryLongCharacterName" ); --Debug purpose
 	PI["Name"]:SetText( Player:GetName() );
-	PI["Name"]:SetSize( PI["Name"]:GetTextLength() * TM, CTRHeight ); --Auto size with text lenght
+	PI["Name"]:SetSize( PI["Name"]:GetTextLength() * TM, CTRHeight ); --Auto size with text length
 
 	AjustIcon( "PI" );
 end
@@ -600,7 +600,7 @@ function UpdateDurabilityInfos()
 
 	TotalDurabilityPts = string.format( "%.0f", TotalDurabilityPts );
 	DI["Lbl"]:SetText( TotalDurabilityPts .. "%" );
-	DI["Lbl"]:SetSize( DI["Lbl"]:GetTextLength() * NM + 5, CTRHeight ); --Auto size with text lenght
+	DI["Lbl"]:SetSize( DI["Lbl"]:GetTextLength() * NM + 5, CTRHeight ); --Auto size with text length
 
 	AjustIcon( "DI" );
 end
@@ -610,7 +610,7 @@ function UpdateEquipsInfos()
 	CalculateAllItemsScore();
 
 	--EI["Lbl"]:SetText( TotalItemsScore );
-	--EI["Lbl"]:SetSize( EI["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text lenght
+	--EI["Lbl"]:SetSize( EI["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
 
 	--AjustIcon( "EI" );
 end
@@ -672,7 +672,7 @@ function UpdateDayNight()
 		DN["Lbl"]:SetText( DNTime );
 	end
 
-	DN["Lbl"]:SetSize( DNLen, CTRHeight ); --Auto size with text lenght
+	DN["Lbl"]:SetSize( DNLen, CTRHeight ); --Auto size with text length
 	--DN["Lbl"]:SetBackColor( Color["white"] ); -- Debug purpose
 
 	if sDay == "day" then DN["Icon"]:SetBackground( resources.Sun );-- Sun in-game icon (0x4101f898 or 0x4101f89b)
@@ -689,7 +689,7 @@ end
 --**v Update Player Location on TitanBar v**
 function UpdatePlayerLoc( value )
 	PL["Lbl"]:SetText( value );
-	PL["Lbl"]:SetSize( PL["Lbl"]:GetTextLength() * TM + 1, CTRHeight ); --Auto size with text lenght
+	PL["Lbl"]:SetSize( PL["Lbl"]:GetTextLength() * TM + 1, CTRHeight ); --Auto size with text length
 
 	PL["Ctr"]:SetSize( PL["Lbl"]:GetWidth(), CTRHeight );
 end
@@ -751,7 +751,7 @@ function UpdateGameTime(str)
 	end
 	
 	GT["Lbl"]:SetText( TheTime );
-	GT["Lbl"]:SetSize( TextLen, CTRHeight ); --Auto size with text lenght
+	GT["Lbl"]:SetSize( TextLen, CTRHeight ); --Auto size with text length
 	GT["Ctr"]:SetSize( GT["Lbl"]:GetWidth(), CTRHeight );
 end
 --**^

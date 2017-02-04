@@ -3,7 +3,7 @@
 	<Information>
 		<Name>TitanBar</Name>
 		<Author>Habna (Patch by Technical_13)</Author>
-		<Version>v1.29.01</Version>
+		<Version>v1.29.02</Version>
     <Image>HabnaPlugins/TitanBar/Resources/icon.tga</Image>
     <Description>This plugin will show various kinds of information on a bar at the top or bottom of your screen. Each display of information is called "control". They can be moved anywhere on the bar. You can also change the back color, font and the icon size and height of TitanBar.
 TitanBar support all three official language. ('FR', 'EN', 'DE')
@@ -23,7 +23,7 @@ Available control:
 -Local and game time (12h / 24h format are supported)
 -Faction reputation points*
 -Experience points*
--LOTRO Points*
+-LotRO Points*
 -Destiny Points***
 -Shards***
 -Skirmish marks***
