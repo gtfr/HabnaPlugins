@@ -33,9 +33,9 @@ TitanBar Known Issues/Limitations:
 	- TitanBar set to bottom. It will be over UI element because UI element can't be moved in-game.
 	- TitanBar auto always hide not working when exiting TitanBar menu. (when not selecting anything)
 	- Auto sizing label & control is not quite perfect, some time as lot of space.
-	- Icon are always in front (Turbine stretch issue), so moving other control over each other is not recommended.
-	- Turbine points not updating when user spend some points in the lotro store. (Turbine points not available in API and no text in chat when spending)
-	- Turbine.Gameplay.LocalPlayer.GetEquipment() not working properly again. (Turbine API issue)
+	- Icon are always in front (LOTRO stretch issue), so moving other control over each other is not recommended.
+	- LOTRO points not updating when user spend some points in the lotro store. (LOTRO points not available in API and no text in chat when spending)
+	- Turbine.Gameplay.LocalPlayer.GetEquipment() not working properly again. (LOTRO API issue)
 
 
 TitanBar Future Enhancements:
@@ -130,7 +130,7 @@ TitanBar change log:
 	- Fix: Reputation tracker now work properly. Thx DaBear78!
 
 	v1.24.41 (2013/04/07)
-	- Add: Small ability to change Turbine Points from 'Wallet' window.
+	- Add: Small ability to change LOTRO Points from 'Wallet' window.
 	- Fix: Settings window was still opened after control being unloaded.
 	- Fix: Currency control will show in double when using it's shell command while control is already in the 'Wallet' tooltip window.
 	- Fix: Some control was still capturing data after being unloaded.
@@ -168,7 +168,7 @@ TitanBar change log:
 	- Add: RoR factions & crafting guild rank. Thx DaBear78!
 	- Fix: Somes items are not showing properly in SharedStorage, Vault, track items and backpack window. Thx DaBear78!
 	- Fix: "Backpack Infos" control now load/unload properly. Thx Mawane!
-	- Change: Disabled "Equipment Infos" & "Durability Infos" because the GetEquipment() is not working properly. (Turbine API issue)
+	- Change: Disabled "Equipment Infos" & "Durability Infos" because the GetEquipment() is not working properly. (LOTRO API issue)
 
 	v1.22.36c (2012/09/05)
 	- Fix: "Bag infos" window now get current player items properly if bags are filled from last to first. Thx Wicky!
@@ -201,7 +201,7 @@ TitanBar change log:
 	- Change: Your alt vault are now always available.
 	- Change: Items infos are now available in 'Bag Infos' & 'Track Items' control only for the character you are playing with.
 	- Add: Rputation tracking ability. Thx Uthboth! (Need the 'Advancement' channel to be active!)
-	- Add: Turbine Points tracker. Thx Kaische! (Need the 'Advancement' channel to be active!)(Need to re-enter Turbine Points when spending points in store because i'm unable to track spending, no text in chat)
+	- Add: LOTRO Points tracker. Thx Kaische! (Need the 'Advancement' channel to be active!)(Need to re-enter LOTRO Points when spending points in store because i'm unable to track spending, no text in chat)
 	- Add: XP tracker. (Track your current level not your overall progress)(It's in the 'Player Infos' control. Will track automatically after the first mob kill)
 
 	v1.21.33 (2012/06/22)
@@ -446,7 +446,7 @@ TitanBar change log:
 	- Fix: Shell command now use user selected language.
 
 	v1.1.1 (2012/02/12)
-	- Add: Compatible .pluginCompendium file for LotrOnion support (http://www.lotrointerface.com/downloads/info668-LotROnionMMOUIPlugin.html)
+	- Add: Compatible .pluginCompendium file for LotrOnion support (http://www.lotrointerface.com/downloads/info668-LOTROnionMMOUIPlugin.html)
 	- Add: Ability to apply TitanBar back color to one or all control. (From Control menu)
 	- Add: Ability to reset back color of one, all control or all control & TitanBar. (From Control menu)
 	- Add: Ability to apply a control back color to all control, all control & TitanBar or TitanBar. (From Control menu)
