@@ -959,10 +959,15 @@ function get_percentage( Attribute, R, L )
 	local RL = R/L;
 	local Armour, Ratings;
 	
+-- S   = Segments?
+-- dp  = height of the segment (y-axis)
+-- K   = curve constant
+-- dRL = width of the segment (x-axis)
+	
 RatingsData = { 
 	CritHit = {					-- Critical Hit
 		S = 3,
-		dp = { 0, 0.15, 0.5, 0.5 },
+		dp = { 0, 0.15, 0.05, 0.05 },
 		K = { 1190/3, 794.8, 1075.2 },
 		dRL = { 0, 70, 79438/19, 1075.2/19 }
 	},
@@ -992,7 +997,7 @@ RatingsData = {
 	},			
 	Resistance = {			-- Resistance
 		S = 2,
-		dp = { 0, 0.2, 0.2 },
+		dp = { 0, 0.3, 0.2 },
 		K = { 1190/3, 2380/3 },
 		dRL = { 0, 170, 595/3 }
 	},
@@ -1022,8 +1027,8 @@ RatingsData = {
 		},
 		Medium = {
 			dp = { 0.2, 0.3 },
-			K = { 150, 350 },
-			dRL = { 37.5, 150 }
+			K = { 149.9175, 253.003 },
+			dRL = { 59967/1600, 759009/7000 }
 		},
 		Heavy = {
 			dp = { 0.1, 0.5 },
