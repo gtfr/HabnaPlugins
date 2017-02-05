@@ -17,7 +17,7 @@ PlayerLevel = {
 	[70]="9,896,024", [71]="10,478,333", [72]="11,090,176", [73]="11,733,051", [74]="12,408,532", [75]="13,117,787", [76]="13,862,504", [77]="14,644,456", [78]="15,465,505", [79]="16,327,606", 
 	[80]="17,232,812", [81]="18,183,278", [82]="19,181,267", [83]="20,229,155", [84]="21,329,437", [85]="22,484,733", [86]="23,697,793", [87]="24,971,506", [88]="26,308,904", [89]="27,713,171",
 	[90]="29,187,651", [91]="30,735,855", [92]="32,361,469", [93]="34,068,363", [94]="35,860,601", [95]="37,742,450", [96]="39,718,391", [97]="41,793,129 ", [98]="43,971,603 ", [99]="46,259,000",
-	[100]= "0" };
+	[100]= "48,660,766", [101]= "51,182,620", [102] = "53,830,566", [103] = "56,610,909", [104] = "59527269", [105] = "0" };
 
 Capped = 0;
 
@@ -959,52 +959,79 @@ function get_percentage( Attribute, R, L )
 	local RL = R/L;
 	local Armour, Ratings;
 	
-	RatingsData = { CritHit = { S = 3, 								-- Critical Hit
-							  dp = { 0, 0.15, 0.5, 0.5 },
-							  K = { 1190/3, 794.8, 1075.2 },
-							  dRL = { 0, 70, 79438/19, 1075.2/19 } },
-				DevasHit = { S = 1,								-- Devastating Hit
-							   dp = {0, 0.1},
-							   K = {1330},
-							   dRL = {0, 1330/9} },
-				Finesse = { S = 2,								-- Finesse
-							  dp = { 0, 0.3, 0.2 },
-							  K = { 1190/3, 2380/3 },
-							  dRL = { 0, 170, 595/3 } },
-				OffDam = { S = 0,									-- Offence Damage
-							 dp = { 0, 0.2, 0.2, 0.2, 0.2, 0.4, 0.2, 0.2 },
-							 K = { 300, 300, 300, 300, 300, 300 ,300 },
-							 dRL = { 0, 75, 75, 75, 75, 200, 75, 75 } },			  
-				OutHeal = { S = 3,								-- Tactical Outgoing Healing
-							  dp = { 0, 0.3, 0.2, 0.2 },
-							  K = { 1190/3, 2380/3, 1190 },
-							  dRL = { 0, 170, 595/3, 297.5 } },			
-				Resistance = { S = 2,								-- Resistance
-							     dp = { 0, 0.2, 0.2 },
-							     K = { 1190/3, 2380/3 },
-								 dRL = { 0, 170, 595/3 } },
-				InHeal = { S = 2,									-- Incoming Healing
-							 dp = { 0, 0.15, 0.1 },
-							 K = { 1190/3, 2380/3 },
-							 dRL = { 0, 70, 2380/27 } },
-				BPE = { S = 4,									--  Block, Parry, Evade
-							 dp = { 0, 0.15, 0.02, 0.03, 0.05 },
-							 K = { 396.7, 991.5, 1984, 3968 },
-							 dRL = { 0, 1190.1/17, 991.5/49, 5952/97, 3968/19 } },
-				PartBPE = { S = 1,									-- Partially Block, Parry, Evade
-							     dp = {0, 0.1},
-								 K = {1330},
-								 dRL = {0, 1330/9} },
-				Mitigation = { Light = { dp = { 0.2, 0.2 },			-- Mitigation
-											K = { 150, 350 },
-											dRL = { 37.5, 87.5 }},
-								 Medium = { dp = { 0.2, 0.3 },
-											K = { 150, 350 },
-											dRL = { 37.5, 150 }},
-								 Heavy = { dp = { 0.1, 0.5 },
-										   K = { 5697/38, 5697/38 },
-										   dRL = { 633/38, 5697/38 }}}
-			 };
+RatingsData = { 
+	CritHit = {					-- Critical Hit
+		S = 3,
+		dp = { 0, 0.15, 0.5, 0.5 },
+		K = { 1190/3, 794.8, 1075.2 },
+		dRL = { 0, 70, 79438/19, 1075.2/19 }
+	},
+	DevasHit = {				-- Devastating Hit
+		S = 1,
+		dp = {0, 0.1},
+		K = {1330},
+		dRL = {0, 1330/9}
+	},
+	Finesse = {					-- Finesse
+		S = 1,
+		dp = { 0, 0.1 },
+		K = {1190/3},
+		dRL = { 0, 105 }
+	},
+	OffDam = {					-- Offence Damage (Linear)
+		levSegStart = { 1, 21, 31, 41, 51, 61, 71, 81, 91, 101 }, 
+		Factor = { 14.6, 24.2, 17, 13.4, 11.4 ,10.2, 7.4, 6.6, 5.7, 2.7 },
+		FactorLevel = { 0, 0.48, 0.24, 0.15, 0.11, 0.09, 0.05, 0.04, 0.03, 0 },
+		CapPct = { 40, 40, 40, 40, 200, 200, 200, 200, 200, 400 }
+	},				  
+	OutHeal = {					-- Tactical Outgoing Healing
+		S = 3,
+		dp = { 0, 0.3, 0.2, 0.2 },
+		K = { 1190/3, 2380/3, 1190 },
+		dRL = { 0, 170, 595/3, 297.5 }
+	},			
+	Resistance = {			-- Resistance
+		S = 2,
+		dp = { 0, 0.2, 0.2 },
+		K = { 1190/3, 2380/3 },
+		dRL = { 0, 170, 595/3 }
+	},
+	InHeal = {					-- Incoming Healing
+		S = 2,
+		dp = { 0, 0.15, 0.1 },
+		K = { 1190/3, 2380/3 },
+		dRL = { 0, 70, 2380/27 }
+	},
+	BPE = {							--  Block, Parry, Evade
+		S = 1,
+		dp = { 0, 0.13 },
+		K = { 499.95 },
+		dRL = { 0, 43329/580 }
+	},
+	PartBPE = {					-- Partially Block, Parry, Evade
+		S = 4,
+		dp = { 0, 0.15, 0.02, 0.03, 0.15 },
+		K = { 396.66, 991.66, 1050, 1200 },
+		dRL = { 0, 59499/850, 49583/2450, 3150/97, 3600/17 }
+	},
+	Mitigation = {			-- Mitigation
+		Light = {
+			dp = { 0.2, 0.2 },
+			K = { 150, 350 },
+			dRL = { 37.5, 87.5 }
+		},
+		Medium = {
+			dp = { 0.2, 0.3 },
+			K = { 150, 350 },
+			dRL = { 37.5, 150 }
+		},
+		Heavy = {
+			dp = { 0.1, 0.5 },
+			K = { 5697/38, 5697/38 },
+			dRL = { 633/38, 5697/38 }
+		}
+	}
+};
 	
 	if Attribute == "Mitigation" then -- is dependant on armour type
 		if PlayerClassIs == _G.L["Lore-Master"] or PlayerClassIs == _G.L["Minstrel"] or PlayerClassIs == _G.L["Rune-Keeper"] then
@@ -1033,7 +1060,20 @@ function get_percentage( Attribute, R, L )
 	elseif Attribute == "CritHit" then Ratings = RatingsData.CritHit;
 	elseif Attribute == "DevasHit" then Ratings = RatingsData.DevasHit;
 	elseif Attribute == "Finesse" then Ratings = RatingsData.Finesse;
-	elseif Attribute == "OffDam" then Ratings = RatingsData.OffDam;
+	elseif Attribute == "OffDam" then -- linear
+		Ratings = RatingsData.OffDam;
+		local i = #Ratings.levSegStart;
+		local answer;
+		while Ratings.levSegStart[i] > L do
+			i = i-1;
+		end
+		local Factor = Ratings.Factor[i] - Ratings.FactorLevel[i] * L
+		answer = Factor * R / 1000;
+		if answer > Ratings.CapPct[i] then
+			Capped = 1;
+			answer = Ratings.CapPct[i];
+		end
+		return string.format("%.1f", answer);
 	elseif Attribute == "OutHeal" then Ratings = RatingsData.OutHeal;
 	elseif Attribute == "Resistance" then Ratings = RatingsData.Resistance;
 	elseif Attribute == "InHeal" then Ratings = RatingsData.InHeal;
