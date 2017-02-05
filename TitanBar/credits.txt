@@ -38,4 +38,5 @@ Credits for versions v1.25.00 and greater:
 Thorondor - Maintainer
 Bornfight - For DE and FR translations (v1.25.00)
 Hyoss - For the XP table lvl 96 to 100
+Tappino - U18 reputation factions and XP table lvl 101 to 105
 Technical_13 - Updated "Turbine Point" to "LOTRO Point"; updated internals for "SSG" opposed to "Turbine"; Added "Chicken Chasing League of Eriador" Reputation Faction

@@ -15,11 +15,13 @@ Known Issues:
 =======================================================================================================
 v1.30.00 (2017)
 New:
-- "Chicken Chasing League of Eriador" reputation faction added.
+- PlayerInfosToolTip now properly goes to level 105 (tappino)
+- U18 reputation factions added. (tappino)
+- "Chicken Chasing League of Eriador" reputation faction added. (technical_13)
 
 Changed:
-- "Turbine Point" to "LOTRO Point" update
-- "Turbine" to "SSG" update where appropriate
+- "Turbine Point" to "LOTRO Point" update (technical_13)
+- "Turbine" to "SSG" update where appropriate (technical_13)
 
 =======================================================================================================
 v1.29.00 (2015)
