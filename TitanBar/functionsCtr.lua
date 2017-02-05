@@ -889,15 +889,6 @@ function LoadPlayerReputation()
 		if PlayerReputation[PN][tostring(FactionOrder[i])].V == nil then PlayerReputation[PN][tostring(FactionOrder[i])].V = false; end --Show faction in tooltip
 		if PlayerReputation[PN][tostring(FactionOrder[i])].R == nil then PlayerReputation[PN][tostring(FactionOrder[i])].R = "1"; end --1st rank max points
 		
-			if i == 52 then--debug purpose
-				if PlayerReputation[PN][tostring(FactionOrder[i])].S == nil then
-					bggc = "nil"
-				else
-					bggc = PlayerReputation[PN][tostring(FactionOrder[i])].S
-				end
-				write("#"..tostring(i).."/"..maxfaction+maxgfaction+maxcfaction..": "..PlayerReputation[PN][tostring(FactionOrder[i])].en.." is "..bggc)
-			end
-		
 		if i > maxfaction + maxgfaction then
 			if PlayerReputation[PN][tostring(FactionOrder[i])].S == nil then
 				PlayerReputation[PN][tostring(FactionOrder[i])].S = "chicken";
