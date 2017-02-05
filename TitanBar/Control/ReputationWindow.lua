@@ -252,7 +252,6 @@ function RefreshRPListBox()
 				local tr = nil;
 				local ts = PlayerReputation[PN][tostring(FactionOrder[i])].S;
 				local tra = tonumber(PlayerReputation[PN][tostring(FactionOrder[i])].R);
-					write("String: "..ts.." - Number:"..tra) -- debug
 				if ts == "good" then tr = RPGL[tra];
 				elseif ts == "bad" then tr = RPBL[tra];
 				elseif ts == "guild" then tr = RPGGL[tra]; 
