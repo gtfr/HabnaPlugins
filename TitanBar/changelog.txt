@@ -1,16 +1,16 @@
-This is a replacement for TitanBar 1.24 by Habna. You don't need the original files
+This is a replacement for TitanBar v1.29.00 by Thorondor which was a replacement for v1.24 by Habana.
+You do not need the original files.
 
 Todo:
-- (requested by Modnar) Real time alarm.
-- (requested by Modnar) In-game time alarm
+- (requested by Modnar) Real time and/or In-game time alarm
 - (requested by Modnar) User-defined control sizes
 
 Known Issues:
 - The percentages on the PlayerInfo control don't include equipment.
 - Some missing translations. (Mostly French)
-- Controls I added don't unload from submenu.
+- Controls Thorondor added may not unload from submenu.
 - Reputations for Dol Amroth don't max out at first rank.
-- Some low res icons. Searching for replacements.
+- Some low res icons; searching for replacements.
 
 =======================================================================================================
 v1.30.00 (2017)
