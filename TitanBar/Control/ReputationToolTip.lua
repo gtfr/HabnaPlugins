@@ -13,14 +13,14 @@ function ShowRPWindow()
 	_G.ToolTipWin:SetZOrder( 1 );
 	--_G.ToolTipWin.xOffset = x;
 	--_G.ToolTipWin.yOffset = y;
-	_G.ToolTipWin:SetWidth( 320 );
+	_G.ToolTipWin:SetWidth( 380 );
 	_G.ToolTipWin:SetVisible( true );
 
 	RPTTListBox = Turbine.UI.ListBox();
 	RPTTListBox:SetParent( _G.ToolTipWin );
 	RPTTListBox:SetZOrder( 1 );
 	RPTTListBox:SetPosition( 15, 12 );
-	RPTTListBox:SetWidth( 290 );
+	RPTTListBox:SetWidth( 345 );
 	RPTTListBox:SetMaxItemsPerLine( 1 );
 	RPTTListBox:SetOrientation( Turbine.UI.Orientation.Horizontal );
 	--RPTTListBox:SetBackColor( Color["darkgrey"] ); --debug purpose
@@ -43,7 +43,7 @@ function RPRefreshListBox()
 			local RPTTCtr = Turbine.UI.Control();
 			RPTTCtr:SetParent( RPTTListBox );
 			RPTTCtr:SetSize( RPTTListBox:GetWidth(), 35 );
-			--RPTTCtr:SetBackColor( Color["red"] ); -- Debug purpose
+--			RPTTCtr:SetBackColor( Color["red"] ); -- Debug purpose
 			--**^
 	
 			-- Reputation name
@@ -62,10 +62,12 @@ function RPRefreshListBox()
 			local tr = tonumber(PlayerReputation[PN][tostring(FactionOrder[i])].R);
 
 			if ts == "guild" then tm = RPGR[tonumber(tr)];
+			elseif ts == "chicken" then tm = RCC[tonumber(tr)];
 			else tm = RPR[tonumber(tr)]; end
 			
 			if tr == #RPR and ts == "good" then percentage_done = "max";
 			elseif tr == #RPGR and ts == "guild" then percentage_done = "max";
+			elseif tr == #RCC and ts == "chicken" then percentage_done = "max";
 			else percentage_done = string.format("%.2f", (tp / tm)*100); end
 
 			--**v progress bar v**		
@@ -76,7 +78,9 @@ function RPRefreshListBox()
 			else RPPBFill:SetSize( (183*percentage_done)/100, 9 ); end
 			if ts == "good" then RPPBFill:SetBackground( resources.Reputation.BGGood );
 			elseif ts == "bad" then RPPBFill:SetBackground( resources.Reputation.BGBad );
-			elseif ts == "guild" then RPPBFill:SetBackground( resources.Reputation.BGGuild ); end
+			elseif ts == "guild" then RPPBFill:SetBackground( resources.Reputation.BGGuild ); 
+--			elseif ts == "chicken" then RPPBFill:SetBackground( resources.Reputation.BGChicken ); end
+			elseif ts == "chicken" then RPPBFill:SetBackground( resources.Reputation.BGGuild ); end
 		
 			local RPPB = Turbine.UI.Control(); --Frame
 			RPPB:SetParent( RPTTCtr );
@@ -104,6 +108,9 @@ function RPRefreshListBox()
 			elseif ts == "guild" then
 				tl = RPGGL[tr];
 				RPLvl:SetForeColor( Color["green"] );
+			elseif ts == "chicken" then
+				tl = RCCL[tr];
+				RPLvl:SetForeColor( Color["blue"] );
 			end
 			RPLvl:SetParent( RPTTCtr );
 			RPLvl:SetText( tl );

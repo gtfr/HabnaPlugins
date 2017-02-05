@@ -1,7 +1,6 @@
 This is a replacement for TitanBar 1.24 by Habna. You don't need the original files
 
 Todo:
-- (requested by Pulse) Add "Chicken Chasing League of Eriador" to Reputation Control http://lotro-wiki.com/index.php/Chicken_Chasing_League_of_Eriador
 - (requested by Modnar) Real time alarm.
 - (requested by Modnar) In-game time alarm
 - (requested by Modnar) User-defined control sizes
@@ -12,6 +11,15 @@ Known Issues:
 - Controls I added don't unload from submenu.
 - Reputations for Dol Amroth don't max out at first rank.
 - Some low res icons. Searching for replacements.
+
+=======================================================================================================
+v1.30.00 (2017)
+New:
+- "Chicken Chasing League of Eriador" reputation faction added.
+
+Changed:
+- "Turbine Point" to "LOTRO Point" update
+- "Turbine" to "SSG" update where appropriate
 
 =======================================================================================================
 v1.29.00 (2015)

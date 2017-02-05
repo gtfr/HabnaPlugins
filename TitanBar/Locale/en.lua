@@ -156,11 +156,11 @@ L["RPGG5"] = "Artisan";
 L["RPGG6"] = "Master";
 L["RPGG7"] = "Eastemnet Master";
 L["RPGG8"] = "Westemnet Master";
-L["RCC1"] = "Hobnanigans Rookie";
-L["RCC2"] = "Hobnanigans Minor Leaguer";
-L["RCC3"] = "Hobnanigans Major Leaguer";
-L["RCC4"] = "Hobnanigans All-star";
-L["RCC5"] = "Hobnanigans Hall of Famer";
+L["RCCLE1"] = "Rookie";
+L["RCCLE2"] = "Minor Leaguer";
+L["RCCLE3"] = "Major Leaguer";
+L["RCCLE4"] = "All-star";
+L["RCCLE5"] = "Hall of Famer";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L["IFWTitle"] = "Renown"; L["IFIF"] = "Total renown:";

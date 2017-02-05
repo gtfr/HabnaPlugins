@@ -9,7 +9,7 @@ function frmReputationWindow()
 
 	-- **v Set some window stuff v**
 	_G.wRP = Turbine.UI.Lotro.Window();
-	_G.wRP:SetSize( 360, 495 );
+	_G.wRP:SetSize( 480, 640 );
     _G.wRP:SetPosition( RPWLeft, RPWTop );
 	_G.wRP:SetText( L["MReputation"] );
 	_G.wRP:SetVisible( true );
@@ -96,7 +96,7 @@ function frmReputationWindow()
 		end
 	end
 
-	RPlblFN = Turbine.UI.Label();
+	RPlblFN = Turbine.UI.Label(); -- Faction Name label
 	RPlblFN:SetParent( RPWCtr );
 	RPlblFN:SetPosition( 0 , 120 );
 	RPlblFN:SetSize( RPWCtr:GetWidth() , 15 );
@@ -105,12 +105,12 @@ function frmReputationWindow()
 	RPlblFN:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleCenter );
 	RPlblFN:SetForeColor( Color["rustedgold"] );
 
-	RPlblRank = Turbine.UI.Label();
+	RPlblRank = Turbine.UI.Label(); -- Rank label
 	RPlblRank:SetParent( RPWCtr );
 	RPlblRank:SetFont( Turbine.UI.Lotro.Font.TrajanPro16 );
 	RPlblRank:SetPosition( RPlblFN:GetLeft(), RPlblFN:GetTop()+RPlblFN:GetHeight()+10 );
 	RPlblRank:SetText( L["IFCR"] );
-	RPlblRank:SetSize( RPlblRank:GetTextLength() * 9, 15 ); --Auto size with text lenght
+	RPlblRank:SetSize( RPlblRank:GetTextLength() * 9, 15 ); --Auto size with text length
 	RPlblRank:SetForeColor( Color["rustedgold"] );
 	RPlblRank:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
 
@@ -118,7 +118,8 @@ function frmReputationWindow()
 	for i = 1, maxrank do -- Number of rank in drop down box
 		if i <= 5 then table.insert(RPCBO, L["RPGL"..i]);
 		elseif i <= 10 then table.insert(RPCBO, L["RPBL"..i-5]);
-		elseif i <= maxrank then table.insert(RPCBO, L["RPGG"..i-10]); end
+		elseif i <= 18 then table.insert(RPCBO, L["RPGG"..i-10]); 
+		elseif i <= maxrank then table.insert(RPCBO, L["RCCLE"..i-18]); end
 	end
 
 	-- **v Create drop down box v**
@@ -190,7 +191,7 @@ function frmReputationWindow()
 		RPWCtr:SetZOrder( 0 );
 
 		factionIndex=nil;
-		for j = 1, maxfaction+maxgfaction do
+		for j = 1, maxfaction+maxgfaction+maxcfaction do
 			if PlayerReputation[PN][tostring(j)][TBLocale] == faction then factionIndex = j; break end
 		end
 
@@ -202,9 +203,12 @@ function frmReputationWindow()
 				elseif i <= 10 then
 					PlayerReputation[PN][tostring(factionIndex)].S = "bad";
 					PlayerReputation[PN][tostring(factionIndex)].R = tostring(i-5);
-				elseif i <= maxrank then
+				elseif i <= 18 then
 					PlayerReputation[PN][tostring(factionIndex)].S = "guild";
 					PlayerReputation[PN][tostring(factionIndex)].R = tostring(i-10);
+				elseif i <= maxrank then
+					PlayerReputation[PN][tostring(factionIndex)].S = "chicken";
+					PlayerReputation[PN][tostring(factionIndex)].R = tostring(i-18);
 				end
 				break
 			end
@@ -237,7 +241,7 @@ function RefreshRPListBox()
 		repLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
 		repLbl:SetForeColor( Color["nicegold"] );
 		repLbl:SetChecked( PlayerReputation[PN][tostring(FactionOrder[i])].V );
-		--repLbl:SetBackColor( Color["blue"] ); --debug purpose
+--		repLbl:SetBackColor( Color["blue"] ); --debug purpose
 
 		repLbl.MouseClick = function( sender, args )
 			if ( args.Button == Turbine.UI.MouseButton.Right ) then
@@ -248,9 +252,11 @@ function RefreshRPListBox()
 				local tr = nil;
 				local ts = PlayerReputation[PN][tostring(FactionOrder[i])].S;
 				local tra = tonumber(PlayerReputation[PN][tostring(FactionOrder[i])].R);
+					write("String: "..ts.." - Number:"..tra) -- debug
 				if ts == "good" then tr = RPGL[tra];
 				elseif ts == "bad" then tr = RPBL[tra];
-				elseif ts == "guild" then tr = RPGGL[tra]; end
+				elseif ts == "guild" then tr = RPGGL[tra]; 
+				elseif ts == "chicken" then tr = RCCL[tra]; end
 
 				for k,v in pairs(RPCBO) do
 					if v == tr then RPDD:SetSelection(k); end

@@ -344,13 +344,12 @@ function ImportCtr( value )
 	-- AU3 MARKER END
 	elseif value == "RP" then --Reputation Points
 		RPR = { [1]=10000, [2]=20000, [3]=25000, [4]=30000, [5]=0 }; --Reputation max points per rank
-		RPGR = { [1]=10000, [2]=20000, [3]=25000, [4]=30000, [5]=45000, [6]=60000, [7]=90000, [8]=0 }; --Reputation max points per guild rank
 		RPGL = { [1]=L["RPGL1"], [2]=L["RPGL2"], [3]=L["RPGL3"], [4]=L["RPGL4"], [5]=L["RPGL5"] }; --Good Level names
 		RPBL = { [1]=L["RPBL1"], [2]=L["RPBL2"], [3]=L["RPBL3"], [4]=L["RPBL4"], [5]=L["RPBL5"] }; --Bad Level names
+		RPGR = { [1]=10000, [2]=20000, [3]=25000, [4]=30000, [5]=45000, [6]=60000, [7]=90000, [8]=0 }; --Reputation max points per guild rank
 		RPGGL = { [1]=L["RPGG1"], [2]=L["RPGG2"], [3]=L["RPGG3"], [4]=L["RPGG4"], [5]=L["RPGG5"], [6]=L["RPGG6"], [7]=L["RPGG7"], [8]=L["RPGG8"] }; --Guild Level names
-		-- Chicken Chasing League of Eriador
-		RCC = { [1]=10000, [2]=20000, [3]=25000, [4]=30000, [5]=0 }; 
-		RCCL = { [1]=L["RCC1"], [2]=L["RCC2"], [3]=L["RCC3"], [4]=L["RCC4"], [5]=L["RCC5"] };
+		RCC = { [1]=10000, [2]=20000, [3]=25000, [4]=30000, [5]=0 }; -- Reputation max points per Chicken Chasing League of Eriador rank
+		RCCL = { [1]=L["RCCLE1"], [2]=L["RCCLE2"], [3]=L["RCCLE3"], [4]=L["RCCLE4"], [5]=L["RCCLE5"] }; -- Chicken Chasing League of Eriador names
 		import (AppCtrD.."Reputation");
 		import (AppCtrD.."ReputationToolTip");
 		--ReputationCount = Turbine.
@@ -358,19 +357,19 @@ function ImportCtr( value )
 		RPcb = AddCallback(Turbine.Chat, "Received", function( sender, args )
 			--if args.ChatType == Turbine.ChatType.Advancement then
 				rpMess = args.Message;
-				--write("RP message");
+--				write("RP message");
 
-				--Normal ruputation gained
-				--rpMess = "Your reputation with Men of Bree has increased by 1,300."; --EN debug purpose
-				--rpMess = "Votre r\195\169putation aupr\195\168s de la faction Hommes de Bree a augment\195\169 de 1,500."; -- FR debug purpose
-				--rpMess = "Euer Ruf bei Schmiedegilde hat sich um 1,200 verbessert."; --DE debug purpose
+-- Normal reputation gained
+--				rpMess = "Your reputation with Chicken Chasing League of Eriador has increased by 1,000."; -- EN
+--				rpMess = "Votre r\195\169putation aupr\195\168s de la faction Hommes de Bree a augment\195\169 de 1,000."; -- FR
+--				rpMess = "Euer Ruf bei Schmiedegilde hat sich um 1,000 verbessert."; -- DE
 
-				--When accelerator is used
-				--rpMess = "Your reputation with Men of Bree has increased by 1,300 (650 from bonus)."; --EN debug purpose
-				--rpMess = "Votre r\195\169putation aupr\195\168s de la faction Hommes de Bree a augment\195\169 de 1,500 (750 du bonus)."; -- FR debug purpose
-				--rpMess = "Euer Ruf bei der Gruppe \"W\195\164chter der eisernen Garnison\" wurde um 1,400 erh\195\182ht (700 durch Bonus)." --DE debug purpose
+-- When accelerator is used
+--				rpMess = "Your reputation with Chicken Chasing League of Eriador has increased by 1,000 (100 from bonus)."; -- EN
+--				rpMess = "Votre r\195\169putation aupr\195\168s de la faction Hommes de Bree a augment\195\169 de 1,000 (100 du bonus)."; -- FR
+--				rpMess = "Euer Ruf bei der Gruppe \"W\195\164chter der eisernen Garnison\" wurde um 1,000 erh\195\182ht (100 durch Bonus)." -- DE
 
-				--write(rpMess); --debug purpose
+--				write(rpMess); -- debug purpose
 				if rpMess ~= nil then
 					--Check string, Reputation Name pattern, Reputation Point pattern
 					local cstr, rpnPattern, rppPatern;
@@ -394,23 +393,25 @@ function ImportCtr( value )
 					local tmpRPP = string.match(rpMess,rppPattern); --Reputation Points
 					if tmpRPN ~= nil then
 						rpName = tmpRPN;
-						--write("'"..rpName.."'"); --debug purpose
+--						write("'"..rpName.."'"); --debug purpose
 						rpPTS = tmpRPP;
 						rpPTS = string.gsub(rpPTS, ",", "");--Replace "," in 1,400 to get 1400
-						--write("'"..tmpRPP.."'"); --debug purpose
+--						write("'"..tmpRPP.."'"); --debug purpose
 
-						for i = 1, maxfaction+maxgfaction do
+						for i = 1, maxfaction+maxgfaction+maxcfaction do
 							if PlayerReputation[PN][tostring(i)][GLocale] == rpName then
-								if PlayerReputation[PN][tostring(i)].R == #RPR and PlayerReputation[PN][tostring(i)].S == "good" or --Max lvl in faction
-								PlayerReputation[PN][tostring(i)].R == #RPR and PlayerReputation[PN][tostring(i)].S == "bad" or --Max lvl in faction
-								PlayerReputation[PN][tostring(i)].R == #RPGR and PlayerReputation[PN][tostring(i)].S == "guild" then --Max lvl in guild faction
-									--write("Max rank reach, do nothing");
+								if PlayerReputation[PN][tostring(i)].R == tostring(#RPR) and PlayerReputation[PN][tostring(i)].S == "good" or --Max lvl in good factions
+								PlayerReputation[PN][tostring(i)].R == tostring(#RPR) and PlayerReputation[PN][tostring(i)].S == "bad" or --Max lvl in bad factions
+								PlayerReputation[PN][tostring(i)].R == tostring(#RPGR) and PlayerReputation[PN][tostring(i)].S == "guild" or --Max lvl in guild factions
+								PlayerReputation[PN][tostring(i)].R == tostring(#RCC) and PlayerReputation[PN][tostring(i)].S == "chicken" then --Max lvl in chicken faction
+--									write("Max rank reached, do nothing.");
 								else
 									-- Check if new points is equal or bigger of the max points
 									local tot = PlayerReputation[PN][tostring(i)].P + rpPTS;
 									local max = 0;
-									if PlayerReputation[PN][tostring(i)].S == "guild" then max = RPGR[tonumber(PlayerReputation[PN][tostring(i)].R)];
-									else max = RPR[tonumber(PlayerReputation[PN][tostring(i)].R)];	end
+									if PlayerReputation[PN][tostring(i)].S == "chicken" then max = RCC[tonumber(PlayerReputation[PN][tostring(i)].R)];
+									elseif PlayerReputation[PN][tostring(i)].S == "guild" then max = RPGR[tonumber(PlayerReputation[PN][tostring(i)].R)];
+									else max = RPR[tonumber(PlayerReputation[PN][tostring(i)].R)]; end
 											
 									if tot >= max then
 										--true, then calculate diff to add to next rank
@@ -419,6 +420,7 @@ function ImportCtr( value )
 										PlayerReputation[PN][tostring(i)].R = tostring(PlayerReputation[PN][tostring(i)].R + 1);
 										if PlayerReputation[PN][tostring(i)].R == #RPR and PlayerReputation[PN][tostring(i)].S == "good" then PlayerReputation[PN][tostring(i)].P = "0"; --max rank, set points to 0
 										elseif PlayerReputation[PN][tostring(i)].R == #RPGR and PlayerReputation[PN][tostring(i)].S == "guild" then PlayerReputation[PN][tostring(i)].P = "0"; --max giuld rank, set points to 0
+										elseif PlayerReputation[PN][tostring(i)].R == #RCC and PlayerReputation[PN][tostring(i)].S == "chicken" then PlayerReputation[PN][tostring(i)].P = "0"; --max giuld rank, set points to 0
 										else PlayerReputation[PN][tostring(i)].P = string.format("%.0f", tdiff); end
 									else
 										--false, only add points
@@ -856,26 +858,25 @@ function LoadPlayerReputation()
 	"Les Cavaliers de Th\195\169odred", "Guilde des bijoutiers", "Guilde des cuisiniers", "Guilde des \195\169rudits", "Guilde des tailleurs", "Guilde des menuisiers", "Guilde des fabricants d'armes", 
 	"Guilde des ferroniers", "Hommes de la vall\195\169e de l'Entalluve", "Hommes des Norcrofts", "Hommes des Sutcrofts", "Hommes du Plateau",  "Peuple des Landes farouches", "Survivants des Landes farouches", 
 	"Les Eorlingas", "Les Helmingas", "Les Ents de la for\195\170t de Fangorn", "Dol Amroth", "Dol Amroth - Armurerie", "Dol Amroth - Banque", "Dol Amroth - Quais", "Dol Amroth - Palais", "Dol Amroth - Biblioth\195\168que", 
-	"Dol Amroth - Entrep\195\180t", "Dol Amroth - Atelier de Maconnerie", "Dol Amroth - Chevaliers au Cygne", "Hommes du Val de Ringl\195\179 Vale", "Hommes de Dor-en-Ernil", "Hommes du Lebennin", "Pelargir" } --end RepFR
+	"Dol Amroth - Entrep\195\180t", "Dol Amroth - Atelier de Maconnerie", "Dol Amroth - Chevaliers au Cygne", "Hommes du Val de Ringl\195\179 Vale", "Hommes de Dor-en-Ernil", "Hommes du Lebennin", "Pelargir", "Ligue des Chasseurs de Poulets d'Eriador" } --end RepFR
 
 	RepEN = { "The Ale Association", "The Eldgang", "Council of the North", "Men of Bree", "Thorin's Hall", "The Wardens of Ann\195\186minas", "Lossoth of Forochel", "The Eglain", "Rangers of Esteld\195\173n", 
 	"Elves of Rivendell", "The Mathom Society", "The Inn League", "Iron Garrison Guards", "Iron Garrison Miners", "Algraig, Men of Enedwaith", "The Grey Company", "Galadhrim", "Malledhrim", "The Riders of Stangard", 
 	"Heroes of Limlight Gorge", "Men of Dunland", "Th\195\169odred's Riders", "Jeweller's Guild", "Cook's Guild", "Scholar's Guild", "Tailor's Guild", "Woodworker's Guild", "Weaponsmith's Guild", "Metalsmith's Guild", 
 	"Men of the Entwash Vale", "Men of the Norcrofts", "Men of the Sutcrofts", "Men of the Wold", "People of Wildermore", "Survivors of Wildermore", "The Eorlingas", "The Helmingas", "The Ents of Fangorn Forest", 
 	"Dol Amroth", "Dol Amroth - Armoury", "Dol Amroth - Bank", "Dol Amroth - Docks", "Dol Amroth - Great Hall", "Dol Amroth - Library", "Dol Amroth - Warehouse", "Dol Amroth - Mason", "Dol Amroth - Swan-Knight", 
-	"Men of Ringl\195\179 Vale", "Men of Dor-en-Ernil", "Men of Lebennin", "Pelargir" } --end RepEN
+	"Men of Ringl\195\179 Vale", "Men of Dor-en-Ernil", "Men of Lebennin", "Pelargir", "Chicken Chasing League of Eriador" } --end RepEN
 
 	RepDE = { "Die Bier-Genossenschaft", "Die Eldgang", "Rat des Nordens", "Menschen von Bree", "Thorins Halle", "Die H\195\188ter von Ann\195\186minas", "Lossoth von Forochel", "Die Eglain", 
 	"Waldl\195\164ufer von Esteld\195\173n", "Elben von Bruchtal", "Die Mathom-Gesellschaft", "Die Gasthausliga", "W\195\164chter der eisernen Garnison", "Minenbauer der Eisernen Garnison", 
 	"Algraig, Menschen von Enedwaith", "Die Graue Schar", "Galadhrim", "Malledhrim", "Die Reiter von Stangard", "Helden der Limklar-Schlucht", "Menschen aus Dunland",  "Th\195\169odreds Reiter", "Goldschmiedegilde", 
 	"Kochgilde", "Gelehrtengilde", "Schneidergilde", "Drechslergilde", "Waffenschmiedegilde", "Schmiedegilde", "Menschen des Entwasser-Tals", "Menschen der Norhofen", "Menschen der Suthofen", "Menschen der Steppe", 
 	"Bewohner der Wildermark", "\195\156berlebende von Wildermark", "Die Eorlingas", "Die Helmingas", "Die Ents des Fangorn-Walds", "Dol Amroth", "Dol Amroth - Waffenkammer", "Dol Amroth - Bank", "Dol Amroth - Landungsbr\195\188cken", 
-	"Dol Amroth - Grosse Halle", "Dol Amroth - Bibliothek", "Dol Amroth - Lagerhaus", "Dol Amroth - Maurerei", "Dol Amroth - Schwanenritter", "Bewohner des Ringl\195\179tals", "Bewohner von Dor-en-Ernil", "Bewohner von Lebennin", "Pelargir" } --end RepDE
+	"Dol Amroth - Grosse Halle", "Dol Amroth - Bibliothek", "Dol Amroth - Lagerhaus", "Dol Amroth - Maurerei", "Dol Amroth - Schwanenritter", "Bewohner des Ringl\195\179tals", "Bewohner von Dor-en-Ernil", "Bewohner von Lebennin", "Pelargir", "H\195\188hnerjagd-Liga von Eriador" } --end RepDE
 
 	--maxgfaction = 7;
 	--maxfaction = GetTotalItems( );
 	
-						
 	PlayerReputation = Turbine.PluginData.Load( Turbine.DataScope.Server, "TitanBarReputation" );
 	if PlayerReputation == nil then PlayerReputation = {}; end
 	if PlayerReputation[PN] == nil then PlayerReputation[PN] = {}; end
@@ -887,8 +888,29 @@ function LoadPlayerReputation()
 		if PlayerReputation[PN][tostring(FactionOrder[i])].P == nil then PlayerReputation[PN][tostring(FactionOrder[i])].P = "0"; end --Points
 		if PlayerReputation[PN][tostring(FactionOrder[i])].V == nil then PlayerReputation[PN][tostring(FactionOrder[i])].V = false; end --Show faction in tooltip
 		if PlayerReputation[PN][tostring(FactionOrder[i])].R == nil then PlayerReputation[PN][tostring(FactionOrder[i])].R = "1"; end --1st rank max points
-		if i > maxfaction then if PlayerReputation[PN][tostring(FactionOrder[i])].S == nil then PlayerReputation[PN][tostring(FactionOrder[i])].S = "guild"; end --good/bad/guild
-		else if PlayerReputation[PN][tostring(FactionOrder[i])].S == nil then PlayerReputation[PN][tostring(FactionOrder[i])].S = "good"; end end --good/bad/guild
+		
+			if i == 52 then--debug purpose
+				if PlayerReputation[PN][tostring(FactionOrder[i])].S == nil then
+					bggc = "nil"
+				else
+					bggc = PlayerReputation[PN][tostring(FactionOrder[i])].S
+				end
+				write("#"..tostring(i).."/"..maxfaction+maxgfaction+maxcfaction..": "..PlayerReputation[PN][tostring(FactionOrder[i])].en.." is "..bggc)
+			end
+		
+		if i > maxfaction + maxgfaction then
+			if PlayerReputation[PN][tostring(FactionOrder[i])].S == nil then
+				PlayerReputation[PN][tostring(FactionOrder[i])].S = "chicken";
+			end
+		elseif i > maxfaction then
+			if PlayerReputation[PN][tostring(FactionOrder[i])].S == nil then
+				PlayerReputation[PN][tostring(FactionOrder[i])].S = "guild";
+			end
+		else
+			if PlayerReputation[PN][tostring(FactionOrder[i])].S == nil then
+				PlayerReputation[PN][tostring(FactionOrder[i])].S = "good";
+			end
+		end	--other/guild/good/bad
 		--if PlayerReputation[PN][tostring(FactionOrder[i])].N ~= nil then PlayerReputation[PN][tostring(FactionOrder[i])].N = nil; end
 	end
 

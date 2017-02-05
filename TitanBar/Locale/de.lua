@@ -156,11 +156,11 @@ L["RPGG5"] = "Virtuose";-- Thx DaBear78!
 L["RPGG6"] = "Meister";-- Thx DaBear78!
 L["RPGG7"] = "Ost-Emnet-Meister der Gilde";
 L["RPGG8"] = "West-Emnet-Meister der Gilde";
-L["RCC1"] = "Hobnanigans Rookie";
-L["RCC2"] = "Hobnanigans Minor Leaguer";
-L["RCC3"] = "Hobnanigans Major Leaguer";
-L["RCC4"] = "Hobnanigans All-star";
-L["RCC5"] = "Hobnanigans Hall of Famer";
+L["RCCLE1"] = "Hobnanigans Rookie";
+L["RCCLE2"] = "Hobnanigans Minor Leaguer";
+L["RCCLE3"] = "Hobnanigans Major Leaguer";
+L["RCCLE4"] = "Hobnanigans All-star";
+L["RCCLE5"] = "Hobnanigans Hall of Famer";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L["IFWTitle"] = "Ansehen"; L["IFIF"] = "Gesamtes Ansehen:";
