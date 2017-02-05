@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PluginConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Id>903</Id>
+  <Id>967</Id>
   <Name>TitanBar</Name>
   <Author>Habna (Patch by Technical_13)</Author>
   <Version>v1.30</Version>
