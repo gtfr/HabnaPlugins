@@ -1051,11 +1051,11 @@ RatingsData = {
 			X0 = 0;
 			Y0 = 0;
 			K = Armour.K[1];
-		elseif (RL > Armour.dRL[1]) and (RL <= Armour.dRL[2]) then
+		elseif (RL > Armour.dRL[1]) and (RL <= Armour.dRL[1]+Armour.dRL[2]) then
 			X0 = Armour.dRL[1];
 			Y0 = Armour.dp[1];
 			K = Armour.K[2];
-		elseif RL > Armour.dRL[2] then -- CAPPED
+		elseif RL > Armour.dRL[1]+Armour.dRL[2] then -- CAPPED
 			Capped = 1;
 			answer = sum_array(Armour.dp, 2)*100;
 			return string.format("%.1f", answer);
