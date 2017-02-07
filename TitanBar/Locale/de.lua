@@ -1,6 +1,5 @@
 -- de.lua
--- Written by Habna -- Translated with google, Wicky & DaBear78.
-
+-- Written by Habna -- Translated with Google, Wicky, DaBear78, & Talyrion1003.
 
 _G.L = {};
 L["TBLoad"] = "TitanBar " .. Version .. " geladenen!";
@@ -192,16 +191,19 @@ L["OPISL"] = "Breit";
 L["Layout"] = "Alternative PlayerInfo Layout\n(Reloads TB after changing)";
 
 -- Profile window
-L["PWLoad"] = "laden"; 
-L["PWSave"] = "speichern";
+L["PWLoad"] = "laden";
 L["PWCreate"] = "erstellen";-- Thx DaBear78!
+L["PWDelete"] = "Delete";-- Needs translation
+L["PWSave"] = "speichern";
 L["PWCancel"] = "abbrechen";-- Thx DaBear78!
 L["PWNFound"] = "Kein Profil gefunden";-- Thx DaBear78!
 L["PWEPN"] = "Geben Sie einen Profilnamen ein";-- Thx DaBear78!
-L["PWProfil"] = "Profil";
-L["PWDeleted"] = "gel\195\182scht"; --gelöscht
+L["PWProfile"] = "Profil";
 L["PWLoaded"] = "geladen";
-L["PWFail"] = "Dieses Profil kann nicht geladen werden, weil die Sprache des Spiels ist nicht die gleiche Sprache wie in diesem Profil";-- Thx DaBear78!
+L["PWDeleted"] = "gel\195\182scht"; --gelöscht
+L["PWFail"] = " kann nicht geladen werden, weil die Sprache des Spiels ist nicht die gleiche Sprache wie in diesem Profil";-- Thx DaBear78!
+L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";-- Needs translation
+L["PWDeleteFailed"] = "Failed to delete profile ";-- Needs translation
 
 -- Shell commands window
 L["SCWTitle"] = "TitanBar Shell-Befehle";
@@ -384,6 +386,7 @@ L["Man"] = "Mensch";-- Thx Wicky!
 L["Dwarf"] = "Zwerg";
 L["Hobbit"] = "Hobbit";
 L["Beorning"] = "Beorninger";
+--L["HighElf"] = "High Elf";-- Needs Translation
 
 -- Free People Class
 L["Burglar"] = "Schurke";

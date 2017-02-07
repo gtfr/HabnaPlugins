@@ -1,7 +1,6 @@
 -- en.lua
 -- Written by Habna
 
-
 _G.L = {};
 L["TBLoad"] = "TitanBar " .. Version .. " loaded!";
 L["TBSSCS"] = "TitanBar: Screen size has changed, repositioning controls...";
@@ -192,16 +191,19 @@ L["OPISL"] = "Large";
 L["Layout"] = "Alternative PlayerInfo Layout\n(Reloads TB after changing)";
 
 -- Profile window
-L["PWLoad"] = "Load"; 
-L["PWSave"] = "Save";
+L["PWLoad"] = "Load";
 L["PWCreate"] = "Create";
+L["PWDelete"] = "Delete";
+L["PWSave"] = "Save";
 L["PWCancel"] = "Cancel";
 L["PWNFound"] = "No profile was found";
 L["PWEPN"] = "Enter a profile name";
-L["PWProfil"] = "Profile";
-L["PWDeleted"] = "deleted";
+L["PWProfile"] = "Profile";
 L["PWLoaded"] = "loaded";
-L["PWFail"] = "This profile cannot be loaded because the language of the game is not the same language of this profile";
+L["PWDeleted"] = "deleted";
+L["PWFail"] = " cannot be loaded because the language of the game is not the same language of this profile";
+L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";
+L["PWDeleteFailed"] = "Failed to delete profile ";
 
 -- Shell commands window
 L["SCWTitle"] = "TitanBar Shell Commands";
@@ -384,6 +386,7 @@ L["Man"] = "Man";
 L["Dwarf"] = "Dwarf";
 L["Hobbit"] = "Hobbit";
 L["Beorning"] = "Beorning";
+--L["HighElf"] = "High Elf";
 
 -- Free People Class
 L["Burglar"] = "Burglar";

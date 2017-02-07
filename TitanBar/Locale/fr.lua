@@ -1,6 +1,5 @@
 -- fr.lua
--- Written by Habna
-
+-- Written by Habna -- Translated with Google, Talyrion1003
 
 _G.L = {};
 L["TBLoad"] = "TitanBar " .. Version .. " charg\195\169e!";
@@ -192,16 +191,19 @@ L["OPISL"] = "Grand";
 L["Layout"] = "Alternative PlayerInfo Layout\n(Reloads TB after changing)";
 
 -- Profile window
-L["PWLoad"] = "Charger"; 
-L["PWSave"] = "Sauvegarder";
+L["PWLoad"] = "Charger";
 L["PWCreate"] = "Cr\195\169er";
+L["PWDelete"] = "Delete";-- Needs translation
+L["PWSave"] = "Sauvegarder";
 L["PWCancel"] = "Annuler";
 L["PWNFound"] = "Aucun profile trouv\195\169";
 L["PWEPN"] = "Taper un nom";
-L["PWProfil"] = "Profil";
-L["PWDeleted"] = "supprimer";
+L["PWProfile"] = "Profil";
 L["PWLoaded"] = "charger";
-L["PWFail"] = "Ce profil ne peut pas \195\170tre charg\195\169, car la langue du jeu n'est pas la m\195\170me langue que ce profil";
+L["PWDeleted"] = "supprimer";
+L["PWFail"] = " ne peut pas \195\170tre charg\195\169, car la langue du jeu n'est pas la m\195\170me langue que ce profil";
+L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";-- Needs translation
+L["PWDeleteFailed"] = "Failed to delete profile ";-- Needs translation
 
 -- Shell commands window
 L["SCWTitle"] = "Commandes shell TitanBar";
@@ -219,6 +221,7 @@ L["SCb2"] = "  u / ";
 L["SCa3"] = "recharger";
 L["SCb3"] = "  r / ";
 L["SCa4"] = "r\195\169initialiser";
+L["SCb4"] = " ra / ";
 
 -- Durability infos window
 L["DWTitle"] = "Durabilit\195\169 de vos articles";
@@ -383,6 +386,7 @@ L["Man"] = "Homme";
 L["Dwarf"] = "Nain";
 L["Hobbit"] = "Hobbit";
 L["Beorning"] = "Beornide";
+--L["HighElf"] = "High Elf";-- Needs Translation
 
 -- Free People Class
 L["Burglar"] = "Cambrioleur";

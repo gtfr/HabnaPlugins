@@ -1,4 +1,4 @@
-This is a replacement for TitanBar v1.29.00 by Thorondor which was a replacement for v1.24 by Habana.
+This is a replacement for TitanBar v1.29.00 by Thorondor which replaced v1.24 by Habana.
 You do not need the original files.
 
 Todo:
@@ -12,8 +12,14 @@ Known Issues:
 - Reputations for Dol Amroth don't max out at first rank.
 - Some low res icons; searching for replacements.
 
-=======================================================================================================
-v1.30.00 (Febuary 5, 2017)
+====================================================================================================
+v1.30.04 (Febuary 7, 2017)
+
+Bug fix:
+- Fixed https://github.com/Technical-13/HabnaPlugins/issues/4 :: "Set back color" bug
+
+====================================================================================================
+v1.30.02 (Febuary 5, 2017)
 New:
 - PlayerInfosToolTip now properly goes to level 105 (tappino)
 - U18 reputation factions added. (tappino)
