@@ -239,7 +239,7 @@ function RefreshListBox()
 			DelIcon[i]:SetParent( Ctr[i] );
 			DelIcon[i]:SetPosition( 0, 1 );
 			DelIcon[i]:SetSize( 16, 16 );
-			DelIcon[i]:SetBackground( resources.ListBoxBackground );
+			DelIcon[i]:SetBackground( resources.DelIcon );
 			DelIcon[i]:SetBlendMode( 4 );
 			DelIcon[i]:SetVisible( true );
 			--DelIcon[i]:SetBackColor( Color["blue"] ); -- debug purpose
