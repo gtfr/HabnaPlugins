@@ -365,7 +365,7 @@ function LoadSettings()
 	LPWLeft = tonumber(settings.LOTROPoints.L);
 	LPWTop = tonumber(settings.LOTROPoints.T);
 	_G.LPWhere = tonumber(settings.LOTROPoints.W);
-	if _G.LPWhere == 3 and ShowLOTROPoints then _G.LPWhere = 1; settings.LOTROPoints.W = string.format("%.0f", _G.LPWhere); end --Remove after Oct, 15th 2013
+--	if _G.LPWhere == 3 and ShowLOTROPoints then _G.LPWhere = 1; settings.LOTROPoints.W = string.format("%.0f", _G.LPWhere); end --Removed 2017-02-07 (after 2013-10-15)
 	
 
 	if settings.BagInfos == nil then settings.BagInfos = {}; end

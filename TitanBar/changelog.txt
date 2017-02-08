@@ -13,6 +13,19 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 ====================================================================================================
+v1.30.07 (Febuary 8, 2017)
+
+Bug fixes:
+- Fixed https://github.com/Technical-13/HabnaPlugins/issues/3 via
+  https://github.com/Technical-13/HabnaPlugins/commit/8c46d8b034ff3e69cdf9dad0b3ce6cbc6dd66e61
+- Fixed missing icon to be able to delete profiles (4andreas)
+- Item durability more accurate, despite larger gap; For details, see:
+  https://github.com/Technical-13/HabnaPlugins/issues/6
+- Previous users with their Turbine Points set should now see their LOTRO Points
+
+Known issues:
+-  https://github.com/Technical-13/HabnaPlugins/issues
+====================================================================================================
 v1.30.04 (Febuary 7, 2017)
 
 Bug fix:
@@ -23,11 +36,11 @@ v1.30.02 (Febuary 5, 2017)
 New:
 - PlayerInfosToolTip now properly goes to level 105 (tappino)
 - U18 reputation factions added. (tappino)
-- "Chicken Chasing League of Eriador" reputation faction added. (technical_13)
+- "Chicken Chasing League of Eriador" reputation faction added.
 
 Changed:
-- "Turbine Point" to "LOTRO Point" update (technical_13)
-- "Turbine" to "SSG" update where appropriate (technical_13)
+- "Turbine Point" to "LOTRO Point" update
+- "Turbine" to "SSG" update where appropriate
 
 	
 Need translations! 

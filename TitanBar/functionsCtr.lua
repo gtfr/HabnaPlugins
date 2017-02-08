@@ -470,6 +470,7 @@ function GetEquipmentInfos()
 			elseif Quality == 3 then Quality = 30; -- Incomparable
 			elseif Quality == 2 then Quality = 40; -- Rare
 			elseif Quality == 1 then Quality = 50; end -- Legendary
+--				write("Quality of "..itemEquip[i].Name.." is "..Quality.." (undefined/Legendary/Rare/Incomparable/Uncommon/Common)");-- Debugging
 
 			local Durability = PlayerEquipItem:GetDurability();
 			--itemEquip[i].Durability = Durability;
@@ -478,20 +479,23 @@ function GetEquipmentInfos()
 			elseif Durability == 1 then Durability = 20; -- Substantial
 			elseif Durability == 2 then Durability = 30; -- Brittle / Fragile
 			elseif Durability == 3 then Durability = 40; -- Normal
-			elseif Durability == 4 then Durability = 50; -- Tought / Robuste
+			elseif Durability == 4 then Durability = 50; -- Tough / Robuste
 			elseif Durability == 5 then Durability = 60; -- Flimsy / Fragile ??
 			elseif Durability == 6 then Durability = 70; end -- Indestructible
+--				write("Durability of "..itemEquip[i].Name.." is "..Durability.." (undefined/Substantial/Brittle/Normal/Tough/Flimsy/Indestructible/Weak)");-- Debugging
 
 			itemEquip[i].Score = round( ( Wq * Quality * 7 + Wd * Durability * 5 ) / ( 3.5 * ( Wq + Wd ) ) );
+--				write("Score of "..itemEquip[i].Name.." is "..itemEquip[i].Score);-- Debugging
 			
 			local WearState = PlayerEquipItem:GetWearState();
 			itemEquip[i].WearState = WearState;
 			if WearState ~= 0 then numItems = numItems + 1; end -- Undefined item must not be count (Pocket item are as Undefined Wear State, they are indestructible)
 			if WearState == 0 then itemEquip[i].WearStatePts = 0; -- undefined
 			elseif WearState == 3 then itemEquip[i].WearStatePts = 0; -- Broken / cassé
-			elseif WearState == 1 then itemEquip[i].WearStatePts = 50; -- Damaged / endommagé
-			elseif WearState == 4 then itemEquip[i].WearStatePts = 75; -- Worn / usé
+			elseif WearState == 1 then itemEquip[i].WearStatePts = 20; -- Damaged / endommagé
+			elseif WearState == 4 then itemEquip[i].WearStatePts = 99; -- Worn / usé
 			elseif WearState == 2 then itemEquip[i].WearStatePts = 100; end -- Pristine / parfait
+--				write("WearState of "..itemEquip[i].Name.." is "..WearState.." (undefined/Damaged/Pristine/Broken/Worn) which is about "..itemEquip[i].WearStatePts.."% of max");-- Debugging
 						
 			itemEquip[i].BImgID = PlayerEquipItem:GetBackgroundImageID();
 			itemEquip[i].QImgID = PlayerEquipItem:GetQualityImageID();
@@ -560,7 +564,8 @@ function LoadPlayerMoney()
 	_G.SCM = wallet[PN].Show;
 	_G.SCMA = wallet[PN].ShowToAll;
 
-	--Convert wallet --(Remove after: August 18th 2012)
+--[[
+	--Convert wallet --Removed 2017-02-07 (after 2012-08-18)
 	local tGold, tSilver, tCopper, bOk;
 	for k,v in pairs(wallet) do
 		if wallet[k].Gold ~= nil then bOk = true; tGold = tonumber(wallet[k].Gold); wallet[k].Gold = nil; end
@@ -586,6 +591,7 @@ function LoadPlayerMoney()
 			wallet[k].Money = tostring(strdata);
 		end
 	end
+]]
 	--
 	--Statistics section
 	local DDate = Turbine.Engine.GetDate();
@@ -916,7 +922,17 @@ end
 
 function LoadPlayerLOTROPoints()
 	PlayerLOTROPoints = Turbine.PluginData.Load( Turbine.DataScope.Account, "TitanBarLOTROPoints" );
-	if PlayerLOTROPoints == nil then PlayerLOTROPoints = {}; end
+	if PlayerLOTROPoints == nil then
+		PlayerLOTROPoints = Turbine.PluginData.Load( Turbine.DataScope.Account, "TitanBarTurbinePoints" );-- Check for the old file name.
+		if PlayerLOTROPoints == nil then
+			PlayerLOTROPoints = {};-- If old name doesn't exist either, start clean.
+		else
+			if PlayerLOTROPoints.PTS == nil then PlayerLOTROPoints.PTS = "0"; end
+			_G.LOTROPTS = PlayerLOTROPoints.PTS;
+			SavePlayerLOTROPoints()-- If old named file does exist, create new using data from file with old name.
+--			Then delete old named file
+		end
+	end
 	if PlayerLOTROPoints.PTS == nil then PlayerLOTROPoints.PTS = "0"; end
 	_G.LOTROPTS = PlayerLOTROPoints.PTS;
 end

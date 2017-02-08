@@ -81,36 +81,8 @@ function frmProfile()
 		InputBox:Focus();
 		buttonLoad:SetVisible( false );
 		buttonCreate:SetVisible( false );
---		buttonDelete:SetVisible( false );
 		wProfile:SetHeight( wProfile:GetHeight() + 25 );
 	end
-	
---	buttonDelete = Turbine.UI.Lotro.Button();
---	buttonDelete:SetParent( wProfile );
---	buttonDelete:SetText( L["PWDelete"] );
---	buttonDelete:SetSize( buttonDelete:GetTextLength() * 10, 15 ); --Auto size with text length
---	buttonDelete:SetEnabled( false );
-	
---	buttonDelete.Click = function( sender, args )
---		--Get selected profile just like from buttonLoad
---		local DProfile = false; --Delete profile
---		local PLang = nil; --Profile Language
---		PLang = vPProfileSettings[PrevItemClic].TitanBar.L;
---		if PLang == "en" then if GLocale == "en" then DProfile = true; end
---		else if GLocale ~= "en" then DProfile = true; end end
---		--Delete selected profile
---		if DProfile then
---			-- Delete profile
-			
---			-- If successful
---				write("TitanBar: "..L["PWProfile"].." '"..lblName[PrevItemClic]:GetText().."' "..L["PWDeleted"]);
---			-- Else
---				write("TitanBar: "..L["PWDeleteFailed"].." '"..lblName[PrevItemClic]:GetText().."' ");
---			ReloadTitanBar();
---		else
---			write("TitanBar: "..lblName[PrevItemClic]:GetText()..L["PWFailDelete"]);
---		end
---	end
 
 	CreateCtr = Turbine.UI.Control();
 	CreateCtr:SetParent( wProfile );
@@ -178,7 +150,6 @@ function frmProfile()
 		CreateCtr:SetVisible( false );
 		buttonLoad:SetVisible( true );
 		buttonCreate:SetVisible( true );
---		buttonDelete:SetVisible( true );
 		wProfile:SetHeight( wProfile:GetHeight() - 25 );
 	end
 
@@ -246,7 +217,7 @@ function RefreshListBox()
 				
 			DelIcon[i].MouseClick = function( sender, args )
 				if ( args.Button == Turbine.UI.MouseButton.Left ) then
-					write("TitanBar: " .. L["PWProfil"] .. " '" .. lblName[i]:GetText() .. "' " .. L["PWDeleted"]);
+					write("TitanBar: " .. L["PWProfile"] .. " '" .. lblName[i]:GetText() .. "' " .. L["PWDeleted"]);
 					table.remove( PProfile, i );
 
 					local newt = {};
@@ -284,7 +255,6 @@ function RefreshListBox()
 				--lblName[PrevItemClic]:SetBackColor( Color["darkgrey"] );
 				lblName[i].Sel = true;
 				buttonLoad:SetEnabled( true );
---				buttonDelete:SetEnabled( true );
 			end
 
 			lblName[i].MouseHover = function(sender, args)
@@ -308,8 +278,6 @@ end
 function PerformLayout()
 	buttonLoad:SetPosition( 20, ListBox:GetTop() + ListBox:GetHeight() + 5 );
 	buttonCreate:SetPosition( buttonLoad:GetLeft() + buttonLoad:GetWidth() + 15, ListBox:GetTop() + ListBox:GetHeight() + 5 );
---	buttonDelete:SetPosition( buttonCreate:GetLeft() + buttonCreate:GetWidth() + 15, ListBox:GetTop() + ListBox:GetHeight() + 5 );
-
 	CreateCtr:SetPosition( 20, buttonLoad:GetTop() );
 
 	wProfile:SetHeight( ListBox:GetHeight() + buttonLoad:GetHeight() + 60 );
