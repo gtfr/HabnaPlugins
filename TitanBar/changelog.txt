@@ -13,7 +13,7 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 ====================================================================================================
-v1.30.07 (Febuary 8, 2017)
+v1.30.07 (February 8, 2017)
 
 Bug fixes:
 - Fixed https://github.com/Technical-13/HabnaPlugins/issues/3 via
@@ -25,14 +25,15 @@ Bug fixes:
 
 Known issues:
 -  https://github.com/Technical-13/HabnaPlugins/issues
+
 ====================================================================================================
-v1.30.04 (Febuary 7, 2017)
+v1.30.04 (February 7, 2017)
 
 Bug fix:
 - Fixed https://github.com/Technical-13/HabnaPlugins/issues/4 :: "Set back color" bug
 
 ====================================================================================================
-v1.30.02 (Febuary 5, 2017)
+v1.30.02 (February 5, 2017)
 New:
 - PlayerInfosToolTip now properly goes to level 105 (tappino)
 - U18 reputation factions added. (tappino)

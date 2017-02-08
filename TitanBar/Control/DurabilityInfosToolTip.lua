@@ -39,7 +39,7 @@ function DIRefreshListBox()
 	local DIitemLblScore = {};
 	local DIitemBG, DIitemU, DIitemS, DIitem = {}, {}, {}, {};
 	DIListBox:ClearItems();
-	DITLPosY = 36;
+	DITTPosY = 36;
 
 	mis, mts, nint = 0, 0, false;
 
@@ -78,7 +78,7 @@ function DIRefreshListBox()
 		DIListBox:SetWidth( 250 );
 		DIListBox:AddItem( lblName );
 		
-		DITLPosY = DITLPosY + 36;
+		DITTPosY = DITTPosY + 36;
 	else
 		for i = 1, 20 do
 			if itemEquip[i].WearStatePts ~= 100 and itemEquip[i].WearState ~= 0 then
@@ -178,17 +178,17 @@ function DIRefreshListBox()
 				end
 
 				DIitemCtl[i]:SetWidth( cw );
-				DIListBox:SetSize( cw, DITLPosY );
+				DIListBox:SetSize( cw, DITTPosY );
 
 				DIListBox:AddItem( DIitemCtl[i] );
 			
-				DITLPosY = DITLPosY + 36;
+				DITTPosY = DITTPosY + 36;
 			end
 		end
 	end
 
-	if iFound == 0 then _G.ToolTipWin:SetSize( cw, DITLPosY-10 );
-	else _G.ToolTipWin:SetSize( cw+30, DITLPosY-10 ); end
+	if iFound == 0 then _G.ToolTipWin:SetSize( cw, DITTPosY-10 );
+	else _G.ToolTipWin:SetSize( cw+30, DITTPosY-10 ); end
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 			

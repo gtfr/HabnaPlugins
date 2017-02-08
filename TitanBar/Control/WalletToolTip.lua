@@ -32,7 +32,7 @@ end
 
 function RefreshWITTListBox()
 	WITTListBox:ClearItems();
-	WITLPosY, totWidth = 0, 0;
+	WITTPosY, totWidth = 0, 0;
 	local bFound = false;
 	
 	for i = 1, #MenuItem do
@@ -56,7 +56,7 @@ function RefreshWITTListBox()
 		end
 		
 		if tonumber(ttw) == 2 then
-			WITLPosY = WITLPosY + 32;
+			WITTPosY = WITTPosY + 32;
 			bFound = true;
 		
 			--**v Control of all data v**
@@ -149,7 +149,7 @@ function RefreshWITTListBox()
 		end
 	end
 	if not bFound then --If not showing any control
-		WITLPosY = WITLPosY + 32;
+		WITTPosY = WITTPosY + 32;
 
 		_G.ToolTipWin:SetWidth( 300 );
 		WITTListBox:SetWidth( _G.ToolTipWin:GetWidth()-40 );
@@ -166,8 +166,8 @@ function RefreshWITTListBox()
 		WITTListBox:AddItem( lblName );
 	end
 
-	WITTListBox:SetHeight( WITLPosY );
-	_G.ToolTipWin:SetHeight( WITLPosY + 37 );
+	WITTListBox:SetHeight( WITTPosY );
+	_G.ToolTipWin:SetHeight( WITTPosY + 37 );
 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
 			
