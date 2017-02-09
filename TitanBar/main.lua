@@ -1,7 +1,6 @@
 -- Main.lua
 -- written by Habna
 
-
 import "Turbine";
 import "Turbine.UI";
 import "Turbine.UI.Lotro";
@@ -18,13 +17,13 @@ Version = Plugins["TitanBar"]:GetVersion(); --> ** TitanBar current version **
 _G.TB = {};
 FactionOrder = { 1,2,3,4,15,16,5,6,7,8,17,18,9,10,11,12,19,20,13,14,21,22,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,23,24,25,26,27,28,29,55 };
 WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14 };
-maxfaction = 47; --number of good/bad faction in db
-maxgfaction = 7; --number of guild faction in db
-maxcfaction = 1; --number of chicken faction in db
+maxfaction = 47; --number of good/bad faction in DB
+maxgfaction = 7; --number of guild faction in DB
+maxcfaction = 1; --number of chicken faction in DB
 maxrank = 23; -- number of guild faction rank
 maxDArank = 1; -- number of Dol Amroth rank
 windowOpen = true;
-_G.Debug = false; -- True will enable some functions when i'm debuging
+_G.Debug = false; -- True will enable some functions when I'm debuging
 
 -- BlendMode 1: Color / 2: Normal / 3: Multiply / 4: AlphaBlend / 5: Overlay / 6: Grayscale / 7: Screen / 8: Undefined
 

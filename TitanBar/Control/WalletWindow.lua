@@ -120,14 +120,14 @@ function frmWalletWindow()
 	for k,v in pairs(WICBO) do WIDD:AddItem(v, k); end
 
 	--** Turbine Point box
-	TPWCtr = Turbine.UI.Control();
-	TPWCtr:SetParent( WIWCtr );
-	TPWCtr:SetPosition( WIListBox:GetLeft(), WIDD:GetTop()+WIDD:GetHeight()+10 );
-	TPWCtr:SetZOrder( 2 );
-	--TPWCtr:SetBackColor( Color["red"] ); -- debug purpose
+	LPWCtr = Turbine.UI.Control();
+	LPWCtr:SetParent( WIWCtr );
+	LPWCtr:SetPosition( WIListBox:GetLeft(), WIDD:GetTop()+WIDD:GetHeight()+10 );
+	LPWCtr:SetZOrder( 2 );
+	--LPWCtr:SetBackColor( Color["red"] ); -- debug purpose
 
 	local WIlblLOTROPTS = Turbine.UI.Label();
-	WIlblLOTROPTS:SetParent( TPWCtr );
+	WIlblLOTROPTS:SetParent( LPWCtr );
 	--WIlblLOTROPTS:SetFont( Turbine.UI.Lotro.Font.TrajanPro14 );
 	WIlblLOTROPTS:SetText( L["MLP"] );
 	WIlblLOTROPTS:SetPosition( 0, 2 );
@@ -137,7 +137,7 @@ function frmWalletWindow()
 	--WIlblLOTROPTS:SetBackColor( Color["red"] ); -- debug purpose
 
 	WItxtLOTROPTS = Turbine.UI.Lotro.TextBox();
-	WItxtLOTROPTS:SetParent( TPWCtr );
+	WItxtLOTROPTS:SetParent( LPWCtr );
 	WItxtLOTROPTS:SetFont( Turbine.UI.Lotro.Font.TrajanPro14 );
 	--WItxtLOTROPTS:SetText( _G.LOTROPTS );
 	WItxtLOTROPTS:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
@@ -167,7 +167,7 @@ function frmWalletWindow()
 		end
 	end
 
-	TPWCtr:SetSize( WIListBox:GetWidth(), 20 );
+	LPWCtr:SetSize( WIListBox:GetWidth(), 20 );
 	--**
 
 	WIbutSave = Turbine.UI.Lotro.Button();
@@ -288,7 +288,7 @@ function RefreshWIListBox()
 			if ( args.Button == Turbine.UI.MouseButton.Right ) then
 				wcur = MenuItem[WalletOrder[i]];
 				WIlblFN:SetText( wcur );
-				TPWCtr:SetVisible( false );
+				LPWCtr:SetVisible( false );
 				WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, WIDD:GetTop()+WIDD:GetHeight()+10 );
 
 				if wcur == L["MGSC"] then tw = _G.MIWhere;
@@ -300,7 +300,7 @@ function RefreshWIListBox()
 				elseif wcur == L["MMP"] then tw = _G.MPWhere;
 				elseif wcur == L["MSL"] then tw = _G.SLWhere;
 				elseif wcur == L["MCP"] then tw = _G.CPWhere;
-				elseif wcur == L["MLP"] then tw = _G.LPWhere; TPWCtr:SetVisible( true ); WItxtLOTROPTS:SetText( _G.LOTROPTS ); WItxtLOTROPTS:Focus(); WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, TPWCtr:GetTop()+TPWCtr:GetHeight()+10);
+				elseif wcur == L["MLP"] then tw = _G.LPWhere; LPWCtr:SetVisible( true ); WItxtLOTROPTS:SetText( _G.LOTROPTS ); WItxtLOTROPTS:Focus(); WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, LPWCtr:GetTop()+LPWCtr:GetHeight()+10);
 				-- AU3 MARKER 2 - DO NOT REMOVE
 				elseif wcur == L["MASP"] then tw = _G.ASPWhere;
 				elseif wcur == L["MSOM"] then tw = _G.SOMWhere;

@@ -135,6 +135,7 @@ L["TAjustL"] = "Timer seed";
 -- Reputation window
 L["RPt"] = "Aktivieren / deaktivieren der Fraktionen\nRechtsklick um aktuellen Stand einzugeben";-- Thx DaBear78!
 L["RPnf"] = "Du verfolgst keine Fraktion!\nLinksklick um die Fraktionsliste zu sehen.";-- Thx DaBear78!
+L["RPPHMaxHide"] = "Verstecke Fraktionen mit gr\195\182\195\159ter Reputation";-- Google: https://translate.google.com/#auto/de/Hide%20factions%20at%20maximum%20reputation
 --All reputation name was moved to 'functionCtr.lua' in the LoadPlayerReputation() function
 L["RPMSR"] = "Maximale Geltung erreicht"-- Thx DaBear78!
 L["RPGL1"] = "Neutral";
@@ -155,11 +156,11 @@ L["RPGG5"] = "Virtuose";-- Thx DaBear78!
 L["RPGG6"] = "Meister";-- Thx DaBear78!
 L["RPGG7"] = "Ost-Emnet-Meister der Gilde";
 L["RPGG8"] = "West-Emnet-Meister der Gilde";
-L["RCCLE1"] = "Hobnanigans Rookie";
-L["RCCLE2"] = "Hobnanigans Minor Leaguer";
-L["RCCLE3"] = "Hobnanigans Major Leaguer";
-L["RCCLE4"] = "Hobnanigans All-star";
-L["RCCLE5"] = "Hobnanigans Hall of Famer";
+L["RCCLE1"] = "Rookie";
+L["RCCLE2"] = "Minor Leaguer";
+L["RCCLE3"] = "Major Leaguer";
+L["RCCLE4"] = "All-star";
+L["RCCLE5"] = "Hall of Famer";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L["IFWTitle"] = "Ansehen"; L["IFIF"] = "Gesamtes Ansehen:";

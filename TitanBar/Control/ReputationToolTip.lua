@@ -36,8 +36,9 @@ function RPRefreshListBox()
 	local bFound = false;
 	
 	for i = 1, #FactionOrder do
-		if PlayerReputation[PN][tostring(FactionOrder[i])].V then
-			RPTTPosY = RPTTPosY + 35;
+		if PlayerReputation[PN][tostring( FactionOrder[i] )].V then
+			HideMaxReps = true;-- Assume that people want factions that are max hidden until I can offer an option checkbox
+			
 			bFound = true;
 			--**v Control of all data v**
 			local RPTTCtr = Turbine.UI.Control();
@@ -54,28 +55,28 @@ function RPRefreshListBox()
 			repLbl:SetFont( Turbine.UI.Lotro.Font.TrajanPro16 );
 			repLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleCenter );
 			repLbl:SetForeColor( Color["nicegold"] );
-			repLbl:SetText( PlayerReputation[PN][tostring(FactionOrder[i])][TBLocale] );
+			repLbl:SetText( PlayerReputation[PN][tostring( FactionOrder[i] )][TBLocale] );
 			
 			local tl, tm, percentage_done = nil, nil, 0;
-			local tp = PlayerReputation[PN][tostring(FactionOrder[i])].P;
-			local ts = PlayerReputation[PN][tostring(FactionOrder[i])].S;
-			local tr = tonumber(PlayerReputation[PN][tostring(FactionOrder[i])].R);
+			local tp = PlayerReputation[PN][tostring( FactionOrder[i] )].P;
+			local ts = PlayerReputation[PN][tostring( FactionOrder[i] )].S;
+			local tr = tonumber(PlayerReputation[PN][tostring( FactionOrder[i] )].R);
 
-			if ts == "guild" then tm = RPGR[tonumber(tr)];
-			elseif ts == "chicken" then tm = RCC[tonumber(tr)];
-			else tm = RPR[tonumber(tr)]; end
+			if ts == "guild" then tm = RPGR[tonumber( tr )];
+			elseif ts == "chicken" then tm = RCC[tonumber( tr )];
+			else tm = RPR[tonumber( tr )]; end
 			
 			if tr == #RPR and ts == "good" then percentage_done = "max";
 			elseif tr == #RPGR and ts == "guild" then percentage_done = "max";
 			elseif tr == #RCC and ts == "chicken" then percentage_done = "max";
-			else percentage_done = string.format("%.2f", (tp / tm)*100); end
+			else percentage_done = string.format( "%.2f", ( tp / tm ) * 100 ); end
 
-			--**v progress bar v**		
+			--**v progress bar v**			
 			local RPPBFill = Turbine.UI.Control();--Filling
 			RPPBFill:SetParent( RPTTCtr );
 			RPPBFill:SetPosition( 9, 17 );
 			if percentage_done == "max" then RPPBFill:SetSize( 183, 9 );
-			else RPPBFill:SetSize( (183*percentage_done)/100, 9 ); end
+			else RPPBFill:SetSize( ( 183 * percentage_done ) / 100, 9 ); end
 			if ts == "good" then RPPBFill:SetBackground( resources.Reputation.BGGood );
 			elseif ts == "bad" then RPPBFill:SetBackground( resources.Reputation.BGBad );
 			elseif ts == "guild" then RPPBFill:SetBackground( resources.Reputation.BGGuild ); 
@@ -115,10 +116,19 @@ function RPRefreshListBox()
 			RPLvl:SetParent( RPTTCtr );
 			RPLvl:SetText( tl );
 			RPLvl:SetPosition( 205, 15 );
-			RPLvl:SetSize( RPTTListBox:GetWidth()-RPPB:GetWidth(), 15 );
+			RPLvl:SetSize( RPTTListBox:GetWidth() - RPPB:GetWidth(), 15 );
 			RPLvl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
 
-			RPTTListBox:AddItem( RPTTCtr );
+			if HideMaxReps and percentage_done == "max" then
+				repLbl:SetVisible( false );
+				RPPBFill:SetVisible( false );
+				RPPB:SetVisible( false );
+				RPPC:SetVisible( false );
+				RPLvl:SetVisible( false );
+			else
+				RPTTPosY = RPTTPosY + 35;
+				RPTTListBox:AddItem( RPTTCtr );
+			end
 		end
 	end
 	if not bFound then --If not showing any faction

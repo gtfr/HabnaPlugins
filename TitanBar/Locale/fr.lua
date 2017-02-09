@@ -135,6 +135,7 @@ L["TAjustL"] = "Code de minuterie";
 -- Reputation window
 L["RPt"] = "S\195\169lectionner / d\195\169s\195\169lectionner une faction\nclick droit pour voir ces configurations";
 L["RPnf"] = "Vous suivez aucune faction!\nFaites un clic gauche pour voir la liste des factions.";
+L["RPPHMaxHide"] = "Masquer les factions \195\160 une r\195\169putation maximale";-- Google: https://translate.google.com/#auto/fr/Hide%20factions%20at%20maximum%20reputation
 --All reputation name was moved to 'functionCtr.lua' in the LoadPlayerReputation() function
 L["RPMSR"] = "Statut maximum atteint"
 L["RPGL1"] = "Neutre";
@@ -155,11 +156,11 @@ L["RPGG5"] = "Artisan";
 L["RPGG6"] = "Ma\195\174tre";--Maître
 L["RPGG7"] = "Eastemnet Master";
 L["RPGG8"] = "Westemnet Master";
-L["RCCLE1"] = "Hobnanigans Rookie";
-L["RCCLE2"] = "Hobnanigans Minor Leaguer";
-L["RCCLE3"] = "Hobnanigans Major Leaguer";
-L["RCCLE4"] = "Hobnanigans All-star";
-L["RCCLE5"] = "Hobnanigans Hall of Famer";
+L["RCCLE1"] = "Rookie";
+L["RCCLE2"] = "Minor Leaguer";
+L["RCCLE3"] = "Major Leaguer";
+L["RCCLE4"] = "All-star";
+L["RCCLE5"] = "Hall of Famer";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L["IFWTitle"] = "Renomm\195\169e"; L["IFIF"] = "Total de renomm\195\169e:";

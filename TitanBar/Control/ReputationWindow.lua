@@ -37,14 +37,14 @@ function frmReputationWindow()
 
 	_G.wRP.MouseUp = function( sender, args )
 		dragging = false;
-		settings.Reputation.L = string.format("%.0f", _G.wRP:GetLeft());
-		settings.Reputation.T = string.format("%.0f", _G.wRP:GetTop());
+		settings.Reputation.L = string.format( "%.0f", _G.wRP:GetLeft() );
+		settings.Reputation.T = string.format( "%.0f", _G.wRP:GetTop() );
 		RPWLeft, RPWTop = _G.wRP:GetPosition();
 		SaveSettings( false );
 	end
 
 	_G.wRP.Closing = function( sender, args )
-		RPDD.dropDownWindow:SetVisible(false);
+		RPDD.dropDownWindow:SetVisible( false );
 		_G.wRP:SetWantsKeyEvents( false );
 		_G.wRP = nil;
 		_G.frmRP = nil;
@@ -55,16 +55,34 @@ function frmReputationWindow()
 	RPlbltext:SetParent( _G.wRP );
 	RPlbltext:SetText( L["RPt"] );
 	RPlbltext:SetPosition( 20, 35);
-	RPlbltext:SetSize( _G.wRP:GetWidth()-40 , 35 );
+	RPlbltext:SetSize( _G.wRP:GetWidth() - 40 , 35 );
 	RPlbltext:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleCenter );
 	RPlbltext:SetForeColor( Color["green"] );
+
+--[[ Add a checkbox for people to be able to hide all factions that reach max reputation (then reshow if they loose rep)
+	RPPHMaxCtr = Turbine.UI.Lotro.CheckBox();
+	RPPHMaxCtr:SetParent( _G.wRP );
+	RPPHMaxCtr:SetText( L["RPPHMaxHide"] );
+	RPPHMaxCtr:SetSize( _G.wRP:GetWidth() - 10, 20 );
+	RPPHMaxCtr:SetPosition( 45, 65 );
+	RPPHMaxCtr:SetFont( Turbine.UI.Lotro.Font.TrajanPro16 );
+	RPPHMaxCtr:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
+	RPPHMaxCtr:SetForeColor( Color["yellow"] );
+	RPPHMaxCtr:SetChecked( HideMaxReps );
+
+	RPPHMaxCtr.CheckedChanged = function( sender, args )
+		HideMaxReps = RPPHMaxCtr:IsChecked();
+			write( "Hide maxed out reps: "..tostring( HideMaxReps ) );
+		SaveSettings();
+	end
+--]]
 
 	-- **v Set the reputation listbox v**
 	RPListBox = Turbine.UI.ListBox();
 	RPListBox:SetParent( _G.wRP );
 	RPListBox:SetZOrder( 1 );
-	RPListBox:SetPosition( 20, RPlbltext:GetTop()+RPlbltext:GetHeight()+5 );
-	RPListBox:SetSize( _G.wRP:GetWidth()-40, _G.wRP:GetHeight()-95 );
+	RPListBox:SetPosition( 20, RPlbltext:GetTop() + RPlbltext:GetHeight() + 5 );
+	RPListBox:SetSize( _G.wRP:GetWidth() - 40, _G.wRP:GetHeight() - 95 );
 	RPListBox:SetMaxItemsPerLine( 1 );
 	RPListBox:SetOrientation( Turbine.UI.Orientation.Horizontal );
 	--RPListBox:SetBackColor( Color["red"] ); --debug purpose
@@ -162,11 +180,11 @@ function frmReputationWindow()
 
 	RPtxtTotal.Update = function( sender, args )
 		local parsed_text = RPtxtTotal:GetText();
-		if tonumber(parsed_text) == nil or string.find(parsed_text,"%.") ~= nil then
-			RPtxtTotal:SetText( string.sub( parsed_text, 1, string.len(parsed_text)-1 ) );
+		if tonumber( parsed_text ) == nil or string.find( parsed_text, "%." ) ~= nil then
+			RPtxtTotal:SetText( string.sub( parsed_text, 1, string.len( parsed_text ) - 1 ) );
 			--RPtxtTotal:Focus();
 			return
-		elseif string.len(parsed_text) > 1 and string.sub(parsed_text,1,1) == "0" then
+		elseif string.len( parsed_text ) > 1 and string.sub( parsed_text, 1, 1 ) == "0" then
 			RPtxtTotal:SetText( string.sub( parsed_text, 2 ) );
 			return
 		end
@@ -174,7 +192,7 @@ function frmReputationWindow()
 
 	RPbutSave = Turbine.UI.Lotro.Button();
 	RPbutSave:SetParent( RPWCtr );
-	RPbutSave:SetPosition( RPtxtTotal:GetLeft()+RPtxtTotal:GetWidth()+5, RPtxtTotal:GetTop() );
+	RPbutSave:SetPosition( RPtxtTotal:GetLeft() + RPtxtTotal:GetWidth() + 5, RPtxtTotal:GetTop() );
 	RPbutSave:SetText( L["PWSave"] );
 	RPbutSave:SetSize( RPbutSave:GetTextLength() * 10, 15 ); --Auto size with text lenght
 	--RPbutSave:SetEnabled( true );
@@ -190,31 +208,31 @@ function frmReputationWindow()
 		RPWCtr:SetVisible( false );
 		RPWCtr:SetZOrder( 0 );
 
-		factionIndex=nil;
-		for j = 1, maxfaction+maxgfaction+maxcfaction do
-			if PlayerReputation[PN][tostring(j)][TBLocale] == faction then factionIndex = j; break end
+		factionIndex = nil;
+		for j = 1, maxfaction + maxgfaction + maxcfaction do
+			if PlayerReputation[PN][tostring( j )][TBLocale] == faction then factionIndex = j; break end
 		end
 
 		for i = 1, maxrank do --number of rank in the drop down box
 			if RPCBO[i] == RPDD.label:GetText() then
 				if i <= 5 then
-					PlayerReputation[PN][tostring(factionIndex)].S = "good";
-					PlayerReputation[PN][tostring(factionIndex)].R = tostring(i);
+					PlayerReputation[PN][tostring( factionIndex )].S = "good";
+					PlayerReputation[PN][tostring( factionIndex )].R = tostring( i );
 				elseif i <= 10 then
-					PlayerReputation[PN][tostring(factionIndex)].S = "bad";
-					PlayerReputation[PN][tostring(factionIndex)].R = tostring(i-5);
+					PlayerReputation[PN][tostring( factionIndex )].S = "bad";
+					PlayerReputation[PN][tostring( factionIndex )].R = tostring( i - 5 );
 				elseif i <= 18 then
-					PlayerReputation[PN][tostring(factionIndex)].S = "guild";
-					PlayerReputation[PN][tostring(factionIndex)].R = tostring(i-10);
+					PlayerReputation[PN][tostring( factionIndex )].S = "guild";
+					PlayerReputation[PN][tostring( factionIndex )].R = tostring( i - 10 );
 				elseif i <= maxrank then
-					PlayerReputation[PN][tostring(factionIndex)].S = "chicken";
-					PlayerReputation[PN][tostring(factionIndex)].R = tostring(i-18);
+					PlayerReputation[PN][tostring( factionIndex )].S = "chicken";
+					PlayerReputation[PN][tostring( factionIndex )].R = tostring( i - 18 );
 				end
 				break
 			end
 		end
 
-		PlayerReputation[PN][tostring(factionIndex)].P = RPtxtTotal:GetText();
+		PlayerReputation[PN][tostring( factionIndex )].P = RPtxtTotal:GetText();
 		SavePlayerReputation();
 	end
 
@@ -234,31 +252,31 @@ function RefreshRPListBox()
 		-- Reputation name
 		local repLbl = Turbine.UI.Lotro.CheckBox();
 		repLbl:SetParent( RPCtr );
-		repLbl:SetText( PlayerReputation[PN][tostring(FactionOrder[i])][TBLocale] );
+		repLbl:SetText( PlayerReputation[PN][tostring( FactionOrder[i] )][TBLocale] );
 		repLbl:SetSize( RPListBox:GetWidth() - 10, 20 );
 		repLbl:SetPosition( 0, 0 );
 		repLbl:SetFont( Turbine.UI.Lotro.Font.TrajanPro16 );
 		repLbl:SetTextAlignment( Turbine.UI.ContentAlignment.MiddleLeft );
 		repLbl:SetForeColor( Color["nicegold"] );
-		repLbl:SetChecked( PlayerReputation[PN][tostring(FactionOrder[i])].V );
+		repLbl:SetChecked( PlayerReputation[PN][tostring( FactionOrder[i] )].V );
 --		repLbl:SetBackColor( Color["blue"] ); --debug purpose
 
 		repLbl.MouseClick = function( sender, args )
-			if ( args.Button == Turbine.UI.MouseButton.Right ) then
-				faction = PlayerReputation[PN][tostring(FactionOrder[i])][TBLocale];
+			if args.Button == Turbine.UI.MouseButton.Right then
+				faction = PlayerReputation[PN][tostring( FactionOrder[i] )][TBLocale];
 				RPlblFN:SetText( faction );
-				RPtxtTotal:SetText( PlayerReputation[PN][tostring(FactionOrder[i])].P );
+				RPtxtTotal:SetText( PlayerReputation[PN][tostring( FactionOrder[i] )].P );
 
 				local tr = nil;
-				local ts = PlayerReputation[PN][tostring(FactionOrder[i])].S;
-				local tra = tonumber(PlayerReputation[PN][tostring(FactionOrder[i])].R);
+				local ts = PlayerReputation[PN][tostring( FactionOrder[i] )].S;
+				local tra = tonumber( PlayerReputation[PN][tostring( FactionOrder[i] )].R );
 				if ts == "good" then tr = RPGL[tra];
 				elseif ts == "bad" then tr = RPBL[tra];
 				elseif ts == "guild" then tr = RPGGL[tra]; 
 				elseif ts == "chicken" then tr = RCCL[tra]; end
 
-				for k,v in pairs(RPCBO) do
-					if v == tr then RPDD:SetSelection(k); end
+				for k,v in pairs( RPCBO ) do
+					if v == tr then RPDD:SetSelection( k ); end
 				end
 
 				RPWCtr:SetVisible( true );
@@ -268,7 +286,7 @@ function RefreshRPListBox()
 		end
 
 		repLbl.CheckedChanged = function( sender, args )
-			PlayerReputation[PN][tostring(FactionOrder[i])].V = repLbl:IsChecked();
+			PlayerReputation[PN][tostring( FactionOrder[i] )].V = repLbl:IsChecked();
 			SavePlayerReputation();
 		end
 

@@ -631,23 +631,25 @@ function LoadSettings()
 
 	if settings.Reputation == nil then settings.Reputation = {}; end
 	if settings.Reputation.V == nil then settings.Reputation.V = false; end
-	if settings.Reputation.A == nil then settings.Reputation.A = string.format("%.3f", tA); end
-	if settings.Reputation.R == nil then settings.Reputation.R = string.format("%.3f", tR); end
-	if settings.Reputation.G == nil then settings.Reputation.G = string.format("%.3f", tG); end
-	if settings.Reputation.B == nil then settings.Reputation.B = string.format("%.3f", tB); end
-	if settings.Reputation.X == nil then settings.Reputation.X = string.format("%.0f", tX); end
-	if settings.Reputation.Y == nil then settings.Reputation.Y = string.format("%.0f", tY); end
-	if settings.Reputation.L == nil then settings.Reputation.L = string.format("%.0f", tL); end
-	if settings.Reputation.T == nil then settings.Reputation.T = string.format("%.0f", tT); end
+	if settings.Reputation.H == nil then settings.Reputation.H = false; end-- Hide max reputations in tooltip
+	if settings.Reputation.A == nil then settings.Reputation.A = string.format( "%.3f", tA ); end-- Color alpha
+	if settings.Reputation.R == nil then settings.Reputation.R = string.format( "%.3f", tR ); end-- Color red
+	if settings.Reputation.G == nil then settings.Reputation.G = string.format( "%.3f", tG ); end-- Color green
+	if settings.Reputation.B == nil then settings.Reputation.B = string.format( "%.3f", tB ); end-- Color blue
+	if settings.Reputation.X == nil then settings.Reputation.X = string.format( "%.0f", tX ); end-- X coord
+	if settings.Reputation.Y == nil then settings.Reputation.Y = string.format( "%.0f", tY ); end-- X coord
+	if settings.Reputation.L == nil then settings.Reputation.L = string.format( "%.0f", tL ); end-- Left coord
+	if settings.Reputation.T == nil then settings.Reputation.T = string.format( "%.0f", tT ); end-- Top coord
 	ShowReputation = settings.Reputation.V;
-	RPbcAlpha = tonumber(settings.Reputation.A);
-	RPbcRed = tonumber(settings.Reputation.R);
-	RPbcGreen = tonumber(settings.Reputation.G);
-	RPbcBlue = tonumber(settings.Reputation.B);
-	_G.RPLocX = tonumber(settings.Reputation.X);
-	_G.RPLocY = tonumber(settings.Reputation.Y);
-	RPWLeft = tonumber(settings.Reputation.L);
-	RPWTop = tonumber(settings.Reputation.T)
+	HideMaxReps = settings.Reputation.H
+	RPbcAlpha = tonumber( settings.Reputation.A );
+	RPbcRed = tonumber( settings.Reputation.R );
+	RPbcGreen = tonumber( settings.Reputation.G );
+	RPbcBlue = tonumber( settings.Reputation.B );
+	_G.RPLocX = tonumber( settings.Reputation.X );
+	_G.RPLocY = tonumber( settings.Reputation.Y );
+	RPWLeft = tonumber( settings.Reputation.L );
+	RPWTop = tonumber( settings.Reputation.T )
 
 
 	if settings.GameTime == nil then settings.GameTime = {}; end
@@ -1046,6 +1048,7 @@ function SaveSettings(str)
 
 		settings.Reputation = {};
 		settings.Reputation.V = ShowReputation;
+		settings.Reputation.H = HideMaxReps;
 		settings.Reputation.A = string.format("%.3f", RPbcAlpha);
 		settings.Reputation.R = string.format("%.3f", RPbcRed);
 		settings.Reputation.G = string.format("%.3f", RPbcGreen);
