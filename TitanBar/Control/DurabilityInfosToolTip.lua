@@ -86,7 +86,7 @@ function DIRefreshListBox()
 				iFound = iFound + 1;
 
 				TheColor = Color["SSGYellow"];
-				if itemEquip[i].WearStatePts == "50" then TheColor = Color["orange"];
+				if itemEquip[i].WearStatePts == "20" then TheColor = Color["orange"];
 				elseif itemEquip[i].WearStatePts == "0" then TheColor = Color["red"]; end
 
 				-- Item control

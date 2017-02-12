@@ -580,8 +580,8 @@ function ChangeWearState(value)
 
 	if WearState == 0 then itemEquip[value].WearStatePts = 0; -- undefined
 	elseif WearState == 3 then itemEquip[value].WearStatePts = 0; -- Broken / cassé
-	elseif WearState == 1 then itemEquip[value].WearStatePts = 50; -- Damaged / endommagé
-	elseif WearState == 4 then itemEquip[value].WearStatePts = 75; -- Worn / usé
+	elseif WearState == 1 then itemEquip[value].WearStatePts = 20; -- Damaged / endommagé
+	elseif WearState == 4 then itemEquip[value].WearStatePts = 99; -- Worn / usé
 	elseif WearState == 2 then itemEquip[value].WearStatePts = 100; end -- Pristine / parfait
 
 	UpdateDurabilityInfos();
@@ -852,12 +852,12 @@ function LoadEquipmentTable()
 		["RangedWeapon"] = Turbine.Gameplay.Equipment.RangedWeapon; --no 18
 		["CraftTool"] = Turbine.Gameplay.Equipment.CraftTool; --no 19
 		["Class"] = Turbine.Gameplay.Equipment.Class; --no 20
-	};
+	};]]
 
-	Slots = {"Head", "Earring1", "Earring2", "Necklace", "Shoulder", "Back", "Chest", "Bracelet1", "Bracelet2",
-		"Ring1", "Ring2", "Gloves", "Legs", "Boots", "Pocket", "PrimaryWeapon", "SecondaryWeapon", "RangedWeapon",
-		"CraftTool", "Class"};
-	]]
+	Slots = {"Head", "Chest", "Legs", "Gloves", "Boots", "Shoulder", "Back", "Left Bracelet", "Right Bracelet",
+		"Necklace", "Left Ring", "Right Ring", "Left Earring", "Right Earring", "Pocket", "Primary Weapon", "Secondary Weapon", "Ranged Weapon",
+		"Craft Tool", "Class"};
+	--]]
 	EquipSlots = {
 		Turbine.Gameplay.Equipment.Head, --no 1
 		Turbine.Gameplay.Equipment.Chest, --no 2

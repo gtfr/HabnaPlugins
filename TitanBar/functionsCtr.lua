@@ -445,57 +445,54 @@ end
 function GetEquipmentInfos()
 	LoadEquipmentTable();
 	PlayerEquipment = Player:GetEquipment();
-	if PlayerEquipment == nil then write("no equipment, returning"); return end --Remove when Player Equipment info are available before plugin is loaded
+	if PlayerEquipment == nil then write("<rgb=#FF3333>No equipment, returning.</rgb>"); return end --Remove when Player Equipment info are available before plugin is loaded
 	
 	itemEquip = {};
 	itemScore, numItems = 0, 0;
 	Wq = 4; -- weight Quality
 	Wd = 1; -- weight Durability
 	
-	for i = 1, 20 do
-		local PlayerEquipItem = PlayerEquipment:GetItem( EquipSlots[i] );
+	for i, v in ipairs( EquipSlots ) do
+		local PlayerEquipItem = PlayerEquipment:GetItem( v );
 		itemEquip[i] = Turbine.UI.Lotro.ItemControl( PlayerEquipItem );
 	
 		-- Item Name, WearState, Quality & Durability
 		if PlayerEquipItem ~= nil then
 			itemEquip[i].Item = true;
 			itemEquip[i].Name = PlayerEquipItem:GetName();
-
+			itemEquip[i].Slot = Slots[i];--Debug
+			
 			local Quality = PlayerEquipItem:GetQuality();
 			
 			--itemEquip[i].Quality = Quality;
-			if Quality == 0 then Quality = 0; -- undefined
-			elseif Quality == 5 then Quality = 10; -- Common
-			elseif Quality == 4 then Quality = 20; -- Uncommon
-			elseif Quality == 3 then Quality = 30; -- Incomparable
-			elseif Quality == 2 then Quality = 40; -- Rare
-			elseif Quality == 1 then Quality = 50; end -- Legendary
---				write("Quality of "..itemEquip[i].Name.." is "..Quality.." (undefined/Legendary/Rare/Incomparable/Uncommon/Common)");-- Debugging
+			if Quality == 0 then Quality = 0; vQuality = "0 (undefined)"; -- undefined
+			elseif Quality == 5 then Quality = 10; vQuality = "10 (Common)"; -- Common
+			elseif Quality == 4 then Quality = 20; vQuality = "20 (Uncommon)"; -- Uncommon
+			elseif Quality == 3 then Quality = 30; vQuality = "30 (Incomparable)"; -- Incomparable
+			elseif Quality == 2 then Quality = 40; vQuality = "40 (Rare)"; -- Rare
+			elseif Quality == 1 then Quality = 50; vQuality = "50 (Legendary)"; end -- Legendary
 
 			local Durability = PlayerEquipItem:GetDurability();
-			--itemEquip[i].Durability = Durability;
-			if Durability == 0 then Durability = 0; -- undefined
-			elseif Durability == 7 then Durability = 10; -- Weak / Faible
-			elseif Durability == 1 then Durability = 20; -- Substantial
-			elseif Durability == 2 then Durability = 30; -- Brittle / Fragile
-			elseif Durability == 3 then Durability = 40; -- Normal
-			elseif Durability == 4 then Durability = 50; -- Tough / Robuste
-			elseif Durability == 5 then Durability = 60; -- Flimsy / Fragile ??
-			elseif Durability == 6 then Durability = 70; end -- Indestructible
---				write("Durability of "..itemEquip[i].Name.." is "..Durability.." (undefined/Substantial/Brittle/Normal/Tough/Flimsy/Indestructible/Weak)");-- Debugging
+			if Durability == 0 then Durability = 0; vDurability = "0 (undefined)";-- undefined
+			elseif Durability == 7 then Durability = 10; vDurability = "10 (Weak)"; -- Weak / Faible
+			elseif Durability == 1 then Durability = 20; vDurability = "20 (Substantial)"; -- Substantial
+			elseif Durability == 2 then Durability = 30; vDurability = "30 (Brittle)"; -- Brittle / Fragile
+			elseif Durability == 3 then Durability = 40; vDurability = "40 (Normal)"; -- Normal
+			elseif Durability == 4 then Durability = 50; vDurability = "50 (Tough)"; -- Tough / Robuste
+			elseif Durability == 5 then Durability = 60; vDurability = "60 (Flimsy)"; -- Flimsy / Fragile ??
+			elseif Durability == 6 then Durability = 70; vDurability = "70 (Indestructible)"; end -- Indestructible
 
 			itemEquip[i].Score = round( ( Wq * Quality * 7 + Wd * Durability * 5 ) / ( 3.5 * ( Wq + Wd ) ) );
---				write("Score of "..itemEquip[i].Name.." is "..itemEquip[i].Score);-- Debugging
 			
-			local WearState = PlayerEquipItem:GetWearState();
-			itemEquip[i].WearState = WearState;
-			if WearState ~= 0 then numItems = numItems + 1; end -- Undefined item must not be count (Pocket item are as Undefined Wear State, they are indestructible)
-			if WearState == 0 then itemEquip[i].WearStatePts = 0; -- undefined
-			elseif WearState == 3 then itemEquip[i].WearStatePts = 0; -- Broken / cassé
-			elseif WearState == 1 then itemEquip[i].WearStatePts = 20; -- Damaged / endommagé
-			elseif WearState == 4 then itemEquip[i].WearStatePts = 99; -- Worn / usé
-			elseif WearState == 2 then itemEquip[i].WearStatePts = 100; end -- Pristine / parfait
---				write("WearState of "..itemEquip[i].Name.." is "..WearState.." (undefined/Damaged/Pristine/Broken/Worn) which is about "..itemEquip[i].WearStatePts.."% of max");-- Debugging
+			itemEquip[i].WearState = PlayerEquipItem:GetWearState();
+			if itemEquip[i].WearState == 0 then itemEquip[i].WearStatePts = 0; -- undefined
+			elseif itemEquip[i].WearState == 3 then itemEquip[i].WearStatePts = 0; -- Broken / cassé
+			elseif itemEquip[i].WearState == 1 then itemEquip[i].WearStatePts = 20; -- Damaged / endommagé
+			elseif itemEquip[i].WearState == 4 then itemEquip[i].WearStatePts = 99; -- Worn / usé
+			elseif itemEquip[i].WearState == 2 then itemEquip[i].WearStatePts = 100; end -- Pristine / parfait
+			if itemEquip[ i ].WearState ~= 0 then-- undefined items shouldn't be counted
+				numItems = numItems + 1;
+			end
 						
 			itemEquip[i].BImgID = PlayerEquipItem:GetBackgroundImageID();
 			itemEquip[i].QImgID = PlayerEquipItem:GetQualityImageID();
@@ -506,6 +503,10 @@ function GetEquipmentInfos()
 			itemEquip[i].wsHandler = AddCallback(PlayerEquipItem, "WearStateChanged", function(sender, args) ChangeWearState(i); end);
 			--itemEquip[i].ieHandler = AddCallback(PlayerEquipItem, "ItemEquipped", function(sender, args) UpdateEquipsInfos(i); end); --Add when each item can trigger this event
 			--itemEquip[i].iuHandler = AddCallback(PlayerEquipItem, "ItemUnequipped", function(sender, args) UpdateEquipsInfos(i); end); --Add when each item can trigger this event
+			
+			if _G.Debug then
+				write( "<rgb=#00FF00>"..numItems.."</rgb> / <rgb=#FF0000>"..i.."</rgb>: <rgb=#6969FF>"..itemEquip[i].Slot..":</rgb> \"<rgb=#CECECE>"..itemEquip[i].Name.."</rgb>\" is of "..vQuality.." quality and "..vDurability.." durability with a wear state of "..itemEquip[i].WearState.." ("..itemEquip[i].WearStatePts.."%) for an overall score of: "..itemEquip[i].Score );--Summary debug line for all stuff in here
+			end
 		else
 			itemEquip[i].Item = false;
 			itemEquip[i].Name = "zEmpty";
@@ -514,6 +515,10 @@ function GetEquipmentInfos()
 			itemEquip[i].Score = 0;
 			itemEquip[i].WearState = 0;
 			itemEquip[i].WearStatePts = 0;
+			
+			if _G.Debug then
+				write( "<rgb=#FF0000>"..i.."</rgb>: <rgb=#6969FF>"..Slots[i]..":</rgb> <rgb=#FF3333>NO ITEM</rgb>" );
+			end
 		end
 	end
 end
@@ -564,13 +569,13 @@ function LoadPlayerMoney()
 	_G.SCM = wallet[PN].Show;
 	_G.SCMA = wallet[PN].ShowToAll;
 
---[[
-	--Convert wallet --Removed 2017-02-07 (after 2012-08-18)
+
+	--Convert wallet --Removed 2017-02-07 (after 2012-08-18) --Restored 2017-10-02 (was causing "Invalid Data Scope" bug)
 	local tGold, tSilver, tCopper, bOk;
 	for k,v in pairs(wallet) do
-		if wallet[k].Gold ~= nil then bOk = true; tGold = tonumber(wallet[k].Gold); wallet[k].Gold = nil; end
-		if wallet[k].Silver ~= nil then bOk = true; tSilver = tonumber(wallet[k].Silver); wallet[k].Silver = nil;end
-		if wallet[k].Copper ~= nil then bOk = true; tCopper = tonumber(wallet[k].Copper); wallet[k].Copper = nil;
+		if wallet[k].Gold ~= nil then bOk = true; tGold = tonumber( wallet[k].Gold ); wallet[k].Gold = nil; end
+		if wallet[k].Silver ~= nil then bOk = true; tSilver = tonumber( wallet[k].Silver ); wallet[k].Silver = nil;end
+		if wallet[k].Copper ~= nil then bOk = true; tCopper = tonumber( wallet[k].Copper ); wallet[k].Copper = nil;
 		if tCopper < 10 then tCopper = "0".. tCopper; end end
 
 		if bOk then
@@ -591,8 +596,7 @@ function LoadPlayerMoney()
 			wallet[k].Money = tostring(strdata);
 		end
 	end
-]]
-	--
+
 	--Statistics section
 	local DDate = Turbine.Engine.GetDate();
 	DOY = tostring(DDate.DayOfYear);

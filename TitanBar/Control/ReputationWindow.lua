@@ -126,7 +126,7 @@ function frmReputationWindow()
 	RPlblRank = Turbine.UI.Label(); -- Rank label
 	RPlblRank:SetParent( RPWCtr );
 	RPlblRank:SetFont( Turbine.UI.Lotro.Font.TrajanPro16 );
-	RPlblRank:SetPosition( RPlblFN:GetLeft(), RPlblFN:GetTop()+RPlblFN:GetHeight()+10 );
+	RPlblRank:SetPosition( RPlblFN:GetLeft()+100, RPlblFN:GetTop()+RPlblFN:GetHeight()+10 );
 	RPlblRank:SetText( L["IFCR"] );
 	RPlblRank:SetSize( RPlblRank:GetTextLength() * 9, 15 ); --Auto size with text length
 	RPlblRank:SetForeColor( Color["rustedgold"] );

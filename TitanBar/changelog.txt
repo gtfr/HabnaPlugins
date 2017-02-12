@@ -13,6 +13,13 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 ====================================================================================================
+v1.30.10 (Febuary 11, 2017)
+
+Fixed:
+- "Invalid Data Scope": https://github.com/Technical-13/HabnaPlugins/issues/7
+- Item durability more accurate on toolbar load: https://github.com/Technical-13/HabnaPlugins/issues/8
+
+====================================================================================================
 v1.30.08 (Febuary 9, 2017)
 
 New:
