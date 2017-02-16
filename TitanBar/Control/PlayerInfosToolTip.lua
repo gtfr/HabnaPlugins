@@ -864,9 +864,8 @@ function GetData()
 		FateValue:SetText(PlayerAtt:GetFate());
 		
 		Rtg = round(PlayerAtt:GetFinesse());
-		str = get_percentage("Finesse", Rtg, curLvl);
+		str = str = string.format("%.1f", 100/(1+(1190*curLvl/(Rtg*3))));
 		FinesseValue:SetText(Rtg .. " (" .. str .. "%)");
-		if Capped == 1 then FinesseValue:SetForeColor(Color["yellow"]); Capped = 0; end
 		-- STATISTICS END --
 		
 		-- MITIGATIONS
@@ -916,9 +915,8 @@ function GetData()
 		
 		-- DEFENCE --
 		Rtg = round(PlayerAtt:GetBaseCriticalHitAvoidance());
-		str = string.format("%.1f", 1/(1+100/(Rtg/curLvl)*100));
+		str = string.format("%.1f", 100/(1+(100*curLvl/Rtg)));
 		CritDefValue:SetText(Rtg .. " (" .. str .. "%)");
-		if Capped == 1 then CritDefValue:SetForeColor(Color["yellow"]); Capped = 0; end
 		
 		Rtg = round(PlayerAtt:GetBaseResistance());
 		str = get_percentage("Resistance", Rtg, curLvl);
@@ -976,12 +974,6 @@ RatingsData = {
 		dp = {0, 0.1},
 		K = {1330},
 		dRL = {0, 1330/9}
-	},
-	Finesse = {					-- Finesse
-		S = 1,
-		dp = { 0, 0.1 },
-		K = {1190/3},
-		dRL = { 0, 105 }
 	},
 	OffDam = {					-- Offence Damage (Linear)
 		levSegStart = { 1, 21, 31, 41, 51, 61, 71, 81, 91, 101 }, 
@@ -1064,7 +1056,6 @@ RatingsData = {
 		return string.format("%.1f", answer);
 	elseif Attribute == "CritHit" then Ratings = RatingsData.CritHit;
 	elseif Attribute == "DevasHit" then Ratings = RatingsData.DevasHit;
-	elseif Attribute == "Finesse" then Ratings = RatingsData.Finesse;
 	elseif Attribute == "OffDam" then -- linear
 		Ratings = RatingsData.OffDam;
 		local i = #Ratings.levSegStart;
