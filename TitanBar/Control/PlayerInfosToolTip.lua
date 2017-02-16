@@ -864,7 +864,7 @@ function GetData()
 		FateValue:SetText(PlayerAtt:GetFate());
 		
 		Rtg = round(PlayerAtt:GetFinesse());
-		str = str = string.format("%.1f", 100/(1+(1190*curLvl/(Rtg*3))));
+		str = string.format("%.1f", 100/(1+(1190*curLvl/(Rtg*3))));
 		FinesseValue:SetText(Rtg .. " (" .. str .. "%)");
 		-- STATISTICS END --
 		
