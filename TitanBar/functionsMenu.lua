@@ -47,11 +47,7 @@ function ShowHideDestinyPoints()
 	SaveSettings( false );
 	ImportCtr( "DP" );
 	if ShowDestinyPoints then
-		--write( "TitanBar: Showing Destiny Points");
-		--ImportCtr( "DP" );
 		DP["Ctr"]:SetBackColor( Turbine.UI.Color( DPbcAlpha, DPbcRed, DPbcGreen, DPbcBlue ) );
-	--else
-		--write( "TitanBar: Hiding Destiny Points");
 	end
 	DP["Ctr"]:SetVisible( ShowDestinyPoints );
 end
@@ -64,11 +60,7 @@ function ShowHideShards()
 	SaveSettings( false );
 	ImportCtr( "SP" );
 	if ShowShards then
-		--write( "TitanBar: Showing Shards");
-		--ImportCtr( "SP" );
 		SP["Ctr"]:SetBackColor( Turbine.UI.Color( SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue ) );
-	--else
-		--write( "TitanBar: Hiding Shards");
 	end
 	SP["Ctr"]:SetVisible( ShowShards );
 end
@@ -81,11 +73,7 @@ function ShowHideSkirmishMarks()
 	SaveSettings( false );
 	ImportCtr( "SM" );
 	if ShowSkirmishMarks then
-		--write( "TitanBar: Showing Skirmish marks");
-		--ImportCtr( "SM" );
 		SM["Ctr"]:SetBackColor( Turbine.UI.Color( SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue ) );
-	--else
-		--write( "TitanBar: Hiding Skirmish marks");
 	end
 	SM["Ctr"]:SetVisible( ShowSkirmishMarks );
 end
@@ -98,14 +86,25 @@ function ShowHideMithrilCoins()
 	SaveSettings( false );
 	ImportCtr( "MC" );
 	if ShowMithrilCoins then
-		--write( "TitanBar: Showing Skirmish marks");
-		--ImportCtr( "SM" );
 		MC["Ctr"]:SetBackColor( Turbine.UI.Color( MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue ) );
-	--else
-		--write( "TitanBar: Hiding Skirmish marks");
 	end
 	MC["Ctr"]:SetVisible( ShowMithrilCoins );
 end
+-- **^
+-- **v Show/Hide Yule Tokens v**
+--[[
+function ShowHideYuleTokens()
+	ShowYuleTokens = not ShowYuleTokens;
+	settings.YuleTokens.V = ShowYuleTokens;
+	settings.YuleTokens.W = string.format("%.0f", _G.YTWhere);
+	SaveSettings( false );
+	ImportCtr( "YT" );
+	if ShowYuleTokens then
+		YT["Ctr"]:SetBackColor( Turbine.UI.Color( YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue ) );
+	end
+	YT["Ctr"]:SetVisible( ShowYuleTokens );
+end
+--]]
 -- **^
 -- **v Show/Hide Tokens of Hytbold v**
 function ShowHideHytboldTokens()
@@ -115,11 +114,7 @@ function ShowHideHytboldTokens()
 	SaveSettings( false );
 	ImportCtr( "HT" );
 	if ShowHytboldTokens then
-		--write( "TitanBar: Showing Skirmish marks");
-		--ImportCtr( "SM" );
 		HT["Ctr"]:SetBackColor( Turbine.UI.Color( HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue ) );
-	--else
-		--write( "TitanBar: Hiding Skirmish marks");
 	end
 	HT["Ctr"]:SetVisible( ShowHytboldTokens );
 end
@@ -132,11 +127,7 @@ function ShowHideMedallions()
 	SaveSettings( false );
 	ImportCtr( "MP" );
 	if ShowMedallions then
-		--write( "TitanBar: Showing Medallions");
-		--ImportCtr( "MP" );
 		MP["Ctr"]:SetBackColor( Turbine.UI.Color( MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue ) );
-	--else
-		--write( "TitanBar: Hiding Medallions");
 	end
 	MP["Ctr"]:SetVisible( ShowMedallions );
 end
@@ -149,11 +140,7 @@ function ShowHideSeals()
 	SaveSettings( false );
 	ImportCtr( "SL" );
 	if ShowSeals then
-		--write( "TitanBar: Showing ShowSeals");
-		--ImportCtr( "SL" );
 		SL["Ctr"]:SetBackColor( Turbine.UI.Color( SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue ) );
-	--else
-		--write( "TitanBar: Hiding ShowSeals");
 	end
 	SL["Ctr"]:SetVisible( ShowSeals );
 end
@@ -166,11 +153,7 @@ function ShowHideCommendations()
 	SaveSettings( false );
 	ImportCtr( "CP" );
 	if ShowCommendations then
-		--write( "TitanBar: Showing Commendations");
-		--ImportCtr( "CP" );
 		CP["Ctr"]:SetBackColor( Turbine.UI.Color( CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue ) );
-	--else
-		--write( "TitanBar: Hiding Commendations");
 	end
 	CP["Ctr"]:SetVisible( ShowCommendations );
 end
@@ -183,11 +166,8 @@ function ShowHideLOTROPoints()
 	SaveSettings( false );
 	ImportCtr( "LP" );
 	if ShowLOTROPoints then
-		--write( "TitanBar: Showing LOTRO Points");
-		--ImportCtr( "LP" );
 		LP["Ctr"]:SetBackColor( Turbine.UI.Color( LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue ) );
 	else
-		--write( "TitanBar: Hiding LOTRO Points");
 		if _G.frmLP then wLP:Close(); end
 	end
 	LP["Ctr"]:SetVisible( ShowLOTROPoints );
@@ -199,11 +179,9 @@ function ShowHideBackpackInfos()
 	settings.BagInfos.V = ShowBagInfos;
 	SaveSettings( false );
 	if ShowBagInfos then
-		--write( "TitanBar: Showing backpack infos");
 		ImportCtr( "BI" );
 		BI["Ctr"]:SetBackColor( Turbine.UI.Color( BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue ) );
 	else
-		--write( "TitanBar: Hiding backpack infos");
 		RemoveCallback(backpack, "ItemAdded");
 		RemoveCallback(backpack, "ItemRemoved");
 		if _G.frmBI then wBI:Close(); end
@@ -218,11 +196,9 @@ function ShowHidePlayerInfos()
 	settings.PlayerInfos.V = ShowPlayerInfos;
 	SaveSettings( false );
 	if ShowPlayerInfos then
-		--write( "TitanBar: Showing player infos");
 		ImportCtr( "PI" );
 		PI["Ctr"]:SetBackColor( Turbine.UI.Color( PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue ) );
 	else
-		--write( "TitanBar: Hiding player infos");
 		RemoveCallback(Player, "LevelChanged");
 		RemoveCallback(Player, "NameChanged");
 		RemoveCallback(Turbine.Chat, "Received", XPcb);
@@ -237,15 +213,12 @@ function ShowHideEquipInfos()
 	settings.EquipInfos.V = ShowEquipInfos;
 	SaveSettings( false );
 	if ShowEquipInfos then
-		--write( "TitanBar: Showing equipment infos");
 		GetEquipmentInfos();
 		AddCallback(PlayerEquipment, "ItemEquipped", function(sender, args) if ShowEquipInfos then GetEquipmentInfos(); UpdateEquipsInfos(); end end);
 		AddCallback(PlayerEquipment, "ItemUnequipped", function(sender, args) ItemUnEquippedTimer:SetWantsUpdates( true ); end); --Workaround
-		--AddCallback(PlayerEquipment, "ItemUnequipped", function(sender, args) if ShowEquipInfos then GetEquipmentInfos(); UpdateEquipsInfos(); end if ShowDurabilityInfos then GetEquipmentInfos(); UpdateDurabilityInfos(); end end);
 		ImportCtr( "EI" );
 		EI["Ctr"]:SetBackColor( Turbine.UI.Color( EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue ) );
 	else
-		--write( "TitanBar: Hiding equipment infos");
 		RemoveCallback(PlayerEquipment, "ItemEquipped");
 		RemoveCallback(PlayerEquipment, "ItemUnequipped");
 		if _G.frmEI then wEI:Close(); end
@@ -260,15 +233,12 @@ function ShowHideDurabilityInfos()
 	settings.DurabilityInfos.V = ShowDurabilityInfos;
 	SaveSettings( false );
 	if ShowDurabilityInfos then
-		--write( "TitanBar: Showing durability infos");
 		GetEquipmentInfos();
 		AddCallback(PlayerEquipment, "ItemEquipped", function(sender, args) if ShowEquipInfos then GetEquipmentInfos(); UpdateEquipsInfos(); end if ShowDurabilityInfos then GetEquipmentInfos(); UpdateDurabilityInfos(); end end);
 		AddCallback(PlayerEquipment, "ItemUnequipped", function(sender, args) ItemUnEquippedTimer:SetWantsUpdates( true ); end); --Workaround
-		--AddCallback(PlayerEquipment, "ItemUnequipped", function(sender, args) if ShowEquipInfos then GetEquipmentInfos(); UpdateEquipsInfos(); end if ShowDurabilityInfos then GetEquipmentInfos(); UpdateDurabilityInfos(); end end);
 		ImportCtr( "DI" );
 		DI["Ctr"]:SetBackColor( Turbine.UI.Color( DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue ) );
 	else
-		--write( "TitanBar: Hiding durability infos");
 		RemoveCallback(PlayerEquipment, "ItemEquipped");
 		RemoveCallback(PlayerEquipment, "ItemUnequipped");
 		if _G.frmDI then wDI:Close(); end
@@ -283,11 +253,9 @@ function ShowHideTrackItems()
 	settings.TrackItems.V = ShowTrackItems;
 	SaveSettings( false );
 	if ShowTrackItems then
-		--write( "TitanBar: Showing tracked items");
 		ImportCtr( "TI" );
 		TI["Ctr"]:SetBackColor( Turbine.UI.Color( TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue ) );
 	else
-		--write( "TitanBar: Hiding tracked items");
 		if _G.frmTI then wTI:Close(); end
 	end
 	TI["Ctr"]:SetVisible( ShowTrackItems );
@@ -300,11 +268,9 @@ function ShowHideInfamy()
 	settings.Infamy.V = ShowInfamy;
 	SaveSettings( false );
 	if ShowInfamy then
-		--write( "TitanBar: Showing Infamy");
 		ImportCtr( "IF" );
 		IF["Ctr"]:SetBackColor( Turbine.UI.Color( IFbcAlpha, IFbcRed, IFbcGreen, IFbcBlue ) );
 	else
-		--write( "TitanBar: Hiding Infamy");
 		RemoveCallback(Turbine.Chat, "Received", IFcb);
 		if _G.frmIF then wIF:Close(); end
 	end
@@ -318,11 +284,9 @@ function ShowHideVault()
 	settings.Vault.V = ShowVault;
 	SaveSettings( false );
 	if ShowVault then
-		--write( "TitanBar: Showing vault");
 		ImportCtr( "VT" );
 		VT["Ctr"]:SetBackColor( Turbine.UI.Color( VTbcAlpha, VTbcRed, VTbcGreen, VTbcBlue ) );
 	else
-		--write( "TitanBar: Hiding vault");
 		RemoveCallback(vaultpack, "CountChanged");
 		if _G.frmVT then wVT:Close(); end
 	end
@@ -336,11 +300,9 @@ function ShowHideSharedStorage()
 	settings.SharedStorage.V = ShowSharedStorage;
 	SaveSettings( false );
 	if ShowSharedStorage then
-		--write( "TitanBar: Showing Shared Storage");
 		ImportCtr( "SS" );
 		SS["Ctr"]:SetBackColor( Turbine.UI.Color( SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue ) );
 	else
-		--write( "TitanBar: Hiding Shared Storage");
 		RemoveCallback(sspack, "CountChanged");
 		if _G.frmSS then wSS:Close(); end
 	end
@@ -354,11 +316,9 @@ function ShowHideBank()
 	settings.Bank.V = ShowBank;
 	SaveSettings( false );
 	if ShowBank then
-		--write( "TitanBar: Showing Bank");
 		ImportCtr( "BK" );
 		BK["Ctr"]:SetBackColor( Turbine.UI.Color( BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue ) );
 	else
-		--write( "TitanBar: Hiding Bank");
 	end
 	BK["Ctr"]:SetVisible( ShowBank );
 	opt_BK:SetChecked( ShowBank );
@@ -370,11 +330,9 @@ function ShowHideDayNight()
 	settings.DayNight.V = ShowDayNight;
 	SaveSettings( false );
 	if ShowDayNight then
-		--write( "TitanBar: Showing Day & Night");
 		ImportCtr( "DN" );
 		DN["Ctr"]:SetBackColor( Turbine.UI.Color( DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue ) );
 	else
-		--write( "TitanBar: Hiding Day & Night");
 		if _G.frmDN then wDN:Close(); end
 	end
 	DN["Ctr"]:SetVisible( ShowDayNight );
@@ -387,11 +345,9 @@ function ShowHideReputation()
 	settings.Reputation.V = ShowReputation;
 	SaveSettings( false );
 	if ShowReputation then
-		--write( "TitanBar: Showing reputation");
 		ImportCtr( "RP" );
 		RP["Ctr"]:SetBackColor( Turbine.UI.Color( RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue ) );
 	else
-		--write( "TitanBar: Hiding reputation");
 		RemoveCallback(Turbine.Chat, "Received", RPcb);
 		if _G.frmRP then wRP:Close(); end
 	end
@@ -409,7 +365,6 @@ function ShowHidePlayerLoc()
 		ImportCtr( "PL" );
 		PL["Ctr"]:SetBackColor( Turbine.UI.Color( PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue ) );
 	else
-		--write( "TitanBar: Hiding player location");
 		RemoveCallback(Turbine.Chat, "Received", PLcb);
 	end
 	PL["Ctr"]:SetVisible( ShowPlayerLoc );
@@ -422,11 +377,9 @@ function ShowHideGameTime()
 	settings.GameTime.V = ShowGameTime;
 	SaveSettings( false );
 	if ShowGameTime then
-		--write( "TitanBar: Showing time");
 		ImportCtr( "GT" );
 		GT["Ctr"]:SetBackColor( Turbine.UI.Color( GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue ) );
 	else
-		--write( "TitanBar: Hiding time");
 		if _G.frmGT then wGT:Close(); end
 	end
 	GT["Ctr"]:SetVisible( ShowGameTime );
@@ -467,19 +420,14 @@ end
 -- **^
 --**v Unload TitanBar v**
 function UnloadTitanBar()
-	--write( "TitanBar was unloaded" );
 	Turbine.PluginManager.LoadPlugin( 'TitanBar Unloader' ); --workaround
-	--Turbine.PluginManager.UnloadScriptState( 'TitanBar' );
 end
 --**^
 --**v Reload TitanBar v**
 function ReloadTitanBar()
 	settings.TitanBar.Z = true;
 	SaveSettings( false );
-	--write("TitanBar was reloaded"); --Debug purpose
 	Turbine.PluginManager.LoadPlugin( 'TitanBar Reloader' ); --workaround
-	--UnloadTitanBar();
-	--Turbine.PluginManager.LoadPlugin( 'TitanBar' );
 end
 --**^
 --**v About TitanBar v**

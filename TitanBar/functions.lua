@@ -192,6 +192,11 @@ function ShowToolTipWin( ToShow )
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["MCh"], L["EIt2"], L["EIt3"] );
+--[[	elseif ToShow == "YT" then -- Yule Tokens
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["YTh"], L["EIt2"], L["EIt3"] ); --]]
 	elseif ToShow == "HT" then -- Tokens of Hytbold
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
@@ -232,11 +237,11 @@ function ShowToolTipWin( ToShow )
 		h = 80;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["MStorage"], L["EIt1"], L["EIt2"], L["EIt3"] );
-	--elseif ToShow == "BK" then -- Bank
-		--if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
-		--h = 80;
-		--if not TBTop then y = h; end
-		--TTW = createToolTipWin( x, y, w, h, bblTo, L["MBank"], L["EIt1"], L["EIt2"], L["EIt3"] );
+--[[	elseif ToShow == "BK" then -- Bank
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 80;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["MBank"], L["EIt1"], L["EIt2"], L["EIt3"] ); --]]
 	elseif ToShow == "DN" then -- Day & Night
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 80;
@@ -404,6 +409,17 @@ function UpdateMithril()
 		AjustIcon( "MC" );
 	end
 end
+--**^
+--**v Update Yule Tokens currency on TitanBar v**
+--[[
+function UpdateYule()
+	if _G.YTWhere == 1 then
+		YT["Lbl"]:SetText( GetCurrency( pwYule ) );
+		YT["Lbl"]:SetSize( YT["Lbl"]:GetTextLength() * NM, CTRHeight ); --Auto size with text length
+		AjustIcon( "YT" );
+	end
+end
+--]]
 --**^
 --**v Update Tokens of Hytbold currency on TitanBar v**
 function UpdateHytboldTokens()
@@ -767,6 +783,7 @@ function ChangeColor(tColor)
 		if ShowShards then SP["Ctr"]:SetBackColor( tColor ); end
 		if ShowSkirmishMarks then SM["Ctr"]:SetBackColor( tColor ); end
 		if ShowMithrilCoins then MC["Ctr"]:SetBackColor( tColor ); end
+--		if ShowYuleTokens then YT["Ctr"]:SetBackColor( tColor ); end
 		if ShowHytboldTokens then HT["Ctr"]:SetBackColor( tColor ); end
 		if ShowMedallions then MP["Ctr"]:SetBackColor( tColor ); end
 		if ShowSeals then SL["Ctr"]:SetBackColor( tColor ); end
@@ -800,6 +817,7 @@ function ChangeColor(tColor)
 		if sFrom == "SP" then SP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "SM" then SM["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "MC" then MC["Ctr"]:SetBackColor( tColor ); end
+--		if sFrom == "YT" then YT["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "HT" then HT["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "MP" then MP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "SL" then SL["Ctr"]:SetBackColor( tColor ); end
@@ -852,7 +870,7 @@ function LoadEquipmentTable()
 		["RangedWeapon"] = Turbine.Gameplay.Equipment.RangedWeapon; --no 18
 		["CraftTool"] = Turbine.Gameplay.Equipment.CraftTool; --no 19
 		["Class"] = Turbine.Gameplay.Equipment.Class; --no 20
-	};]]
+	};--]]
 
 	Slots = {"Head", "Chest", "Legs", "Gloves", "Boots", "Shoulder", "Back", "Left Bracelet", "Right Bracelet",
 		"Necklace", "Left Ring", "Right Ring", "Left Earring", "Right Earring", "Pocket", "Primary Weapon", "Secondary Weapon", "Ranged Weapon",
@@ -972,6 +990,12 @@ function AjustIcon(str)
 		MC["Ctr"]:SetSize( MC["Icon"]:GetLeft() + TBIconSize, CTRHeight );
 		MC["Icon"]:SetSize( TBIconSize, TBIconSize );
 		MC["Icon"]:SetStretchMode( 3 );
+--[[	elseif str == "YT" then
+		YT["Icon"]:SetStretchMode( 1 );
+		YT["Icon"]:SetPosition( YT["Lbl"]:GetLeft() + YT["Lbl"]:GetWidth() + 3, Y );
+		YT["Ctr"]:SetSize( YT["Icon"]:GetLeft() + TBIconSize, CTRHeight );
+		YT["Icon"]:SetSize( TBIconSize, TBIconSize );
+		YT["Icon"]:SetStretchMode( 3 );--]]
 	elseif str == "HT" then
 		HT["Icon"]:SetStretchMode( 1 );
 		HT["Icon"]:SetPosition( HT["Lbl"]:GetLeft() + HT["Lbl"]:GetWidth() + 3, Y );
@@ -1044,12 +1068,12 @@ function AjustIcon(str)
 		SS["Ctr"]:SetSize( TBIconSize, CTRHeight );
 		SS["Icon"]:SetSize( TBIconSize, TBIconSize );
 		SS["Icon"]:SetStretchMode( 3 );
-	--elseif str == "BK" then
-		--BK["Icon"]:SetStretchMode( 1 );
-		--BK["Icon"]:SetPosition( 0, Y );
-		--BK["Ctr"]:SetSize( TBIconSize, CTRHeight );
-		--BK["Icon"]:SetSize( TBIconSize, TBIconSize );
-		--BK["Icon"]:SetStretchMode( 3 );
+--[[	elseif str == "BK" then
+		BK["Icon"]:SetStretchMode( 1 );
+		BK["Icon"]:SetPosition( 0, Y );
+		BK["Ctr"]:SetSize( TBIconSize, CTRHeight );
+		BK["Icon"]:SetSize( TBIconSize, TBIconSize );
+		BK["Icon"]:SetStretchMode( 3 ); --]]
 	elseif str == "DN" then
 		DN["Icon"]:SetStretchMode( 1 );
 		DN["Icon"]:SetPosition( DN["Lbl"]:GetLeft() + DN["Lbl"]:GetWidth(), Y + 1 );

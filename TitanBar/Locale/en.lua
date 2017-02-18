@@ -22,6 +22,7 @@ L["MDP"] = "Destiny points";
 L["MSP"] = "Shard";
 L["MSM"] = "Mark";
 L["MMC"] = "Mithril Coin";
+L["MYT"] = "Yule Token";
 L["MHT"] = "Token of Hytbold";
 L["MMP"] = "Medallion";
 L["MSL"] = "Seal";
@@ -336,6 +337,9 @@ L["SMh"] = "These are your skirmish marks";
 
 -- Mithril Coins control
 L["MCh"] = "These are your Mitril coins";
+
+-- Yule Tokens control
+L["YTh"] = "These are your Yule Tokens";
 
 -- Tokens of hytbold control
 L["HTh"] = "These are your Tokens of Hytbold";

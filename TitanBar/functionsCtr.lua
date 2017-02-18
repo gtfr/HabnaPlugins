@@ -41,62 +41,37 @@ function ImportCtr( value )
 	elseif value == "SM" then --Skirmish Marks
 		if _G.SMWhere == 1 then	import (AppCtrD.."SkirmishMarks"); SM["Ctr"]:SetPosition( _G.SMLocX, _G.SMLocY ); end
 		if _G.SMWhere ~= 3 then
-			--LoadPlayerWallet();
-			--PlayerMark = PlayerCurrency["Mark"];
-			--AddCallback(PlayerMark, "QuantityChanged", function(sender, args) UpdateMarks(); end);
 			UpdateMarks();
-		--else
-			--RemoveCallback(PlayerMark, "QuantityChanged");
 		end
 	elseif value == "MC" then --Mithril Coins
 		if _G.MCWhere == 1 then	import (AppCtrD.."MithrilCoins"); MC["Ctr"]:SetPosition( _G.MCLocX, _G.MCLocY ); end
 		if _G.MCWhere ~= 3 then
-			--LoadPlayerWallet();
-			--PlayerMark = PlayerCurrency["Mark"];
-			--AddCallback(PlayerMark, "QuantityChanged", function(sender, args) UpdateMarks(); end);
 			UpdateMithril();
-		--else
-			--RemoveCallback(PlayerMark, "QuantityChanged");
 		end
+--[[	elseif value == "YT" then --Yule Tokens
+		if _G.YTWhere == 1 then	import (AppCtrD.."YuleTokens"); YT["Ctr"]:SetPosition( _G.YTLocX, _G.YTLocY ); end
+		if _G.YTWhere ~= 3 then
+			UpdateYule();
+		end --]]
 	elseif value == "HT" then --Tokens of Hytbold
 		if _G.HTWhere == 1 then	import (AppCtrD.."TokensOfHytbold"); HT["Ctr"]:SetPosition( _G.HTLocX, _G.HTLocY ); end
 		if _G.HTWhere ~= 3 then
-			--LoadPlayerWallet();
-			--PlayerMark = PlayerCurrency["Mark"];
-			--AddCallback(PlayerMark, "QuantityChanged", function(sender, args) UpdateMarks(); end);
 			UpdateHytboldTokens();
-		--else
-			--RemoveCallback(PlayerMark, "QuantityChanged");
 		end
 	elseif value == "MP" then --Medallions
 		if _G.MPWhere == 1 then	import (AppCtrD.."Medallions"); MP["Ctr"]:SetPosition( _G.MPLocX, _G.MPLocY ); end
 		if _G.MPWhere ~= 3 then
-			--LoadPlayerWallet();
-			--PlayerMedallion = PlayerCurrency["Medallion"];
-			--AddCallback(PlayerMedallion, "QuantityChanged", function(sender, args) UpdateMedallions(); end);
 			UpdateMedallions();
-		--else
-			--RemoveCallback(PlayerMedallion, "QuantityChanged");
 		end		
 	elseif value == "SL" then --Seals
 		if _G.SLWhere == 1 then	import (AppCtrD.."Seals"); SL["Ctr"]:SetPosition( _G.SLLocX, _G.SLLocY ); end
 		if _G.SLWhere ~= 3 then
-			--LoadPlayerWallet();
-			--PlayerSeals = PlayerCurrency["Seals"];
-			--AddCallback(PlayerSeals, "QuantityChanged", function(sender, args) UpdateSeals(); end);
 			UpdateSeals();
-		--else
-			--RemoveCallback(PlayerSeals, "QuantityChanged", CPcb);
 		end
 	elseif value == "CP" then --Commendations
 		if _G.CPWhere == 1 then	import (AppCtrD.."Commendations"); CP["Ctr"]:SetPosition( _G.CPLocX, _G.CPLocY ); end
 		if _G.CPWhere ~= 3 then
-			--LoadPlayerWallet();
-			--PlayerCommendation = PlayerCurrency["Commendation"];
-			--AddCallback(PlayerCommendation, "QuantityChanged", function(sender, args) UpdateCommendations(); end);
 			UpdateCommendations();
-		--else
-			--RemoveCallback(PlayerCommendation, "QuantityChanged");
 		end		
 	elseif value == "BI" then --Backpack Infos
 		import (AppCtrD.."BagInfos");
@@ -174,7 +149,7 @@ function ImportCtr( value )
 					elseif GLocale == "fr" then plPattern = "Canal ([%a%p%u%l%s]*) %-";
 					elseif GLocale == "de" then plPattern = "Chat%-Kanal '([%a%p%u%l%s]*) %-"; end
 					
-					local tmpPL = string.match(plMess,plPattern);
+					local tmpPL = string.match( plMess, plPattern );
 					if tmpPL ~= nil then
 						--write("'".. tmpPL .. "'"); -- debug purpose
 						pLLoc = tmpPL;
@@ -954,6 +929,7 @@ function UpdateCurrency(str)
 	if str == pwCommendation and ShowCommendations then UpdateCommendations(); end
 	
 	if str == pwMithril and ShowMithril then UpdateMithril(); end
+--	if str == pwYule and ShowYule then UpdateYule(); end
 	if str == pwHytbold and ShowHytboldTokens then UpdateHytboldTokens(); end
 	if str == pwAmrothSilverPiece and ShowAmrothSilverPiece then UpdateAmrothSilverPiece(); end
 	if str == pwStarsofMerit and ShowStarsofMerit then UpdateStarsofMerit(); end

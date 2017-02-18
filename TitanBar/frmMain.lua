@@ -165,6 +165,7 @@ function frmMain()
 			if _G.SPWhere ~= 3 then ImportCtr( "SP" ); end
 			if _G.SMWhere ~= 3 then ImportCtr( "SM" ); end
 			if _G.MCWhere ~= 3 then ImportCtr( "MC" ); end
+--			if _G.YTWhere ~= 3 then ImportCtr( "YT" ); end
 			if _G.HTWhere ~= 3 then ImportCtr( "HT" ); end
 			if _G.MPWhere ~= 3 then ImportCtr( "MP" ); end
 			if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end
@@ -177,8 +178,8 @@ function frmMain()
 			-- AU3 MARKER 1 END
 		end
 	else
-		-- Disable DurabilityInfos, EquipInfos, DestinyPoints, Shard, SkirmishMark, Medallion, Seal, Vault, SharedStoreage. (Infos not usefull in Monster Play)
-		ShowDurabilityInfos, ShowEquipInfos, ShowDestinyPoints, ShowShards, ShowSkirmishMarks, ShowHytboldTokens, ShowMedallions, ShowSeals, ShowVault, ShowSharedStorage, ShowReputation = false, false, false, false, false, false, false, false, false, false, false;
+		-- Disable DurabilityInfos, EquipInfos, DestinyPoints, Shard, YuleTokens, SkirmishMark, Medallion, Seal, Vault, SharedStoreage. (Infos not usefull in Monster Play)
+		ShowDurabilityInfos, ShowEquipInfos, ShowDestinyPoints, ShowShards,--[[ ShowYuleTokens, ]]ShowSkirmishMarks, ShowHytboldTokens, ShowMedallions, ShowSeals, ShowVault, ShowSharedStorage, ShowReputation = false, false, false, false,--[[  false, ]]false, false, false, false, false, false, false;
 		-- AU3 MARKER 2 - DO NOT REMOVE
 	    ShowAmrothSilverPiece = false
 		ShowStarsofMerit = false
@@ -308,6 +309,7 @@ function frmMain()
 				if _G.SPWhere ~= 3 then ImportCtr( "SP" ); end
 				if _G.SMWhere ~= 3 then ImportCtr( "SM" ); end
 				if _G.MCWhere ~= 3 then ImportCtr( "MC" ); end
+--				if _G.YTWhere ~= 3 then ImportCtr( "YT" ); end
 				if _G.HTWhere ~= 3 then ImportCtr( "HT" ); end
 				if _G.MPWhere ~= 3 then ImportCtr( "MP" ); end
 				if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end

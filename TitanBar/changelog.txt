@@ -12,21 +12,22 @@ Known Issues:
 - Reputations for Dol Amroth don't max out at first rank.
 - Some low res icons; searching for replacements.
 
-====================================================================================================
-v1.30.10 (Febuary 11, 2017)
+=================================================
+v1.30.11 (Febuary 11, 2017)
 
 Fixed:
 - "Invalid Data Scope": https://github.com/Technical-13/HabnaPlugins/issues/7
 - Item durability more accurate on toolbar load: https://github.com/Technical-13/HabnaPlugins/issues/8
+- DurabilityInfoToolTip color coding feature is wrong.: https://github.com/Technical-13/HabnaPlugins/issues/10
 
-====================================================================================================
+=================================================
 v1.30.08 (Febuary 9, 2017)
 
 New:
 - Reputations will now automatically be hidden from the toolTip when at max
 	- Option to toggle this feature on/off not currently WAI (haven't figured out how to restore previous selection)
 
-====================================================================================================
+=================================================
 v1.30.07 (Febuary 8, 2017)
 
 Bug fixes:
@@ -39,13 +40,13 @@ Bug fixes:
 
 Known issues:
 -  https://github.com/Technical-13/HabnaPlugins/issues
-====================================================================================================
+=================================================
 v1.30.04 (Febuary 7, 2017)
 
 Bug fix:
 - Fixed https://github.com/Technical-13/HabnaPlugins/issues/4 :: "Set back color" bug
 
-====================================================================================================
+=================================================
 v1.30.02 (Febuary 5, 2017)
 
 New:

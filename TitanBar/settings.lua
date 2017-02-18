@@ -6,7 +6,7 @@
 function LoadSettings()
 	if GLocale == "de" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsDE" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwHytbold = "Scherbe", "Zeichen", "Medaillon", "Siegel", "Anerkennung", "Mithril-M\195\188nze", "M\195\188nze von Hytbold";
+		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Scherbe", "Zeichen", "Medaillon", "Siegel", "Anerkennung", "Mithril-M\195\188nze",--[[ "Yule Token", ]]"M\195\188nze von Hytbold";
 		-- AU3 MARKER 1 - DO NOT REMOVE
 	    pwAmrothSilverPiece = "Amroth-Silberstck"
 		pwStarsofMerit = "Stern des Verdienst"
@@ -15,7 +15,7 @@ function LoadSettings()
 		-- AU3 MARKER 1 END
 	elseif GLocale == "en" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsEN" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwHytbold = "Shard", "Mark", "Medallion", "Seal", "Commendation", "Mithril Coin", "Token of Hytbold";
+		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Shard", "Mark", "Medallion", "Seal", "Commendation", "Mithril Coin",--[[ "Yule Token", ]]"Token of Hytbold";
 		-- AU3 MARKER 2 - DO NOT REMOVE
 	    pwAmrothSilverPiece = "Amroth Silver Piece"
 		pwStarsofMerit = "Star of Merit"
@@ -24,7 +24,7 @@ function LoadSettings()
 		-- AU3 MARKER 2 END
 	elseif GLocale == "fr" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsFR" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwHytbold = "Eclat", "Marque", "M\195\169daillon", "Sceau", "Citation", "Pi\195\168ce de mithril", "Jeton d'Hytbold";
+		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Eclat", "Marque", "M\195\169daillon", "Sceau", "Citation", "Pi\195\168ce de mithril",--[[ "Yule Token", ]]"Jeton d'Hytbold";
 		-- AU3 MARKER 3 - DO NOT REMOVE
 	    pwAmrothSilverPiece = "Pice d'argent d'Amroth"
 		pwStarsofMerit = "Star of Merit"
@@ -262,7 +262,27 @@ function LoadSettings()
 	_G.MCLocY = tonumber(settings.MithrilCoins.Y);
 	_G.MCWhere = tonumber(settings.MithrilCoins.W);
 	if _G.MCWhere == 3 and ShowMithrilCoins then _G.MCWhere = 1; settings.MithrilCoins.W = string.format("%.0f", _G.MCWhere); end --Remove after Oct, 15th 2013
-
+	
+--[[
+	if settings.YuleTokens == nil then settings.YuleTokens = {}; end
+	if settings.YuleTokens.V == nil then settings.YuleTokens.V = false; end
+	if settings.YuleTokens.A == nil then settings.YuleTokens.A = string.format("%.3f", tA); end
+	if settings.YuleTokens.R == nil then settings.YuleTokens.R = string.format("%.3f", tR); end
+	if settings.YuleTokens.G == nil then settings.YuleTokens.G = string.format("%.3f", tG); end
+	if settings.YuleTokens.B == nil then settings.YuleTokens.B = string.format("%.3f", tB); end
+	if settings.YuleTokens.X == nil then settings.YuleTokens.X = string.format("%.0f", tX); end
+	if settings.YuleTokens.Y == nil then settings.YuleTokens.Y = string.format("%.0f", tY); end
+	if settings.YuleTokens.W == nil then settings.YuleTokens.W = string.format("%.0f", tW); end
+	ShowMithrilCoins = settings.YuleTokens.V;
+	YTbcAlpha = tonumber(settings.YuleTokens.A);
+	YTbcRed = tonumber(settings.YuleTokens.R);
+	YTbcGreen = tonumber(settings.YuleTokens.G);
+	YTbcBlue = tonumber(settings.YuleTokens.B);
+	_G.YTLocX = tonumber(settings.YuleTokens.X);
+	_G.YTLocY = tonumber(settings.YuleTokens.Y);
+	_G.YTWhere = tonumber(settings.YuleTokens.W);
+	if _G.YTWhere == 3 and ShowYuleTokens then _G.YTWhere = 1; settings.YuleTokens.W = string.format("%.0f", _G.YTWhere); end
+--]]
 	
 	if settings.HytboldTokens == nil then settings.HytboldTokens = {}; end
 	if settings.HytboldTokens.V == nil then settings.HytboldTokens.V = false; end
@@ -863,6 +883,17 @@ function SaveSettings(str)
 		settings.MithrilCoins.X = string.format("%.0f", _G.MCLocX);
 		settings.MithrilCoins.Y = string.format("%.0f", _G.MCLocY);
 		settings.MithrilCoins.W = string.format("%.0f", _G.MCWhere);
+
+--[[
+		settings.YuleTokens = {};
+		settings.YuleTokens.V = ShowYuleTokens;
+		settings.YuleTokens.A = string.format("%.3f", YTbcAlpha);
+		settings.YuleTokens.R = string.format("%.3f", YTbcRed);
+		settings.YuleTokens.G = string.format("%.3f", YTbcGreen);
+		settings.YuleTokens.B = string.format("%.3f", YTbcBlue);
+		settings.YuleTokens.X = string.format("%.0f", _G.YTLocX);
+		settings.YuleTokens.Y = string.format("%.0f", _G.YTLocY);
+		settings.YuleTokens.W = string.format("%.0f", _G.YTWhere);--]]
 		
 		settings.HytboldTokens = {};
 		settings.HytboldTokens.V = ShowHytboldTokens;
@@ -1133,6 +1164,7 @@ function ResetSettings()
 	ShowShards, SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue, _G.SPLocX, _G.SPLocY, _G.SPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Shards Control
 	ShowSkirmishMarks, SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue, _G.SMLocX, _G.SMLocY, _G.SMWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Skirmish marks Control
 	ShowMithrilCoins, MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue, _G.MCLocX, _G.MCLocY, _G.MCWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Mithril Coins Control
+--	ShowYuleTokens, YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue, _G.TLocX, _G.YTLocY, _G.YTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Yule Tokens Control
 	ShowHytboldTokens, HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue, _G.HTLocX, _G.HTLocY, _G.HTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Tokens of Hytbold Control
 	ShowMedallions, MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue, _G.MPLocX, _G.MPLocY, _G.MPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Medallions Control
 	ShowCommendations, CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue, _G.CPLocX, _G.CPLocY, _G.CPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Commendations Control
@@ -1201,6 +1233,13 @@ function ReplaceCtr()
 	_G.MCLocX = oldLocX * screenWidth;
 	settings.MithrilCoins.X = string.format("%.0f", _G.MCLocX);
 	if ShowMithrilCoins and _G.MCWhere == 1 then MC["Ctr"]:SetPosition( _G.MCLocX, _G.MCLocY ); end
+	
+--[[
+	oldLocX = settings.YuleTokens.X / oldScreenWidth;
+	_G.YTLocX = oldLocX * screenWidth;
+	settings.YuleTokens.X = string.format("%.0f", _G.YTLocX);
+	if ShowYuleTokens and _G.YTWhere == 1 then YT["Ctr"]:SetPosition( _G.YTLocX, _G.YTLocY ); end
+--]]
 
 	ldLocX = settings.HytboldTokens.X / oldScreenWidth;
 	_G.HTLocX = oldLocX * screenWidth;

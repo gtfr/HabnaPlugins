@@ -265,6 +265,9 @@ function ResizeControls()
 	if ShowMithrilCoins then MC["Ctr"]:SetHeight( CTRHeight ); MC["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("MC");
 	end
+--[[	if ShowYuleTokens then YT["Ctr"]:SetHeight( CTRHeight ); YT["Lbl"]:SetHeight( CTRHeight );
+		AjustIcon("YT");
+	end--]]
 	if ShowHytboldTokens then HT["Ctr"]:SetHeight( CTRHeight ); HT["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("HT");
 	end
@@ -338,6 +341,7 @@ function ResizeIcon()
 	if ShowShards then AjustIcon("SP"); end
 	if ShowSkirmishMarks then AjustIcon("SM"); end
 	if ShowMithrilCoins then AjustIcon("MC"); end
+--	if ShowYuleTokens then AjustIcon("YT"); end
 	if ShowHytboldTokens then AjustIcon("HT"); end
 	if ShowMedallions then AjustIcon("MP"); end
 	if ShowSeals then AjustIcon("SL"); end

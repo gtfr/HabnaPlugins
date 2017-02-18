@@ -22,6 +22,7 @@ L["MDP"] = "Schicksalspunkte";
 L["MSP"] = "Scherben";
 L["MSM"] = "Zeichen";
 L["MMC"] = "Mithril-M\195\188nzen";
+L["MYT"] = "Yule-Zeichen";
 L["MHT"] = "Zeichen der Hytbold";
 L["MMP"] = "Medaillon";
 L["MSL"] = "Siegel";
@@ -336,6 +337,9 @@ L["SMh"] = "Deine Scharm\195\188tzel-Zeichen";--Thx DaBear78! --Scharmützel
 
 -- Mithril Coins control
 L["MCh"] = "Deine Mithril-M\195\188nzen";
+
+-- Yule Tokens control
+L["YTh"] = "Dies sind eure Yule-Tokens";
 
 -- Tokens of hytbold control
 L["HTh"] = "Deine M\195\188nzen von Hytbold";

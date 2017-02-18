@@ -10,7 +10,7 @@ function frmWalletWindow()
 	-- **v Set some window stuff v**
 	_G.wWI = Turbine.UI.Lotro.Window();
 	if GLocale == "de" then w = 300; else w = 280; end
-	_G.wWI:SetSize( w, 380 ); --280x260
+	_G.wWI:SetSize( w, 420 ); --280x260
     _G.wWI:SetPosition( WIWLeft, WIWTop );
 	_G.wWI:SetText( L["MBag"] );
 	_G.wWI:SetVisible( true );
@@ -119,7 +119,7 @@ function frmWalletWindow()
 	
 	for k,v in pairs(WICBO) do WIDD:AddItem(v, k); end
 
-	--** Turbine Point box
+	--** LOTRO Point box
 	LPWCtr = Turbine.UI.Control();
 	LPWCtr:SetParent( WIWCtr );
 	LPWCtr:SetPosition( WIListBox:GetLeft(), WIDD:GetTop()+WIDD:GetHeight()+10 );
@@ -202,6 +202,10 @@ function frmWalletWindow()
 			_G.MCWhere = SelIndex; settings.MithrilCoins.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowMithrilCoins then ShowHideMithrilCoins(); end
 			else if ShowMithrilCoins then ShowHideMithrilCoins(); end end
+--[[		elseif wcur == L["MYT"] then
+			_G.YTWhere = SelIndex; settings.YuleTokens.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowYuleTokens then ShowHideYuleTokens(); end
+			else if ShowYuleTokens then ShowHideYuleTokens(); end end --]]
 		elseif wcur == L["MHT"] then
 			_G.HTWhere = SelIndex; settings.HytboldTokens.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowHytboldTokens then ShowHideHytboldTokens(); end
@@ -292,15 +296,16 @@ function RefreshWIListBox()
 				WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, WIDD:GetTop()+WIDD:GetHeight()+10 );
 
 				if wcur == L["MGSC"] then tw = _G.MIWhere;
-				elseif wcur == L["MDP"] then tw = _G.DPWhere;
+				elseif wcur == L["MDP"] then tw = _G.DPWhere; -- Destiny Points
 				elseif wcur == L["MSP"] then tw = _G.SPWhere;
 				elseif wcur == L["MSM"] then tw = _G.SMWhere;
-				elseif wcur == L["MMC"] then tw = _G.MCWhere;
+				elseif wcur == L["MMC"] then tw = _G.MCWhere; -- Mithril Coins
+--				elseif wcur == L["MYT"] then tw = _G.YTWhere; -- Yule Tokens
 				elseif wcur == L["MHT"] then tw = _G.HTWhere;
 				elseif wcur == L["MMP"] then tw = _G.MPWhere;
 				elseif wcur == L["MSL"] then tw = _G.SLWhere;
 				elseif wcur == L["MCP"] then tw = _G.CPWhere;
-				elseif wcur == L["MLP"] then tw = _G.LPWhere; LPWCtr:SetVisible( true ); WItxtLOTROPTS:SetText( _G.LOTROPTS ); WItxtLOTROPTS:Focus(); WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, LPWCtr:GetTop()+LPWCtr:GetHeight()+10);
+				elseif wcur == L["MLP"] then tw = _G.LPWhere; LPWCtr:SetVisible( true ); WItxtLOTROPTS:SetText( _G.LOTROPTS ); WItxtLOTROPTS:Focus(); WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, LPWCtr:GetTop()+LPWCtr:GetHeight()+10); -- LOTRO Points
 				-- AU3 MARKER 2 - DO NOT REMOVE
 				elseif wcur == L["MASP"] then tw = _G.ASPWhere;
 				elseif wcur == L["MSOM"] then tw = _G.SOMWhere;

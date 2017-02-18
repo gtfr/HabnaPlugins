@@ -53,6 +53,7 @@ _G.WalletItem = {
 	Mark = { Icon = 0x4111c446 },
 	Medallion = { Icon = 0x4111c43d },
 	Mithril = { Icon = 0x411348E1 },
+--	YuleToken = { Icon = 0x411348E1 },--MITHRIL COIN ICON UNTIL I CAN FIND THE CORRECT ONE
 	Seal = { Icon = 0x4111c449 }, 
 	Shard = { Icon = 0x41110d5b },
 	SkirmishMarks = { Icon = 0x4111c446 },
@@ -85,6 +86,9 @@ _G.Wallet = {
 						  String = { DE = , EN = , FR = }, -- NAME = String.EN
 						  ToolTip = { DE = , EN = , FR = } },
 	Medallion = { Icon = 0x4111c43d,
+						  String = { DE = , EN = , FR = }, -- NAME = String.EN
+						  ToolTip = { DE = , EN = , FR = } },
+	YuleToken = { Icon = 0x411348E1, -- CURRENTLY SAME AS MITHRIL COIN
 						  String = { DE = , EN = , FR = }, -- NAME = String.EN
 						  ToolTip = { DE = , EN = , FR = } },
 	Mithril = { Icon = 0x411348E1,

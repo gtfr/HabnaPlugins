@@ -12,6 +12,7 @@ function UnloadControl( value )
 		if ShowShards then _G.SPWhere = 3; ShowHideShards(); end
 		if ShowSkirmishMarks then _G.SMWhere = 3; ShowHideSkirmishMarks(); end
 		if ShowMithrilCoins then _G.MCWhere = 3; ShowHideMithrilCoins(); end
+--		if ShowYuleTokens then _G.YTWhere = 3; ShowHideYuleTokens(); end
 		if ShowHytboldTokens then _G.HTWhere = 3; ShowHideHytboldTokens(); end
 		if ShowMedallions then _G.MPWhere = 3; ShowHideMedallions(); end
 		if ShowSeals then _G.SLWhere = 3; ShowHideSeals(); end
@@ -43,6 +44,7 @@ function UnloadControl( value )
 		elseif _G.sFromCtr == "SP" then	_G.SPWhere = 3; ShowHideShards();
 		elseif _G.sFromCtr == "SM" then	_G.SMWhere = 3; ShowHideSkirmishMarks();
 		elseif _G.sFromCtr == "MC" then	_G.MCWhere = 3; ShowHideMithrilCoins();
+--		elseif _G.sFromCtr == "YT" then	_G.YTWhere = 3; ShowHideYuleTokens();
 		elseif _G.sFromCtr == "HT" then	_G.HTWhere = 3; ShowHideHytboldTokens();
 		elseif _G.sFromCtr == "MP" then	_G.MPWhere = 3; ShowHideMedallions();
 		elseif _G.sFromCtr == "SL" then	_G.SLWhere = 3; ShowHideSeals();
@@ -82,63 +84,36 @@ function BGColor( cmd, value )
 	elseif cmd == "match" then
 		tA, tR, tG, tB = bcAlpha, bcRed, bcGreen, bcBlue;
 	elseif cmd == "apply" then
-		if _G.sFromCtr == "WI" then
-			tA, tR, tG, tB = WIbcAlpha, WIbcRed, WIbcGreen, WIbcBlue;
-		elseif _G.sFromCtr == "Money" then
-			tA, tR, tG, tB = MIbcAlpha, MIbcRed, MIbcGreen, MIbcBlue;
-		elseif _G.sFromCtr == "DP" then
-			tA, tR, tG, tB = DPbcAlpha, DPbcRed, DPbcGreen, DPbcBlue;
-		elseif _G.sFromCtr == "SP" then
-			tA, tR, tG, tB = SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue;
-		elseif _G.sFromCtr == "SM" then
-			tA, tR, tG, tB = SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue;
-		elseif _G.sFromCtr == "MC" then
-			tA, tR, tG, tB = MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue;
-		elseif _G.sFromCtr == "HT" then
-			tA, tR, tG, tB = HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue;
-		elseif _G.sFromCtr == "MP" then
-			tA, tR, tG, tB = MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue;
-		elseif _G.sFromCtr == "SL" then
-			tA, tR, tG, tB = SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue;
-		elseif _G.sFromCtr == "CP" then
-			tA, tR, tG, tB = CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue;
-		elseif _G.sFromCtr == "BI" then
-			tA, tR, tG, tB = BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue;
-		elseif _G.sFromCtr == "PI" then
-			tA, tR, tG, tB = PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue;
-		elseif _G.sFromCtr == "EI" then
-			tA, tR, tG, tB = EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue;
-		elseif _G.sFromCtr == "DI" then
-			tA, tR, tG, tB = DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue;
-		elseif _G.sFromCtr == "TI" then
-			tA, tR, tG, tB = TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue;
-		elseif _G.sFromCtr == "IF" then
-			tA, tR, tG, tB = IFbcAlpha, IFbcRed, IFbcGreen, IFbcBlue;
-		elseif _G.sFromCtr == "VT" then
-			tA, tR, tG, tB = VTbcAlpha, VTbcRed, VTbcGreen, VTbcBlue;
-		elseif _G.sFromCtr == "SS" then
-			tA, tR, tG, tB = SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue;
-		--elseif _G.sFromCtr == "BK" then
-			--tA, tR, tG, tB = BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue;
-		elseif _G.sFromCtr == "DN" then
-			tA, tR, tG, tB = DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue;
-		elseif _G.sFromCtr == "RP" then
-			tA, tR, tG, tB = RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue;
-		elseif _G.sFromCtr == "LP" then
-			tA, tR, tG, tB = LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue;
-		elseif _G.sFromCtr == "PL" then
-			tA, tR, tG, tB = PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue;
-		elseif _G.sFromCtr == "GT" then
-			tA, tR, tG, tB = GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue;
+		if _G.sFromCtr == "WI" then tA, tR, tG, tB = WIbcAlpha, WIbcRed, WIbcGreen, WIbcBlue;
+		elseif _G.sFromCtr == "Money" then tA, tR, tG, tB = MIbcAlpha, MIbcRed, MIbcGreen, MIbcBlue;
+		elseif _G.sFromCtr == "DP" then tA, tR, tG, tB = DPbcAlpha, DPbcRed, DPbcGreen, DPbcBlue;
+		elseif _G.sFromCtr == "SP" then tA, tR, tG, tB = SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue;
+		elseif _G.sFromCtr == "SM" then tA, tR, tG, tB = SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue;
+		elseif _G.sFromCtr == "MC" then tA, tR, tG, tB = MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue;
+--		elseif _G.sFromCtr == "YT" then tA, tR, tG, tB = YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue;
+		elseif _G.sFromCtr == "HT" then tA, tR, tG, tB = HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue;
+		elseif _G.sFromCtr == "MP" then tA, tR, tG, tB = MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue;
+		elseif _G.sFromCtr == "SL" then tA, tR, tG, tB = SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue;
+		elseif _G.sFromCtr == "CP" then tA, tR, tG, tB = CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue;
+		elseif _G.sFromCtr == "BI" then tA, tR, tG, tB = BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue;
+		elseif _G.sFromCtr == "PI" then tA, tR, tG, tB = PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue;
+		elseif _G.sFromCtr == "EI" then tA, tR, tG, tB = EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue;
+		elseif _G.sFromCtr == "DI" then tA, tR, tG, tB = DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue;
+		elseif _G.sFromCtr == "TI" then tA, tR, tG, tB = TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue;
+		elseif _G.sFromCtr == "IF" then tA, tR, tG, tB = IFbcAlpha, IFbcRed, IFbcGreen, IFbcBlue;
+		elseif _G.sFromCtr == "VT" then tA, tR, tG, tB = VTbcAlpha, VTbcRed, VTbcGreen, VTbcBlue;
+		elseif _G.sFromCtr == "SS" then tA, tR, tG, tB = SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue;
+--		elseif _G.sFromCtr == "BK" then tA, tR, tG, tB = BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue;
+		elseif _G.sFromCtr == "DN" then tA, tR, tG, tB = DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue;
+		elseif _G.sFromCtr == "RP" then tA, tR, tG, tB = RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue;
+		elseif _G.sFromCtr == "LP" then tA, tR, tG, tB = LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue;
+		elseif _G.sFromCtr == "PL" then tA, tR, tG, tB = PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue;
+		elseif _G.sFromCtr == "GT" then tA, tR, tG, tB = GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue;
 		-- AU3 MARKER 3 - DO NOT REMOVE
-	    elseif _G.sFromCtr == "ASP" then
-			tA, tR, tG, tB = ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue;
-		elseif _G.sFromCtr == "SOM" then
-			tA, tR, tG, tB = SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue;
-		elseif _G.sFromCtr == "CGSP" then
-			tA, tR, tG, tB = CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue;
-		elseif _G.sFromCtr == "GGB" then
-			tA, tR, tG, tB = GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue;
+		elseif _G.sFromCtr == "ASP" then tA, tR, tG, tB = ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue;
+		elseif _G.sFromCtr == "SOM" then tA, tR, tG, tB = SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue;
+		elseif _G.sFromCtr == "CGSP" then tA, tR, tG, tB = CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue;
+		elseif _G.sFromCtr == "GGB" then tA, tR, tG, tB = GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue;
 		-- AU3 MARKER 3 END
 		end
 	end
@@ -156,6 +131,8 @@ function BGColor( cmd, value )
 		if ShowSkirmishMarks then SM["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue = tA, tR, tG, tB;
 		if ShowMithrilCoins then MC["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+--[[		YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue = tA, tR, tG, tB;
+		if ShowYuleTokens then YT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end--]]
 		HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue = tA, tR, tG, tB;
 		if ShowHytboldTokens then HT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue = tA, tR, tG, tB;
@@ -180,8 +157,8 @@ function BGColor( cmd, value )
 		if ShowVault then VT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue = tA, tR, tG, tB;
 		if ShowSharedStorage then SS["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
-		--BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue = tA, tR, tG, tB;
-		--if ShowBank then BK["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+--		BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue = tA, tR, tG, tB;
+--		if ShowBank then BK["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue = tA, tR, tG, tB;
 		if ShowDayNight then DN["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue = tA, tR, tG, tB;
@@ -194,7 +171,7 @@ function BGColor( cmd, value )
 		GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue = tA, tR, tG, tB;
 		if ShowGameTime then GT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	end
 		-- AU3 MARKER 4 - DO NOT REMOVE
-	    ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = tA, tR, tG, tB;
+		ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = tA, tR, tG, tB;
 		if AmrothSilverPiece then ASP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = tA, tR, tG, tB;
 		if StarsofMerit then SOM["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
@@ -224,6 +201,9 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "MC" then
 			MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue = tA, tR, tG, tB;
 			MC["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+--[[		elseif _G.sFromCtr == "YT" then
+			YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue = tA, tR, tG, tB;
+			YT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );--]]
 		elseif _G.sFromCtr == "HT" then
 			HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue = tA, tR, tG, tB;
 			HT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
@@ -260,9 +240,9 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "SS" then
 			SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue = tA, tR, tG, tB;
 			SS["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
-		--elseif _G.sFromCtr == "BK" then
-			--BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue = tA, tR, tG, tB;
-			--BK["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+--[[		elseif _G.sFromCtr == "BK" then
+			BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue = tA, tR, tG, tB;
+			BK["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );]]
 		elseif _G.sFromCtr == "DN" then
 			DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue = tA, tR, tG, tB;
 			DN["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );

@@ -42,6 +42,7 @@ function RefreshWITTListBox()
 		elseif wttcur == L["MSP"] then ttw = _G.SPWhere; CtrIconCodeIs=WalletItem.Shard.Icon; CtrQteIs=GetCurrency( pwShard );
 		elseif wttcur == L["MSM"] then ttw = _G.SMWhere; CtrIconCodeIs=WalletItem.Mark.Icon; CtrQteIs=GetCurrency( pwMark );
 		elseif wttcur == L["MMC"] then ttw = _G.MCWhere; CtrIconCodeIs=WalletItem.Mithril.Icon; CtrQteIs=GetCurrency( pwMithril );
+--		elseif wttcur == L["MYT"] then ttw = _G.YTWhere; CtrIconCodeIs=WalletItem.YuleToken.Icon; CtrQteIs=GetCurrency( pwYule );
 		elseif wttcur == L["MHT"] then ttw = _G.HTWhere; CtrIconCodeIs=WalletItem.TokensOfHytbold.Icon; CtrQteIs=GetCurrency( pwHytbold );
 		elseif wttcur == L["MMP"] then ttw = _G.MPWhere; CtrIconCodeIs=WalletItem.Medallion.Icon; CtrQteIs=GetCurrency( pwMedallion );
 		elseif wttcur == L["MSL"] then ttw = _G.SLWhere; CtrIconCodeIs=WalletItem.Seal.Icon; CtrQteIs=GetCurrency( pwSeal );
