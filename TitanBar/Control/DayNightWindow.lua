@@ -134,7 +134,7 @@ end
 
 function ShowHelpSection(bHelp)
 	if bHelp then
-		_G.wDN:SetHeight( _G.wDN:GetHeight()+125 );
+		_G.wDN:SetHeight( _G.wDN:GetHeight() + 125 );
 	else
 		_G.wDN:SetHeight( 105 );
 	end
