@@ -325,7 +325,7 @@ function UpdateMoney()
 
 		MI["GLbl"]:SetSize( MI["GLbl"]:GetTextLength() * NM, CTRHeight ); 
             --Auto size with text length
-		MI["SLbl"]:SetSize( 3 * NM, CTRHeight ); --Auto size with text length
+		MI["SLbl"]:SetSize( 4 * NM, CTRHeight ); --Auto size with text length
 		MI["CLbl"]:SetSize( 3 * NM, CTRHeight ); --Auto size with text length
 
 		MI["GLblT"]:SetVisible( _G.STM );
@@ -348,7 +348,7 @@ function UpdateMoney()
 
 			strData1 = string.format("%.0f", SilverTot);
 			strData2 = MI["SLbl"]:GetText();
-			TextLen = 3 * NM+6;
+			TextLen = 4 * NM+6;
 			MI["SLblT"]:SetText( strData1 .. "\n" .. strData2 .. " " );
 			MI["SLblT"]:SetSize( TextLen, CTRHeight );
 
@@ -923,26 +923,26 @@ function LoadEquipmentTable()
         "Primary Weapon", "Secondary Weapon", "Ranged Weapon", "Craft Tool", 
         "Class"};
 	EquipSlots = {
-		Turbine.Gameplay.Equipment.Head, --no 1
-		Turbine.Gameplay.Equipment.Chest, --no 2
-		Turbine.Gameplay.Equipment.Legs, --no 3
-		Turbine.Gameplay.Equipment.Gloves, --no 4
-		Turbine.Gameplay.Equipment.Boots, --no 5
-		Turbine.Gameplay.Equipment.Shoulder, --no 6
-		Turbine.Gameplay.Equipment.Back, --no 7
-		Turbine.Gameplay.Equipment.Bracelet1, --no 8
-		Turbine.Gameplay.Equipment.Bracelet2, --no 9
-		Turbine.Gameplay.Equipment.Necklace, --no 10
-		Turbine.Gameplay.Equipment.Ring1, --no 11
-		Turbine.Gameplay.Equipment.Ring2, --no 12
-		Turbine.Gameplay.Equipment.Earring1, --no 13
-		Turbine.Gameplay.Equipment.Earring2, --no 14
-		Turbine.Gameplay.Equipment.Pocket, --no 15
-		Turbine.Gameplay.Equipment.PrimaryWeapon, --no 16
-		Turbine.Gameplay.Equipment.SecondaryWeapon, --no 17
-		Turbine.Gameplay.Equipment.RangedWeapon, --no 18
-		Turbine.Gameplay.Equipment.CraftTool, --no 19
-		Turbine.Gameplay.Equipment.Class, --no 20
+		Turbine.Gameplay.Equipment.Head,--						# 1
+		Turbine.Gameplay.Equipment.Chest,--						# 2
+		Turbine.Gameplay.Equipment.Legs,--						# 3
+		Turbine.Gameplay.Equipment.Gloves,--					# 4
+		Turbine.Gameplay.Equipment.Boots,--						# 5
+		Turbine.Gameplay.Equipment.Shoulder,--				# 6
+		Turbine.Gameplay.Equipment.Back,--						# 7
+		Turbine.Gameplay.Equipment.Bracelet1,--				# 8
+		Turbine.Gameplay.Equipment.Bracelet2,--				# 9
+		Turbine.Gameplay.Equipment.Necklace,--				#10
+		Turbine.Gameplay.Equipment.Ring1,--						#11
+		Turbine.Gameplay.Equipment.Ring2,--						#12
+		Turbine.Gameplay.Equipment.Earring1,--				#13
+		Turbine.Gameplay.Equipment.Earring2,--				#14
+		Turbine.Gameplay.Equipment.Pocket,--					#15
+		Turbine.Gameplay.Equipment.PrimaryWeapon,--		#16
+		Turbine.Gameplay.Equipment.SecondaryWeapon,--	#17
+		Turbine.Gameplay.Equipment.RangedWeapon,--		#18
+		Turbine.Gameplay.Equipment.CraftTool,--				#19
+		Turbine.Gameplay.Equipment.Class,--						#20
 	};
 end
 
