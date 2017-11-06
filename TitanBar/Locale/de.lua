@@ -3,21 +3,21 @@
 
 _G.L = {};
 L["TBLoad"] = "TitanBar " .. Version .. " geladenen!";
-L["TBSSCS"] = "TitanBar: Bildschirmgr\195\182\195\159e ge\195\164ndert hat, Neupositionierung Kontrollen..."; --Bildschirmgröße, geändert
+L["TBSSCS"] = "TitanBar: Bildschirmgr\195\182\195\159e ge\195\164ndert hat, Neupositionierung Kontrollen..."; --BildschirmgrÃ¶ÃŸe, geÃ¤ndert
 L["TBSSCD"] = "TitanBar: erledigt!";
-L["TBOpt"] = "Optionen sind durch einen Rechtsklick auf TitanBar verf\195\188gbar"; --verfügbar
+L["TBOpt"] = "Optionen sind durch einen Rechtsklick auf TitanBar verf\195\188gbar"; --verfÃ¼gbar
 
 --Misc
 L["NoData"] = "Keine anderen Daten in der API";
 L["NA"] = "N/A";
 --L["dmg"] = " def";--Thx DaBear78!
 L["You"] = "Du: ";--Thx DaBear78!
-L["ButDel"] = "L\195\182schen von Informationen dieser Art"; --Löschen
+L["ButDel"] = "L\195\182schen von Informationen dieser Art"; --LÃ¶schen
 --L[""] = "";
 
 -- TitanBar Menu
 L["MBag"] = "Zeige Geldbeutel";
-L["MGSC"] = "M\195\188nze"; -- Münze (Gold, Silber, Kupper)
+L["MGSC"] = "M\195\188nze"; -- MÃ¼nze (Gold, Silber, Kupper)
 L["MDP"] = "Schicksalspunkte";
 L["MSP"] = "Scherben";
 L["MSM"] = "Zeichen";
@@ -30,21 +30,21 @@ L["MCP"] = "Anerkennung";
 L["MLP"] = "LOTRO Punkte";
 L["MBI"] = "Rucksack Infos";-- Thx Wicky!
 L["MPI"] = "Spieler Infos";-- Thx Wicky!
-L["MEI"] = "Ausr\195\188stung Infos";-- Thx Wicky! -- Ausrüstung
+L["MEI"] = "Ausr\195\188stung Infos";-- Thx Wicky! -- AusrÃ¼stung
 L["MDI"] = "Haltbarkeit Infos";-- Thx DaBear78!
 L["MPL"] = "Spieler Ort";-- Thx DaBear78!
 L["MGT"] = "Uhrzeit";-- Thx Wicky!
 L["MOP"] = "Weitere Optionen";
 L["MPP"] = "Profil";
 L["MSC"] = "Shell-Befehle";-- Thx Wicky!
-L["MRA"] = "Zur\195\188cksetzen auf Standardwerte";-- Thx Wicky! -- Zurücksetzen
+L["MRA"] = "Zur\195\188cksetzen auf Standardwerte";-- Thx Wicky! -- ZurÃ¼cksetzen
 L["MUTB"] = "entfernen";-- Thx Wicky!
 L["MRTB"] = "neu laden";-- Thx Wicky!
-L["MATB"] = "\195\188ber"; -- Über
+L["MATB"] = "\195\188ber"; -- Ãœber
 L["MBG"] = "Hintergrundfarbe";-- Thx Wicky!
-L["MCL"] = "Sprache \195\164ndern ...";-- Thx Wicky! -- Ändern
+L["MCL"] = "Sprache \195\164ndern ...";-- Thx Wicky! -- Ã„ndern
 L["MCLen"] = "Englisch";
-L["MCLfr"] = "Franz\195\182sisch";-- Thx Wicky! -- Französisch
+L["MCLfr"] = "Franz\195\182sisch";-- Thx Wicky! -- FranzÃ¶sisch
 L["MCLde"] = "Deutsch";
 L["MTI"] = "Artikel verfolgen";-- Thx DaBear78!
 --L["MView"] = "Anzeigen ";-- Thx DaBear78!
@@ -56,12 +56,12 @@ L["MReputation"] = "Ruf";
 
 -- Control Menu
 L["MCU"] = "entfernen ...";-- Thx Wicky!
-L["MCBG"] = "Hintergrundfarbe dieses Elements \195\132ndern";-- Thx DaBear78! -- Ändern
+L["MCBG"] = "Hintergrundfarbe dieses Elements \195\132ndern";-- Thx DaBear78! -- Ã„ndern
 L["MTBBG"] = "\195\156bernehmen der TitanBar Hintergrundfarbe f\195\188r ...";-- Thx DaBear78!
 L["MTBBGC"] = "dieses Steuerelement";
 L["MTBBGAC"] = "alle Steuerelement";
 L["MCRBG"] = "Reset Hintergrundfarbe ...";
-L["MCABT"] = "Diese Farbe f\195\188r ...";-- Thx Wicky! --zurück
+L["MCABT"] = "Diese Farbe f\195\188r ...";-- Thx Wicky! --zurÃ¼ck
 L["MCABTA"] = "alle Steuerelement & TitanBar";
 L["MCABTTB"] = "TitanBar";
 L["MCRC"] = "Aktualisieren ...";-- Thx Wicky!
@@ -70,14 +70,14 @@ L["MCRC"] = "Aktualisieren ...";-- Thx Wicky!
 L["BWTitle"] = "Farbeinstellung";-- Thx Wicky!
 L["BWAlpha"] = "Alpha";
 L["BWCurSetColor"] = "Aktuelle Farbe";
-L["BWApply"] = " Ausgew\195\164hlte Farbe f\195\188r alle Elemente";-- Thx Wicky! --ausgewählte, für
+L["BWApply"] = " Ausgew\195\164hlte Farbe f\195\188r alle Elemente";-- Thx Wicky! --ausgewÃ¤hlte, fÃ¼r
 L["BWSave"] = "Speichern";-- Thx Wicky!
 L["BWDef"] = "Standart";-- Thx Wicky!
 L["BWBlack"] = "Schwarz";
 L["BWTrans"] = "Transparent";
 
 -- Wallet infos window
-L["WIt"] = "Rechtsklick auf eine W\195\164hrung f\195\188r die Einstellung";--Währung, für
+L["WIt"] = "Rechtsklick auf eine W\195\164hrung f\195\188r die Einstellung";--WÃ¤hrung, fÃ¼r
 L["WIot"] = "auf TitanBar";
 L["WIiw"] = "im Tooltipp";
 L["WIds"] = "Nicht mehr anzeigen";
@@ -91,7 +91,7 @@ L["MIWCM"] = "Aktuellen Char zeigen";-- Thx DaBear78!
 L["MIWCMAll"] = "Allen Charakteren zeigen";-- Thx DaBear78!
 L["MIWSSS"] = "Zeige Sitzungs-Statistik im Tooltip";-- Thx DaBear78!
 L["MIWSTS"] = "Zeige Heute-Statistik im Tooltip";-- Thx DaBear78!
-L["MIWID"] = " Brieftaschen-Info gel\195\182scht";-- Thx DaBear78! --gelöscht
+L["MIWID"] = " Brieftaschen-Info gel\195\182scht";-- Thx DaBear78! --gelÃ¶scht
 L["MIMsg"] = "Keine Brieftascheninfo gefunden";-- Thx DaBear78!
 L["MISession"] = "Sitzung";
 L["MIDaily"] = "Heute";
@@ -103,40 +103,41 @@ L["MISpent"] = "Ausgegeben";
 
 -- Vault window
 L["VTh"] = "Bankfach";-- Thx DaBear78!
-L["VTnd"] = "Es wurden keine Daten f\195\188r diesen Charakter gefunden";--für
-L["VTID"] = " vault info gel\195\182scht!"; --gelöscht
+L["VTnd"] = "Es wurden keine Daten f\195\188r diesen Charakter gefunden";--fÃ¼r
+L["VTID"] = " vault info gel\195\182scht!"; --gelÃ¶scht
 L["VTSe"] = "Suchen:"
 L["VTAll"] = "-- Alle --"
 
 -- Shared Storage window
 L["SSh"] = "gemeinsamer Lagerraum";-- Thx DaBear78!
-L["SSnd"] = "M\195\188ssen Sie Ihre gemeinsamer Lagerraum mindestens einmal \195\182ffnen";--Müssen, öffnen
+L["SSnd"] = "M\195\188ssen Sie Ihre gemeinsamer Lagerraum mindestens einmal \195\182ffnen";--MÃ¼ssen, Ã¶ffnen
 
 -- Backpack window
 L["BIh"] = "Rucksack";
-L["BID"] = " Taschen info gel\195\182scht!"; --gelöscht
+L["BID"] = " Taschen info gel\195\182scht!"; --gelÃ¶scht
 
 -- Bank window
 L["BKh"] = "Bank";-- Thx DaBear78!
 
 -- Day & Night window
-L["Dawn"] = "Morgend\195\164mmerung";--Morgendäammerung
+L["Dawn"] = "Morgend\195\164mmerung";--MorgendÃ¤ammerung
 L["Morning"] = "Vormittag";
 L["Noon"] = "Mittag";
 L["Afternoon"] = "Nachmittag";
-L["Dusk"] = "Abendr\195\182te";--Abendröte
-L["Gloaming"] = "Abendd\195\164mmerung";--Abenddämmerung
+L["Dusk"] = "Abendr\195\182te";--AbendrÃ¶te
+L["Gloaming"] = "Abendd\195\164mmerung";--AbenddÃ¤mmerung
 L["Evening"] = "Abend";
 L["Midnight"] = "Mitternacht";
 L["LateWatches"] = "Nachtwache";
-L["Foredawn"] = "Morgenr\195\182te";--Morgenröte
-L["NextT"] = "N\195\164chste Tageszeit zeigen";-- Thx DaBear78! --nächste
+L["Foredawn"] = "Morgenr\195\182te";--MorgenrÃ¶te
+L["NextT"] = "N\195\164chste Tageszeit zeigen";-- Thx DaBear78! --nÃ¤chste
 L["TAjustL"] = "Timer seed";
 
 -- Reputation window
 L["RPt"] = "Aktivieren / deaktivieren der Fraktionen\nRechtsklick um aktuellen Stand einzugeben";-- Thx DaBear78!
 L["RPnf"] = "Du verfolgst keine Fraktion!\nLinksklick um die Fraktionsliste zu sehen.";-- Thx DaBear78!
 L["RPPHMaxHide"] = "Verstecke Fraktionen mit gr\195\182\195\159ter Reputation";-- Google: https://translate.google.com/#auto/de/Hide%20factions%20at%20maximum%20reputation
+
 -- All reputation names
 L["RPTAA"] = "Die Bier-Genossenschaft";
 L["RPTEl"] = "Die Eldgang";
@@ -203,12 +204,12 @@ L["RPMSR"] = "Maximale Geltung erreicht";-- Thx DaBear78!
 L["RPGL1"] = "Neutral";
 L["RPGL2"] = "Bekannter";-- Thx DaBear78!
 L["RPGL3"] = "Freund";
-L["RPGL4"] = "Verb\195\188ndeter";--Verbündeter
+L["RPGL4"] = "Verb\195\188ndeter";--VerbÃ¼ndeter
 L["RPGL5"] = "Verwandter";
 L["RPGL6"] = "Respektiert"; -- Thx Mandraval
 L["RPGL7"] = "Verehrt"; -- Thx Mandraval
 L["RPGL8"] = "Gefeiert"; -- Thx Mandraval
-L["RPBL1"] = "Au\195\159enseiter";--Außenseiter
+L["RPBL1"] = "Au\195\159enseiter";--AuÃŸenseiter
 L["RPBL2"] = "Feind";-- Thx DaBear78!
 L["RPGG1"] = "Eingeweihter";-- Thx DaBear78!
 L["RPGG2"] = "Lehrling";-- Thx DaBear78!
@@ -228,7 +229,7 @@ L["RCCLE5"] = "Hall of Famer";
 if PlayerAlign == 1 then L["IFWTitle"] = "Ansehen"; L["IFIF"] = "Gesamtes Ansehen:";
 else L["IFWTitle"] = "Verrufenheit"; L["IFIF"] = "Gesamte Verrufenheit:"; end-- Thx DaBear78!
 L["IFCR"] = "Ihr Rang:";
-L["IFTN"] = "Punkte f\195\188r den n\195\164chsten Rang";--für, nächsten
+L["IFTN"] = "Punkte f\195\188r den n\195\164chsten Rang";--fÃ¼r, nÃ¤chsten
 
 -- GameTime window
 L["GTWTitle"] = "Lokale/Server Zeit";-- Thx DaBear78!
@@ -240,13 +241,13 @@ L["GTWRT"] = "Lokal: ";-- Thx DaBear78!
 
 -- More Options window
 L["OPWTitle"] = L["MOP"];
-L["OPHText"] = "H\195\182he:"; --Höhe
+L["OPHText"] = "H\195\182he:"; --HÃ¶he
 L["OPFText"] = "Schriftart:";
 L["OPAText"] = "Automatisch im Hintergrund:";
 L["OPAHD"] = "niemals";-- Thx DaBear78!
 L["OPAHE"] = "immer";
 L["OPAHC"] = "Nur in der Schlacht";
-L["OPIText"] = "Icon-Gr\195\182\195\159e:";-- Thx DaBear78! --Größe
+L["OPIText"] = "Icon-Gr\195\182\195\159e:";-- Thx DaBear78! --GrÃ¶ÃŸe
 L["OPTBTop"] = "Oben am Bildschirm";
 L["OPISS"] = "klein";
 L["OPISM"] = "Medium";
@@ -263,7 +264,7 @@ L["PWNFound"] = "Kein Profil gefunden";-- Thx DaBear78!
 L["PWEPN"] = "Geben Sie einen Profilnamen ein";-- Thx DaBear78!
 L["PWProfile"] = "Profil";
 L["PWLoaded"] = "geladen";
-L["PWDeleted"] = "gel\195\182scht"; --gelöscht
+L["PWDeleted"] = "gel\195\182scht"; --gelÃ¶scht
 L["PWFail"] = " kann nicht geladen werden, weil die Sprache des Spiels ist nicht die gleiche Sprache wie in diesem Profil";-- Thx DaBear78!
 L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";-- Needs translation
 L["PWDeleteFailed"] = "Failed to delete profile ";-- Needs translation
@@ -273,32 +274,32 @@ L["SCWTitle"] = "TitanBar Shell-Befehle";
 L["SCWC1"] = "Zeige TitanBar Optionen";
 L["SCWC2"] = "Entfernen TitanBar";-- Thx Wicky!
 L["SCWC3"] = "Neuladen TitanBar";-- Thx Wicky!
-L["SCWC4"] = "Zur\195\188cksetzen aller Einstellungen auf die Standardwerte";-- Thx Wicky! --Zurücksetzen
+L["SCWC4"] = "Zur\195\188cksetzen aller Einstellungen auf die Standardwerte";-- Thx Wicky! --ZurÃ¼cksetzen
 
 -- Shell commands
-L["SC0"] = "Befehl wird nicht unterst\195\188tzt";-- Thx Wicky! -- unterstützt
+L["SC0"] = "Befehl wird nicht unterst\195\188tzt";-- Thx Wicky! -- unterstÃ¼tzt
 L["SCa1"] = "optionen";
 L["SCb1"] = "opt / ";
 L["SCa2"] = "entfernen";--Thx Wicky!
 L["SCb2"] = "  u / ";
 L["SCa3"] = "neuladen";--Thx Wicky!
 L["SCb3"] = "  r / ";
-L["SCa4"] = "zur\195\188cksetzen alle";--Thx Wicky! -- zurücksetzen
+L["SCa4"] = "zur\195\188cksetzen alle";--Thx Wicky! -- zurÃ¼cksetzen
 L["SCb4"] = " ra / ";
 
 -- Durability infos window
 L["DWTitle"] = "Haltbarkeit infos";--Thx Wicky!
-L["DWLbl"] = " besch\195\164digter Gegenstand";--Thx DaBear78! --beschädigter
-L["DWLbls"] = " besch\195\164digte Gegenst\195\164nde"; --beschädigte --Gegenstände
-L["DWLblND"] = "Alle deine Gegenst\195\164nde sind 100%";--Thx DaBear78! --Gegenstände
+L["DWLbl"] = " besch\195\164digter Gegenstand";--Thx DaBear78! --beschÃ¤digter
+L["DWLbls"] = " besch\195\164digte Gegenst\195\164nde"; --beschÃ¤digte --GegenstÃ¤nde
+L["DWLblND"] = "Alle deine Gegenst\195\164nde sind 100%";--Thx DaBear78! --GegenstÃ¤nde
 L["DIIcon"] = "Symbole im Tooltipp";--Thx DaBear78!
 L["DIText"] = "Namen im Tooltip";--Thx DaBear78!
 L["DWnint"] = "Symbole & Namen sind ausgeblendet";--Thx DaBear78!
 
 -- Equipment infos window
 --L["EWTitle"] = "Ausstattung Infos";
-L["EWLbl"] = "Vom Charakter getragene Ausr\195\188stung";--Thx DaBear78! --Ausrüstung
-L["EWLblD"] = "Punkte";--Thx DaBear78! --Ausrüstung
+L["EWLbl"] = "Vom Charakter getragene Ausr\195\188stung";--Thx DaBear78! --AusrÃ¼stung
+L["EWLblD"] = "Punkte";--Thx DaBear78! --AusrÃ¼stung
 L["EWItemNP"] = " Artikel nicht vorhanden";
 --L["EWItemF"] = " Element gefunden";--Thx DaBear78!
 --L["EWItemsF"] = " Artikel gefunden";--Thx DaBear78!
@@ -307,7 +308,7 @@ L["EWST13"] = "Linker Ohrring";
 L["EWST14"] = "Rechter Ohrring";
 L["EWST10"] = "Halskette";
 L["EWST6"] = "Schultern";-- Thx Wicky!
-L["EWST7"] = "R\195\188cken";-- Thx Wicky! -- Rücken
+L["EWST7"] = "R\195\188cken";-- Thx Wicky! -- RÃ¼cken
 L["EWST2"] = "Brust";
 L["EWST8"] = "Linkes Armband";
 L["EWST9"] = "Rechtes Armband";
@@ -315,10 +316,10 @@ L["EWST11"] = "Linker Ring";
 L["EWST12"] = "Rechter Ring";
 L["EWST4"] = "Handschuhe";
 L["EWST3"] = "Beine";
-L["EWST5"] = "F\195\188sse";-- Thx Wicky! -- Füsse
+L["EWST5"] = "F\195\188sse";-- Thx Wicky! -- FÃ¼sse
 L["EWST15"] = "Beutel";
-L["EWST16"] = "Prim\195\164rwaffe";-- Thx Wicky! -- Primärwaffe
-L["EWST17"] = "Sekundarwaffe/Schild";-- Thx Wicky! --Sekundärwaffe
+L["EWST16"] = "Prim\195\164rwaffe";-- Thx Wicky! -- PrimÃ¤rwaffe
+L["EWST17"] = "Sekundarwaffe/Schild";-- Thx Wicky! --SekundÃ¤rwaffe
 L["EWST18"] = "Fernwaffe";-- Thx Wicky!
 L["EWST19"] = "Handwerkzeug";
 L["EWST20"] = "Klassenfeld";
@@ -380,9 +381,9 @@ L["Partial"] = "Teilweise";
 L["Capped"] = "Werte in GELB sind am CAP.";
 
 -- Money Infos control
-L["MGh"] = "Menge der Goldm\195\188nzen";-- Thx Wicky! -- Goldmünzen
-L["MSh"] = "Menge der Silberm\195\188nzen";-- Thx Wicky! -- Silbermünzen
-L["MCh"] = "Menge der Kupferm\195\188nzen";-- Thx Wicky! -- Kupfermünzen
+L["MGh"] = "Menge der Goldm\195\188nzen";-- Thx Wicky! -- GoldmÃ¼nzen
+L["MSh"] = "Menge der Silberm\195\188nzen";-- Thx Wicky! -- SilbermÃ¼nzen
+L["MCh"] = "Menge der Kupferm\195\188nzen";-- Thx Wicky! -- KupfermÃ¼nzen
 L["MGB"] = "Beutel mit Goldm\195\188nzen"; -- Thx Heridan!
 L["MSB"] = "Beutel mit Silberm\195\188nzen"; -- Thx Heridan!
 L["MCB"] = "Beutel mit Kupferm\195\188nzen"; -- Thx Heridan!
@@ -394,7 +395,7 @@ L["DPh"] = "Deine Schicksalspunkte";--Thx DaBear78!
 L["SPh"] = "Deine Scherben";--Thx DaBear78!
 
 -- Skirmish marks control
-L["SMh"] = "Deine Scharm\195\188tzel-Zeichen";--Thx DaBear78! --Scharmützel
+L["SMh"] = "Deine Scharm\195\188tzel-Zeichen";--Thx DaBear78! --ScharmÃ¼tzel
 
 -- Mithril Coins control
 L["MCh"] = "Deine Mithril-M\195\188nzen";
@@ -419,22 +420,22 @@ L["LPh"] = "Dies sind Ihre LOTRO Punkte";
 
 -- Bag Infos control
 --L["BIh"] = "Rucksack Informationen";
---L["BIt1"] = "belegte Pl\195\164tze / max";-- Thx DaBear78! -- Plätze
+--L["BIt1"] = "belegte Pl\195\164tze / max";-- Thx DaBear78! -- PlÃ¤tze
 L["BINI"] = "Kein Artikel wird verfolgt!\nLinksklick, um deine Artikel zu sehen."--Thx DaBear78!
 L["BIIL"] = "Artikel-Liste"
 L["BIT"] = "Aktivieren / deaktivieren Sie ein Element"
-L["BIUsed"] = " Zeige verwendet \195\188ber freie Steckpl\195\164tze";--über, Steckplätze
+L["BIUsed"] = " Zeige verwendet \195\188ber freie Steckpl\195\164tze";--Ã¼ber, SteckplÃ¤tze
 L["BIMax"] = " Zeige insgesamt Tasche Slots";
 L["BIMsg"] = "Kein Element gefunden wurde stapelbar!"
 
 -- Equipment Infos control
 L["EIh"] = "Punkte deines Equipments";-- Thx DaBear78!
-L["EIt1"] = "Linksklick zum \195\150ffnen des Optionen-Fensters";-- Thx DaBear78! -- öffnen
+L["EIt1"] = "Linksklick zum \195\150ffnen des Optionen-Fensters";-- Thx DaBear78! -- Ã¶ffnen
 L["EIt2"] = "Links halten zum Verschieben";-- Thx DaBear78!
-L["EIt3"] = "Rechtsklick f\195\188r Kontextmen\195\188";-- Thx DaBear78! -- für -- Kontextmenü
+L["EIt3"] = "Rechtsklick f\195\188r Kontextmen\195\188";-- Thx DaBear78! -- fÃ¼r -- KontextmenÃ¼
 
 -- Durability Infos control
-L["DIh"] = "Haltbarkeit deiner Ausr\195\188stung";--Thx DaBear78! -- Ausrüstung
+L["DIh"] = "Haltbarkeit deiner Ausr\195\188stung";--Thx DaBear78! -- AusrÃ¼stung
 
 -- Player Location control
 L["PLh"] = "Dies ist, wo du bist";
@@ -444,7 +445,7 @@ L["PLMsg"] = "Bitte Stadt betreten";-- Thx DaBear78!
 L["GTh"] = "Lokale/Server Zeit";-- Thx DaBear78!
 
 -- Chat message
-L["TBR"] = "TitanBar: Alle Einstellungen wurden zur\195\188ck auf die Standardwerte gesetzt";-- Thx Wicky! -- zurück
+L["TBR"] = "TitanBar: Alle Einstellungen wurden zur\195\188ck auf die Standardwerte gesetzt";-- Thx Wicky! -- zurÃ¼ck
 
 -- Character Race
 L["Elf"] = "Elb";-- Thx Wicky!
@@ -458,18 +459,18 @@ L["Beorning"] = "Beorninger";
 L["Burglar"] = "Schurke";
 L["Captain"] = "Hauptmann";
 L["Champion"] = "Waffenmeister";
-L["Guardian"] = "W\195\164chter"; -- Wächter
-L["Hunter"] = "J\195\164ger"; --Jäger
+L["Guardian"] = "W\195\164chter"; -- WÃ¤chter
+L["Hunter"] = "J\195\164ger"; --JÃ¤ger
 L["Lore-Master"] = "Kundiger";
 L["Minstrel"] = "Barde";
 L["Rune-Keeper"] = "Runenbewahrer";
-L["Warden"] = "H\195\188ter"; -- Hüter
+L["Warden"] = "H\195\188ter"; -- HÃ¼ter
 
 -- Monster Play Class
 L["Reaver"] = "Schnitter";-- Thx Wicky!
 L["Weaver"] = "Weberspinne";-- Thx Wicky!
 L["Blackarrow"] = "Schwarzpfeil";-- Thx Wicky!
-L["Warleader"] = "Kriegsanf\195\188hrer";-- Thx Wicky! -- Kriegsanführer
+L["Warleader"] = "Kriegsanf\195\188hrer";-- Thx Wicky! -- KriegsanfÃ¼hrer
 L["Stalker"] = "Pirscher";-- Thx Wicky!
 L["Defiler"] = "Saboteur";-- Thx Wicky!
 
@@ -478,20 +479,20 @@ L["D"] = "Haltbarkeit";
 L["D1"] = "Alle Haltbarkeit";
 L["D2"] = "Schwach";
 L["D3"] = "Wesentlich";
-L["D4"] = "Spr\195\182de";-- Thx Wicky! -- Spröde
+L["D4"] = "Spr\195\182de";-- Thx Wicky! -- SprÃ¶de
 L["D5"] = "Normal";
 L["D6"] = "Robust";
 L["D7"] = "Flimsy"; -- ??
-L["D8"] = "Unverw\195\188stlich";-- Thx Wicky! -- Unverwüstlich
+L["D8"] = "Unverw\195\188stlich";-- Thx Wicky! -- UnverwÃ¼stlich
 
 -- Quality
 L["Q"] = "Qualit\195\164ten";
-L["Q1"] = "Alle Qualit\195\164ten";-- Thx Wicky! --Qualitätswein
-L["Q2"] = "Gew\195\182hnlich";-- Thx DaBear78! --Gewöhnlich
-L["Q3"] = "Ungew\195\182hnlich";--Thx DaBear78! --Ungewöhnlich
+L["Q1"] = "Alle Qualit\195\164ten";-- Thx Wicky! --QualitÃ¤tswein
+L["Q2"] = "Gew\195\182hnlich";-- Thx DaBear78! --GewÃ¶hnlich
+L["Q3"] = "Ungew\195\182hnlich";--Thx DaBear78! --UngewÃ¶hnlich
 L["Q4"] = "Unvergleichlich";
 L["Q5"] = "Selten";
-L["Q6"] = "Legend\195\164r";-- Thx Wicky! -- Legendär
+L["Q6"] = "Legend\195\164r";-- Thx Wicky! -- LegendÃ¤r
 
 -- Amroth Silver Piece control
 L["MASP"] = "Amroth-Silberst\195\188ck";
