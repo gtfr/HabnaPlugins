@@ -1,5 +1,5 @@
 To add a faction:
-	- Add faciotn name in 'functionsCtr.lua' file in the "LoadPlayerReputation" function.
+	- Add faction name in 'functionsCtr.lua' file in the "LoadPlayerReputation" function.
 	- Add new faction integer into the "FactionOrder" array in 'main.lua' at line 20.
 	- Change "maxfaction" value to reflect the new total of factions in 'main.lua' at line 22.
 
