@@ -684,17 +684,17 @@ function SavePlayerMoney( save )
         end
     end
 
-    if (string.len(CopperTot)==3) then
-        local CopperTotX = CopperTot;
-        SilverTot = SilverTot + string.sub(CopperTotX,1,-3);
-        CopperTot = string.sub(CopperTot,2,-1);
-    end
-        
-    if (string.len(SilverTot)==4) then
-        local SilverTotX = SilverTot;
-        GoldTot = GoldTot + string.sub(SilverTotX,1,-4);
-        SilverTot = string.sub(SilverTot,2,-1);
-    end
+		if ( CopperTot > 999 ) then
+        SilverTot = SilverTot + ( CopperTot / 1000 );
+        CopperTot = CopperTot % 1000;
+		end
+		
+		
+		if ( SilverTot > 9999 ) then
+        GoldTot = GoldTot + ( SilverTot / 10000 );
+        SilverTot = SilverTot % 10000;
+		end
+		
     if save then 
         Turbine.PluginData.Save(
             Turbine.DataScope.Server, "TitanBarPlayerWallet", wallet); 
