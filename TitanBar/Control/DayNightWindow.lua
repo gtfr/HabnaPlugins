@@ -126,7 +126,7 @@ function frmDayNightWindow()
 	HelpTB:SetForeColor( Color["rustedgold"] );
 	HelpTB:SetVisible( bHelp );
 	HelpTB:SetSize( _G.wDN:GetWidth()-60, 250 );
-	HelpTB:SetText( "Try using does value if time is not sync:\n\n* Arkenstone: ... 1295018461\n* Brandywine: ... 1295011363\n* Crickhollow: .. 1295013525\n* Dwarrowdelf: .. 1295019947\n* Elendilmir: ... 1295016509\n* Firefoot: ..... 1295018014\n* Gladden: ...... 1295020785\n* Imladris: ..... 1295032537\n* Landroval: .... 1295028066\n* Meneldor: ..... 1295035773\n* Nimrodel: ..... 1295030005\n* Riddermark: ... 1295038249\n* Silverlode: ... 1295039369\n* Vilya: ........ 1295040045\n* Windfola: ..... 1295037667" );
+	HelpTB:SetText( "Try using does value if time is not sync:\n\n* Arkenstone: ... 1295018461\n* Brandywine: ... 1295011363\n* Crickhollow: .. 1295013525\n* Gladden: ...... 1295020785\n* Landroval: .... 1295028066" );
 	-- **^
 	
 	ShowHelpSection(bHelp);
