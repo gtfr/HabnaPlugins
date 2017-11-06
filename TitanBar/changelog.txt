@@ -13,6 +13,23 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 =================================================
+v1.30.2 (November 6, 2017)
+
+Fixed:
+- ComboBox fix https://github.com/Technical-13/HabnaPlugins/pull/20
+- Format/color for French client https://github.com/Technical-13/HabnaPlugins/pull/25
+
+Added:
+- Host of the West reputation https://github.com/Technical-13/HabnaPlugins/pull/24
+
+Refactored:
+- Reputation https://github.com/Technical-13/HabnaPlugins/pull/24
+- Money info https://github.com/Technical-13/HabnaPlugins/pull/24
+- Player stats with Mordor https://github.com/Technical-13/HabnaPlugins/pull/24
+
+
+
+=================================================
 v1.30.11 (Febuary 11, 2017)
 
 Fixed:
