@@ -1,5 +1,5 @@
 -- ReputationToolTip.lua
--- written by Habna
+-- written by many
 
 
 function ShowRPWindow()
@@ -35,9 +35,16 @@ function RPRefreshListBox()
     RPTTPosY = 0;
     local bFound = false;
     
-    for i = 1, #Rep do
-        if PlayerReputation[PN][Rep[i]].V then
+    for i = 1, #RepOrder do
+        if PlayerReputation[PN][RepOrder[i]].V then
             HideMaxReps = true;
+            HideBonus = true;
+            if RepOrder[i] == "RPACC" then
+                if tonumber(PlayerReputation[PN][RepOrder[i]].P) > 0 then
+                    HideBonus = false;
+                    -- hide rep accelerator if 0 points
+                end
+            end
             -- Assume that people want factions that are max hidden until I 
             -- can offer an option checkbox
             
@@ -56,20 +63,19 @@ function RPRefreshListBox()
             repLbl:SetFont( Turbine.UI.Lotro.Font.TrajanPro16 );
             repLbl:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleCenter);
             repLbl:SetForeColor( Color["nicegold"] );
-            repLbl:SetText( L[Rep[i]] );
+            repLbl:SetText( L[RepOrder[i]] );
             
             local tl, tm, percentage_done = nil, nil, 0;
-            local tp = PlayerReputation[PN][Rep[i]].P;
-            local ts = PlayerReputation[PN][Rep[i]].T;
-            local tr = tonumber(PlayerReputation[PN][Rep[i]].R);
-            local tn = PlayerReputation[PN][Rep[i]].N; 
+            local tp = PlayerReputation[PN][RepOrder[i]].P;
+            local tr = tonumber(PlayerReputation[PN][RepOrder[i]].R);
 
-            if ts == "2" then tr = tr - 1; end
             tm = RPGR[tonumber( tr )];
-            
-            if tr == 8 and ts == "3" then percentage_done = "max";
-            elseif tr == 5 then percentage_done = "max";
-            elseif ts == "4" and tr == 2 then percentage_done = "max";
+            if RepType[i]==10 then
+                tm = 80000;
+            end
+
+            if tr == #RepTypes[RepType[i]] and HideBonus then
+                percentage_done = "max";
             else percentage_done = string.format( "%.2f", ( tp / tm ) * 100 );
             end
 
@@ -79,11 +85,9 @@ function RPRefreshListBox()
             RPPBFill:SetPosition( 9, 17 );
             if percentage_done == "max" then RPPBFill:SetSize( 183, 9 );
             else RPPBFill:SetSize( ( 183 * percentage_done ) / 100, 9 ); end
-            if ts == "1" or ts == "4" then 
-                RPPBFill:SetBackground( resources.Reputation.BGGood );
-            elseif ts == "2" then 
-                RPPBFill:SetBackground( resources.Reputation.BGBad );
-            elseif ts == "3" then 
+            RPPBFill:SetBackground( resources.Reputation.BGGood );
+            --RPPBFill:SetBackground( resources.Reputation.BGBad );
+            if RepType[i] == 5 then
                 RPPBFill:SetBackground( resources.Reputation.BGGuild ); 
             end
             local RPPB = Turbine.UI.Control(); --Frame
@@ -109,32 +113,12 @@ function RPRefreshListBox()
             --**^
 
             local RPLvl = Turbine.UI.Label();
-            if tn == "3" then
-                tl = L["RCCLE"..tr];
-            elseif tn == "2" then
-                tl = L["RPGG"..tr];
-            else
-                if ts == "2" then
-                    if tr == 0 then
-                        if Rep[i] == "RPLF" then
-                            tl = L["RPBL1"];
-                        else
-                            tl = L["RPBL2"];
-                        end
-                    else
-                        tl = L["RPGL"..tr];
-                    end
-                else
-                    tl = L["RPGL"..tr];
-                end
-            end
-            if ts == "1" or ts == "4" then
-                RPLvl:SetForeColor( Color["white"] );
-            elseif ts == "2" then
-                RPLvl:SetForeColor( Color["red"] );
-            elseif ts == "3" then
-                RPLvl:SetForeColor( Color["green"] );
-            end
+            tl = L[RepTypes[RepType[i]][tr]];
+            RPLvl:SetForeColor( Color["white"] );
+            if RepType[i] == 10 then RPLvl:SetForeColor( Color["purple"] ); end
+            --RPLvl:SetForeColor( Color["red"] );
+            --RPLvl:SetForeColor( Color["green"] );
+            
             RPLvl:SetParent( RPTTCtr );
             RPLvl:SetText( tl );
             RPLvl:SetPosition( 205, 15 );

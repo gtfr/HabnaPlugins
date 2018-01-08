@@ -1,5 +1,5 @@
 -- functionsCtr.lua
--- Written By Habna
+-- Written By many
 
 
 function ImportCtr( value )
@@ -388,7 +388,7 @@ function ImportCtr( value )
                 rpMess = args.Message;
                 if rpMess ~= nil then
                 -- Check string, Reputation Name and Reputation Point pattern
-                    local cstr, rpnPattern, rppPatern;
+                    local cstr, rpnPattern, rppPatern, rpbPattern;
                     if GLocale == "en" then 
                         rpnPattern = "reputation with ([%a%p%u%l%s]*) has"..
                             " increased by";
@@ -410,13 +410,26 @@ function ImportCtr( value )
                     -- amount of points
                     if cstr ~= nil then
                         if GLocale == "en" then 
-                            rppPattern = "has increased by ([%d%p]*) %("
+                            rppPattern = "has increased by ([%d%p]*) %(";
+                            rpbPattern = "%(([%d%p]*) from bonus";
                         elseif GLocale == "fr" then 
                             rppPattern = "a augment\195\169 de ([%d%p]*) %(";
+                            rpbPattern = "%(([%d%p]*) du bonus";
                         elseif GLocale == "de" then 
                             rpnPattern = "Euer Ruf bei der Gruppe \"([%a%p%u%l%s]*)\" wurde um"; 
                             rppPattern = "wurde um ([%d%p]*) erh\195\182ht";
+                            rpbPattern = "%(([%d%p]* durch Bonus";
                         end
+                    end
+                    if rpbPattern ~= nil then
+                        local rpBonus = string.match(rpMess, rpbPattern);
+                        rpBonus = string.gsub(rpBonus, ",", "");
+                        tot = PlayerReputation[PN]["RPACC"].P;
+                        tot = tot - rpBonus;
+                        if tot < 0 then
+                            tot = 0;
+                        end
+                        PlayerReputation[PN]["RPACC"].P = string.format("%.0f", tot);
                     end
                     local rpName = string.match(rpMess,rpnPattern); 
                     -- Reputation Name
@@ -425,36 +438,44 @@ function ImportCtr( value )
                         -- Reputaion points
                         local rpPTS = string.gsub(rpPTS, ",", "");
                         -- Replace "," in 1,400 to get 1400
-                        for i = 1, #Rep do
-                            if L[Rep[i]] == rpName then
-                                local lastR = 5;
-                                if PlayerReputation[PN][Rep[i]].T == "3" then
-                                    lastR = 8;
-                                end
-                                if PlayerReputation[PN][Rep[i]].R == lastR then
+                        for i = 1, #RepOrder do
+                            local v = RepType[i];
+                            local name = RepOrder[i];
+                            if L[name] == rpName then
+                                local lastR = #RepTypes[v]
+                                if PlayerReputation[PN][name].R == lastR then
                                     -- write("Max rank reached, do nothing.");
                                 else
                                     -- Check if new points is equal or bigger 
                                     -- of the max points
-                                    local tot = PlayerReputation[PN][Rep[i]].P;
+                                    local tot = PlayerReputation[PN][name].P;
                                     tot = tot + rpPTS;
-                                    local max = PlayerReputation[PN][Rep[i]].R;
+                                    local max = PlayerReputation[PN][name].R;
+                                    if v == 2 or v == 7 then
+                                        max = max - 1
+                                    elseif v == 8 then
+                                        if max > 2 then
+                                            max = max - 2
+                                        else
+                                            max = max - 1
+                                        end
+                                    end
                                     max = RPGR[tonumber(max)];
                                     if tot >= max then
                                         -- true, then calculate diff to add to 
                                         -- next rank
                                         tdiff = tot - max;
                                         -- Change rank & points
-                                        PlayerReputation[PN][Rep[i]].R = tostring(PlayerReputation[PN][Rep[i]].R + 1);
-                                        if PlayerReputation[PN][Rep[i]].R == lastR then
-                                            PlayerReputation[PN][Rep[i]].P = "0"; 
+                                        PlayerReputation[PN][name].R = tostring(PlayerReputation[PN][name].R + 1);
+                                        if PlayerReputation[PN][name].R == lastR then
+                                            PlayerReputation[PN][name].P = "0"; 
                                             -- max rank, set points to 0
                                         else 
-                                            PlayerReputation[PN][Rep[i]].P = string.format("%.0f", tdiff); 
+                                            PlayerReputation[PN][name].P = string.format("%.0f", tdiff); 
                                         end
                                     else
                                         -- false, only add points
-                                        PlayerReputation[PN][Rep[i]].P = string.format("%.0f", tot);
+                                        PlayerReputation[PN][name].P = string.format("%.0f", tot);
                                     end
                                 end
                                 break
@@ -878,7 +899,7 @@ function SavePlayerBags()
 end
 
 function LoadPlayerReputation()
-    Rep = {
+    RepOrder = {
         -- Normal faction advancment + Forochel and Minas Tirith 
         "RPTEl", "RPCN", "RPMB", "RPTH", "RPTWA", "RPLF", "RPTEg", "RPRE", 
         "RPER", "RPTMS", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM", 
@@ -890,55 +911,68 @@ function LoadPlayerReputation()
         "RPDAS",
         -- Crafting guilds (position 45< <53)
         "RPJG", "RPCG", "RPSG", "RPTG", "RPWoG", "RPWeG", "RPMG",
-        -- Other - Minas Tirith, Chicken, Inn, Ale, 
+        -- Other - Chicken, Inn, Ale
         "RPCCLE", "RPTIL", "RPTAA",
-        -- Place new raputation below
-        "RPHOTW", "RPHOTWA", "RPHOTWW", "RPHOTWP", -- Host of the West
+        -- Host of the West
+        "RPHOTW", "RPHOTWA", "RPHOTWW", "RPHOTWP",
+        "RPCOG", "RPEOFBs", "RPEOFBn", "RPRSC",
+        -- Accelerator
+        "RPACC",
+    };
+    RepType = {
+        1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1,
+        -- DA Buildings
+        4, 4, 4, 4, 4, 4, 4, 4,
+        -- Crafting guilds
+        5, 5, 5, 5, 5, 5, 5,
+        -- Other - Chicken, Inn, Ale
+        6, 7, 7,
+        -- Host of the West
+        3, 1, 1, 1, 3, 8, 8, 9,
+        -- Accelerator
+        10,
+    };
+    RepTypes = {
+        [1] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5"}, -- normal
+        [2] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5"}, -- Forochel
+        [3] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6", "RPGL7", "RPGL8"}, -- extended normal
+        [4] = {"RPGL1", "RPGL2"}, -- DA buildings
+        [5] = {"RPGG1", "RPGG2", "RPGG3", "RPGG4", "RPGG5", "RPGG6", "RPGG7", "RPGG8"}, -- craft guild
+        [6] = {"RCCLE1", "RCCLE2", "RCCLE3", "RCCLE4", "RCCLE5"}, -- chicken
+        [7] = {"RPBL2", "RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5"}, -- inn/alhe
+        [8] = {"RPBL2", "RPBL1", "RPGL1"}, -- fushaum
+        [9] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3"}, -- red sky clan
+        [10] = {"RPBR"}, -- Accelerator
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");
     if PlayerReputation == nil then PlayerReputation = {}; end
     if PlayerReputation[PN] == nil then PlayerReputation[PN] = {}; end
-    for i = 1, #Rep do
-        if PlayerReputation[PN][Rep[i]] == nil then 
-            PlayerReputation[PN][Rep[i]] = {}; 
+    for i = 1, #RepOrder do
+        if PlayerReputation[PN][RepOrder[i]] == nil then 
+            PlayerReputation[PN][RepOrder[i]] = {}; 
         end
-        if PlayerReputation[PN][Rep[i]].P == nil then 
-            PlayerReputation[PN][Rep[i]].P = "0"; 
+        if PlayerReputation[PN][RepOrder[i]].P == nil then 
+            PlayerReputation[PN][RepOrder[i]].P = "0"; 
         end --Points
-        if PlayerReputation[PN][Rep[i]].V == nil then 
-            PlayerReputation[PN][Rep[i]].V = false; 
+        if PlayerReputation[PN][RepOrder[i]].V == nil then 
+            PlayerReputation[PN][RepOrder[i]].V = false; 
         end --Show faction in tooltip
-        if PlayerReputation[PN][Rep[i]].R == nil then 
-            PlayerReputation[PN][Rep[i]].R = "1"; 
-        end --1st rank max points
-        if PlayerReputation[PN][Rep[i]].N == nil then
-            if Rep[i] == "RPCCLE" then 
-                PlayerReputation[PN][Rep[i]].N = "3" -- chicken
-            elseif i>45 and i<53 then
-                PlayerReputation[PN][Rep[i]].N = "2" -- guild
-            else
-                PlayerReputation[PN][Rep[i]].N = "1" -- normal
-            end
-        end -- Reputation names
-        if PlayerReputation[PN][Rep[i]].T == nil then
-            if Rep[i] == "RPDMT" or Rep[i] == "RPHOTW" or
-                    PlayerReputation[PN][Rep[i]].N == "2" then
-                PlayerReputation[PN][Rep[i]].T = "3";
-                -- Crafting guild/Defenders of MT/Host of the West, 8 ranks
-            elseif Rep[i] == "RPLF" or Rep[i] == "RPTIL" or 
-                    Rep[i] == "RPTAA" then
-                PlayerReputation[PN][Rep[i]].T = "2";
-                -- Starts at negative level than normal
-            elseif 37<i and i<46 then
-                PlayerReputation[PN][Rep[i]].t = "4";
-            else
-                PlayerReputation[PN][Rep[i]].T = "1";
-                -- Normal, 5 ranks
-            end
+        if PlayerReputation[PN][RepOrder[i]].R == nil then 
+            PlayerReputation[PN][RepOrder[i]].R = "1"; 
+        end --rank
+        -- delete old values vv
+        if PlayerReputation[PN][RepOrder[i]].T ~= nil then
+            PlayerReputation[PN][RepOrder[i]].T = nil;
         end
+        if PlayerReputation[PN][RepOrder[i]].N ~= nil then
+            PlayerReputation[PN][RepOrder[i]].N = nil;
+        end
+        -- ^^
     end
-    -- if old reputation data exists, load them into new. 
+    -- if old reputation data exists, load them into new.
     for i = 1, 60 do
         if PlayerReputation[PN][tostring(i)] == nil then break end
         for j = 1, #Rep do

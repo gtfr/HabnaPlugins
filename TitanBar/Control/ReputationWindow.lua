@@ -1,5 +1,5 @@
 -- ReputationWindow.lua
--- Written by Habna
+-- Written by many
 
 
 function frmReputationWindow()
@@ -209,18 +209,13 @@ function frmReputationWindow()
         RPtxtTotal:Focus();
         RPWCtr:SetVisible(false);
         RPWCtr:SetZOrder(0);
-        fIndex = 1;
-        while not (L[Rep[fIndex]] == faction) do
-            fIndex = fIndex + 1;
-        end
-
-        for i = 1, maxrank do -- number of rank in the drop down box
+        for i = 1, #RepTypes[RepType[faction]] do -- number of rank in the drop down box
             if RPCBO[i] == RPDD.label:GetText() then
-                PlayerReputation[PN][Rep[fIndex]].R = tostring(i);
+                PlayerReputation[PN][RepOrder[faction]].R = tostring(i);
             end
         end
         RPDD:ClearSelection();
-        PlayerReputation[PN][Rep[fIndex]].P = RPtxtTotal:GetText();
+        PlayerReputation[PN][RepOrder[faction]].P = RPtxtTotal:GetText();
         SavePlayerReputation();
     end
     RefreshRPListBox();
@@ -229,7 +224,7 @@ end
 function RefreshRPListBox()
     RPListBox:ClearItems();
 
-    for i = 1, #Rep do
+    for i = 1, #RepOrder do
         --**v Control of all data v**
         local RPCtr = Turbine.UI.Control();
         RPCtr:SetParent(RPListBox);
@@ -238,63 +233,29 @@ function RefreshRPListBox()
         -- Reputation name
         local repLbl = Turbine.UI.Lotro.CheckBox();
         repLbl:SetParent(RPCtr);
-        repLbl:SetText(L[Rep[i]]);
+        repLbl:SetText(L[RepOrder[i]]);
         repLbl:SetSize(RPListBox:GetWidth() - 10, 20);
         repLbl:SetPosition(0, 0);
         repLbl:SetFont(Turbine.UI.Lotro.Font.TrajanPro16);
         repLbl:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
         repLbl:SetForeColor(Color["nicegold"]);
-        repLbl:SetChecked(PlayerReputation[PN][Rep[i]].V);
+        repLbl:SetChecked(PlayerReputation[PN][RepOrder[i]].V);
         repLbl.MouseClick = function(sender, args)
             if args.Button == Turbine.UI.MouseButton.Right then
-                faction = L[Rep[i]];
-                RPlblFN:SetText(L[Rep[i]]);
-                RPtxtTotal:SetText(PlayerReputation[PN][Rep[i]].P);
+                faction = i;
+                RPlblFN:SetText(L[RepOrder[i]]);
+                RPtxtTotal:SetText(PlayerReputation[PN][RepOrder[i]].P);
                 RPDD:ClearItems();
                 RPCBO = {};
                 
-                maxrank = 5;
-                local repType = PlayerReputation[PN][Rep[i]].N;
-                if PlayerReputation[PN][Rep[i]].T == "4" then 
-                    table.insert(RPCBO, L["RPGL1"]);
-                    table.insert(RPCBO, L["RPGL2"]);
-                    maxrank = 2;
-                elseif repType == "3" then
-                    for j=1,5 do
-                        table.insert(RPCBO, L["RCCLE"..j]);
-                    end
-                elseif repType == "2" then -- guild
-                    for j=1,8 do
-                        table.insert(RPCBO, L["RPGG"..j]);
-                    end
-                    maxrank = 8;
-                else -- normal
-                    if PlayerReputation[PN][Rep[i]].T == "2" then
-                        if Rep[i] == "RPLF" then
-                            table.insert(RPCBO, L["RPBL1"]);
-                        else
-                            table.insert(RPCBO, L["RPBL2"]);
-                        end
-                        for j=1,5 do
-                            table.insert(RPCBO, L["RPGL"..j]);
-                        end
-                        maxrank = 6;
-                    else
-                        for j=1,5 do
-                            table.insert(RPCBO, L["RPGL"..j]);
-                        end
-                    end
+                rtype = RepType[i];
+                for j = 1, #RepTypes[rtype] do
+                    rName = RepTypes[rtype][j];
+                    table.insert(RPCBO, L[rName]);
                 end
-                if Rep[i] == "RPDMT" or Rep[i] == "RPHOTW" then
-                    table.insert(RPCBO, L["RPGL6"]);
-                    table.insert(RPCBO, L["RPGL7"]);
-                    table.insert(RPCBO, L["RPGL8"]);
-                    maxrank = 8;
-                end
-                if Rep[i] == "RPLF" then maxrank = 6; end
-                
+
                 for k,v in pairs(RPCBO) do RPDD:AddItem(v, k) end;
-                local tra = tonumber(PlayerReputation[PN][Rep[i] ].R);
+                local tra = tonumber(PlayerReputation[PN][RepOrder[i]].R);
                 for k,v in pairs(RPCBO) do
                     if k == tra then RPDD:SetSelection(k); end
                 end
@@ -305,7 +266,7 @@ function RefreshRPListBox()
         end
 
         repLbl.CheckedChanged = function(sender, args)
-            PlayerReputation[PN][Rep[i]].V = repLbl:IsChecked();
+            PlayerReputation[PN][RepOrder[i]].V = repLbl:IsChecked();
             SavePlayerReputation();
         end
 

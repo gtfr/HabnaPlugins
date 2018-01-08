@@ -199,9 +199,10 @@ L["RPHOTWA"] = "Heer des Westens: R\195\188stung";
 L["RPHOTWW"] = "Heer des Westens: Waffen";
 L["RPHOTWP"] = "Heer des Westens: Vorr\195\164te";
 L["RPCOG"] = "Eroberung von Gorgoroth";
-L["RPEOFBS"] = "Feind des s\195\188dlichen Fushaum Bal";-- Feind des südlichen Fushaum Bal
-L["RPEOFBN"] = "Feind des n\195\182rdlichen Fushaum Bal";-- Feind des nördlichen Fushaum Bal
+L["RPEOFBs"] = "Feind des s\195\188dlichen Fushaum Bal";-- Feind des südlichen Fushaum Bal
+L["RPEOFBn"] = "Feind des n\195\182rdlichen Fushaum Bal";-- Feind des nördlichen Fushaum Bal
 L["RPRSC"] = "Red Sky Clan";
+L["RPACC"] = "Rufbeschleunigung";
 
 -- All reputation standings
 L["RPMSR"] = "Maximale Geltung erreicht";-- Thx DaBear78!

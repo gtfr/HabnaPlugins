@@ -199,9 +199,10 @@ L["RPHOTWA"] = "Arm\195\169e de l'ouest: Armures"; -- Thx Valiarym
 L["RPHOTWW"] = "Arm\195\169e de l'ouest: Armes"; -- Thx Valiarym
 L["RPHOTWP"] = "Arm\195\169e de l'ouest: Provisions"; -- Thx Valiarym
 L["RPCOG"] = "Conqu\195\170te de Gorgoroth";-- Conquête de Gorgoroth
-L["RPEOFBS"] = "Enemie du sud de Fushaum Bal";
-L["RPEOFBN"] = "Enemie du nord de Fushaum Bal";
+L["RPEOFBs"] = "Enemie du sud de Fushaum Bal";
+L["RPEOFBn"] = "Enemie du nord de Fushaum Bal";
 L["RPRSC"] = "Clan du Ciel Rouge";
+L["RPACC"] = "Acc\195\168l\195\168ration de r\195\168putation";
 
 -- All reputation standings
 L["RPMSR"] = "Statut maximum atteint";
