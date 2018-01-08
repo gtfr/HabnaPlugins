@@ -450,7 +450,7 @@ function ImportCtr( value )
                                     -- of the max points
                                     local tot = PlayerReputation[PN][name].P;
                                     tot = tot + rpPTS;
-                                    local max = PlayerReputation[PN][name].R;
+                                    local max = tonumber( PlayerReputation[PN][name].R );
                                     if v == 2 or v == 7 then
                                         max = max - 1
                                     elseif v == 8 then
@@ -460,7 +460,7 @@ function ImportCtr( value )
                                             max = max - 1
                                         end
                                     end
-                                    max = RPGR[tonumber(max)];
+                                    max = RPGR[ max ];
                                     if tot >= max then
                                         -- true, then calculate diff to add to 
                                         -- next rank
