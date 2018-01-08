@@ -198,7 +198,10 @@ L["RPHOTW"] = "Arm\195\169e de l'ouest"; -- Thx Valiarym
 L["RPHOTWA"] = "Arm\195\169e de l'ouest: Armures"; -- Thx Valiarym
 L["RPHOTWW"] = "Arm\195\169e de l'ouest: Armes"; -- Thx Valiarym
 L["RPHOTWP"] = "Arm\195\169e de l'ouest: Provisions"; -- Thx Valiarym
-
+L["RPCOG"] = "Conqu\195\170te de Gorgoroth";-- Conquête de Gorgoroth
+L["RPEOFBS"] = "Enemie du sud de Fushaum Bal";
+L["RPEOFBN"] = "Enemie du nord de Fushaum Bal";
+L["RPRSC"] = "Clan du Ciel Rouge";
 
 -- All reputation standings
 L["RPMSR"] = "Statut maximum atteint";
@@ -256,19 +259,22 @@ L["OPISL"] = "Grand";
 L["Layout"] = "Alternative PlayerInfo Layout\n(Reloads TB after changing)";
 
 -- Profile window
-L["PWLoad"] = "Charger";
-L["PWCreate"] = "Cr\195\169er";
-L["PWDelete"] = "Delete";-- Needs translation
-L["PWSave"] = "Sauvegarder";
-L["PWCancel"] = "Annuler";
-L["PWNFound"] = "Aucun profile trouv\195\169";
-L["PWEPN"] = "Taper un nom";
 L["PWProfile"] = "Profil";
-L["PWLoaded"] = "charger";
-L["PWDeleted"] = "supprimer";
+L["PWEPN"] = "Taper un nom";
+L["PWCreate"] = "Cr\195\169er";
+L["PWNew"] = "Nouveau profil";
+L["PWCreated"] = "a \195\169t\195\169 cr\195\169\195\169";-- a été créé
+L["PWLoad"] = "Charger";
+L["PWNFound"] = "Aucun profile trouv\195\169";
 L["PWFail"] = " ne peut pas \195\170tre charg\195\169, car la langue du jeu n'est pas la m\195\170me langue que ce profil";
-L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";-- Needs translation
+L["PWLoaded"] = "charger";
+L["PWDelete"] = "Delete";-- Needs translation";
 L["PWDeleteFailed"] = "Failed to delete profile ";-- Needs translation
+L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";-- Needs translation
+L["PWDeleted"] = "supprimer";
+L["PWSave"] = "Sauvegarder";
+L["PWSaved"] = "enregistr\195\169";-- enregistré
+L["PWCancel"] = "Annuler";
 
 -- Shell commands window
 L["SCWTitle"] = "Commandes shell TitanBar";

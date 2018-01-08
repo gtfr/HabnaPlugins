@@ -259,19 +259,22 @@ L["OPISL"] = "Large";
 L["Layout"] = "Alternative PlayerInfo Layout\n(Reloads TB after changing)";
 
 -- Profile window
-L["PWLoad"] = "Load";
-L["PWCreate"] = "Create";
-L["PWDelete"] = "Delete";
-L["PWSave"] = "Save";
-L["PWCancel"] = "Cancel";
-L["PWNFound"] = "No profile was found";
-L["PWEPN"] = "Enter a profile name";
 L["PWProfile"] = "Profile";
-L["PWLoaded"] = "loaded";
-L["PWDeleted"] = "deleted";
+L["PWEPN"] = "Enter a profile name";
+L["PWCreate"] = "Create";
+L["PWNew"] = "New profile";
+L["PWCreated"] = "has been created";
+L["PWLoad"] = "Load";
+L["PWNFound"] = "No profile was found";
 L["PWFail"] = " cannot be loaded because the language of the game is not the same language of this profile";
-L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";
+L["PWLoaded"] = "loaded";
+L["PWDelete"] = "Delete";
 L["PWDeleteFailed"] = "Failed to delete profile ";
+L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";
+L["PWDeleted"] = "deleted";
+L["PWSave"] = "Save";
+L["PWSaved"] = "saved";
+L["PWCancel"] = "Cancel";
 
 -- Shell commands window
 L["SCWTitle"] = "TitanBar Shell Commands";

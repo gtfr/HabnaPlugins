@@ -11,8 +11,8 @@ function frmProfile()
 	wProfile:SetWidth( 495 );
 	wProfile:SetVisible( true );
 	wProfile:SetWantsKeyEvents( true );
-	--wProfile:SetZOrder( 2 );
-	--wProfile:Activate();
+	-- wProfile:SetZOrder( 2 );
+	-- wProfile:Activate();
 
 	wProfile.KeyDown = function( sender, args )
 		if ( args.Action == Turbine.UI.Lotro.Action.Escape ) then
@@ -58,14 +58,14 @@ function frmProfile()
 		else if GLocale ~= "en" then LProfile = true; end end
 
 		if LProfile then
-			write("TitanBar: "..L["PWProfile"].." '"..lblName[PrevItemClic]:GetText().."' "..L["PWLoaded"]);
+			write("TitanBar: "..L["PWProfile"].." `"..lblName[PrevItemClic]:GetText().."` "..L["PWLoaded"]);
 			settings = vPProfileSettings[PrevItemClic];
 			settings.PlayerLoc.L = pLLoc;
 			settings.TitanBar.ZT = "Profile";
 			SaveSettings( false );
 			ReloadTitanBar();
 		else
-			write("TitanBar: "..lblName[PrevItemClic]:GetText()..L["PWFail"]);
+			write("TitanBar: `"..lblName[PrevItemClic]:GetText().."`"..L["PWFail"]);
 		end
 	end
 
@@ -122,8 +122,10 @@ function frmProfile()
 		settings.PlayerLoc.L = L["PLMsg"];
 
 		local vProfile = {};
-		vProfile[InputBox:GetText()] = settings;
+		local strProfileName = InputBox:GetText();
+		vProfile[strProfileName] = settings;
 		table.insert( PProfile, vProfile );
+		write( "TitanBar: "..L["PWNew"].." `"..strProfileName.."` "..L["PWCreated"] );
 		
 		settings.TitanBar.ZT = "Profile";
 		SavePlayerProfile();
@@ -217,7 +219,7 @@ function RefreshListBox()
 				
 			DelIcon[i].MouseClick = function( sender, args )
 				if ( args.Button == Turbine.UI.MouseButton.Left ) then
-					write("TitanBar: " .. L["PWProfile"] .. " '" .. lblName[i]:GetText() .. "' " .. L["PWDeleted"]);
+					write("TitanBar: " .. L["PWProfile"] .. " `" .. lblName[i]:GetText() .. "` " .. L["PWDeleted"]);
 					table.remove( PProfile, i );
 
 					local newt = {};

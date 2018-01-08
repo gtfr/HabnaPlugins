@@ -198,6 +198,10 @@ L["RPHOTW"] = "Heer des Westens";
 L["RPHOTWA"] = "Heer des Westens: R\195\188stung";
 L["RPHOTWW"] = "Heer des Westens: Waffen";
 L["RPHOTWP"] = "Heer des Westens: Vorr\195\164te";
+L["RPCOG"] = "Eroberung von Gorgoroth";
+L["RPEOFBS"] = "Feind des s\195\188dlichen Fushaum Bal";-- Feind des südlichen Fushaum Bal
+L["RPEOFBN"] = "Feind des n\195\182rdlichen Fushaum Bal";-- Feind des nördlichen Fushaum Bal
+L["RPRSC"] = "Red Sky Clan";
 
 -- All reputation standings
 L["RPMSR"] = "Maximale Geltung erreicht";-- Thx DaBear78!
@@ -255,19 +259,22 @@ L["OPISL"] = "Breit";
 L["Layout"] = "Alternative PlayerInfo Layout\n(Reloads TB after changing)";
 
 -- Profile window
-L["PWLoad"] = "laden";
-L["PWCreate"] = "erstellen";-- Thx DaBear78!
-L["PWDelete"] = "Delete";-- Needs translation
-L["PWSave"] = "speichern";
-L["PWCancel"] = "abbrechen";-- Thx DaBear78!
-L["PWNFound"] = "Kein Profil gefunden";-- Thx DaBear78!
-L["PWEPN"] = "Geben Sie einen Profilnamen ein";-- Thx DaBear78!
 L["PWProfile"] = "Profil";
-L["PWLoaded"] = "geladen";
-L["PWDeleted"] = "gel\195\182scht"; --gelöscht
+L["PWEPN"] = "Geben Sie einen Profilnamen ein";-- Thx DaBear78!
+L["PWCreate"] = "erstellen";-- Thx DaBear78!
+L["PWNew"] = "Neues Profil";
+L["PWCreated"] = "wurde erschaffen";
+L["PWLoad"] = "laden";
+L["PWNFound"] = "Kein Profil gefunden";-- Thx DaBear78!
 L["PWFail"] = " kann nicht geladen werden, weil die Sprache des Spiels ist nicht die gleiche Sprache wie in diesem Profil";-- Thx DaBear78!
-L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";-- Needs translation
+L["PWLoaded"] = "geladen";
+L["PWDelete"] = "Delete";-- Needs translation
 L["PWDeleteFailed"] = "Failed to delete profile ";-- Needs translation
+L["PWFailDelete"] = " cannot be deleted because the language of the game is not the same language of this profile";-- Needs translation
+L["PWDeleted"] = "gel\195\182scht"; --gelöscht
+L["PWSave"] = "speichern";
+L["PWSaved"] = "gerettet";
+L["PWCancel"] = "abbrechen";-- Thx DaBear78!
 
 -- Shell commands window
 L["SCWTitle"] = "TitanBar Shell-Befehle";
