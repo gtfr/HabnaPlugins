@@ -198,6 +198,10 @@ L["RPHOTW"] = "Host of the West";
 L["RPHOTWA"] = "Host of the West: Armour";
 L["RPHOTWW"] = "Host of the West: Weapons";
 L["RPHOTWP"] = "Host of the West: Provisions";
+L["RPCOG"] = "Conquest of Gorgoroth";
+L["RPEOFBS"] = "Enmity of Fushaum Bal south";
+L["RPEOFBN"] = "Enmity of Fushaum Bal north";
+L["RPRSC"] = "Red Sky Clan";
 
 -- All reputation standings
 L["RPMSR"] = "Maximum standing reached"
