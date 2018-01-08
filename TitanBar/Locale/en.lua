@@ -229,6 +229,7 @@ L["RCCLE2"] = "Minor Leaguer";
 L["RCCLE3"] = "Major Leaguer";
 L["RCCLE4"] = "All-star";
 L["RCCLE5"] = "Hall of Famer";
+L["RPBR"] = "Bonus Remaining";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L["IFWTitle"] = "Renown"; L["IFIF"] = "Total renown:";

@@ -170,8 +170,8 @@ L["RPWeG"] = "Waffenschmiedegilde";
 L["RPMG"] = "Schmiedegilde";
 L["RPMEV"] = "Menschen des Entwasser-Tals";
 L["RPMN"] = "Menschen der Norhofen";
-L["PRMS"] = "Menschen der Suthofen";
-L["PRMW"] = "Menschen der Steppe";
+L["RPMS"] = "Menschen der Suthofen";
+L["RPMW"] = "Menschen der Steppe";
 L["RPPW"] = "Bewohner der Wildermark";
 L["RPSW"] = "\195\156berlebende von Wildermark";
 L["RPTEo"] = "Die Eorlingas";
@@ -229,6 +229,7 @@ L["RCCLE2"] = "Minor Leaguer";
 L["RCCLE3"] = "Major Leaguer";
 L["RCCLE4"] = "All-star";
 L["RCCLE5"] = "Hall of Famer";
+L["RPBR"] = "Verbleibender Bonus";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L["IFWTitle"] = "Ansehen"; L["IFIF"] = "Gesamtes Ansehen:";
