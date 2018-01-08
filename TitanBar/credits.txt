@@ -38,4 +38,5 @@ Credits for v1.25.00 - v1.29.00:
 
 Credits for v1.30 on:
 	Technical_13 - Maintainer
+	4andreas (Drono) - Developer/contributor
 	Tappino - U18 reputation factions and XP table lvl 101 to 105

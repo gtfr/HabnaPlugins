@@ -7,10 +7,31 @@ Todo:
 
 Known Issues:
 - The percentages on the PlayerInfo control don't include equipment.
-- Some missing translations. (Mostly French)
+- Some missing/poor translations. (Mostly French)
 - Controls Thorondor added may not unload from submenu.
-- Reputations for Dol Amroth don't max out at first rank.
 - Some low res icons; searching for replacements.
+
+=================================================
+v1.30.25 (January 8, 2018)
+
+Fixed:
+- Profiles failed to save on non-English clients
+-- saving does not work on non-english client
+--- https://github.com/Technical-13/HabnaPlugins/issues/15
+-- No saving Profile
+--- https://github.com/Technical-13/HabnaPlugins/issues/31
+- Error and new Reputation https://github.com/Technical-13/HabnaPlugins/issues/29
+- Errors on french version https://github.com/Technical-13/HabnaPlugins/issues/32
+
+Added:
+- New reputations for:
+-- Conquest of Gorgoroth
+-- Enmity of Fushaum Bal sout
+-- Enmity of Fushaum Bal north
+-- Red Sky Clan
+-- Reputation Accelerator! - Thanks Drono/4andreas
+- Currency - Ash of Gorgoroth
+-- https://github.com/Technical-13/HabnaPlugins/pull/30
 
 =================================================
 v1.30.2 (November 6, 2017)
