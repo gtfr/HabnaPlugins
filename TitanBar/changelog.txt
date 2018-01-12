@@ -12,6 +12,11 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 =================================================
+v1.30.261 (January 12, 2018)
+
+Repacked for LPC: No coding changes.
+
+=================================================
 v1.30.26 (January 11, 2018)
 
 Fixed:
