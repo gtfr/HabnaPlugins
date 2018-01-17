@@ -595,7 +595,7 @@ function SavePlayerItemTrackingList(ITL)
     local newt = {};
     for k, v in pairs(ITL) do newt[tostring(k)] = v; end
     ITL = newt;
-    local lacale = "TitanBarPlayerItemTrackingList" .. GLocale:upper();
+    local locale = "TitanBarPlayerItemTrackingList" .. GLocale:upper();
     Turbine.PluginData.Save(Turbine.DataScope.Character, locale, ITL);
 end
 

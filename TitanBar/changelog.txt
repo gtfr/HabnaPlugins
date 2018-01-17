@@ -12,6 +12,13 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 =================================================
+v1.30.27 (January 16, 2018)
+
+Fixed:
+- Player Info: Improvements lua https://github.com/Technical-13/HabnaPlugins/issues/39
+- Track Items: Improvements https://github.com/Technical-13/HabnaPlugins/issues/41
+
+=================================================
 v1.30.261 (January 12, 2018)
 
 Repacked for LPC: No coding changes.
