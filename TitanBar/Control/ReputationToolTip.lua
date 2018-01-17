@@ -69,8 +69,13 @@ function RPRefreshListBox()
             local tp = PlayerReputation[PN][RepOrder[i]].P;
             local tr = tonumber(PlayerReputation[PN][RepOrder[i]].R);
 
-            tm = RPGR[tonumber( tr )];
-            if RepType[i]==10 then
+            local tt = RepType[i];
+            if tt == 2 or tt == 7 or tt == 8 then
+                tm = RPGR[tonumber( tr-1 )];
+            else
+                tm = RPGR[tonumber( tr )];
+            end
+            if tt == 10 then
                 tm = 80000;
             end
 

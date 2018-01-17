@@ -115,12 +115,12 @@ function ImportCtr( value )
     elseif value == "BI" then --Backpack Infos
         import (AppCtrD.."BagInfos");
         --import (AppCtrD.."BagInfosToolTip");
-        AddCallback(backpack, "ItemAdded", 
+        AddCallback(backpack, "ItemAdded",
             function(sender, args) UpdateBackpackInfos(); end
             );
-        AddCallback(backpack, "ItemRemoved", 
-            function(sender, args) 
-                ItemRemovedTimer:SetWantsUpdates( true ); 
+        AddCallback(backpack, "ItemRemoved",
+            function(sender, args)
+                ItemRemovedTimer:SetWantsUpdates( true );
             end
             ); --Workaround
         --AddCallback(backpack, "ItemRemoved", 
@@ -133,11 +133,17 @@ function ImportCtr( value )
         import (AppCtrD.."PlayerInfosToolTip");
         PlayerAtt = Player:GetAttributes();
         AddCallback(Player, "LevelChanged", 
-            function(sender, args) PI["Lvl"]:SetText( Player:GetLevel() ); end
-            );
-        AddCallback(Player, "NameChanged", 
-            function(sender, args) PI["Name"]:SetText( Player:GetName() ); end
-            );
+            function(sender, args)
+                PI["Lvl"]:SetText( Player:GetLevel() );
+                PI["Lvl"]:SetSize( PI["Lvl"]:GetTextLength() * NM+1, CTRHeight );
+                PI["Name"]:SetPosition( PI["Lvl"]:GetLeft() + PI["Lvl"]:GetWidth() + 5, 0 );
+            end);
+        AddCallback(Player, "NameChanged",
+            function(sender, args)
+                PI["Name"]:SetText( Player:GetName() );
+                PI["Name"]:SetSize( PI["Name"]:GetTextLength() * TM, CTRHeight );
+                AjustIcon(" PI ");
+            end);
         XPcb = AddCallback(Turbine.Chat, "Received", 
             function(sender, args)
             if args.ChatType == Turbine.ChatType.Advancement then
@@ -379,7 +385,7 @@ function ImportCtr( value )
     elseif value == "RP" then --Reputation Points
         RPGR = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
-            [5] = 45000, [6] = 60000, [7] = 90000, [8] = 0 };
+            [5] = 45000, [6] = 60000, [7] = 90000, [8] = 1 };
             -- Reputation max points per rank
         import (AppCtrD.."Reputation");
         import (AppCtrD.."ReputationToolTip");
@@ -443,41 +449,42 @@ function ImportCtr( value )
                             local name = RepOrder[i];
                             if L[name] == rpName then
                                 local lastR = #RepTypes[v]
-                                if PlayerReputation[PN][name].R == lastR then
-                                    -- write("Max rank reached, do nothing.");
-                                else
-                                    -- Check if new points is equal or bigger 
-                                    -- of the max points
-                                    local tot = PlayerReputation[PN][name].P;
-                                    tot = tot + rpPTS;
-                                    local max = tonumber( PlayerReputation[PN][name].R );
-                                    if v == 2 or v == 7 then
-                                        max = max - 1
-                                    elseif v == 8 then
-                                        if max > 2 then
-                                            max = max - 2
-                                        else
-                                            max = max - 1
-                                        end
+                                -- Check if new points is equal or bigger 
+                                -- of the max points
+                                local tot = PlayerReputation[PN][name].P;
+                                tot = tot + rpPTS;
+                                local max = tonumber( PlayerReputation[PN][name].R );
+                                if max == lastR and tot > 0 then
+                                    tot = 0;
+                                end
+                                if v == 2 or v == 7 then
+                                    max = max - 1
+                                elseif v == 8 then
+                                    max = max - 1
+                                end
+                                max = RPGR[ max ];
+                                if tot >= max then
+                                    -- true, then calculate diff to add to next rank
+                                    tot = tot - max;
+                                    -- Change rank & points
+                                    PlayerReputation[PN][name].R = tostring(PlayerReputation[PN][name].R + 1);
+                                elseif tot < 0 then
+                                    local newR = tonumber(PlayerReputation[PN][name].R ) - 1;
+                                    isNewRNegative = newR;
+                                    if v == 2 or v == 7 or v == 8 then
+                                        isNewRNegative = isNewRNegative + 1;
                                     end
-                                    max = RPGR[ max ];
-                                    if tot >= max then
-                                        -- true, then calculate diff to add to 
-                                        -- next rank
-                                        tdiff = tot - max;
-                                        -- Change rank & points
-                                        PlayerReputation[PN][name].R = tostring(PlayerReputation[PN][name].R + 1);
-                                        if PlayerReputation[PN][name].R == lastR then
-                                            PlayerReputation[PN][name].P = "0"; 
-                                            -- max rank, set points to 0
-                                        else 
-                                            PlayerReputation[PN][name].P = string.format("%.0f", tdiff); 
-                                        end
-                                    else
-                                        -- false, only add points
-                                        PlayerReputation[PN][name].P = string.format("%.0f", tot);
+                                    if isNewRNegative >= 0 then
+                                        max = RPGR[ (newR) ];
+                                        PlayerReputation[PN][name].R = tostring(newR);
+                                        tot = tot + max;
                                     end
                                 end
+                                if PlayerReputation[PN][name].R == lastR then
+                                    tot = 0;
+                                end
+                                -- add points
+                                PlayerReputation[PN][name].P = string.format("%.0f", tot);
                                 break
                             end
                         end
