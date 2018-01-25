@@ -794,6 +794,25 @@ function LoadSettings()
 	_G.AOGLocY = tonumber(settings.AshOfGorgoroth.Y);
 	_G.AOGWhere = tonumber(settings.AshOfGorgoroth.W);
 	if _G.AOGWhere == 3 and ShowAshOfGorgoroth then _G.AOGWhere = 1; settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere); end --Remove after Oct, 15th 2013
+	
+	if settings.BingoBadge == nil then settings.BingoBadge = {}; end
+	if settings.BingoBadge.V == nil then settings.BingoBadge.V = false; end
+	if settings.BingoBadge.A == nil then settings.BingoBadge.A = string.format("%.3f", tA); end
+	if settings.BingoBadge.R == nil then settings.BingoBadge.R = string.format("%.3f", tR); end
+	if settings.BingoBadge.G == nil then settings.BingoBadge.G = string.format("%.3f", tG); end
+	if settings.BingoBadge.B == nil then settings.BingoBadge.B = string.format("%.3f", tB); end
+	if settings.BingoBadge.X == nil then settings.BingoBadge.X = string.format("%.0f", tX); end
+	if settings.BingoBadge.Y == nil then settings.BingoBadge.Y = string.format("%.0f", tY); end
+	if settings.BingoBadge.W == nil then settings.BingoBadge.W = string.format("%.0f", tW); end
+	ShowAshOfGorgoroth = settings.BingoBadge.V;
+	AOGbcAlpha = tonumber(settings.BingoBadge.A);
+	AOGbcRed = tonumber(settings.BingoBadge.R);
+	AOGbcGreen = tonumber(settings.BingoBadge.G);
+	AOGbcBlue = tonumber(settings.BingoBadge.B);
+	_G.AOGLocX = tonumber(settings.BingoBadge.X);
+	_G.AOGLocY = tonumber(settings.BingoBadge.Y);
+	_G.AOGWhere = tonumber(settings.BingoBadge.W);
+	if _G.BBWhere == 3 and ShowBingoBadge then _G.BBWhere = 1; settings.BingoBadge.W = string.format("%.0f", _G.BBWhere); end --Remove after Oct, 15th 2013
 	-- AU3 MARKER 4 END
 	
 	SaveSettings( false );
@@ -1170,6 +1189,15 @@ function SaveSettings(str)
 		settings.AshOfGorgoroth.X = string.format("%.0f", _G.AOGLocX);
 		settings.AshOfGorgoroth.Y = string.format("%.0f", _G.AOGLocY);
 		settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere);
+		settings.BingoBadge = {};
+		settings.BingoBadge.V = ShowBingoBadge;
+		settings.BingoBadge.A = string.format("%.3f", BBbcAlpha);
+		settings.BingoBadge.R = string.format("%.3f", BBbcRed);
+		settings.BingoBadge.G = string.format("%.3f", BBbcGreen);
+		settings.BingoBadge.B = string.format("%.3f", BBbcBlue);
+		settings.BingoBadge.X = string.format("%.0f", _G.BBLocX);
+		settings.BingoBadge.Y = string.format("%.0f", _G.BBLocY);
+		settings.BingoBadge.W = string.format("%.0f", _G.BBWhere);
 		-- AU3 MARKER 5 END
 	end
 	
@@ -1221,6 +1249,7 @@ function ResetSettings()
 	CentralGondorSilverPiece, CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue, _G.CGSPLocX, _G.CGSPLocY, _G.CGSPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Central Gondor Silver Piece Control
 	GiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
 	AshOfGorgoroth, AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue, _G.AOGLocX, _G.AOGLocY, _G.AOGWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Gorgoroth Control
+	BingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
 	-- AU3 MARKER 6 END
 		
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
@@ -1383,6 +1412,10 @@ function ReplaceCtr()
 	_G.AOGLocX = oldLocX * screenWidth;
 	settings.AshOfGorgoroth.X = string.format("%.0f", _G.AOGLocX);
 	if ShowAshOfGorgoroth and _G.AOGWhere == 1 then AOG["Ctr"]:SetPosition( _G.AOGLocX, _G.AOGLocY ); end
+	oldLocX = settings.BingoBadge.X / oldScreenWidth;
+	_G.BBLocX = oldLocX * screenWidth;
+	settings.BingoBadge.X = string.format("%.0f", _G.AOGLocX);
+	if ShowBingoBadge and _G.BBWhere == 1 then BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY ); end
 	-- AU3 MARKER 7 END
 	
 	SaveSettings( false );

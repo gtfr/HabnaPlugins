@@ -304,6 +304,12 @@ function ShowToolTipWin( ToShow )
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["AOGh"], L["EIt2"], 
             L["EIt3"] );
+	elseif ToShow == "BB" then -- Bingo Badge
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["BBh"], L["EIt2"], 
+            L["EIt3"] );
 	-- AU3 MARKER 1 END
 	end
 
@@ -548,6 +554,15 @@ function UpdateAshOfGorgoroth()
 		AOG["Lbl"]:SetText( GetCurrency( pwAshOfGorgoroth ) );
 		AOG["Lbl"]:SetSize( AOG["Lbl"]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "AOG" );
+	end
+end
+--**^
+--**v Update Bingo Badge currency on TitanBar v**
+function UpdateBingoBadge()
+	if _G.BBWhere == 1 then
+		BB["Lbl"]:SetText( GetCurrency( pwBingoBadge ) );
+		BB["Lbl"]:SetSize( BB["Lbl"]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "BB" );
 	end
 end
 --**^
@@ -891,6 +906,7 @@ function ChangeColor(tColor)
 		if ShowCentralGondorSilverPiece then CGSP["Ctr"]:SetBackColor( tColor ); end
 		if ShowGiftgiversBrand then GGB["Ctr"]:SetBackColor( tColor ); end
 		if ShowAshOfGorgoroth then AOG["Ctr"]:SetBackColor( tColor ); end
+		if ShowBingoBadge then BB["Ctr"]:SetBackColor( tColor ); end
 		-- AU3 MARKER 3 END
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
@@ -926,6 +942,7 @@ function ChangeColor(tColor)
 		if sFrom == "CGSP" then CGSP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "GGB" then GGB["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "AOG" then AOG["Ctr"]:SetBackColor( tColor ); end
+		if sFrom == "BB" then BB["Ctr"]:SetBackColor( tColor ); end
 		-- AU3 MARKER 4 END
 	end
 end
@@ -1160,6 +1177,12 @@ function AjustIcon(str)
 		AOG["Ctr"]:SetSize( AOG["Icon"]:GetLeft() + TBIconSize, CTRHeight );
 		AOG["Icon"]:SetSize( TBIconSize, TBIconSize );
 		AOG["Icon"]:SetStretchMode( 3 );
+	elseif str == "BB" then
+		BB["Icon"]:SetStretchMode( 1 );
+		BB["Icon"]:SetPosition(BB["Lbl"]:GetLeft()+BB["Lbl"]:GetWidth()+3,Y);
+		BB["Ctr"]:SetSize( BB["Icon"]:GetLeft() + TBIconSize, CTRHeight );
+		BB["Icon"]:SetSize( TBIconSize, TBIconSize );
+		BB["Icon"]:SetStretchMode( 3 );
 	-- AU3 MARKER 5 END
 	end
 end

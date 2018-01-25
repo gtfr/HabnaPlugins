@@ -381,6 +381,12 @@ function ImportCtr( value )
             AOG["Ctr"]:SetPosition( _G.AOGLocX, _G.AOGLocY );
         end
         if _G.AOGWhere ~= 3 then UpdateAshOfGorgoroth(); end
+    elseif value == "BB" then --Bingo Badge
+        if _G.BBWhere == 1 then
+            import (AppCtrD.."BingoBadge");
+            BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY );
+        end
+        if _G.BBWhere ~= 3 then UpdateBingoBadge(); end
     -- AU3 MARKER END
     elseif value == "RP" then --Reputation Points
         RPGR = {
@@ -907,9 +913,9 @@ end
 
 function LoadPlayerReputation()
     RepOrder = {
-        -- Normal faction advancment + Forochel and Minas Tirith 
-        "RPTEl", "RPCN", "RPMB", "RPTH", "RPTWA", "RPLF", "RPTEg", "RPRE", 
-        "RPER", "RPTMS", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM", 
+        -- Normal faction advancement + Forochel and Minas Tirith 
+        "RPMB", "RPTH", "RPTMS", "RPRE", "RPER", "RPTEl", "RPCN", "RPTWA", 
+        "RPLF", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM", 
         "RPTRS", "RPHLG", "RPMD", "RPTR", "RPMEV", "RPMN", "RPMS", "RPMW", 
         "RPPW", "RPSW", "RPTEo", "RPTHe", "RPTEFF", "RPMRV", "RPMDE", "RPML", 
         "RPP", "RPRI", "RPRR", "RPDMT", "RPDA", 
@@ -918,26 +924,28 @@ function LoadPlayerReputation()
         "RPDAS",
         -- Crafting guilds (position 45< <53)
         "RPJG", "RPCG", "RPSG", "RPTG", "RPWoG", "RPWeG", "RPMG",
-        -- Other - Chicken, Inn, Ale
-        "RPCCLE", "RPTIL", "RPTAA",
         -- Host of the West
         "RPHOTW", "RPHOTWA", "RPHOTWW", "RPHOTWP",
         "RPCOG", "RPEOFBs", "RPEOFBn", "RPRSC",
-        -- Accelerator
+        -- Special Event
+        "RPCCLE", "RPTAA", "RPTIL",
+        -- Reputation Accelerator
         "RPACC",
     };
     RepType = {
-        1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1,
+        1, 1, 1, 1, 1, 1, 1, 1,
+				2, 1, 1, 1, 1, 1, 1, 1,
+				1, 1, 1, 1, 1, 1, 1, 1,
+				1, 1, 1, 1, 1, 1, 1, 1,
+				1, 1, 1, 3, 1,
         -- DA Buildings
         4, 4, 4, 4, 4, 4, 4, 4,
         -- Crafting guilds
         5, 5, 5, 5, 5, 5, 5,
-        -- Other - Chicken, Inn, Ale
-        6, 7, 7,
         -- Host of the West
         3, 1, 1, 1, 3, 8, 8, 9,
+        -- Special Event
+        6, 7, 7,
         -- Accelerator
         10,
     };
@@ -1035,30 +1043,21 @@ function SavePlayerLOTROPoints()
         Turbine.DataScope.Account, "TitanBarLOTROPoints", PlayerLOTROPoints);
 end
 
-function UpdateCurrency(str)
+function UpdateCurrency( str )
     if str == pwShard and ShowShards then UpdateShards(); end
     if str == pwMark and ShowSkirmishMarks then UpdateMarks(); end
     if str == pwMedallion and ShowMedallions then UpdateMedallions(); end
     if str == pwSeal and ShowSeals then UpdateSeals(); end
-    if str == pwCommendation and ShowCommendations then UpdateCommendations(); 
-    end
+    if str == pwCommendation and ShowCommendations then UpdateCommendations(); end
     if str == pwMithril and ShowMithril then UpdateMithril(); end
 --  if str == pwYule and ShowYule then UpdateYule(); end
     if str == pwHytbold and ShowHytboldTokens then UpdateHytboldTokens(); end
-    if str == pwAmrothSilverPiece and ShowAmrothSilverPiece then 
-        UpdateAmrothSilverPiece(); end
-    if str == pwStarsofMerit and ShowStarsofMerit then 
-        UpdateStarsofMerit();
-    end
-    -- AU3 MARKER 2 - DO NOT REMOVE 
-    
-    if str == pwCentralGondorSilverPiece and ShowCentralGondorSilverPiece then 
-        UpdateCentralGondorSilverPiece(); end
-    if str == pwGiftgiversBrand and ShowGiftgiversBrand then 
-        UpdateGiftgiversBrand(); end
-    if str == pwAshOfGorgoroth and ShowAshOfGorgoroth then 
-        UpdateAshOfGorgoroth(); end
-    -- AU3 MARKER 2 END
+    if str == pwAmrothSilverPiece and ShowAmrothSilverPiece then UpdateAmrothSilverPiece(); end
+    if str == pwStarsofMerit and ShowStarsofMerit then UpdateStarsofMerit(); end
+    if str == pwCentralGondorSilverPiece and ShowCentralGondorSilverPiece then UpdateCentralGondorSilverPiece(); end
+    if str == pwGiftgiversBrand and ShowGiftgiversBrand then UpdateGiftgiversBrand(); end
+    if str == pwAshOfGorgoroth and ShowAshOfGorgoroth then UpdateAshOfGorgoroth(); end
+    if str == pwBingoBadge and ShowBingoBadge then UpdateBingoBadge(); end
 end
 
 function GetCurrency(str)

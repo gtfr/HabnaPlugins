@@ -332,6 +332,9 @@ function ResizeControls()
 	if ShowAshOfGorgoroth then AOG["Ctr"]:SetHeight( CTRHeight ); AOG["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("AOG");
 	end
+	if ShowBingoBadge then BB["Ctr"]:SetHeight( CTRHeight ); BB["Lbl"]:SetHeight( CTRHeight );
+		AjustIcon("BB");
+	end
 	-- AU3 MARKER 1 END
 	if ShowPlayerLoc then PL["Ctr"]:SetHeight( CTRHeight ); PL["Lbl"]:SetHeight( CTRHeight ); end
 	if ShowGameTime then GT["Ctr"]:SetHeight( CTRHeight );	GT["Lbl"]:SetHeight( CTRHeight ); end

@@ -37,6 +37,7 @@ function UnloadControl( value )
 	   	if ShowCentralGondorSilverPiece then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece(); end
 	   	if ShowGiftgiversBrand then _G.GGBWhere = 3; ShowHideGiftgiversBrand(); end
 	   	if ShowAshOfGorgoroth then _G.AOGWhere = 3; ShowHideAshOfGorgoroth(); end
+	   	if ShowBingoBadge then _G.BBWhere = 3; ShowHideBingoBadge(); end
 	   	-- AU3 MARKER 1 END
 		elseif value == "this" then
 		if _G.sFromCtr == "WI" then	ShowHideWallet();
@@ -70,6 +71,7 @@ function UnloadControl( value )
 	   	elseif _G.sFromCtr == "CGSP" then	_G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece();
 	   	elseif _G.sFromCtr == "GGB" then	_G.GGBWhere = 3; ShowHideGiftgiversBrand();
 	   	elseif _G.sFromCtr == "AOG" then	_G.AOGWhere = 3; ShowHideAshOfGorgoroth();
+	   	elseif _G.sFromCtr == "BB" then	_G.BBWhere = 3; ShowHideBingoBadge();
 	   	-- AU3 MARKER 2 END
 		end
 	end
@@ -117,6 +119,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "CGSP" then tA, tR, tG, tB = CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue;
 		elseif _G.sFromCtr == "GGB" then tA, tR, tG, tB = GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue;
 		elseif _G.sFromCtr == "AOG" then tA, tR, tG, tB = AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue;
+		elseif _G.sFromCtr == "BB" then tA, tR, tG, tB = BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue;
 		-- AU3 MARKER 3 END
 		end
 	end
@@ -184,6 +187,8 @@ function BGColor( cmd, value )
 		if GiftgiversBrand then GGB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = tA, tR, tG, tB;
 		if AshOfGorgoroth then AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
+		if BingoBadge then BB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		-- AU3 MARKER 4 END
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
@@ -280,6 +285,9 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "AOG" then
 			AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = tA, tR, tG, tB;
 			AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "BB" then
+			BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
+			BB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		-- AU3 MARKER 5 END
 		end
 	elseif value == "TitanBar" then

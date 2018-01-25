@@ -492,3 +492,14 @@ function ShowHideAshOfGorgoroth()
 	end
 	AOG["Ctr"]:SetVisible( ShowAshOfGorgoroth );
 end
+function ShowHideBingoBadge()
+	ShowBingoBadge = not ShowBingoBadge;
+	settings.BingoBadge.V = ShowBingoBadge;
+	settings.BingoBadge.W = string.format("%.0f", _G.BBWhere);
+	SaveSettings( false );
+	ImportCtr( "BB" );
+	if ShowBingoBadge then
+		BB["Ctr"]:SetBackColor( Turbine.UI.Color( BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue ) );
+	end
+	BB["Ctr"]:SetVisible( ShowBingoBadge );
+end

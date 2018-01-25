@@ -54,6 +54,7 @@ function RefreshWITTListBox()
 		elseif wttcur == L["MCGSP"] then ttw = _G.CGSPWhere; CtrIconCodeIs=WalletItem.CentralGondorSilverPiece.Icon; CtrQteIs=GetCurrency( pwCentralGondorSilverPiece );
 		elseif wttcur == L["MGGB"] then ttw = _G.GGBWhere; CtrIconCodeIs=WalletItem.GiftgiversBrand.Icon; CtrQteIs=GetCurrency( pwGiftgiversBrand );
 		elseif wttcur == L["MAOG"] then ttw = _G.AOGWhere; CtrIconCodeIs=WalletItem.AshOfGorgoroth.Icon; CtrQteIs=GetCurrency( pwAshOfGorgoroth );
+		elseif wttcur == L["MBB"] then ttw = _G.BBWhere; CtrIconCodeIs=WalletItem.BingoBadge.Icon; CtrQteIs=GetCurrency( pwBingoBadge );
 		-- AU3 MARKER 1 END
 		end
 		

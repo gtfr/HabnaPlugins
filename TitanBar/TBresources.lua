@@ -53,7 +53,7 @@ _G.WalletItem = {
 	Mark = { Icon = 0x4111c446 },
 	Medallion = { Icon = 0x4111c43d },
 	Mithril = { Icon = 0x411348E1 },
---	YuleToken = { Icon = 0x411348E1 },--MITHRIL COIN ICON UNTIL I CAN FIND THE CORRECT ONE
+	YuleToken = { Icon = 0x411348E1 },--MITHRIL COIN ICON UNTIL I CAN FIND THE CORRECT ONE
 	Seal = { Icon = 0x4111c449 }, 
 	Shard = { Icon = 0x41110d5b },
 	SkirmishMarks = { Icon = 0x4111c446 },
@@ -63,6 +63,7 @@ _G.WalletItem = {
 	CentralGondorSilverPiece = { Icon = 0x41155957 },
 	GiftgiversBrand = { Icon = 0x4115c888 },
 	AshOfGorgoroth = { Icon = 0x411B91DD },
+	BingoBadge = { Icon = 0x411348E1 },--MITHRIL COIN ICON UNTIL I CAN FIND THE CORRECT ONE
 	-- AU3 MARKER END
 	LOTROPTS = { Icon = 0x4113478C }
 };

@@ -522,3 +522,7 @@ L["GGBh"] = "These are your Gift-giver's Brands";
 -- Ash of Gorgoroth control
 L["MAOG"] = "Ash of Gorgoroth";
 L["AOGh"] = "These are your Ash of Gorgoroth";
+
+-- Bingo Badge control
+L["MBB"] = "Bingo Badge";
+L["BBh"] = "These are your Bingo Badges";

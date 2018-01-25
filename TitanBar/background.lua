@@ -93,6 +93,7 @@ function frmBackground()
 	if sFrom == "CGSP" then curSelAlpha =CGSPbcAlpha; curSelRed = CGSPbcRed; curSelGreen = CGSPbcGreen; curSelBlue = CGSPbcBlue; end
 	if sFrom == "GGB" then curSelAlpha =GGBbcAlpha; curSelRed = GGBbcRed; curSelGreen = GGBbcGreen; curSelBlue = GGBbcBlue; end
 	if sFrom == "AOG" then curSelAlpha =AOGbcAlpha; curSelRed = AOGbcRed; curSelGreen = AOGbcGreen; curSelBlue = AOGbcBlue; end
+	if sFrom == "BB" then curSelAlpha =BBbcAlpha; curSelRed = BBbcRed; curSelGreen = BBbcGreen; curSelBlue = BBbcBlue; end
 	-- AU3 MARKER 1 END
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	curSelColor:SetBackColor( Turbine.UI.Color( curSelAlpha, curSelRed, curSelGreen, curSelBlue ) );
@@ -365,6 +366,7 @@ function UpdateBCvariable()
 		if sFrom == "CGSP" then CGSPbcAlpha = curSelAlpha; CGSPbcRed = curSelRed; CGSPbcGreen = curSelGreen; CGSPbcBlue = curSelBlue; end
 		if sFrom == "GGB" then GGBbcAlpha = curSelAlpha; GGBbcRed = curSelRed; GGBbcGreen = curSelGreen; GGBbcBlue = curSelBlue; end
 		if sFrom == "AOG" then AOGbcAlpha = curSelAlpha; AOGbcRed = curSelRed; AOGbcGreen = curSelGreen; AOGbcBlue = curSelBlue; end
+		if sFrom == "BB" then BBbcAlpha = curSelAlpha; BBbcRed = curSelRed; BBbcGreen = curSelGreen; BBbcBlue = curSelBlue; end
 		-- AU3 MARKER 3 END
 	end
 end

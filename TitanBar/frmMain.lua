@@ -176,18 +176,16 @@ function frmMain()
 			if _G.CGSPWhere ~= 3 then ImportCtr( "CGSP" ); end
 			if _G.GGBWhere ~= 3 then ImportCtr( "GGB" ); end
 			if _G.AOGWhere ~= 3 then ImportCtr( "AOG" ); end
+			if _G.BBWhere ~= 3 then ImportCtr( "BB" ); end
 			-- AU3 MARKER 1 END
 		end
 	else
-		-- Disable DurabilityInfos, EquipInfos, DestinyPoints, Shard, YuleTokens, SkirmishMark, Medallion, Seal, Vault, SharedStoreage. (Infos not usefull in Monster Play)
-		ShowDurabilityInfos, ShowEquipInfos, ShowDestinyPoints, ShowShards,--[[ ShowYuleTokens, ]]ShowSkirmishMarks, ShowHytboldTokens, ShowMedallions, ShowSeals, ShowVault, ShowSharedStorage, ShowReputation = false, false, false, false,--[[  false, ]]false, false, false, false, false, false, false;
-		-- AU3 MARKER 2 - DO NOT REMOVE
-		ShowAmrothSilverPiece = false
-		ShowStarsofMerit = false
-		ShowCentralGondorSilverPiece = false
-		ShowGiftgiversBrand = false
-		ShowAshOfGorgoroth = false
-		-- AU3 MARKER 2 END
+		-- Disable infos not useful in Monster Play
+		ShowDurabilityInfos, ShowEquipInfos, ShowDestinyPoints, ShowShards = false, false, false, false;
+		ShowYuleTokens, ShowSkirmishMarks, ShowHytboldTokens, ShowMedallions = false, false, false, false;
+		ShowSeals, ShowVault, ShowSharedStorage, ShowAmrothSilverPiece = false, false, false, false;
+		ShowStarsofMerit, ShowCentralGondorSilverPiece, ShowGiftgiversBrand = false, false, false;
+		ShowAshOfGorgoroth, ShowBingoBadge, ShowReputation = false, false, false;
 		if PlayerWalletSize ~= nil or PlayerWalletSize ~= 0 then
 			if ShowWallet then ImportCtr( "WI" ); end
 			if _G.CPWhere ~= 3 then ImportCtr( "CP" ); end
@@ -198,11 +196,6 @@ function frmMain()
 	if ShowWallet then ImportCtr( "WI" ); end
 	if _G.MIWhere ~= 3 then ImportCtr( "MI" ); end
 	if _G.DPWhere ~= 3 then ImportCtr( "DP" ); end
-	--if _G.SPWhere ~= 3 then import (AppCtrD.."Shards"); end --if _G.SPWhere ~= 3 then ImportCtr( "SP" ); end  --Put back when wallet info are available before plugin load
-	--if _G.SMWhere ~= 3 then import (AppCtrD.."SkirmishMarks"); end --if _G.SMWhere ~= 3 then ImportCtr( "SM" ); end --Put back when wallet info are available before plugin load
-	--if _G.MPWhere ~= 3 then import (AppCtrD.."Medallions"); end --if _G.MPWhere ~= 3 then ImportCtr( "MP" ); end  --Put back when wallet info are available before plugin load
-	--if _G.SLWhere ~= 3 then import (AppCtrD.."Seals"); end --if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end  --Put back when wallet info are available before plugin load
-	--if _G.CPWhere ~= 3 then import (AppCtrD.."Commendations"); end --if _G.CPWhere ~= 3 then ImportCtr( "CP" ); end  --Put back when wallet info are available before plugin load
 	if ShowTrackItems then ImportCtr( "TI" ); end --Track Items
 	if ShowInfamy then ImportCtr( "IF" ); end --Infamy/Renown
 	if ShowVault then ImportCtr( "VT" ); end --Vault
@@ -212,7 +205,7 @@ function frmMain()
 	if ShowReputation then ImportCtr( "RP" ); end --Reputation Points
 	if _G.LPWhere ~= 3 then ImportCtr( "LP" ); end --LOTRO Points
 
-	--**v Workaround for the ItemRemoved that fire before the backpack was updated (Turnine API issue) v**
+	--**v Workaround for the ItemRemoved that fires before the backpack was updated (Turbine API issue) v**
 	ItemRemovedTimer = Turbine.UI.Control();
 	
 	ItemRemovedTimer.Update = function( sender, args )
@@ -233,7 +226,7 @@ function frmMain()
 		--AddCallback(PlayerEquipment, "ItemUnequipped", function(sender, args) if ShowEquipInfos then GetEquipmentInfos(); UpdateEquipsInfos(); end if ShowDurabilityInfos then GetEquipmentInfos(); UpdateDurabilityInfos(); end end);
 	end
 	
-	--**v Workaround for the ItemUnequipped that fire before the Equipment was updated (Turnine API issue) v**
+	--**v Workaround for the ItemUnequipped that fires before the equipment was updated (Turbine API issue) v**
 	ItemUnEquippedTimer = Turbine.UI.Control();
 
 	ItemUnEquippedTimer.Update = function( sender, args )
@@ -246,7 +239,7 @@ function frmMain()
 	if ShowEquipInfos then ImportCtr( "EI" ); end
 	if ShowDurabilityInfos then ImportCtr( "DI" ); end
 	
-	--**v Run those function at-starup only once, because if TitanBar is loaded with in-game plugin manager some control does not update properly v**
+	--**v Run these functions at-startup only once because if TitanBar is loaded with in-game plugin manager some controls do not update properly v**
 	OneTimer = Turbine.UI.Control();
 	AllTimer = Turbine.UI.Control();
 	AllTimer:SetWantsUpdates( true );
@@ -290,14 +283,14 @@ function frmMain()
 	end
 	--**
 	
-	--**v Run those functions all the time v**	
+	--**v Run these functions all the time v**	
 	AllTimer.Update = function( sender, args )
 		local currentdate = Turbine.Engine.GetDate();
 		local currentminute = currentdate.Minute;
 		local currentsecond = currentdate.Second;
 		
 		if (oldminute ~= currentminute) then
-			if ShowGameTime then-- Until i found the minute Changed event or something similar
+			if ShowGameTime then-- Until I find the minute changed event or something similar
 				if _G.ShowBT then UpdateGameTime("bt");
 				elseif _G.ShowST then UpdateGameTime("st");
 				else UpdateGameTime("gt") end
@@ -306,7 +299,7 @@ function frmMain()
 		
 		if (oldsecond ~= currentsecond) then
 			--Detect if wallet size has changed
-			if PlayerWallet:GetSize() ~= PlayerWalletSize then -- Until i found the size Changed event or something similar in wallet
+			if PlayerWallet:GetSize() ~= PlayerWalletSize then -- Until I find the size changed event or something similar in wallet
 				LoadPlayerWallet();
 				if _G.SPWhere ~= 3 then ImportCtr( "SP" ); end
 				if _G.SMWhere ~= 3 then ImportCtr( "SM" ); end
@@ -316,13 +309,12 @@ function frmMain()
 				if _G.MPWhere ~= 3 then ImportCtr( "MP" ); end
 				if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end
 				if _G.LPWhere ~= 3 then ImportCtr( "CP" ); end
-				-- AU3 MARKER 3 - DO NOT REMOVE
 				if _G.ASPWhere ~= 3 then ImportCtr( "ASP" ); end
 				if _G.SOMWhere ~= 3 then ImportCtr( "SOM" ); end
 				if _G.CGSPWhere ~= 3 then ImportCtr( "CGSP" ); end
 				if _G.GGBWhere ~= 3 then ImportCtr( "GGB" ); end
 				if _G.AOGWhere ~= 3 then ImportCtr( "AOG" ); end
-				-- AU3 MARKER 3 END
+				if _G.BBWhere ~= 3 then ImportCtr( "BB" ); end
 			end
 
 			screenWidth, screenHeight = Turbine.UI.Display.GetSize();

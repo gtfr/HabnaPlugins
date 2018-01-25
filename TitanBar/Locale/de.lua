@@ -522,3 +522,7 @@ L["GGBh"] = "Deine Zeichen des Schenkenden";
 -- Ash of Gorgoroth control
 L["MAOG"] = "Asche von Gorgoroth";
 L["AOGh"] = "Deine Asche von Gorgoroth";
+
+-- Bingo Badge control
+L["MBB"] = "Bingo Badge";
+L["BBh"] = "These are your Bingo Badges";
