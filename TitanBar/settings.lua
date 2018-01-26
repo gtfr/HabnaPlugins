@@ -3,37 +3,34 @@
 
 
 -- **v Load / update / set default settings v**
-function LoadSettings()
+function LoadSettings()-- I'm confused as to what most of this is... Most of these strings should be in localization files, and I believe they are - so why are they here too?  Deprecated code that hasn't been cleaned up yet?
 	if GLocale == "de" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsDE" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Scherbe", "Zeichen", "Medaillon", "Siegel", "Anerkennung", "Mithril-M\195\188nze",--[[ "Yule Token", ]]"M\195\188nze von Hytbold";
-		-- AU3 MARKER 1 - DO NOT REMOVE
+		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwYule, pwHytbold = "Scherbe", "Zeichen", "Medaillon", "Siegel", "Anerkennung", "Mithril-M\195\188nze", "Yule Token", "M\195\188nze von Hytbold";
 		pwAmrothSilverPiece = "Amroth-Silberstck"
 		pwStarsofMerit = "Stern des Verdienst"
 		pwCentralGondorSilverPiece = "Zentralgondorisches Silberst\195\188ck"
 		pwGiftgiversBrand = "Zeichen des Schenkenden"
 		pwAshOfGorgoroth = "Asche von Gorgoroth"
-		-- AU3 MARKER 1 END
+		pwBingoBadge = "Bingo Badge"
 	elseif GLocale == "en" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsEN" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Shard", "Mark", "Medallion", "Seal", "Commendation", "Mithril Coin",--[[ "Yule Token", ]]"Token of Hytbold";
-		-- AU3 MARKER 2 - DO NOT REMOVE
+		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwYule, pwHytbold = "Shard", "Mark", "Medallion", "Seal", "Commendation", "Mithril Coin", "Yule Token", "Token of Hytbold";
 		pwAmrothSilverPiece = "Amroth Silver Piece"
 		pwStarsofMerit = "Star of Merit"
 		pwCentralGondorSilverPiece = "Central Gondor Silver Piece"
 		pwGiftgiversBrand = "Gift-giver's Brand"
 		pwAshOfGorgoroth = "Ash of Gorgoroth"
-		-- AU3 MARKER 2 END
+		pwBingoBadge = "Bingo Badge"
 	elseif GLocale == "fr" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsFR" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril,--[[ pwYule, ]]pwHytbold = "Eclat", "Marque", "M\195\169daillon", "Sceau", "Citation", "Pi\195\168ce de mithril",--[[ "Yule Token", ]]"Jeton d'Hytbold";
-		-- AU3 MARKER 3 - DO NOT REMOVE
+		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwYule, pwHytbold = "Eclat", "Marque", "M\195\169daillon", "Sceau", "Citation", "Pi\195\168ce de mithril", "Yule Token", "Jeton d'Hytbold";
 		pwAmrothSilverPiece = "Pice d'argent d'Amroth"
 		pwStarsofMerit = "Star of Merit"
 		pwCentralGondorSilverPiece = "Central Gondor Silver Piece"
 		pwGiftgiversBrand = "Gift-giver's Brand"
 		pwAshOfGorgoroth = "Ash of Gorgoroth"
-		-- AU3 MARKER 3 END
+		pwBingoBadge = "Bingo Badge"
 	end
 	
 	tA, tR, tG, tB, tX, tY, tW = 0.3, 0.3, 0.3, 0.3, 0, 0, 3; --Default alpha, red, green, blue, X, Y pos of control, Show where
@@ -106,7 +103,7 @@ function LoadSettings()
 	if TBAutoHide == "Only in combat" or TBAutoHide == "Seulement en combat" or TBAutoHide == "Nur in der Schlacht" then TBAutoHide = L["OPAHC"]; end
 
 	TBIconSize = settings.Options.I;
-	-- If user change language, icon dissappear. Fix: Re-input correct word in variable.
+	-- If user change language, icon disappear. Fix: Re-input correct word in variable.
 	if TBIconSize == "Small (16x16)" or TBIconSize == "Petit (16x16)" or TBIconSize == "klein (16x16)" then TBIconSize = L["OPISS"];
 	elseif TBIconSize == "Large (32x32)" or TBIconSize == "Grand (32x32)" or TBIconSize == "Breit (32x32)" then TBIconSize = L["OPISL"]; end
 	
@@ -265,26 +262,24 @@ function LoadSettings()
 	_G.MCWhere = tonumber(settings.MithrilCoins.W);
 	if _G.MCWhere == 3 and ShowMithrilCoins then _G.MCWhere = 1; settings.MithrilCoins.W = string.format("%.0f", _G.MCWhere); end --Remove after Oct, 15th 2013
 	
---[[
-	if settings.YuleTokens == nil then settings.YuleTokens = {}; end
-	if settings.YuleTokens.V == nil then settings.YuleTokens.V = false; end
-	if settings.YuleTokens.A == nil then settings.YuleTokens.A = string.format("%.3f", tA); end
-	if settings.YuleTokens.R == nil then settings.YuleTokens.R = string.format("%.3f", tR); end
-	if settings.YuleTokens.G == nil then settings.YuleTokens.G = string.format("%.3f", tG); end
-	if settings.YuleTokens.B == nil then settings.YuleTokens.B = string.format("%.3f", tB); end
-	if settings.YuleTokens.X == nil then settings.YuleTokens.X = string.format("%.0f", tX); end
-	if settings.YuleTokens.Y == nil then settings.YuleTokens.Y = string.format("%.0f", tY); end
-	if settings.YuleTokens.W == nil then settings.YuleTokens.W = string.format("%.0f", tW); end
-	ShowMithrilCoins = settings.YuleTokens.V;
-	YTbcAlpha = tonumber(settings.YuleTokens.A);
-	YTbcRed = tonumber(settings.YuleTokens.R);
-	YTbcGreen = tonumber(settings.YuleTokens.G);
-	YTbcBlue = tonumber(settings.YuleTokens.B);
-	_G.YTLocX = tonumber(settings.YuleTokens.X);
-	_G.YTLocY = tonumber(settings.YuleTokens.Y);
-	_G.YTWhere = tonumber(settings.YuleTokens.W);
-	if _G.YTWhere == 3 and ShowYuleTokens then _G.YTWhere = 1; settings.YuleTokens.W = string.format("%.0f", _G.YTWhere); end
---]]
+	if settings.YuleToken == nil then settings.YuleToken = {}; end
+	if settings.YuleToken.V == nil then settings.YuleToken.V = false; end
+	if settings.YuleToken.A == nil then settings.YuleToken.A = string.format("%.3f", tA); end
+	if settings.YuleToken.R == nil then settings.YuleToken.R = string.format("%.3f", tR); end
+	if settings.YuleToken.G == nil then settings.YuleToken.G = string.format("%.3f", tG); end
+	if settings.YuleToken.B == nil then settings.YuleToken.B = string.format("%.3f", tB); end
+	if settings.YuleToken.X == nil then settings.YuleToken.X = string.format("%.0f", tX); end
+	if settings.YuleToken.Y == nil then settings.YuleToken.Y = string.format("%.0f", tY); end
+	if settings.YuleToken.W == nil then settings.YuleToken.W = string.format("%.0f", tW); end
+	ShowYuleToken = settings.YuleToken.V;
+	YTbcAlpha = tonumber(settings.YuleToken.A);
+	YTbcRed = tonumber(settings.YuleToken.R);
+	YTbcGreen = tonumber(settings.YuleToken.G);
+	YTbcBlue = tonumber(settings.YuleToken.B);
+	_G.YTLocX = tonumber(settings.YuleToken.X);
+	_G.YTLocY = tonumber(settings.YuleToken.Y);
+	_G.YTWhere = tonumber(settings.YuleToken.W);
+	if _G.YTWhere == 3 and ShowYuleToken then _G.YTWhere = 1; settings.YuleToken.W = string.format("%.0f", _G.YTWhere); end
 	
 	if settings.HytboldTokens == nil then settings.HytboldTokens = {}; end
 	if settings.HytboldTokens.V == nil then settings.HytboldTokens.V = false; end
@@ -739,6 +734,7 @@ function LoadSettings()
 	_G.SOMLocY = tonumber(settings.StarsofMerit.Y);
 	_G.SOMWhere = tonumber(settings.StarsofMerit.W);
 	if _G.SOMWhere == 3 and ShowStarsofMerit then _G.SOMWhere = 1; settings.StarsofMerit.W = string.format("%.0f", _G.SOMWhere); end --Remove after Oct, 15th 2013
+
 	if settings.CentralGondorSilverPiece == nil then settings.CentralGondorSilverPiece = {}; end
 	if settings.CentralGondorSilverPiece.V == nil then settings.CentralGondorSilverPiece.V = false; end
 	if settings.CentralGondorSilverPiece.A == nil then settings.CentralGondorSilverPiece.A = string.format("%.3f", tA); end
@@ -757,6 +753,7 @@ function LoadSettings()
 	_G.CGSPLocY = tonumber(settings.CentralGondorSilverPiece.Y);
 	_G.CGSPWhere = tonumber(settings.CentralGondorSilverPiece.W);
 	if _G.CGSPWhere == 3 and ShowCentralGondorSilverPiece then _G.CGSPWhere = 1; settings.CentralGondorSilverPiece.W = string.format("%.0f", _G.CGSPWhere); end --Remove after Oct, 15th 2013
+
 	if settings.GiftgiversBrand == nil then settings.GiftgiversBrand = {}; end
 	if settings.GiftgiversBrand.V == nil then settings.GiftgiversBrand.V = false; end
 	if settings.GiftgiversBrand.A == nil then settings.GiftgiversBrand.A = string.format("%.3f", tA); end
@@ -804,20 +801,20 @@ function LoadSettings()
 	if settings.BingoBadge.X == nil then settings.BingoBadge.X = string.format("%.0f", tX); end
 	if settings.BingoBadge.Y == nil then settings.BingoBadge.Y = string.format("%.0f", tY); end
 	if settings.BingoBadge.W == nil then settings.BingoBadge.W = string.format("%.0f", tW); end
-	ShowAshOfGorgoroth = settings.BingoBadge.V;
-	AOGbcAlpha = tonumber(settings.BingoBadge.A);
-	AOGbcRed = tonumber(settings.BingoBadge.R);
-	AOGbcGreen = tonumber(settings.BingoBadge.G);
-	AOGbcBlue = tonumber(settings.BingoBadge.B);
-	_G.AOGLocX = tonumber(settings.BingoBadge.X);
-	_G.AOGLocY = tonumber(settings.BingoBadge.Y);
-	_G.AOGWhere = tonumber(settings.BingoBadge.W);
+	ShowBingoBadge = settings.BingoBadge.V;
+	BBbcAlpha = tonumber(settings.BingoBadge.A);
+	BBbcRed = tonumber(settings.BingoBadge.R);
+	BBbcGreen = tonumber(settings.BingoBadge.G);
+	BBbcBlue = tonumber(settings.BingoBadge.B);
+	_G.BBLocX = tonumber(settings.BingoBadge.X);
+	_G.BBLocY = tonumber(settings.BingoBadge.Y);
+	_G.BBWhere = tonumber(settings.BingoBadge.W);
 	if _G.BBWhere == 3 and ShowBingoBadge then _G.BBWhere = 1; settings.BingoBadge.W = string.format("%.0f", _G.BBWhere); end --Remove after Oct, 15th 2013
 	-- AU3 MARKER 4 END
 	
 	SaveSettings( false );
 	
-	--if settings.TitanBar.W ~= screenWidth then ReplaceCtr(); end --Replace control if screenwidth as changed
+	--if settings.TitanBar.W ~= screenWidth then ReplaceCtr(); end --Replace control if screen width as changed
 end
 -- **^
 -- **v Save settings v**
@@ -924,16 +921,15 @@ function SaveSettings(str)
 		settings.MithrilCoins.Y = string.format("%.0f", _G.MCLocY);
 		settings.MithrilCoins.W = string.format("%.0f", _G.MCWhere);
 
---[[
-		settings.YuleTokens = {};
-		settings.YuleTokens.V = ShowYuleTokens;
-		settings.YuleTokens.A = string.format("%.3f", YTbcAlpha);
-		settings.YuleTokens.R = string.format("%.3f", YTbcRed);
-		settings.YuleTokens.G = string.format("%.3f", YTbcGreen);
-		settings.YuleTokens.B = string.format("%.3f", YTbcBlue);
-		settings.YuleTokens.X = string.format("%.0f", _G.YTLocX);
-		settings.YuleTokens.Y = string.format("%.0f", _G.YTLocY);
-		settings.YuleTokens.W = string.format("%.0f", _G.YTWhere);--]]
+		settings.YuleToken = {};
+		settings.YuleToken.V = ShowYuleToken;
+		settings.YuleToken.A = string.format("%.3f", YTbcAlpha);
+		settings.YuleToken.R = string.format("%.3f", YTbcRed);
+		settings.YuleToken.G = string.format("%.3f", YTbcGreen);
+		settings.YuleToken.B = string.format("%.3f", YTbcBlue);
+		settings.YuleToken.X = string.format("%.0f", _G.YTLocX);
+		settings.YuleToken.Y = string.format("%.0f", _G.YTLocY);
+		settings.YuleToken.W = string.format("%.0f", _G.YTWhere);
 		
 		settings.HytboldTokens = {};
 		settings.HytboldTokens.V = ShowHytboldTokens;
@@ -1143,7 +1139,7 @@ function SaveSettings(str)
 		settings.GameTime.M = string.format("%.0f", _G.UserGMT);
 		if PlayerAlign == 1 then settings.GameTime.L = string.format("%.0f", GTWLeft); end
 		if PlayerAlign == 1 then  settings.GameTime.T = string.format("%.0f", GTWTop); end
-		-- AU3 MARKER 5 - DO NOT REMOVE
+		
 		settings.AmrothSilverPiece = {};
 		settings.AmrothSilverPiece.V = ShowAmrothSilverPiece;
 		settings.AmrothSilverPiece.A = string.format("%.3f", ASPbcAlpha);
@@ -1153,6 +1149,7 @@ function SaveSettings(str)
 		settings.AmrothSilverPiece.X = string.format("%.0f", _G.ASPLocX);
 		settings.AmrothSilverPiece.Y = string.format("%.0f", _G.ASPLocY);
 		settings.AmrothSilverPiece.W = string.format("%.0f", _G.ASPWhere);
+		
 		settings.StarsofMerit = {};
 		settings.StarsofMerit.V = ShowStarsofMerit;
 		settings.StarsofMerit.A = string.format("%.3f", SOMbcAlpha);
@@ -1162,6 +1159,7 @@ function SaveSettings(str)
 		settings.StarsofMerit.X = string.format("%.0f", _G.SOMLocX);
 		settings.StarsofMerit.Y = string.format("%.0f", _G.SOMLocY);
 		settings.StarsofMerit.W = string.format("%.0f", _G.SOMWhere);
+		
 		settings.CentralGondorSilverPiece = {};
 		settings.CentralGondorSilverPiece.V = ShowCentralGondorSilverPiece;
 		settings.CentralGondorSilverPiece.A = string.format("%.3f", CGSPbcAlpha);
@@ -1171,6 +1169,7 @@ function SaveSettings(str)
 		settings.CentralGondorSilverPiece.X = string.format("%.0f", _G.CGSPLocX);
 		settings.CentralGondorSilverPiece.Y = string.format("%.0f", _G.CGSPLocY);
 		settings.CentralGondorSilverPiece.W = string.format("%.0f", _G.CGSPWhere);
+		
 		settings.GiftgiversBrand = {};
 		settings.GiftgiversBrand.V = ShowGiftgiversBrand;
 		settings.GiftgiversBrand.A = string.format("%.3f", GGBbcAlpha);
@@ -1180,6 +1179,7 @@ function SaveSettings(str)
 		settings.GiftgiversBrand.X = string.format("%.0f", _G.GGBLocX);
 		settings.GiftgiversBrand.Y = string.format("%.0f", _G.GGBLocY);
 		settings.GiftgiversBrand.W = string.format("%.0f", _G.GGBWhere);
+		
 		settings.AshOfGorgoroth = {};
 		settings.AshOfGorgoroth.V = ShowAshOfGorgoroth;
 		settings.AshOfGorgoroth.A = string.format("%.3f", AOGbcAlpha);
@@ -1189,6 +1189,7 @@ function SaveSettings(str)
 		settings.AshOfGorgoroth.X = string.format("%.0f", _G.AOGLocX);
 		settings.AshOfGorgoroth.Y = string.format("%.0f", _G.AOGLocY);
 		settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere);
+		
 		settings.BingoBadge = {};
 		settings.BingoBadge.V = ShowBingoBadge;
 		settings.BingoBadge.A = string.format("%.3f", BBbcAlpha);
@@ -1198,7 +1199,6 @@ function SaveSettings(str)
 		settings.BingoBadge.X = string.format("%.0f", _G.BBLocX);
 		settings.BingoBadge.Y = string.format("%.0f", _G.BBLocY);
 		settings.BingoBadge.W = string.format("%.0f", _G.BBWhere);
-		-- AU3 MARKER 5 END
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1222,13 +1222,13 @@ function ResetSettings()
 	ShowShards, SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue, _G.SPLocX, _G.SPLocY, _G.SPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Shards Control
 	ShowSkirmishMarks, SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue, _G.SMLocX, _G.SMLocY, _G.SMWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Skirmish marks Control
 	ShowMithrilCoins, MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue, _G.MCLocX, _G.MCLocY, _G.MCWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Mithril Coins Control
---	ShowYuleTokens, YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue, _G.TLocX, _G.YTLocY, _G.YTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Yule Tokens Control
+	ShowYuleToken, YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue, _G.TLocX, _G.YTLocY, _G.YTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Yule Tokens Control
 	ShowHytboldTokens, HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue, _G.HTLocX, _G.HTLocY, _G.HTWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Tokens of Hytbold Control
 	ShowMedallions, MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue, _G.MPLocX, _G.MPLocY, _G.MPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Medallions Control
 	ShowCommendations, CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue, _G.CPLocX, _G.CPLocY, _G.CPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Commendations Control
 	ShowSeals, SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue, _G.SLLocX, _G.SLLocY, _G.SLWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Seal Control
 	ShowBagInfos, _G.BIUsed, _G.BIMax, BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue, _G.BILocX, _G.BILocY = true, true, true, tA, tR, tG, tB, tX, tY; --for Bag info Control
-	ShowEquipInfos, EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue, _G.EILocX, _G.EILocY = true, tA, tR, tG, tB, 75, tY; --for Equipement infos Control
+	ShowEquipInfos, EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue, _G.EILocX, _G.EILocY = true, tA, tR, tG, tB, 75, tY; --for Equipment infos Control
 	ShowDurabilityInfos, DIIcon, DIText, DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue, _G.DILocX, _G.DILocY = true, true, true, tA, tR, tG, tB, 145, tY; --for Durability infos Control
 	ShowPlayerInfos, PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue, _G.PILocX, _G.PILocY = false, tA, tR, tG, tB, 210, tY; --for Player infos Control
 	ShowTrackItems, TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue, _G.TILocX, _G.TILocY = false, tA, tR, tG, tB, tX, tY; --for Track Items Control
@@ -1239,18 +1239,14 @@ function ResetSettings()
 	ShowDayNight, _G.DNNextT, DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue, _G.DNLocX, _G.DNLocX = false, true, tA, tR, tG, tB, tX, tY --for DayNight Control
 	ShowReputation, RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue, _G.RPLocX, _G.RPLocX = false, tA, tR, tG, tB, tX, tY --for Reputation Control
 	ShowLOTROPoints, LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue, _G.LPLocX, _G.LPLocY, _G.LPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for LOTRO points Control
-	
 	ShowPlayerLoc, PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue, _G.PLLocX, _G.PLLocX = true, tA, tR, tG, tB, screenWidth - 205, tY; --for Player Location Control
 	ShowGameTime, _G.Clock24h, _G.ShowST, _G.ShowBT, GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue, _G.GTLocX, _G.GTLocX = true, false, false, false, tA, tR, tG, tB, screenWidth - 60, tY --for Game time Control
-	
-	-- AU3 MARKER 6 - DO NOT REMOVE
 	AmrothSilverPiece, ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue, _G.ASPLocX, _G.ASPLocY, _G.ASPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Amroth Silver Piece Control
 	StarsofMerit, SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue, _G.SOMLocX, _G.SOMLocY, _G.SOMWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Stars of Merit Control
 	CentralGondorSilverPiece, CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue, _G.CGSPLocX, _G.CGSPLocY, _G.CGSPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Central Gondor Silver Piece Control
 	GiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
 	AshOfGorgoroth, AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue, _G.AOGLocX, _G.AOGLocY, _G.AOGWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Gorgoroth Control
 	BingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
-	-- AU3 MARKER 6 END
 		
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1294,12 +1290,10 @@ function ReplaceCtr()
 	settings.MithrilCoins.X = string.format("%.0f", _G.MCLocX);
 	if ShowMithrilCoins and _G.MCWhere == 1 then MC["Ctr"]:SetPosition( _G.MCLocX, _G.MCLocY ); end
 	
---[[
-	oldLocX = settings.YuleTokens.X / oldScreenWidth;
+	oldLocX = settings.YuleToken.X / oldScreenWidth;
 	_G.YTLocX = oldLocX * screenWidth;
-	settings.YuleTokens.X = string.format("%.0f", _G.YTLocX);
-	if ShowYuleTokens and _G.YTWhere == 1 then YT["Ctr"]:SetPosition( _G.YTLocX, _G.YTLocY ); end
---]]
+	settings.YuleToken.X = string.format("%.0f", _G.YTLocX);
+	if ShowYuleToken and _G.YTWhere == 1 then YT["Ctr"]:SetPosition( _G.YTLocX, _G.YTLocY ); end
 
 	ldLocX = settings.HytboldTokens.X / oldScreenWidth;
 	_G.HTLocX = oldLocX * screenWidth;
@@ -1391,7 +1385,6 @@ function ReplaceCtr()
 	settings.GameTime.X = string.format("%.0f", _G.GTLocX);
 	if ShowGameTime then GT["Ctr"]:SetPosition( _G.GTLocX, _G.GTLocY ); end
 	
-	-- AU3 MARKER 7 - DO NOT REMOVE
 	oldLocX = settings.AmrothSilverPiece.X / oldScreenWidth;
 	_G.ASPLocX = oldLocX * screenWidth;
 	settings.AmrothSilverPiece.X = string.format("%.0f", _G.ASPLocX);
@@ -1416,7 +1409,6 @@ function ReplaceCtr()
 	_G.BBLocX = oldLocX * screenWidth;
 	settings.BingoBadge.X = string.format("%.0f", _G.AOGLocX);
 	if ShowBingoBadge and _G.BBWhere == 1 then BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY ); end
-	-- AU3 MARKER 7 END
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

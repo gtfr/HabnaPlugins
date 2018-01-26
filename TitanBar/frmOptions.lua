@@ -265,9 +265,9 @@ function ResizeControls()
 	if ShowMithrilCoins then MC["Ctr"]:SetHeight( CTRHeight ); MC["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("MC");
 	end
---[[	if ShowYuleTokens then YT["Ctr"]:SetHeight( CTRHeight ); YT["Lbl"]:SetHeight( CTRHeight );
+	if ShowYuleToken then YT["Ctr"]:SetHeight( CTRHeight ); YT["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("YT");
-	end--]]
+	end
 	if ShowHytboldTokens then HT["Ctr"]:SetHeight( CTRHeight ); HT["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("HT");
 	end
@@ -316,7 +316,6 @@ function ResizeControls()
 	if ShowLOTROPoints then LP["Ctr"]:SetHeight( CTRHeight ); LP["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("LP");
 	end
-	-- AU3 MARKER 1 - DO NOT REMOVE
 	if ShowAmrothSilverPiece then ASP["Ctr"]:SetHeight( CTRHeight ); ASP["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("ASP");
 	end
@@ -335,7 +334,6 @@ function ResizeControls()
 	if ShowBingoBadge then BB["Ctr"]:SetHeight( CTRHeight ); BB["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("BB");
 	end
-	-- AU3 MARKER 1 END
 	if ShowPlayerLoc then PL["Ctr"]:SetHeight( CTRHeight ); PL["Lbl"]:SetHeight( CTRHeight ); end
 	if ShowGameTime then GT["Ctr"]:SetHeight( CTRHeight );	GT["Lbl"]:SetHeight( CTRHeight ); end
 end
@@ -347,7 +345,7 @@ function ResizeIcon()
 	if ShowShards then AjustIcon("SP"); end
 	if ShowSkirmishMarks then AjustIcon("SM"); end
 	if ShowMithrilCoins then AjustIcon("MC"); end
---	if ShowYuleTokens then AjustIcon("YT"); end
+	if ShowYuleToken then AjustIcon("YT"); end
 	if ShowHytboldTokens then AjustIcon("HT"); end
 	if ShowMedallions then AjustIcon("MP"); end
 	if ShowSeals then AjustIcon("SL"); end
@@ -364,11 +362,10 @@ function ResizeIcon()
 	if ShowDayNight then AjustIcon("DN"); end
 	if ShowReputation then AjustIcon("RP"); end
 	if ShowLOTROPoints then AjustIcon("LP"); end
-	-- AU3 MARKER 2 - DO NOT REMOVE
 	if ShowAmrothSilverPiece then AjustIcon("ASP"); end
 	if ShowStarsofMerit then AjustIcon("SOM"); end
 	if ShowCentralGondorSilverPiece then AjustIcon("CGSP"); end
 	if ShowGiftgiversBrand then AjustIcon("GGB"); end
 	if ShowAshOfGorgoroth then AjustIcon("AOG"); end
-	-- AU3 MARKER 2 END
+	if ShowBingoBadge then AjustIcon("BB"); end
 end

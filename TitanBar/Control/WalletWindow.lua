@@ -10,7 +10,7 @@ function frmWalletWindow()
 	-- **v Set some window stuff v**
 	_G.wWI = Turbine.UI.Lotro.Window();
 	if GLocale == "de" then w = 300; else w = 280; end
-	_G.wWI:SetSize( w, 420 ); --280x260
+	_G.wWI:SetSize( w, 500 ); --280x260
     _G.wWI:SetPosition( WIWLeft, WIWTop );
 	_G.wWI:SetText( L["MBag"] );
 	_G.wWI:SetVisible( true );
@@ -173,7 +173,7 @@ function frmWalletWindow()
 	WIbutSave = Turbine.UI.Lotro.Button();
 	WIbutSave:SetParent( WIWCtr );
 	WIbutSave:SetText( L["PWSave"] );
-	WIbutSave:SetSize( WIbutSave:GetTextLength() * 10, 15 ); --Auto size with text lenght
+	WIbutSave:SetSize( WIbutSave:GetTextLength() * 10, 15 ); --Auto size with text length
 	--WIbutSave:SetEnabled( true );
 
 	WIbutSave.Click = function( sender, args )
@@ -202,10 +202,10 @@ function frmWalletWindow()
 			_G.MCWhere = SelIndex; settings.MithrilCoins.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowMithrilCoins then ShowHideMithrilCoins(); end
 			else if ShowMithrilCoins then ShowHideMithrilCoins(); end end
---[[		elseif wcur == L["MYT"] then
-			_G.YTWhere = SelIndex; settings.YuleTokens.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowYuleTokens then ShowHideYuleTokens(); end
-			else if ShowYuleTokens then ShowHideYuleTokens(); end end --]]
+		elseif wcur == L["MYT"] then
+			_G.YTWhere = SelIndex; settings.YuleToken.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowYuleToken then ShowHideYuleToken(); end
+			else if ShowYuleToken then ShowHideYuleToken(); end end
 		elseif wcur == L["MHT"] then
 			_G.HTWhere = SelIndex; settings.HytboldTokens.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowHytboldTokens then ShowHideHytboldTokens(); end
@@ -222,7 +222,6 @@ function frmWalletWindow()
 			_G.CPWhere = SelIndex; settings.Commendations.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowCommendations then ShowHideCommendations(); end
 			else if ShowCommendations then ShowHideCommendations(); end end
-		-- AU3 MARKER 1 - DO NOT REMOVE
 		elseif wcur == L["MASP"] then
 			_G.ASPWhere = SelIndex; settings.AmrothSilverPiece.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowAmrothSilverPiece then ShowHideAmrothSilverPiece(); end
@@ -247,7 +246,6 @@ function frmWalletWindow()
 			_G.BBWhere = SelIndex; settings.BingoBadge.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowBingoBadge then ShowHideBingoBadge(); end
 			else if ShowBingoBadge then ShowHideBingoBadge(); end end
-		-- AU3 MARKER 1 END
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
@@ -308,7 +306,7 @@ function RefreshWIListBox()
 				elseif wcur == L["MSP"] then tw = _G.SPWhere;
 				elseif wcur == L["MSM"] then tw = _G.SMWhere;
 				elseif wcur == L["MMC"] then tw = _G.MCWhere; -- Mithril Coins
---				elseif wcur == L["MYT"] then tw = _G.YTWhere; -- Yule Tokens
+				elseif wcur == L["MYT"] then tw = _G.YTWhere; -- Yule Tokens
 				elseif wcur == L["MHT"] then tw = _G.HTWhere; -- Tokens of Hytbold
 				elseif wcur == L["MMP"] then tw = _G.MPWhere; -- Medallions
 				elseif wcur == L["MSL"] then tw = _G.SLWhere; -- Seals

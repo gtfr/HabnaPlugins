@@ -165,24 +165,22 @@ function frmMain()
 			if _G.SPWhere ~= 3 then ImportCtr( "SP" ); end
 			if _G.SMWhere ~= 3 then ImportCtr( "SM" ); end
 			if _G.MCWhere ~= 3 then ImportCtr( "MC" ); end
---			if _G.YTWhere ~= 3 then ImportCtr( "YT" ); end
+			if _G.YTWhere ~= 3 then ImportCtr( "YT" ); end
 			if _G.HTWhere ~= 3 then ImportCtr( "HT" ); end
 			if _G.MPWhere ~= 3 then ImportCtr( "MP" ); end
 			if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end
 			if _G.CPWhere ~= 3 then ImportCtr( "CP" ); end
-			-- AU3 MARKER 1 - DO NOT REMOVE
 			if _G.ASPWhere ~= 3 then ImportCtr( "ASP" ); end
 			if _G.SOMWhere ~= 3 then ImportCtr( "SOM" ); end
 			if _G.CGSPWhere ~= 3 then ImportCtr( "CGSP" ); end
 			if _G.GGBWhere ~= 3 then ImportCtr( "GGB" ); end
 			if _G.AOGWhere ~= 3 then ImportCtr( "AOG" ); end
 			if _G.BBWhere ~= 3 then ImportCtr( "BB" ); end
-			-- AU3 MARKER 1 END
 		end
 	else
 		-- Disable infos not useful in Monster Play
 		ShowDurabilityInfos, ShowEquipInfos, ShowDestinyPoints, ShowShards = false, false, false, false;
-		ShowYuleTokens, ShowSkirmishMarks, ShowHytboldTokens, ShowMedallions = false, false, false, false;
+		ShowYuleToken, ShowSkirmishMarks, ShowHytboldTokens, ShowMedallions = false, false, false, false;
 		ShowSeals, ShowVault, ShowSharedStorage, ShowAmrothSilverPiece = false, false, false, false;
 		ShowStarsofMerit, ShowCentralGondorSilverPiece, ShowGiftgiversBrand = false, false, false;
 		ShowAshOfGorgoroth, ShowBingoBadge, ShowReputation = false, false, false;
@@ -304,7 +302,7 @@ function frmMain()
 				if _G.SPWhere ~= 3 then ImportCtr( "SP" ); end
 				if _G.SMWhere ~= 3 then ImportCtr( "SM" ); end
 				if _G.MCWhere ~= 3 then ImportCtr( "MC" ); end
---				if _G.YTWhere ~= 3 then ImportCtr( "YT" ); end
+				if _G.YTWhere ~= 3 then ImportCtr( "YT" ); end
 				if _G.HTWhere ~= 3 then ImportCtr( "HT" ); end
 				if _G.MPWhere ~= 3 then ImportCtr( "MP" ); end
 				if _G.SLWhere ~= 3 then ImportCtr( "SL" ); end

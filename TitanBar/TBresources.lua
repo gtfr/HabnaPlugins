@@ -16,8 +16,8 @@ _G.resources = {
 					[9]=0x410080a1, [10]=0x410080a2, [11]=0x410080a3, [12]=0x410080a4, [13]=0x410080a5, [14]=0x410080a6, [15]=0x410080a7 },
 	frmMain = 0x41007e8f, --( 0x411044a2, 0x41007e2a, 0x41007e8f )
 	InfamyBG = 0x41007df5, -- pink: 0x41007df4, white/grey: 0x41007df7, white: 0x41007e14
-						   -- blue: 0x41007df5 -gradiant, blue: 0x41000143 -dark, blue: 0x41007e92 -bright
-						   -- yellow: 0x41007e93, green: 0x41007df3, freeps : 0x41007e25,	
+						   -- blue: 0x41007df5 -gradient, blue: 0x41000143 -dark, blue: 0x41007e92 -bright
+						   -- yellow: 0x41007e93, green: 0x41007df3, Freeps : 0x41007e25,	
 	Item = 0x411386af, 
 	MoneyIcon = { Gold = 0x41007e7b, Silver = 0x41007e7c, Copper = 0x41007e7d }, --gold, silver, copper icon 27x21
 	Monster = 	{ [0]=0x4100819c, [1]=0x410080b7, [2]=0x410080b8, [3]=0x410080b9, [4]=0x410080ba, [5]=0x410080bb, [6]=0x410080bc, [7]=0x410080bd, [8]=0x410080be,
@@ -40,12 +40,6 @@ _G.resources = {
 	
 };
 
--- Box
--- Top Right  / Top Left   / Top        / Left       / Bottom Left/ Bottom     / Bottom Right/ Right
--- 0x41000144 / 0x41000145 / 0x41000146 / 0x41000147 / 0x41000148 / 0x41000149 / 0x4100014A / 0x4100014B : Lotro standard
--- 0x4100014D / 0x4100014E / 0x4100014F / 0x41000150 / 0x41000151 / 0x41000152 / 0x41000153 / 0x41000154 : Change with theme
--- 0x41000159 / 0x4100015A / 0x4100015B / 0x4100015C / 0x4100015D / 0x4100015E / 0x4100015F / 0x41000160 : Simple border dimmed
-
 _G.WalletItem = {
 	AmrothSilverPiece = { Icon = 0x41152875 },
 	Commendation = { Icon = 0x41123495 },
@@ -53,18 +47,16 @@ _G.WalletItem = {
 	Mark = { Icon = 0x4111c446 },
 	Medallion = { Icon = 0x4111c43d },
 	Mithril = { Icon = 0x411348E1 },
-	YuleToken = { Icon = 0x411348E1 },--MITHRIL COIN ICON UNTIL I CAN FIND THE CORRECT ONE
+	YuleToken = { Icon = 0x410FA62D },
 	Seal = { Icon = 0x4111c449 }, 
 	Shard = { Icon = 0x41110d5b },
 	SkirmishMarks = { Icon = 0x4111c446 },
 	TokensOfHytbold = { Icon = 0x41127D0C },
-	-- AU3 MARKER - DO NOT REMOVE
 	StarsofMerit = { Icon = 0x4115bea4 },
 	CentralGondorSilverPiece = { Icon = 0x41155957 },
 	GiftgiversBrand = { Icon = 0x4115c888 },
 	AshOfGorgoroth = { Icon = 0x411B91DD },
-	BingoBadge = { Icon = 0x411348E1 },--MITHRIL COIN ICON UNTIL I CAN FIND THE CORRECT ONE
-	-- AU3 MARKER END
+	BingoBadge = { Icon = 0x410E6EE4 },
 	LOTROPTS = { Icon = 0x4113478C }
 };
 
@@ -72,45 +64,3 @@ _G.DurabilitySlotsBG = { 0x41007eed, 0x41007ef6, 0x41007ef7, 0x41007eef, 0x41007
 		0x41007ef4, 0x41007ef3, 0x41007ef2, 0x41007ef1, 0x41007ef5, 0x41007efa, 0x41007eea, 0x41007eeb, 0x41007eec,
 		0x41007efb, 0x410e8680
 };
-
---[[
-_G.Wallet = {
-	AmrothSilverPiece = { Icon = 0x41152875,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	Commendation = { Icon = 0x41123495,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	DestinyPoints = { Icon = 0x4100a682,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	Mark = { Icon = 0x4111c446,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	Medallion = { Icon = 0x4111c43d,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	YuleToken = { Icon = 0x411348E1, -- CURRENTLY SAME AS MITHRIL COIN
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	Mithril = { Icon = 0x411348E1,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	Seal = { Icon = AppRes.."seal.tga",
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } }, 
-	Shard = { Icon = 0x41110d5b,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	SkirmishMarks = { Icon = 0x4111c446,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	TokensOfHytbold = { Icon = 0x41127D0C,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } },
-	-- AU3 MARKER 1 - DO NOT REMOVE
-	-- AU3 MARKER 1 END
-	LOTROPTS = { Icon = 0x4113478C,
-						  String = { DE = , EN = , FR = }, -- NAME = String.EN
-						  ToolTip = { DE = , EN = , FR = } }
-};]]

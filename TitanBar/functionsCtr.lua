@@ -1,5 +1,6 @@
 -- functionsCtr.lua
--- Written By many
+-- written by Habna
+-- rewritten by many
 
 
 function ImportCtr( value )
@@ -72,14 +73,14 @@ function ImportCtr( value )
         if _G.MCWhere ~= 3 then
             UpdateMithril();
         end
---[[    elseif value == "YT" then --Yule Tokens
+		elseif value == "YT" then --Yule Tokens
         if _G.YTWhere == 1 then 
-            import (AppCtrD.."YuleTokens"); 
+            import (AppCtrD.."YuleToken"); 
             YT["Ctr"]:SetPosition( _G.YTLocX, _G.YTLocY );
         end
         if _G.YTWhere ~= 3 then
             UpdateYule();
-        end --]]
+        end
     elseif value == "HT" then --Tokens of Hytbold
         if _G.HTWhere == 1 then 
             import (AppCtrD.."TokensOfHytbold"); 
@@ -128,7 +129,7 @@ function ImportCtr( value )
         --    ); --Add when workaround is not needed anymore
         UpdateBackpackInfos();
         BI["Ctr"]:SetPosition( _G.BILocX, _G.BILocY );
-    elseif value == "PI" then --Player Pnfos
+    elseif value == "PI" then --Player Infos
         import (AppCtrD.."PlayerInfos");
         import (AppCtrD.."PlayerInfosToolTip");
         PlayerAtt = Player:GetAttributes();
@@ -350,7 +351,6 @@ function ImportCtr( value )
             );
         UpdateSharedStorage();
         SS["Ctr"]:SetPosition( _G.SSLocX, _G.SSLocY );
-    -- AU3 MARKER - DO NOT REMOVE   
     elseif value == "ASP" then --Amroth Silver Piece
         if _G.ASPWhere == 1 then
             import (AppCtrD.."AmrothSilverPiece");
@@ -387,7 +387,6 @@ function ImportCtr( value )
             BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY );
         end
         if _G.BBWhere ~= 3 then UpdateBingoBadge(); end
-    -- AU3 MARKER END
     elseif value == "RP" then --Reputation Points
         RPGR = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -621,7 +620,7 @@ function LoadPlayerMoney()
     _G.SCMA = wallet[PN].ShowToAll;
 
 
-    --Convert wallet 
+    --Convert wallet
     --Removed 2017-02-07 (after 2012-08-18) 
     --Restored 2017-10-02 (was causing "Invalid Data Scope" bug)
     local tGold, tSilver, tCopper, bOk;
@@ -729,10 +728,9 @@ function SavePlayerMoney( save )
         CopperTot = CopperTot % 1000;
 		end
 		
-		
-		if ( SilverTot > 9999 ) then
-        GoldTot = GoldTot + ( SilverTot / 10000 );
-        SilverTot = SilverTot % 10000;
+		if ( SilverTot > 999 ) then
+        GoldTot = GoldTot + ( SilverTot / 1000 );
+        SilverTot = SilverTot % 1000;
 		end
 		
     if save then 
@@ -1050,7 +1048,7 @@ function UpdateCurrency( str )
     if str == pwSeal and ShowSeals then UpdateSeals(); end
     if str == pwCommendation and ShowCommendations then UpdateCommendations(); end
     if str == pwMithril and ShowMithril then UpdateMithril(); end
---  if str == pwYule and ShowYule then UpdateYule(); end
+    if str == pwYule and ShowYule then UpdateYule(); end
     if str == pwHytbold and ShowHytboldTokens then UpdateHytboldTokens(); end
     if str == pwAmrothSilverPiece and ShowAmrothSilverPiece then UpdateAmrothSilverPiece(); end
     if str == pwStarsofMerit and ShowStarsofMerit then UpdateStarsofMerit(); end
@@ -1060,12 +1058,12 @@ function UpdateCurrency( str )
     if str == pwBingoBadge and ShowBingoBadge then UpdateBingoBadge(); end
 end
 
-function GetCurrency(str)
+function GetCurrency( str )
     CurQuantity = 0;
     
-    for k,v in pairs(PlayerCurrency) do
+    for k,v in pairs( PlayerCurrency ) do
         if k == str then
-            CurQuantity = PlayerCurrency[str]:GetQuantity();
+            CurQuantity = PlayerCurrency[ str ]:GetQuantity();
             break
         end
     end

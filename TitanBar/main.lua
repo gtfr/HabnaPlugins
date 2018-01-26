@@ -16,7 +16,7 @@ AppLocaleD = AppDirD.."Locale.";
 
 Version = Plugins["TitanBar"]:GetVersion();--> ** TitanBar current version **
 _G.TB = {};
-WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16 };
+WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17 };
 windowOpen = true;
 _G.Debug = false;-- True will enable some functions when I'm debuging
 
@@ -85,7 +85,7 @@ frmMain();
 
 if PlayerAlign == 1 then 
     MenuItem = { L["MGSC"], L["MDP"], L["MSP"], L["MSM"], L["MMC"],
-    --[[ L["MYT"], ]]L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], 
+    L["MYT"], L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], 
     L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MAOG"], L["MBB"]};
 else MenuItem = { L["MCP"], L["MLP"] }; end
 
@@ -109,7 +109,7 @@ function TitanBarCommand:Execute( command, arguments )
 		write("");
 		write("This is your currency:");
 		write("-----v----------------------");
-		ShowTableContent(PlayerCurrency);
+		ShowTableContent( PlayerCurrency );
 		write("-----^----------------------");
 		write("You may request to add a currency if it's not listed in the " .. 
             "wallet menu! Give the 'key' string to Habna so it can be added" .. 
