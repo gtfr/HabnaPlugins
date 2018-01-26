@@ -1,5 +1,6 @@
 -- WalletWindow.lua
 -- Written by Habna
+-- Rewritten by Many
 
 
 function frmWalletWindow()
@@ -246,6 +247,10 @@ function frmWalletWindow()
 			_G.BBWhere = SelIndex; settings.BingoBadge.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowBingoBadge then ShowHideBingoBadge(); end
 			else if ShowBingoBadge then ShowHideBingoBadge(); end end
+		elseif wcur == L["MLAT"] then
+			_G.LATWhere = SelIndex; settings.AnniversaryToken.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowAnniversaryToken then ShowHideAnniversaryToken(); end
+			else if ShowAnniversaryToken then ShowHideAnniversaryToken(); end end
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
@@ -322,6 +327,7 @@ function RefreshWIListBox()
 				elseif wcur == L["MGGB"] then tw = _G.GGBWhere; -- Gift Giver's Brand
 				elseif wcur == L["MAOG"] then tw = _G.AOGWhere; -- Ash of Gorgoroth
 				elseif wcur == L["MBB"] then tw = _G.BBWhere; -- Bingo Badges
+				elseif wcur == L["MLAT"] then tw = _G.LATWhere; -- Anniversary Tokens
 				end
 				for k, v in pairs(WICBO) do if k == tonumber(tw) then WIDD:SetSelection(k); end end
 

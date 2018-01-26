@@ -411,6 +411,9 @@ L["MCh"] = "Ce sont vos Pi\195\168ces de Mithril";
 
 -- Yule Tokens control
 L["YTh"] = "Ce sont vos Jetons Yule";
+-- Anniversary Tokens control
+L["MLAT"] = "Anniversary Token";
+L["LATh"] = "Ce sont vos Anniversary Tokens";
 
 -- Tokens of hytbold control
 L["HTh"] = "Ce sont vos Jetons d'Hytbold";

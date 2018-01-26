@@ -1,5 +1,6 @@
 -- functionsMenuControl.lua
 -- Written By Habna
+-- Rewritten by many
 
 
 --**v Functions for the menu of control v**
@@ -32,11 +33,12 @@ function UnloadControl( value )
 		if ShowPlayerLoc then ShowHidePlayerLoc(); opt_PL:SetChecked( false ); end
 		if ShowGameTime then ShowHideGameTime(); opt_GT:SetChecked( false ); end
 		if ShowAmrothSilverPiece then _G.ASPWhere = 3; ShowHideAmrothSilverPiece(); end
-	   	if ShowStarsofMerit then _G.SOMWhere = 3; ShowHideStarsofMerit(); end
-	   	if ShowCentralGondorSilverPiece then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece(); end
-	   	if ShowGiftgiversBrand then _G.GGBWhere = 3; ShowHideGiftgiversBrand(); end
-	   	if ShowAshOfGorgoroth then _G.AOGWhere = 3; ShowHideAshOfGorgoroth(); end
-	   	if ShowBingoBadge then _G.BBWhere = 3; ShowHideBingoBadge(); end
+		if ShowStarsofMerit then _G.SOMWhere = 3; ShowHideStarsofMerit(); end
+		if ShowCentralGondorSilverPiece then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece(); end
+		if ShowGiftgiversBrand then _G.GGBWhere = 3; ShowHideGiftgiversBrand(); end
+		if ShowAshOfGorgoroth then _G.AOGWhere = 3; ShowHideAshOfGorgoroth(); end
+		if ShowBingoBadge then _G.BBWhere = 3; ShowHideBingoBadge(); end
+		if ShowAnniversaryToken then _G.LATWhere = 3; ShowHideAnniversaryToken(); end
 		elseif value == "this" then
 		if _G.sFromCtr == "WI" then	ShowHideWallet();
 		elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
@@ -69,6 +71,7 @@ function UnloadControl( value )
 	   	elseif _G.sFromCtr == "GGB" then	_G.GGBWhere = 3; ShowHideGiftgiversBrand();
 	   	elseif _G.sFromCtr == "AOG" then	_G.AOGWhere = 3; ShowHideAshOfGorgoroth();
 	   	elseif _G.sFromCtr == "BB" then	_G.BBWhere = 3; ShowHideBingoBadge();
+	   	elseif _G.sFromCtr == "LAT" then	_G.LATWhere = 3; ShowHideAnniversaryToken();
 		end
 	end
 
@@ -115,6 +118,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "GGB" then tA, tR, tG, tB = GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue;
 		elseif _G.sFromCtr == "AOG" then tA, tR, tG, tB = AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue;
 		elseif _G.sFromCtr == "BB" then tA, tR, tG, tB = BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue;
+		elseif _G.sFromCtr == "LAT" then tA, tR, tG, tB = LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue;
 		end
 	end
 	
@@ -181,6 +185,8 @@ function BGColor( cmd, value )
 		if AshOfGorgoroth then AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
 		if BingoBadge then BB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
+		if AnniversaryToken then LAT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
 		BGColor( cmd, "TitanBar" );
@@ -278,6 +284,9 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "BB" then
 			BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
 			BB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		elseif _G.sFromCtr == "LAT" then
+			LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
+			LAT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		end
 	elseif value == "TitanBar" then
 		bcAlpha, bcRed, bcGreen, bcBlue = tA, tR, tG, tB;

@@ -1,5 +1,6 @@
 -- functions.lua
 -- Written By Habna
+-- rewritten by many
 
 
 function AddCallback(object, event, callback)
@@ -308,6 +309,12 @@ function ShowToolTipWin( ToShow )
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["BBh"], L["EIt2"], 
+            L["EIt3"] );
+	elseif ToShow == "LAT" then -- Anniversary Token
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["LATh"], L["EIt2"], 
             L["EIt3"] );
 	end
 

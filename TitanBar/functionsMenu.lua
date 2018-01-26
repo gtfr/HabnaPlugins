@@ -501,3 +501,14 @@ function ShowHideBingoBadge()
 	end
 	BB["Ctr"]:SetVisible( ShowBingoBadge );
 end
+function ShowHideAnniversaryToken()
+	ShowAnniversaryToken = not ShowAnniversaryToken;
+	settings.AnniversaryToken.V = ShowAnniversaryToken;
+	settings.AnniversaryToken.W = string.format("%.0f", _G.BBWhere);
+	SaveSettings( false );
+	ImportCtr( "LAT" );
+	if ShowAnniversaryToken then
+		LAT["Ctr"]:SetBackColor( Turbine.UI.Color( LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue ) );
+	end
+	LAT["Ctr"]:SetVisible( ShowAnniversaryToken );
+end

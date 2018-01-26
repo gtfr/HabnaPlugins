@@ -54,6 +54,9 @@ L["MCh"] = "These are your Mitril coins";
 -- Yule Tokens control
 L["MYT"] = "Yule Token";
 L["YTh"] = "These are your Yule Tokens";
+-- Anniversary Tokens control
+L["MLAT"] = "Anniversary Token";
+L["LATh"] = "These are your Anniversary Tokens";
 -- Bingo Badge control
 L["MBB"] = "Bingo Badge";
 L["BBh"] = "These are your Bingo Badges";

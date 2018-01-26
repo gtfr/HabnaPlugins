@@ -1,5 +1,6 @@
 -- background.lua
 -- Written by Habna
+-- Rewritten by many
 
 
 function frmBackground()
@@ -91,6 +92,7 @@ function frmBackground()
 	if sFrom == "GGB" then curSelAlpha =GGBbcAlpha; curSelRed = GGBbcRed; curSelGreen = GGBbcGreen; curSelBlue = GGBbcBlue; end
 	if sFrom == "AOG" then curSelAlpha =AOGbcAlpha; curSelRed = AOGbcRed; curSelGreen = AOGbcGreen; curSelBlue = AOGbcBlue; end
 	if sFrom == "BB" then curSelAlpha =BBbcAlpha; curSelRed = BBbcRed; curSelGreen = BBbcGreen; curSelBlue = BBbcBlue; end
+	if sFrom == "LAT" then curSelAlpha =LATbcAlpha; curSelRed = LATbcRed; curSelGreen = LATbcGreen; curSelBlue = LATbcBlue; end
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	curSelColor:SetBackColor( Turbine.UI.Color( curSelAlpha, curSelRed, curSelGreen, curSelBlue ) );
 	-- **^
@@ -98,7 +100,7 @@ function frmBackground()
 	local buttonSave = Turbine.UI.Lotro.Button();
 	buttonSave:SetParent( wBackground );
 	buttonSave:SetText( L["BWSave"] );
-	buttonSave:SetSize( buttonSave:GetTextLength() * 10, 15 ); --Auto size with text lenght
+	buttonSave:SetSize( buttonSave:GetTextLength() * 10, 15 ); --Auto size with text length
 	buttonSave:SetPosition( wBackground:GetWidth() - buttonSave:GetWidth() - 15 , wBackground:GetHeight() - 34 );
 	buttonSave:SetVisible( true );
 
@@ -327,6 +329,7 @@ function UpdateBCvariable()
 		GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	else
 		if sFrom == "TitanBar" then bcAlpha = curSelAlpha; bcRed = curSelRed; bcGreen = curSelGreen; bcBlue = curSelBlue; end
 		if sFrom == "WI" then WIbcAlpha = curSelAlpha; WIbcRed = curSelRed; WIbcGreen = curSelGreen; WIbcBlue = curSelBlue; end
@@ -360,5 +363,6 @@ function UpdateBCvariable()
 		if sFrom == "GGB" then GGBbcAlpha = curSelAlpha; GGBbcRed = curSelRed; GGBbcGreen = curSelGreen; GGBbcBlue = curSelBlue; end
 		if sFrom == "AOG" then AOGbcAlpha = curSelAlpha; AOGbcRed = curSelRed; AOGbcGreen = curSelGreen; AOGbcBlue = curSelBlue; end
 		if sFrom == "BB" then BBbcAlpha = curSelAlpha; BBbcRed = curSelRed; BBbcGreen = curSelGreen; BBbcBlue = curSelBlue; end
+		if sFrom == "LAT" then LATbcAlpha = curSelAlpha; LATbcRed = curSelRed; LATbcGreen = curSelGreen; LATbcBlue = curSelBlue; end
 	end
 end

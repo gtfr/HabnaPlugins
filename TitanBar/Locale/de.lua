@@ -412,6 +412,10 @@ L["MCh"] = "Deine Mithril-M\195\188nzen";
 -- Yule Tokens control
 L["YTh"] = "Dies sind eure Yule-Tokens";
 
+-- Anniversary Tokens control
+L["MLAT"] = "Anniversary Token";
+L["LATh"] = "Dies sind eure Anniversary Tokens";
+
 -- Tokens of hytbold control
 L["HTh"] = "Deine M\195\188nzen von Hytbold";
 

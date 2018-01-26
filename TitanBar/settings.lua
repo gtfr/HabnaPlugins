@@ -1,5 +1,6 @@
 -- settings.lua
 -- Written by Habna
+-- Rewritten by many
 
 
 -- **v Load / update / set default settings v**
@@ -13,6 +14,7 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 		pwGiftgiversBrand = "Zeichen des Schenkenden"
 		pwAshOfGorgoroth = "Asche von Gorgoroth"
 		pwBingoBadge = "Bingo Badge"
+		pwAnniversaryToken = "Anniversary Token"
 	elseif GLocale == "en" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsEN" );
 		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwYule, pwHytbold = "Shard", "Mark", "Medallion", "Seal", "Commendation", "Mithril Coin", "Yule Token", "Token of Hytbold";
@@ -22,6 +24,7 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 		pwGiftgiversBrand = "Gift-giver's Brand"
 		pwAshOfGorgoroth = "Ash of Gorgoroth"
 		pwBingoBadge = "Bingo Badge"
+		pwAnniversaryToken = "Anniversary Token"
 	elseif GLocale == "fr" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsFR" );
 		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwYule, pwHytbold = "Eclat", "Marque", "M\195\169daillon", "Sceau", "Citation", "Pi\195\168ce de mithril", "Yule Token", "Jeton d'Hytbold";
@@ -31,6 +34,7 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 		pwGiftgiversBrand = "Gift-giver's Brand"
 		pwAshOfGorgoroth = "Ash of Gorgoroth"
 		pwBingoBadge = "Bingo Badge"
+		pwAnniversaryToken = "Anniversary Token"
 	end
 	
 	tA, tR, tG, tB, tX, tY, tW = 0.3, 0.3, 0.3, 0.3, 0, 0, 3; --Default alpha, red, green, blue, X, Y pos of control, Show where
@@ -790,7 +794,7 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.AOGLocX = tonumber(settings.AshOfGorgoroth.X);
 	_G.AOGLocY = tonumber(settings.AshOfGorgoroth.Y);
 	_G.AOGWhere = tonumber(settings.AshOfGorgoroth.W);
-	if _G.AOGWhere == 3 and ShowAshOfGorgoroth then _G.AOGWhere = 1; settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere); end --Remove after Oct, 15th 2013
+	if _G.AOGWhere == 3 and ShowAshOfGorgoroth then _G.AOGWhere = 1; settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere); end
 	
 	if settings.BingoBadge == nil then settings.BingoBadge = {}; end
 	if settings.BingoBadge.V == nil then settings.BingoBadge.V = false; end
@@ -809,8 +813,26 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.BBLocX = tonumber(settings.BingoBadge.X);
 	_G.BBLocY = tonumber(settings.BingoBadge.Y);
 	_G.BBWhere = tonumber(settings.BingoBadge.W);
-	if _G.BBWhere == 3 and ShowBingoBadge then _G.BBWhere = 1; settings.BingoBadge.W = string.format("%.0f", _G.BBWhere); end --Remove after Oct, 15th 2013
-	-- AU3 MARKER 4 END
+	if _G.BBWhere == 3 and ShowBingoBadge then _G.BBWhere = 1; settings.BingoBadge.W = string.format("%.0f", _G.BBWhere); end
+	
+	if settings.AnniversaryToken == nil then settings.AnniversaryToken = {}; end
+	if settings.AnniversaryToken.V == nil then settings.AnniversaryToken.V = false; end
+	if settings.AnniversaryToken.A == nil then settings.AnniversaryToken.A = string.format("%.3f", tA); end
+	if settings.AnniversaryToken.R == nil then settings.AnniversaryToken.R = string.format("%.3f", tR); end
+	if settings.AnniversaryToken.G == nil then settings.AnniversaryToken.G = string.format("%.3f", tG); end
+	if settings.AnniversaryToken.B == nil then settings.AnniversaryToken.B = string.format("%.3f", tB); end
+	if settings.AnniversaryToken.X == nil then settings.AnniversaryToken.X = string.format("%.0f", tX); end
+	if settings.AnniversaryToken.Y == nil then settings.AnniversaryToken.Y = string.format("%.0f", tY); end
+	if settings.AnniversaryToken.W == nil then settings.AnniversaryToken.W = string.format("%.0f", tW); end
+	ShowAnniversaryToken = settings.AnniversaryToken.V;
+	LATbcAlpha = tonumber(settings.AnniversaryToken.A);
+	LATbcRed = tonumber(settings.AnniversaryToken.R);
+	LATbcGreen = tonumber(settings.AnniversaryToken.G);
+	LATbcBlue = tonumber(settings.AnniversaryToken.B);
+	_G.LATLocX = tonumber(settings.AnniversaryToken.X);
+	_G.LATLocY = tonumber(settings.AnniversaryToken.Y);
+	_G.LATWhere = tonumber(settings.AnniversaryToken.W);
+	if _G.LATWhere == 3 and ShowAnniversaryToken then _G.LATWhere = 1; settings.AnniversaryToken.W = string.format("%.0f", _G.LATWhere); end
 	
 	SaveSettings( false );
 	
@@ -1199,6 +1221,16 @@ function SaveSettings(str)
 		settings.BingoBadge.X = string.format("%.0f", _G.BBLocX);
 		settings.BingoBadge.Y = string.format("%.0f", _G.BBLocY);
 		settings.BingoBadge.W = string.format("%.0f", _G.BBWhere);
+		
+		settings.AnniversaryToken = {};
+		settings.AnniversaryToken.V = ShowAnniversaryToken;
+		settings.AnniversaryToken.A = string.format("%.3f", LATbcAlpha);
+		settings.AnniversaryToken.R = string.format("%.3f", LATbcRed);
+		settings.AnniversaryToken.G = string.format("%.3f", LATbcGreen);
+		settings.AnniversaryToken.B = string.format("%.3f", LATbcBlue);
+		settings.AnniversaryToken.X = string.format("%.0f", _G.LATLocX);
+		settings.AnniversaryToken.Y = string.format("%.0f", _G.LATLocY);
+		settings.AnniversaryToken.W = string.format("%.0f", _G.LATWhere);
 	end
 	
 	if GLocale == "de" then Turbine.PluginData.Save( Turbine.DataScope.Character, "TitanBarSettingsDE", settings ); end
@@ -1247,6 +1279,7 @@ function ResetSettings()
 	GiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
 	AshOfGorgoroth, AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue, _G.AOGLocX, _G.AOGLocY, _G.AOGWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Gorgoroth Control
 	BingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
+	AnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
 		
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1407,8 +1440,12 @@ function ReplaceCtr()
 	if ShowAshOfGorgoroth and _G.AOGWhere == 1 then AOG["Ctr"]:SetPosition( _G.AOGLocX, _G.AOGLocY ); end
 	oldLocX = settings.BingoBadge.X / oldScreenWidth;
 	_G.BBLocX = oldLocX * screenWidth;
-	settings.BingoBadge.X = string.format("%.0f", _G.AOGLocX);
+	settings.BingoBadge.X = string.format("%.0f", _G.BBLocX);
 	if ShowBingoBadge and _G.BBWhere == 1 then BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY ); end
+	oldLocX = settings.AnniversaryToken.X / oldScreenWidth;
+	_G.LATLocX = oldLocX * screenWidth;
+	settings.AnniversaryToken.X = string.format("%.0f", _G.LATLocX);
+	if ShowAnniversaryToken and _G.LATWhere == 1 then LAT["Ctr"]:SetPosition( _G.LATLocX, _G.LATLocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );

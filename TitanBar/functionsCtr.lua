@@ -387,6 +387,12 @@ function ImportCtr( value )
             BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY );
         end
         if _G.BBWhere ~= 3 then UpdateBingoBadge(); end
+    elseif value == "LAT" then --Anniversary Token
+        if _G.LATWhere == 1 then
+            import (AppCtrD.."AnniversaryToken");
+            LAT["Ctr"]:SetPosition( _G.LATLocX, _G.LATLocY );
+        end
+        if _G.LATWhere ~= 3 then UpdateAnniversaryToken(); end
     elseif value == "RP" then --Reputation Points
         RPGR = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -1056,6 +1062,7 @@ function UpdateCurrency( str )
     if str == pwGiftgiversBrand and ShowGiftgiversBrand then UpdateGiftgiversBrand(); end
     if str == pwAshOfGorgoroth and ShowAshOfGorgoroth then UpdateAshOfGorgoroth(); end
     if str == pwBingoBadge and ShowBingoBadge then UpdateBingoBadge(); end
+    if str == pwAnniversaryToken and ShowAnniversaryToken then UpdateAnniversaryToken(); end
 end
 
 function GetCurrency( str )

@@ -334,6 +334,9 @@ function ResizeControls()
 	if ShowBingoBadge then BB["Ctr"]:SetHeight( CTRHeight ); BB["Lbl"]:SetHeight( CTRHeight );
 		AjustIcon("BB");
 	end
+	if ShowAnniversaryToken then LAT["Ctr"]:SetHeight( CTRHeight ); LAT["Lbl"]:SetHeight( CTRHeight );
+		AjustIcon("LAT");
+	end
 	if ShowPlayerLoc then PL["Ctr"]:SetHeight( CTRHeight ); PL["Lbl"]:SetHeight( CTRHeight ); end
 	if ShowGameTime then GT["Ctr"]:SetHeight( CTRHeight );	GT["Lbl"]:SetHeight( CTRHeight ); end
 end
@@ -368,4 +371,5 @@ function ResizeIcon()
 	if ShowGiftgiversBrand then AjustIcon("GGB"); end
 	if ShowAshOfGorgoroth then AjustIcon("AOG"); end
 	if ShowBingoBadge then AjustIcon("BB"); end
+	if ShowAnniversaryToken then AjustIcon("LAT"); end
 end

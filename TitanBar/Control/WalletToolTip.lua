@@ -1,5 +1,6 @@
 -- WalletToolTip.lua
 -- written by Habna
+-- rewritten by many
 
 
 function ShowWIToolTip()
@@ -54,6 +55,7 @@ function RefreshWITTListBox()
 		elseif wttcur == L["MGGB"] then ttw = _G.GGBWhere; CtrIconCodeIs=WalletItem.GiftgiversBrand.Icon; CtrQteIs=GetCurrency( pwGiftgiversBrand );
 		elseif wttcur == L["MAOG"] then ttw = _G.AOGWhere; CtrIconCodeIs=WalletItem.AshOfGorgoroth.Icon; CtrQteIs=GetCurrency( pwAshOfGorgoroth );
 		elseif wttcur == L["MBB"] then ttw = _G.BBWhere; CtrIconCodeIs=WalletItem.BingoBadge.Icon; CtrQteIs=GetCurrency( pwBingoBadge );
+		elseif wttcur == L["MLAT"] then ttw = _G.LATWhere; CtrIconCodeIs=WalletItem.AnniversaryToken.Icon; CtrQteIs=GetCurrency( pwAnniversaryToken );
 		end
 		
 		if tonumber(ttw) == 2 then

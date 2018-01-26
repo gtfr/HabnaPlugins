@@ -57,6 +57,7 @@ _G.WalletItem = {
 	GiftgiversBrand = { Icon = 0x4115c888 },
 	AshOfGorgoroth = { Icon = 0x411B91DD },
 	BingoBadge = { Icon = 0x410E6EE4 },
+	AnniversaryToken = { Icon = 0x4110E2E7 },
 	LOTROPTS = { Icon = 0x4113478C }
 };
 
