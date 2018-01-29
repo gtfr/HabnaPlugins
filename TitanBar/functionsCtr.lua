@@ -1,5 +1,6 @@
 -- functionsCtr.lua
--- Written By many
+-- written by Habna
+-- rewritten by many
 
 
 function ImportCtr( value )
@@ -72,14 +73,14 @@ function ImportCtr( value )
         if _G.MCWhere ~= 3 then
             UpdateMithril();
         end
---[[    elseif value == "YT" then --Yule Tokens
+		elseif value == "YT" then --Yule Tokens
         if _G.YTWhere == 1 then 
-            import (AppCtrD.."YuleTokens"); 
+            import (AppCtrD.."YuleToken"); 
             YT["Ctr"]:SetPosition( _G.YTLocX, _G.YTLocY );
         end
         if _G.YTWhere ~= 3 then
             UpdateYule();
-        end --]]
+        end
     elseif value == "HT" then --Tokens of Hytbold
         if _G.HTWhere == 1 then 
             import (AppCtrD.."TokensOfHytbold"); 
@@ -128,7 +129,7 @@ function ImportCtr( value )
         --    ); --Add when workaround is not needed anymore
         UpdateBackpackInfos();
         BI["Ctr"]:SetPosition( _G.BILocX, _G.BILocY );
-    elseif value == "PI" then --Player Pnfos
+    elseif value == "PI" then --Player Infos
         import (AppCtrD.."PlayerInfos");
         import (AppCtrD.."PlayerInfosToolTip");
         PlayerAtt = Player:GetAttributes();
@@ -350,7 +351,6 @@ function ImportCtr( value )
             );
         UpdateSharedStorage();
         SS["Ctr"]:SetPosition( _G.SSLocX, _G.SSLocY );
-    -- AU3 MARKER - DO NOT REMOVE   
     elseif value == "ASP" then --Amroth Silver Piece
         if _G.ASPWhere == 1 then
             import (AppCtrD.."AmrothSilverPiece");
@@ -381,7 +381,18 @@ function ImportCtr( value )
             AOG["Ctr"]:SetPosition( _G.AOGLocX, _G.AOGLocY );
         end
         if _G.AOGWhere ~= 3 then UpdateAshOfGorgoroth(); end
-    -- AU3 MARKER END
+    elseif value == "BB" then --Bingo Badge
+        if _G.BBWhere == 1 then
+            import (AppCtrD.."BingoBadge");
+            BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY );
+        end
+        if _G.BBWhere ~= 3 then UpdateBingoBadge(); end
+    elseif value == "LAT" then --Anniversary Token
+        if _G.LATWhere == 1 then
+            import (AppCtrD.."AnniversaryToken");
+            LAT["Ctr"]:SetPosition( _G.LATLocX, _G.LATLocY );
+        end
+        if _G.LATWhere ~= 3 then UpdateAnniversaryToken(); end
     elseif value == "RP" then --Reputation Points
         RPGR = {
             [0] = 10000, [1] = 10000, [2] = 20000, [3] = 25000, [4] = 30000,
@@ -615,7 +626,7 @@ function LoadPlayerMoney()
     _G.SCMA = wallet[PN].ShowToAll;
 
 
-    --Convert wallet 
+    --Convert wallet
     --Removed 2017-02-07 (after 2012-08-18) 
     --Restored 2017-10-02 (was causing "Invalid Data Scope" bug)
     local tGold, tSilver, tCopper, bOk;
@@ -723,10 +734,9 @@ function SavePlayerMoney( save )
         CopperTot = CopperTot % 1000;
 		end
 		
-		
-		if ( SilverTot > 9999 ) then
-        GoldTot = GoldTot + ( SilverTot / 10000 );
-        SilverTot = SilverTot % 10000;
+		if ( SilverTot > 999 ) then
+        GoldTot = GoldTot + ( SilverTot / 1000 );
+        SilverTot = SilverTot % 1000;
 		end
 		
     if save then 
@@ -907,9 +917,9 @@ end
 
 function LoadPlayerReputation()
     RepOrder = {
-        -- Normal faction advancment + Forochel and Minas Tirith 
-        "RPTEl", "RPCN", "RPMB", "RPTH", "RPTWA", "RPLF", "RPTEg", "RPRE", 
-        "RPER", "RPTMS", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM", 
+        -- Normal faction advancement + Forochel and Minas Tirith 
+        "RPMB", "RPTH", "RPTMS", "RPRE", "RPER", "RPTEl", "RPCN", "RPTWA", 
+        "RPLF", "RPTEg", "RPIGG", "RPIGM", "RPAME", "RPTGC", "RPG", "RPM", 
         "RPTRS", "RPHLG", "RPMD", "RPTR", "RPMEV", "RPMN", "RPMS", "RPMW", 
         "RPPW", "RPSW", "RPTEo", "RPTHe", "RPTEFF", "RPMRV", "RPMDE", "RPML", 
         "RPP", "RPRI", "RPRR", "RPDMT", "RPDA", 
@@ -918,26 +928,28 @@ function LoadPlayerReputation()
         "RPDAS",
         -- Crafting guilds (position 45< <53)
         "RPJG", "RPCG", "RPSG", "RPTG", "RPWoG", "RPWeG", "RPMG",
-        -- Other - Chicken, Inn, Ale
-        "RPCCLE", "RPTIL", "RPTAA",
         -- Host of the West
         "RPHOTW", "RPHOTWA", "RPHOTWW", "RPHOTWP",
         "RPCOG", "RPEOFBs", "RPEOFBn", "RPRSC",
-        -- Accelerator
+        -- Special Event
+        "RPCCLE", "RPTAA", "RPTIL",
+        -- Reputation Accelerator
         "RPACC",
     };
     RepType = {
-        1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1,
+        1, 1, 1, 1, 1, 1, 1, 1,
+				2, 1, 1, 1, 1, 1, 1, 1,
+				1, 1, 1, 1, 1, 1, 1, 1,
+				1, 1, 1, 1, 1, 1, 1, 1,
+				1, 1, 1, 3, 1,
         -- DA Buildings
         4, 4, 4, 4, 4, 4, 4, 4,
         -- Crafting guilds
         5, 5, 5, 5, 5, 5, 5,
-        -- Other - Chicken, Inn, Ale
-        6, 7, 7,
         -- Host of the West
         3, 1, 1, 1, 3, 8, 8, 9,
+        -- Special Event
+        6, 7, 7,
         -- Accelerator
         10,
     };
@@ -1035,38 +1047,30 @@ function SavePlayerLOTROPoints()
         Turbine.DataScope.Account, "TitanBarLOTROPoints", PlayerLOTROPoints);
 end
 
-function UpdateCurrency(str)
+function UpdateCurrency( str )
     if str == pwShard and ShowShards then UpdateShards(); end
     if str == pwMark and ShowSkirmishMarks then UpdateMarks(); end
     if str == pwMedallion and ShowMedallions then UpdateMedallions(); end
     if str == pwSeal and ShowSeals then UpdateSeals(); end
-    if str == pwCommendation and ShowCommendations then UpdateCommendations(); 
-    end
+    if str == pwCommendation and ShowCommendations then UpdateCommendations(); end
     if str == pwMithril and ShowMithril then UpdateMithril(); end
---  if str == pwYule and ShowYule then UpdateYule(); end
+    if str == pwYule and ShowYule then UpdateYule(); end
     if str == pwHytbold and ShowHytboldTokens then UpdateHytboldTokens(); end
-    if str == pwAmrothSilverPiece and ShowAmrothSilverPiece then 
-        UpdateAmrothSilverPiece(); end
-    if str == pwStarsofMerit and ShowStarsofMerit then 
-        UpdateStarsofMerit();
-    end
-    -- AU3 MARKER 2 - DO NOT REMOVE 
-    
-    if str == pwCentralGondorSilverPiece and ShowCentralGondorSilverPiece then 
-        UpdateCentralGondorSilverPiece(); end
-    if str == pwGiftgiversBrand and ShowGiftgiversBrand then 
-        UpdateGiftgiversBrand(); end
-    if str == pwAshOfGorgoroth and ShowAshOfGorgoroth then 
-        UpdateAshOfGorgoroth(); end
-    -- AU3 MARKER 2 END
+    if str == pwAmrothSilverPiece and ShowAmrothSilverPiece then UpdateAmrothSilverPiece(); end
+    if str == pwStarsofMerit and ShowStarsofMerit then UpdateStarsofMerit(); end
+    if str == pwCentralGondorSilverPiece and ShowCentralGondorSilverPiece then UpdateCentralGondorSilverPiece(); end
+    if str == pwGiftgiversBrand and ShowGiftgiversBrand then UpdateGiftgiversBrand(); end
+    if str == pwAshOfGorgoroth and ShowAshOfGorgoroth then UpdateAshOfGorgoroth(); end
+    if str == pwBingoBadge and ShowBingoBadge then UpdateBingoBadge(); end
+    if str == pwAnniversaryToken and ShowAnniversaryToken then UpdateAnniversaryToken(); end
 end
 
-function GetCurrency(str)
+function GetCurrency( str )
     CurQuantity = 0;
     
-    for k,v in pairs(PlayerCurrency) do
+    for k,v in pairs( PlayerCurrency ) do
         if k == str then
-            CurQuantity = PlayerCurrency[str]:GetQuantity();
+            CurQuantity = PlayerCurrency[ str ]:GetQuantity();
             break
         end
     end

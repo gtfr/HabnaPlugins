@@ -18,16 +18,6 @@ L["ButDel"] = "Delete information of this character";
 -- TitanBar Menu
 L["MBag"] = "Wallet";
 L["MGSC"] = "Money";
-L["MDP"] = "Destiny points";
-L["MSP"] = "Shard";
-L["MSM"] = "Mark";
-L["MMC"] = "Mithril Coin";
-L["MYT"] = "Yule Token";
-L["MHT"] = "Token of Hytbold";
-L["MMP"] = "Medallion";
-L["MSL"] = "Seal";
-L["MCP"] = "Commendation";
-L["MLP"] = "LOTRO points";
 L["MBI"] = "Backpack infos";
 L["MPI"] = "Player infos";
 L["MEI"] = "Equipment infos";
@@ -53,6 +43,59 @@ L["MStorage"] = "Shared Storage";
 --L["MBank"] = "Bank";
 L["MDayNight"] = "Day & Night Time";
 L["MReputation"] = "Reputation";
+
+-- Wallet Currency Controls
+-- LOTRO Points control
+L["MLP"] = "LOTRO points";
+L["LPh"] = "These are your LOTRO points";
+-- Mithril Coins control
+L["MMC"] = "Mithril Coin";
+L["MCh"] = "These are your Mitril coins";
+-- Yule Tokens control
+L["MYT"] = "Yule Token";
+L["YTh"] = "These are your Yule Tokens";
+-- Anniversary Tokens control
+L["MLAT"] = "Anniversary Token";
+L["LATh"] = "These are your Anniversary Tokens";
+-- Bingo Badge control
+L["MBB"] = "Bingo Badge";
+L["BBh"] = "These are your Bingo Badges";
+-- Skirmish marks control
+L["MSM"] = "Mark";
+L["SMh"] = "These are your skirmish marks";
+-- Destiny Points control
+L["MDP"] = "Destiny points";
+L["DPh"] = "These are your destiny points";
+-- Shards control
+L["MSP"] = "Shard";
+L["SPh"] = "These are your shard";
+-- Tokens of Hytbold control
+L["MHT"] = "Token of Hytbold";
+L["HTh"] = "These are your Tokens of Hytbold";
+-- Medallions control
+L["MMP"] = "Medallion";
+L["MPh"] = "These are your medallions";
+-- Seals control
+L["MSL"] = "Seal";
+L["SLh"] = "These are your seals";
+-- Commendations control
+L["MCP"] = "Commendation";
+L["CPh"] = "These are your Commendations";
+-- Amroth Silver Piece control
+L["MASP"] = "Amroth Silver Piece";
+L["ASPh"] = "These are your Amroth Silver Pieces";
+-- Stars of Merit control
+L["MSOM"] = "Star of Merit";
+L["SOMh"] = "These are your Stars of Merit";
+-- Central Gondor Silver Piece control
+L["MCGSP"] = "Central Gondor Silver Piece";
+L["CGSPh"] = "These are your Central Gondor Silver Pieces";
+-- Gift giver's Brand control
+L["MGGB"] = "Gift-giver's Brand";
+L["GGBh"] = "These are your Gift-giver's Brands";
+-- Ash of Gorgoroth control
+L["MAOG"] = "Ash of Gorgoroth";
+L["AOGh"] = "These are your Ash of Gorgoroth";
 
 -- Control Menu
 L["MCU"] = "Unload ...";
@@ -139,18 +182,16 @@ L["RPnf"] = "You track no faction!\nLeft click to see the faction list.";
 L["RPPHMaxHide"] = "Hide factions at maximum reputation";
 
 -- All reputation names
-L["RPTAA"] = "The Ale Association";
-L["RPTEl"] = "The Eldgang";
-L["RPCN"] = "Council of the North";
 L["RPMB"] = "Men of Bree";
 L["RPTH"] = "Thorin's Hall";
+L["RPTMS"] = "The Mathom Society";
+L["RPRE"] = "Rangers of Esteld\195\173n";
+L["RPER"] = "Elves of Rivendell";
+L["RPTEl"] = "The Eldgang";
+L["RPCN"] = "Council of the North";
 L["RPTWA"] = "The Wardens of Ann\195\186minas";
 L["RPLF"] = "Lossoth of Forochel";
 L["RPTEg"] = "The Eglain";
-L["RPRE"] = "Rangers of Esteld\195\173n";
-L["RPER"] = "Elves of Rivendell";
-L["RPTMS"] = "The Mathom Society";
-L["RPTIL"] = "The Inn League";
 L["RPIGG"] = "Iron Garrison Guards";
 L["RPIGM"] = "Iron Garrison Miners";
 L["RPAME"] = "Algraig, Men of Enedwaith";
@@ -193,7 +234,6 @@ L["RPP"] = "Pelargir";
 L["RPRI"] = "Rangers of Ithilien";
 L["RPDMT"] = "Defenders of Minas Tirith";
 L["RPRR"] = "Riders of Rohan";
-L["RPCCLE"] = "Chicken Chasing League of Eriador";
 L["RPHOTW"] = "Host of the West";
 L["RPHOTWA"] = "Host of the West: Armour";
 L["RPHOTWW"] = "Host of the West: Weapons";
@@ -202,6 +242,9 @@ L["RPCOG"] = "Conquest of Gorgoroth";
 L["RPEOFBs"] = "Enmity of Fushaum Bal south";
 L["RPEOFBn"] = "Enmity of Fushaum Bal north";
 L["RPRSC"] = "Red Sky Clan";
+L["RPCCLE"] = "Chicken Chasing League of Eriador";
+L["RPTAA"] = "The Ale Association";
+L["RPTIL"] = "The Inn League";
 L["RPACC"] = "Reputation Acceleration";
 
 -- All reputation standings
@@ -397,40 +440,10 @@ L["MGB"] = "Bag of Gold Coins"; -- Thx Heridan!
 L["MSB"] = "Bag of Silver Coins"; -- Thx Heridan!
 L["MCB"] = "Bag of Copper Coins"; -- Thx Heridan!
 
--- Destiny Points control
-L["DPh"] = "These are your destiny points";
-
--- Shards control
-L["SPh"] = "These are your shard";
-
--- Skirmish marks control
-L["SMh"] = "These are your skirmish marks";
-
--- Mithril Coins control
-L["MCh"] = "These are your Mitril coins";
-
--- Yule Tokens control
-L["YTh"] = "These are your Yule Tokens";
-
--- Tokens of hytbold control
-L["HTh"] = "These are your Tokens of Hytbold";
-
--- Medallions control
-L["MPh"] = "These are your medallion";
-
--- Seals control
-L["SLh"] = "These are your seal";
-
--- Commendations control
-L["CPh"] = "These are your Commendation";
-
--- LOTRO Points control
-L["LPh"] = "These are your LOTRO points";
-
 -- Bag Infos control
 --L["BIh"] = "Backpack informations";
 --L["BIt1"] = "Number of occupied slots/max";
-L["BINI"] = "You track no item!\nLeft click to see your items."
+L["BINI"] = "You're tracking no items!\nLeft click to see your items."
 L["BIIL"] = "Items list"
 L["BIT"] = "Select / unselect an item"
 L["BIUsed"] = " Show used over free slots";
@@ -454,7 +467,7 @@ L["PLMsg"] = "Enter a City!";
 L["GTh"] = "Real/Server Time";
 
 -- Chat message
-L["TBR"] = "TitanBar: All my settings was set back to default";
+L["TBR"] = "TitanBar: All my settings are set back to default";
 
 -- Character Race
 L["Elf"] = "Elf";
@@ -462,7 +475,7 @@ L["Man"] = "Man";
 L["Dwarf"] = "Dwarf";
 L["Hobbit"] = "Hobbit";
 L["Beorning"] = "Beorning";
---L["HighElf"] = "High Elf";
+L["HighElf"] = "High Elf";
 
 -- Free People Class
 L["Burglar"] = "Burglar";
@@ -502,23 +515,3 @@ L["Q3"] = "UnCommon";
 L["Q4"] = "Incomparable";
 L["Q5"] = "Rare";
 L["Q6"] = "Legendary";
-
--- Amroth Silver Piece control
-L["MASP"] = "Amroth Silver Piece";
-L["ASPh"] = "These are your Amroth Silver Pieces";
-
--- Stars of Merit control
-L["MSOM"] = "Star of Merit";
-L["SOMh"] = "These are your Stars of Merit";
-
--- Central Gondor Silver Piece control
-L["MCGSP"] = "Central Gondor Silver Piece";
-L["CGSPh"] = "These are your Central Gondor Silver Pieces";
-
--- Gift giver's Brand control
-L["MGGB"] = "Gift-giver's Brand";
-L["GGBh"] = "These are your Gift-giver's Brands";
-
--- Ash of Gorgoroth control
-L["MAOG"] = "Ash of Gorgoroth";
-L["AOGh"] = "These are your Ash of Gorgoroth";
