@@ -1,5 +1,6 @@
 -- functions.lua
 -- Written By Habna
+-- rewritten by many
 
 
 function AddCallback(object, event, callback)
@@ -158,8 +159,7 @@ function createToolTipWin( xOffset, yOffset, xSize, ySize, side, header, text1,
 end
 
 -- Legend
--- ( offsetX, offsetY, width, height, bubble side, header text, text1, text2, 
---        text3, text4 )
+-- ( offsetX, offsetY, width, height, bubble side, header text, text1, text2, text3, text4 )
 function ShowToolTipWin( ToShow )
 	local bblTo, x, y, w = "left", -5, -15, 0; 
 	local mouseX, mouseY = Turbine.UI.Display.GetMousePosition();
@@ -175,38 +175,34 @@ function ShowToolTipWin( ToShow )
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["DPh"], L["EIt2"], 
-            L["EIt3"] );
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["DPh"], L["EIt2"], L["EIt3"] );
 	elseif ToShow == "BI" then -- Bag Infos
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 80;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["MBI"], L["EIt1"], 
-            L["EIt2"], L["EIt3"] );
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["MBI"], L["EIt1"], L["EIt2"], L["EIt3"] );
 	elseif ToShow == "SP" then -- Shards
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["SPh"], L["EIt2"], 
-            L["EIt3"] );
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["SPh"], L["EIt2"], L["EIt3"] );
 	elseif ToShow == "SM" then -- Skirmish marks
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["SMh"], L["EIt2"], 
-            L["EIt3"] );
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["SMh"], L["EIt2"], L["EIt3"] );
 	elseif ToShow == "MC" then -- Mithril Coins
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["MCh"], L["EIt2"], 
             L["EIt3"] );
---[[	elseif ToShow == "YT" then -- Yule Tokens
+	elseif ToShow == "YT" then -- Yule Tokens
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["YTh"], L["EIt2"], 
-            L["EIt3"] ); --]]
+            L["EIt3"] );
 	elseif ToShow == "HT" then -- Tokens of Hytbold
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
@@ -273,7 +269,6 @@ function ShowToolTipWin( ToShow )
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["LPh"], L["EIt1"], 
             L["EIt2"], L["EIt3"] );
-	-- AU3 MARKER 1 - DO NOT REMOVE
 	elseif ToShow == "ASP" then -- Amroth Silver Piece
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
@@ -304,7 +299,18 @@ function ShowToolTipWin( ToShow )
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["AOGh"], L["EIt2"], 
             L["EIt3"] );
-	-- AU3 MARKER 1 END
+	elseif ToShow == "BB" then -- Bingo Badge
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["BBh"], L["EIt2"], 
+            L["EIt3"] );
+	elseif ToShow == "LAT" then -- Anniversary Token
+		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
+		h = 65;
+		if not TBTop then y = h; end
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["LATh"], L["EIt2"], 
+            L["EIt3"] );
 	end
 
 	_G.ToolTipWin:SetPosition( mouseX - _G.ToolTipWin.xOffset, mouseY - 
@@ -449,7 +455,6 @@ function UpdateMithril()
 end
 --**^
 --**v Update Yule Tokens currency on TitanBar v**
---[[
 function UpdateYule()
 	if _G.YTWhere == 1 then
 		YT["Lbl"]:SetText( GetCurrency( pwYule ) );
@@ -457,7 +462,6 @@ function UpdateYule()
 		AjustIcon( "YT" );
 	end
 end
---]]
 --**^
 --**v Update Tokens of Hytbold currency on TitanBar v**
 function UpdateHytboldTokens()
@@ -551,7 +555,24 @@ function UpdateAshOfGorgoroth()
 	end
 end
 --**^
--- AU3 MARKER 2 END
+--**v Update Bingo Badge currency on TitanBar v**
+function UpdateBingoBadge()
+	if _G.BBWhere == 1 then
+		BB["Lbl"]:SetText( GetCurrency( pwBingoBadge ) );
+		BB["Lbl"]:SetSize( BB["Lbl"]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "BB" );
+	end
+end
+--**^
+--**v Update Anniversary Token currency on TitanBar v**
+function UpdateAnniversaryToken()
+	if _G.BBWhere == 1 then
+		LAT["Lbl"]:SetText( GetCurrency( pwAnniversaryToken ) );
+		LAT["Lbl"]:SetSize( LAT["Lbl"]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "LAT" );
+	end
+end
+--**^
 
 --**v Update backpack infos on TitanBar v**
 function UpdateBackpackInfos()
@@ -865,7 +886,7 @@ function ChangeColor(tColor)
 		if ShowShards then SP["Ctr"]:SetBackColor( tColor ); end
 		if ShowSkirmishMarks then SM["Ctr"]:SetBackColor( tColor ); end
 		if ShowMithrilCoins then MC["Ctr"]:SetBackColor( tColor ); end
---		if ShowYuleTokens then YT["Ctr"]:SetBackColor( tColor ); end
+		if ShowYuleToken then YT["Ctr"]:SetBackColor( tColor ); end
 		if ShowHytboldTokens then HT["Ctr"]:SetBackColor( tColor ); end
 		if ShowMedallions then MP["Ctr"]:SetBackColor( tColor ); end
 		if ShowSeals then SL["Ctr"]:SetBackColor( tColor ); end
@@ -882,16 +903,15 @@ function ChangeColor(tColor)
 		if ShowDayNight then DN["Ctr"]:SetBackColor( tColor ); end
 		if ShowReputation then RP["Ctr"]:SetBackColor( tColor ); end
 		if ShowLOTROPoints then LP["Ctr"]:SetBackColor( tColor ); end
-
 		if ShowPlayerLoc then PL["Ctr"]:SetBackColor( tColor ); end
 		if ShowGameTime then GT["Ctr"]:SetBackColor( tColor ); end
-		-- AU3 MARKER 3 - DO NOT REMOVE
 		if ShowAmrothSilverPiece then ASP["Ctr"]:SetBackColor( tColor ); end
 		if ShowStarsofMerit then SOM["Ctr"]:SetBackColor( tColor ); end
 		if ShowCentralGondorSilverPiece then CGSP["Ctr"]:SetBackColor( tColor ); end
 		if ShowGiftgiversBrand then GGB["Ctr"]:SetBackColor( tColor ); end
 		if ShowAshOfGorgoroth then AOG["Ctr"]:SetBackColor( tColor ); end
-		-- AU3 MARKER 3 END
+		if ShowBingoBadge then BB["Ctr"]:SetBackColor( tColor ); end
+		if ShowAniversaryToken then LAT["Ctr"]:SetBackColor( tColor ); end
 	else
 		if sFrom == "TitanBar" then TB["win"]:SetBackColor( tColor ); end
 		if sFrom == "WI" then WI["Ctr"]:SetBackColor( tColor ); end
@@ -900,7 +920,7 @@ function ChangeColor(tColor)
 		if sFrom == "SP" then SP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "SM" then SM["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "MC" then MC["Ctr"]:SetBackColor( tColor ); end
---		if sFrom == "YT" then YT["Ctr"]:SetBackColor( tColor ); end
+		if sFrom == "YT" then YT["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "HT" then HT["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "MP" then MP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "SL" then SL["Ctr"]:SetBackColor( tColor ); end
@@ -917,16 +937,15 @@ function ChangeColor(tColor)
 		if sFrom == "DN" then DN["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "RP" then RP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "LP" then LP["Ctr"]:SetBackColor( tColor ); end
-
 		if sFrom == "PL" then PL["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "GT" then GT["Ctr"]:SetBackColor( tColor ); end
-		-- AU3 MARKER 4 - DO NOT REMOVE
 		if sFrom == "ASP" then ASP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "SOM" then SOM["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "CGSP" then CGSP["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "GGB" then GGB["Ctr"]:SetBackColor( tColor ); end
 		if sFrom == "AOG" then AOG["Ctr"]:SetBackColor( tColor ); end
-		-- AU3 MARKER 4 END
+		if sFrom == "BB" then BB["Ctr"]:SetBackColor( tColor ); end
+		if sFrom == "LAT" then LAT["Ctr"]:SetBackColor( tColor ); end
 	end
 end
 --**^
@@ -1027,12 +1046,12 @@ function AjustIcon(str)
 		MC["Ctr"]:SetSize( MC["Icon"]:GetLeft() + TBIconSize, CTRHeight );
 		MC["Icon"]:SetSize( TBIconSize, TBIconSize );
 		MC["Icon"]:SetStretchMode( 3 );
---[[	elseif str == "YT" then
+	elseif str == "YT" then
 		YT["Icon"]:SetStretchMode( 1 );
 		YT["Icon"]:SetPosition(YT["Lbl"]:GetLeft() + YT["Lbl"]:GetWidth()+3, Y);
 		YT["Ctr"]:SetSize( YT["Icon"]:GetLeft() + TBIconSize, CTRHeight );
 		YT["Icon"]:SetSize( TBIconSize, TBIconSize );
-		YT["Icon"]:SetStretchMode( 3 );--]]
+		YT["Icon"]:SetStretchMode( 3 );
 	elseif str == "HT" then
 		HT["Icon"]:SetStretchMode( 1 );
 		HT["Icon"]:SetPosition(HT["Lbl"]:GetLeft() + HT["Lbl"]:GetWidth()+3, Y);
@@ -1129,7 +1148,6 @@ function AjustIcon(str)
 		LP["Ctr"]:SetSize( LP["Icon"]:GetLeft() + TBIconSize, CTRHeight );
 		LP["Icon"]:SetSize( TBIconSize, TBIconSize );
 		LP["Icon"]:SetStretchMode( 3 );
-	-- AU3 MARKER 5 - DO NOT REMOVE
 	elseif str == "ASP" then
 		ASP["Icon"]:SetStretchMode( 1 );
 		ASP["Icon"]:SetPosition(ASP["Lbl"]:GetLeft()+ASP["Lbl"]:GetWidth()+3,Y);
@@ -1160,7 +1178,18 @@ function AjustIcon(str)
 		AOG["Ctr"]:SetSize( AOG["Icon"]:GetLeft() + TBIconSize, CTRHeight );
 		AOG["Icon"]:SetSize( TBIconSize, TBIconSize );
 		AOG["Icon"]:SetStretchMode( 3 );
-	-- AU3 MARKER 5 END
+	elseif str == "BB" then
+		BB["Icon"]:SetStretchMode( 1 );
+		BB["Icon"]:SetPosition(BB["Lbl"]:GetLeft()+BB["Lbl"]:GetWidth()+3,Y);
+		BB["Ctr"]:SetSize( BB["Icon"]:GetLeft() + TBIconSize, CTRHeight );
+		BB["Icon"]:SetSize( TBIconSize, TBIconSize );
+		BB["Icon"]:SetStretchMode( 3 );
+	elseif str == "LAT" then
+		LAT["Icon"]:SetStretchMode( 1 );
+		LAT["Icon"]:SetPosition(LAT["Lbl"]:GetLeft()+LAT["Lbl"]:GetWidth()+3,Y);
+		LAT["Ctr"]:SetSize( LAT["Icon"]:GetLeft() + TBIconSize, CTRHeight );
+		LAT["Icon"]:SetSize( TBIconSize, TBIconSize );
+		LAT["Icon"]:SetStretchMode( 3 );
 	end
 end
 
@@ -1176,7 +1205,7 @@ function GetInGameTime()
 	local gametime = Turbine.Engine.GetGameTime();
 	local InitDawn =  nowtime - gametime + _G.TS;
 	local adjust = (nowtime - (nowtime - gametime + _G.TS))% 11160;
-    local darray = {572, 1722, 1067, 1678, 1101, 570, 1679, 539, 1141, 1091};
+  local darray = {572, 1722, 1067, 1678, 1101, 570, 1679, 539, 1141, 1091};
 	local dtarray = {
         L["Dawn"], L["Morning"], L["Noon"], L["Afternoon"], L["Dusk"], 
         L["Gloaming"], L["Evening"], L["Midnight"], L["LateWatches"],

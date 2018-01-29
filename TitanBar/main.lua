@@ -1,5 +1,6 @@
 -- Main.lua
 -- written by Habna
+-- rewritten by many
 
 import "Turbine";
 import "Turbine.UI";
@@ -15,14 +16,14 @@ AppLocaleD = AppDirD.."Locale.";
 
 Version = Plugins["TitanBar"]:GetVersion();--> ** TitanBar current version **
 _G.TB = {};
-WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15 };
+WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 };
 windowOpen = true;
 _G.Debug = false;-- True will enable some functions when I'm debuging
 
 -- BlendMode 1: Color / 2: Normal / 3: Multiply / 4: AlphaBlend / 5: Overlay / 
 -- 6: Grayscale / 7: Screen / 8: Undefined
 
--- [FontName]={[Fontzise]=pixel needed to show one number}
+-- [FontName]={[Fontsize]=pixel needed to show one number}
 _G.FontN = {
 	["Arial"] = {[12]=6},
 	["TrajanPro"] = {[13]=7,[14]=7,[15]=7,[16]=8,[18]=9,[19]=10,[20]=10,[21]=11,
@@ -31,7 +32,7 @@ _G.FontN = {
 	["Verdana"] = {[10]=5,[12]=7,[14]=8,[16]=8,[18]=12,[20]=12,[22]=12,[23]=13}
 	};
 
--- [FontName]={[Fontzise]=pixel needed to show one letter}
+-- [FontName]={[Fontsize]=pixel needed to show one letter}
 _G.FontT = {
 	["Arial"] = {[12]=6},
 	["TrajanPro"] = {[13]=8,[14]=9,[15]=9,[16]=10,[18]=11,[19]=12,[20]=12,
@@ -84,9 +85,9 @@ frmMain();
 
 if PlayerAlign == 1 then 
     MenuItem = { L["MGSC"], L["MDP"], L["MSP"], L["MSM"], L["MMC"],
-    --[[ L["MYT"], ]]L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], 
-    L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MAOG"]};
-else MenuItem = { L["MCP"], L["MLP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MAOG"] }; end
+    L["MYT"], L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], 
+    L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MAOG"], L["MBB"], L["MLAT"]};
+else MenuItem = { L["MCP"], L["MLP"] }; end
 
 TitanBarCommand = Turbine.ShellCommand()
 
@@ -108,7 +109,7 @@ function TitanBarCommand:Execute( command, arguments )
 		write("");
 		write("This is your currency:");
 		write("-----v----------------------");
-		ShowTableContent(PlayerCurrency);
+		ShowTableContent( PlayerCurrency );
 		write("-----^----------------------");
 		write("You may request to add a currency if it's not listed in the " .. 
             "wallet menu! Give the 'key' string to Habna so it can be added" .. 

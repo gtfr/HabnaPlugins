@@ -92,19 +92,17 @@ function ShowHideMithrilCoins()
 end
 -- **^
 -- **v Show/Hide Yule Tokens v**
---[[
-function ShowHideYuleTokens()
-	ShowYuleTokens = not ShowYuleTokens;
-	settings.YuleTokens.V = ShowYuleTokens;
-	settings.YuleTokens.W = string.format("%.0f", _G.YTWhere);
+function ShowHideYuleToken()
+	ShowYuleToken = not ShowYuleToken;
+	settings.YuleToken.V = ShowYuleToken;
+	settings.YuleToken.W = string.format("%.0f", _G.YTWhere);
 	SaveSettings( false );
 	ImportCtr( "YT" );
-	if ShowYuleTokens then
+	if ShowYuleToken then
 		YT["Ctr"]:SetBackColor( Turbine.UI.Color( YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue ) );
 	end
-	YT["Ctr"]:SetVisible( ShowYuleTokens );
+	YT["Ctr"]:SetVisible( ShowYuleToken );
 end
---]]
 -- **^
 -- **v Show/Hide Tokens of Hytbold v**
 function ShowHideHytboldTokens()
@@ -396,7 +394,7 @@ function SavePlayerProfile()
 	-- The table key is saved with "," in DE & FR clients. Ex. [1,000000]. This causes a parse error.
 	-- If you change [1,000000] to [1.000000] error is not there any more. [1] would be easier! Why all those zeroes!
 	-- So LOTRO saves the table key in the client language, but lua is unable to read it since "," is a special character.
-	-- LOTRO just has to save the key in english and the value in the client language.
+	-- LOTRO just has to save the key in English and the value in the client language.
 
 	-- So I'm converting the key [1,000000] into a string like this ["1"]
 	-- That's VindarPatch's doing, it converts the whole table into string (key and value)
@@ -491,4 +489,26 @@ function ShowHideAshOfGorgoroth()
 		AOG["Ctr"]:SetBackColor( Turbine.UI.Color( AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue ) );
 	end
 	AOG["Ctr"]:SetVisible( ShowAshOfGorgoroth );
+end
+function ShowHideBingoBadge()
+	ShowBingoBadge = not ShowBingoBadge;
+	settings.BingoBadge.V = ShowBingoBadge;
+	settings.BingoBadge.W = string.format("%.0f", _G.BBWhere);
+	SaveSettings( false );
+	ImportCtr( "BB" );
+	if ShowBingoBadge then
+		BB["Ctr"]:SetBackColor( Turbine.UI.Color( BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue ) );
+	end
+	BB["Ctr"]:SetVisible( ShowBingoBadge );
+end
+function ShowHideAnniversaryToken()
+	ShowAnniversaryToken = not ShowAnniversaryToken;
+	settings.AnniversaryToken.V = ShowAnniversaryToken;
+	settings.AnniversaryToken.W = string.format("%.0f", _G.LATWhere);
+	SaveSettings( false );
+	ImportCtr( "LAT" );
+	if ShowAnniversaryToken then
+		LAT["Ctr"]:SetBackColor( Turbine.UI.Color( LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue ) );
+	end
+	LAT["Ctr"]:SetVisible( ShowAnniversaryToken );
 end
