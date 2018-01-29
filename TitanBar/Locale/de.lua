@@ -18,6 +18,16 @@ L["ButDel"] = "L\195\182schen von Informationen dieser Art"; --Löschen
 -- TitanBar Menu
 L["MBag"] = "Zeige Geldbeutel";
 L["MGSC"] = "M\195\188nze"; -- Münze (Gold, Silber, Kupper)
+L["MDP"] = "Schicksalspunkte";
+L["MSP"] = "Scherben";
+L["MSM"] = "Zeichen";
+L["MMC"] = "Mithril-M\195\188nzen";
+L["MYT"] = "Yule-Zeichen";
+L["MHT"] = "Zeichen der Hytbold";
+L["MMP"] = "Medaillon";
+L["MSL"] = "Siegel";
+L["MCP"] = "Anerkennung";
+L["MLP"] = "LOTRO Punkte";
 L["MBI"] = "Rucksack Infos";-- Thx Wicky!
 L["MPI"] = "Spieler Infos";-- Thx Wicky!
 L["MEI"] = "Ausr\195\188stung Infos";-- Thx Wicky! -- Ausrüstung
@@ -43,59 +53,6 @@ L["MStorage"] = "gemeinsamer Lagerraum";--Thx DaBear78!
 --L["MBank"] = "Bank";
 L["MDayNight"] = "Tages- & Nacht-Zeit";-- Thx DaBear78!
 L["MReputation"] = "Ruf";
-
--- Wallet Currency Controls
--- LOTRO Points control
-L["MLP"] = "LOTRO Punkte";
-L["LPh"] = "Dies sind Ihre LOTRO Punkte";
--- Mithril Coins control
-L["MMC"] = "Mithril-M\195\188nzen";
-L["MCh"] = "Deine Mithril-M\195\188nzen";
--- Yule Tokens control
-L["MYT"] = "Yule-Zeichen";
-L["YTh"] = "Dies sind eure Yule-Tokens";
--- Anniversary Tokens control
-L["MLAT"] = "Anniversary Token";
-L["LATh"] = "Dies sind eure Anniversary Tokens";
--- Bingo Badge control
-L["MBB"] = "Bingo Badge";
-L["BBh"] = "These are your Bingo Badges";
--- Skirmish marks control
-L["MSM"] = "Zeichen";
-L["SMh"] = "Deine Scharm\195\188tzel-Zeichen";--Thx DaBear78! --Scharmützel
--- Destiny Points control
-L["MDP"] = "Schicksalspunkte";
-L["DPh"] = "Deine Schicksalspunkte";--Thx DaBear78!
--- Shards control
-L["MSP"] = "Scherben";
-L["SPh"] = "Deine Scherben";--Thx DaBear78!
--- Tokens of Hytbold control
-L["MHT"] = "Zeichen der Hytbold";
-L["HTh"] = "Deine M\195\188nzen von Hytbold";
--- Medallions control
-L["MMP"] = "Medaillon";
-L["MPh"] = "Deine Medallions";--Thx DaBear78!
--- Seals control
-L["MSL"] = "Siegel";
-L["SLh"] = "Deine Siegel";--Thx DaBear78!
--- Commendations control
-L["MCP"] = "Anerkennung";
-L["CPh"] = "Deine Anerkennung";--Thx DaBear78!
--- Amroth Silver Piece control
-L["MASP"] = "Amroth-Silberst\195\188ck";
-L["ASPh"] = "Deine Amroth-Silberst\195\188cke";
--- Stars of Merit control
-L["MSOM"] = "Stern des Verdienst";
-L["SOMh"] = "Deine Sterne des Verdienst";
--- Central Gondor Silver Piece control
-L["MCGSP"] = "Zentralgondorisches Silberst\195\188ck";
-L["CGSPh"] = "Deine Zentralgondorischen Silberst\195\188cke";
--- Gift giver's Brand control
-L["MGGB"] = "Zeichen des Schenkenden";
-L["GGBh"] = "Deine Zeichen des Schenkenden";
--- Ash of Gorgoroth control
-L["MAOG"] = "Asche von Gorgoroth";
-L["AOGh"] = "Deine Asche von Gorgoroth";
 
 -- Control Menu
 L["MCU"] = "entfernen ...";-- Thx Wicky!
@@ -428,7 +385,7 @@ L["CritHit"] = "Kritisch";
 L["CritMag"] = "Crit. mag.";
 L["DevHit"] = "Verw\195\188stet";
 L["DevMag"] = "Dev. mag.";
-L["CritDef"] = "Krit. Vert.";
+ L["CritDef"] = "Krit. Vert.";
 L["Partial"] = "Teilweise";
 L["Capped"] = "Werte in GELB sind am CAP.";
 
@@ -439,6 +396,36 @@ L["MCh"] = "Menge der Kupferm\195\188nzen";-- Thx Wicky! -- Kupfermünzen
 L["MGB"] = "Beutel mit Goldm\195\188nzen"; -- Thx Heridan!
 L["MSB"] = "Beutel mit Silberm\195\188nzen"; -- Thx Heridan!
 L["MCB"] = "Beutel mit Kupferm\195\188nzen"; -- Thx Heridan!
+
+-- Destiny Points control
+L["DPh"] = "Deine Schicksalspunkte";--Thx DaBear78!
+
+-- Shards control
+L["SPh"] = "Deine Scherben";--Thx DaBear78!
+
+-- Skirmish marks control
+L["SMh"] = "Deine Scharm\195\188tzel-Zeichen";--Thx DaBear78! --Scharmützel
+
+-- Mithril Coins control
+L["MCh"] = "Deine Mithril-M\195\188nzen";
+
+-- Yule Tokens control
+L["YTh"] = "Dies sind eure Yule-Tokens";
+
+-- Tokens of hytbold control
+L["HTh"] = "Deine M\195\188nzen von Hytbold";
+
+-- Medallions control
+L["MPh"] = "Deine Medallions";--Thx DaBear78!
+
+-- Seals control
+L["SLh"] = "Deine Siegel";--Thx DaBear78!
+
+-- Commodations control
+L["CPh"] = "Deine Anerkennung";--Thx DaBear78!
+
+-- LOTRO Points control
+L["LPh"] = "Dies sind Ihre LOTRO Punkte";
 
 -- Bag Infos control
 --L["BIh"] = "Rucksack Informationen";
@@ -515,3 +502,23 @@ L["Q3"] = "Ungew\195\182hnlich";--Thx DaBear78! --Ungewöhnlich
 L["Q4"] = "Unvergleichlich";
 L["Q5"] = "Selten";
 L["Q6"] = "Legend\195\164r";-- Thx Wicky! -- Legendär
+
+-- Amroth Silver Piece control
+L["MASP"] = "Amroth-Silberst\195\188ck";
+L["ASPh"] = "Deine Amroth-Silberst\195\188cke";
+
+-- Stars of Merit control
+L["MSOM"] = "Stern des Verdienst";
+L["SOMh"] = "Deine Sterne des Verdienst";
+
+-- Central Gondor Silver Piece control
+L["MCGSP"] = "Zentralgondorisches Silberst\195\188ck";
+L["CGSPh"] = "Deine Zentralgondorischen Silberst\195\188cke";
+
+-- Gift giver's Brand control
+L["MGGB"] = "Zeichen des Schenkenden";
+L["GGBh"] = "Deine Zeichen des Schenkenden";
+
+-- Ash of Gorgoroth control
+L["MAOG"] = "Asche von Gorgoroth";
+L["AOGh"] = "Deine Asche von Gorgoroth";

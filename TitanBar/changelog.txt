@@ -12,28 +12,6 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 =================================================
-v1.31.01 (January 29, 2018) (alpha)
-
-Changed:
-- Refactoring the wallet
--- Faster Loading!
--- More flexibility to add more currencies!
-
-=================================================
-v1.30.28 (January 25, 2018)
-
-Changed:
-- Faction order now more closely represents the order in which you'll encounter them in the game
--- "Special Event" factions will be near the bottom in chronological order
--- "Reputation Accelerator" will remain at the very bottom of the table
-
-Added:
-- Currencies
--- Bingo Badges
--- Yule Festival Tokens
--- Anniversary Tokens
-
-=================================================
 v1.30.27 (January 16, 2018)
 
 Fixed:

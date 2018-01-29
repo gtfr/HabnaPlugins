@@ -1,6 +1,5 @@
 -- functionsMenuControl.lua
 -- Written By Habna
--- Rewritten by many
 
 
 --**v Functions for the menu of control v**
@@ -13,7 +12,7 @@ function UnloadControl( value )
 		if ShowShards then _G.SPWhere = 3; ShowHideShards(); end
 		if ShowSkirmishMarks then _G.SMWhere = 3; ShowHideSkirmishMarks(); end
 		if ShowMithrilCoins then _G.MCWhere = 3; ShowHideMithrilCoins(); end
-		if ShowYuleToken then _G.YTWhere = 3; ShowHideYuleToken(); end
+--		if ShowYuleTokens then _G.YTWhere = 3; ShowHideYuleTokens(); end
 		if ShowHytboldTokens then _G.HTWhere = 3; ShowHideHytboldTokens(); end
 		if ShowMedallions then _G.MPWhere = 3; ShowHideMedallions(); end
 		if ShowSeals then _G.SLWhere = 3; ShowHideSeals(); end
@@ -32,13 +31,13 @@ function UnloadControl( value )
 		if ShowLOTROPoints then _G.LPWhere = 3; ShowHideLOTROPoints(); end
 		if ShowPlayerLoc then ShowHidePlayerLoc(); opt_PL:SetChecked( false ); end
 		if ShowGameTime then ShowHideGameTime(); opt_GT:SetChecked( false ); end
+	    -- AU3 MARKER 1 - DO NOT REMOVE
 		if ShowAmrothSilverPiece then _G.ASPWhere = 3; ShowHideAmrothSilverPiece(); end
-		if ShowStarsofMerit then _G.SOMWhere = 3; ShowHideStarsofMerit(); end
-		if ShowCentralGondorSilverPiece then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece(); end
-		if ShowGiftgiversBrand then _G.GGBWhere = 3; ShowHideGiftgiversBrand(); end
-		if ShowAshOfGorgoroth then _G.AOGWhere = 3; ShowHideAshOfGorgoroth(); end
-		if ShowBingoBadge then _G.BBWhere = 3; ShowHideBingoBadge(); end
-		if ShowAnniversaryToken then _G.LATWhere = 3; ShowHideAnniversaryToken(); end
+	   	if ShowStarsofMerit then _G.SOMWhere = 3; ShowHideStarsofMerit(); end
+	   	if ShowCentralGondorSilverPiece then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece(); end
+	   	if ShowGiftgiversBrand then _G.GGBWhere = 3; ShowHideGiftgiversBrand(); end
+	   	if ShowAshOfGorgoroth then _G.AOGWhere = 3; ShowHideAshOfGorgoroth(); end
+	   	-- AU3 MARKER 1 END
 		elseif value == "this" then
 		if _G.sFromCtr == "WI" then	ShowHideWallet();
 		elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
@@ -46,7 +45,7 @@ function UnloadControl( value )
 		elseif _G.sFromCtr == "SP" then	_G.SPWhere = 3; ShowHideShards();
 		elseif _G.sFromCtr == "SM" then	_G.SMWhere = 3; ShowHideSkirmishMarks();
 		elseif _G.sFromCtr == "MC" then	_G.MCWhere = 3; ShowHideMithrilCoins();
-		elseif _G.sFromCtr == "YT" then	_G.YTWhere = 3; ShowHideYuleToken();
+--		elseif _G.sFromCtr == "YT" then	_G.YTWhere = 3; ShowHideYuleTokens();
 		elseif _G.sFromCtr == "HT" then	_G.HTWhere = 3; ShowHideHytboldTokens();
 		elseif _G.sFromCtr == "MP" then	_G.MPWhere = 3; ShowHideMedallions();
 		elseif _G.sFromCtr == "SL" then	_G.SLWhere = 3; ShowHideSeals();
@@ -65,13 +64,13 @@ function UnloadControl( value )
 		elseif _G.sFromCtr == "LP" then	_G.LPWhere = 3; ShowHideLOTROPoints();
 		elseif _G.sFromCtr == "PL" then	ShowHidePlayerLoc(); opt_PL:SetChecked( false );
 		elseif _G.sFromCtr == "GT" then	ShowHideGameTime(); opt_GT:SetChecked( false );
+		-- AU3 MARKER 2 - DO NOT REMOVE
 		elseif _G.sFromCtr == "ASP" then	_G.ASPWhere = 3; ShowHideAmrothSilverPiece();
 	   	elseif _G.sFromCtr == "SOM" then	_G.SOMWhere = 3; ShowHideStarsofMerit();
 	   	elseif _G.sFromCtr == "CGSP" then	_G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece();
 	   	elseif _G.sFromCtr == "GGB" then	_G.GGBWhere = 3; ShowHideGiftgiversBrand();
 	   	elseif _G.sFromCtr == "AOG" then	_G.AOGWhere = 3; ShowHideAshOfGorgoroth();
-	   	elseif _G.sFromCtr == "BB" then	_G.BBWhere = 3; ShowHideBingoBadge();
-	   	elseif _G.sFromCtr == "LAT" then	_G.LATWhere = 3; ShowHideAnniversaryToken();
+	   	-- AU3 MARKER 2 END
 		end
 	end
 
@@ -93,7 +92,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "SP" then tA, tR, tG, tB = SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue;
 		elseif _G.sFromCtr == "SM" then tA, tR, tG, tB = SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue;
 		elseif _G.sFromCtr == "MC" then tA, tR, tG, tB = MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue;
-		elseif _G.sFromCtr == "YT" then tA, tR, tG, tB = YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue;
+--		elseif _G.sFromCtr == "YT" then tA, tR, tG, tB = YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue;
 		elseif _G.sFromCtr == "HT" then tA, tR, tG, tB = HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue;
 		elseif _G.sFromCtr == "MP" then tA, tR, tG, tB = MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue;
 		elseif _G.sFromCtr == "SL" then tA, tR, tG, tB = SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue;
@@ -112,13 +111,13 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "LP" then tA, tR, tG, tB = LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue;
 		elseif _G.sFromCtr == "PL" then tA, tR, tG, tB = PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue;
 		elseif _G.sFromCtr == "GT" then tA, tR, tG, tB = GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue;
+		-- AU3 MARKER 3 - DO NOT REMOVE
 		elseif _G.sFromCtr == "ASP" then tA, tR, tG, tB = ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue;
 		elseif _G.sFromCtr == "SOM" then tA, tR, tG, tB = SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue;
 		elseif _G.sFromCtr == "CGSP" then tA, tR, tG, tB = CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue;
 		elseif _G.sFromCtr == "GGB" then tA, tR, tG, tB = GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue;
 		elseif _G.sFromCtr == "AOG" then tA, tR, tG, tB = AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue;
-		elseif _G.sFromCtr == "BB" then tA, tR, tG, tB = BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue;
-		elseif _G.sFromCtr == "LAT" then tA, tR, tG, tB = LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue;
+		-- AU3 MARKER 3 END
 		end
 	end
 	
@@ -135,8 +134,8 @@ function BGColor( cmd, value )
 		if ShowSkirmishMarks then SM["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue = tA, tR, tG, tB;
 		if ShowMithrilCoins then MC["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
-		YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue = tA, tR, tG, tB;
-		if ShowYuleToken then YT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+--[[		YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue = tA, tR, tG, tB;
+		if ShowYuleTokens then YT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end--]]
 		HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue = tA, tR, tG, tB;
 		if ShowHytboldTokens then HT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue = tA, tR, tG, tB;
@@ -169,10 +168,12 @@ function BGColor( cmd, value )
 		if ShowReputation then RP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue = tA, tR, tG, tB;
 		if ShowLOTROPoints then LP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+
 		PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue = tA, tR, tG, tB;
 		if ShowPlayerLoc then PL["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue = tA, tR, tG, tB;
 		if ShowGameTime then GT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	end
+		-- AU3 MARKER 4 - DO NOT REMOVE
 		ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = tA, tR, tG, tB;
 		if AmrothSilverPiece then ASP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = tA, tR, tG, tB;
@@ -183,10 +184,7 @@ function BGColor( cmd, value )
 		if GiftgiversBrand then GGB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = tA, tR, tG, tB;
 		if AshOfGorgoroth then AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
-		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
-		if BingoBadge then BB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
-		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
-		if AnniversaryToken then LAT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		-- AU3 MARKER 4 END
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
 		BGColor( cmd, "TitanBar" );
@@ -208,9 +206,9 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "MC" then
 			MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue = tA, tR, tG, tB;
 			MC["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
-		elseif _G.sFromCtr == "YT" then
+--[[		elseif _G.sFromCtr == "YT" then
 			YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue = tA, tR, tG, tB;
-			YT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			YT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );--]]
 		elseif _G.sFromCtr == "HT" then
 			HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue = tA, tR, tG, tB;
 			HT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
@@ -266,6 +264,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "GT" then
 			GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue = tA, tR, tG, tB;
 			GT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		-- AU3 MARKER 5 - DO NOT REMOVE
 		elseif _G.sFromCtr == "ASP" then
 			ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = tA, tR, tG, tB;
 			ASP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
@@ -281,12 +280,7 @@ function BGColor( cmd, value )
 		elseif _G.sFromCtr == "AOG" then
 			AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = tA, tR, tG, tB;
 			AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
-		elseif _G.sFromCtr == "BB" then
-			BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
-			BB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
-		elseif _G.sFromCtr == "LAT" then
-			LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
-			LAT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+		-- AU3 MARKER 5 END
 		end
 	elseif value == "TitanBar" then
 		bcAlpha, bcRed, bcGreen, bcBlue = tA, tR, tG, tB;

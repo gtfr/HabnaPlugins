@@ -1,6 +1,5 @@
 -- WalletToolTip.lua
 -- written by Habna
--- rewritten by many
 
 
 function ShowWIToolTip()
@@ -43,19 +42,19 @@ function RefreshWITTListBox()
 		elseif wttcur == L["MSP"] then ttw = _G.SPWhere; CtrIconCodeIs=WalletItem.Shard.Icon; CtrQteIs=GetCurrency( pwShard );
 		elseif wttcur == L["MSM"] then ttw = _G.SMWhere; CtrIconCodeIs=WalletItem.Mark.Icon; CtrQteIs=GetCurrency( pwMark );
 		elseif wttcur == L["MMC"] then ttw = _G.MCWhere; CtrIconCodeIs=WalletItem.Mithril.Icon; CtrQteIs=GetCurrency( pwMithril );
-		elseif wttcur == L["MYT"] then ttw = _G.YTWhere; CtrIconCodeIs=WalletItem.YuleToken.Icon; CtrQteIs=GetCurrency( pwYule );
+--		elseif wttcur == L["MYT"] then ttw = _G.YTWhere; CtrIconCodeIs=WalletItem.YuleToken.Icon; CtrQteIs=GetCurrency( pwYule );
 		elseif wttcur == L["MHT"] then ttw = _G.HTWhere; CtrIconCodeIs=WalletItem.TokensOfHytbold.Icon; CtrQteIs=GetCurrency( pwHytbold );
 		elseif wttcur == L["MMP"] then ttw = _G.MPWhere; CtrIconCodeIs=WalletItem.Medallion.Icon; CtrQteIs=GetCurrency( pwMedallion );
 		elseif wttcur == L["MSL"] then ttw = _G.SLWhere; CtrIconCodeIs=WalletItem.Seal.Icon; CtrQteIs=GetCurrency( pwSeal );
 		elseif wttcur == L["MCP"] then ttw = _G.CPWhere; CtrIconCodeIs=WalletItem.Commendation.Icon; CtrQteIs=GetCurrency( pwCommendation );
 		elseif wttcur == L["MLP"] then ttw = _G.LPWhere; CtrIconCodeIs=WalletItem.LOTROPTS.Icon; CtrQteIs=_G.LOTROPTS;
+		-- AU3 MARKER 1 - DO NOT REMOVE
 		elseif wttcur == L["MASP"] then ttw = _G.ASPWhere; CtrIconCodeIs=WalletItem.AmrothSilverPiece.Icon; CtrQteIs=GetCurrency( pwAmrothSilverPiece );
 		elseif wttcur == L["MSOM"] then ttw = _G.SOMWhere; CtrIconCodeIs=WalletItem.StarsofMerit.Icon; CtrQteIs=GetCurrency( pwStarsofMerit );
 		elseif wttcur == L["MCGSP"] then ttw = _G.CGSPWhere; CtrIconCodeIs=WalletItem.CentralGondorSilverPiece.Icon; CtrQteIs=GetCurrency( pwCentralGondorSilverPiece );
 		elseif wttcur == L["MGGB"] then ttw = _G.GGBWhere; CtrIconCodeIs=WalletItem.GiftgiversBrand.Icon; CtrQteIs=GetCurrency( pwGiftgiversBrand );
 		elseif wttcur == L["MAOG"] then ttw = _G.AOGWhere; CtrIconCodeIs=WalletItem.AshOfGorgoroth.Icon; CtrQteIs=GetCurrency( pwAshOfGorgoroth );
-		elseif wttcur == L["MBB"] then ttw = _G.BBWhere; CtrIconCodeIs=WalletItem.BingoBadge.Icon; CtrQteIs=GetCurrency( pwBingoBadge );
-		elseif wttcur == L["MLAT"] then ttw = _G.LATWhere; CtrIconCodeIs=WalletItem.AnniversaryToken.Icon; CtrQteIs=GetCurrency( pwAnniversaryToken );
+		-- AU3 MARKER 1 END
 		end
 		
 		if tonumber(ttw) == 2 then
