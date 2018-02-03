@@ -53,7 +53,8 @@ function frmReputationWindow()
         _G.frmRP = nil;
     end
     -- **^
-    
+   
+
     local RPlbltext = Turbine.UI.Label();
     RPlbltext:SetParent(_G.wRP);
     RPlbltext:SetText(L["RPt"]);
@@ -61,6 +62,36 @@ function frmReputationWindow()
     RPlbltext:SetSize(_G.wRP:GetWidth() - 40 , 35);
     RPlbltext:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleCenter);
     RPlbltext:SetForeColor(Color["green"]);
+
+    local RPFilterlbl = Turbine.UI.Label();
+    RPFilterlbl:SetParent(_G.wRP);
+    RPFilterlbl:SetSize(60,20);
+    RPFilterlbl:SetPosition(20,75);
+    RPFilterlbl:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft);
+    RPFilterlbl:SetText("Search:");
+    local RPFiltertxt = Turbine.UI.Lotro.TextBox();
+    RPFiltertxt:SetParent(_G.wRP);
+    RPFiltertxt:SetFont(Turbine.UI.Lotro.Font.Verdana16);
+    RPFiltertxt:SetMultiline(false);
+    RPFiltertxt:SetPosition(80,75);
+    RPFiltertxt:SetSize(_G.wRP:GetWidth() - 120, 20);
+    RPFiltertxt.Text = "";
+    RPFiltertxt.TextChanged = function()
+        if RPFiltertxt.Text ~= RPFiltertxt:GetText() then
+            RPFiltertxt.Text = RPFiltertxt:GetText();
+            RPFilter(RPFiltertxt.Text);
+        end
+    end
+
+    function RPFilter()
+        filterText = string.lower(RPFiltertxt.Text);
+        for i=1,RPListBox:GetItemCount() do
+            local row = RPListBox:GetItem(i);
+            if string.find(string.lower(row.repLbl:GetText()),filterText) == nil then
+                row:SetHeight(0);
+            end
+        end
+    end
 
 --[[-- Add a checkbox for people to be able to hide all factions that reach max 
     -- reputation (then reshow if they loose rep)
@@ -85,8 +116,8 @@ function frmReputationWindow()
     RPListBox = Turbine.UI.ListBox();
     RPListBox:SetParent(_G.wRP);
     RPListBox:SetZOrder(1);
-    RPListBox:SetPosition(20, RPlbltext:GetTop() + RPlbltext:GetHeight() + 5);
-    RPListBox:SetSize(_G.wRP:GetWidth() - 40, _G.wRP:GetHeight() - 95);
+    RPListBox:SetPosition(20, 115);
+    RPListBox:SetSize(_G.wRP:GetWidth() - 40, _G.wRP:GetHeight() - 130);
     RPListBox:SetMaxItemsPerLine(1);
     RPListBox:SetOrientation(Turbine.UI.Orientation.Horizontal);
     --RPListBox:SetBackColor(Color["red"]); --debug purpose
@@ -232,6 +263,7 @@ function RefreshRPListBox()
         --**^
         -- Reputation name
         local repLbl = Turbine.UI.Lotro.CheckBox();
+        RPCtr.repLbl = repLbl;
         repLbl:SetParent(RPCtr);
         repLbl:SetText(L[RepOrder[i]]);
         repLbl:SetSize(RPListBox:GetWidth() - 10, 20);
@@ -272,4 +304,5 @@ function RefreshRPListBox()
 
         RPListBox:AddItem(RPCtr);
     end
+    RPFilter();
 end
