@@ -470,12 +470,12 @@ L["GTh"] = "Real/Server Time";
 L["TBR"] = "TitanBar: All my settings are set back to default";
 
 -- Character Race
-L["Elf"] = "Elf";
-L["Man"] = "Man";
-L["Dwarf"] = "Dwarf";
-L["Hobbit"] = "Hobbit";
-L["Beorning"] = "Beorning";
-L["HighElf"] = "High Elf";
+L[ "Elf" ] = "Elf";
+L[ "Man" ] = "Man";
+L[ "Dwarf" ] = "Dwarf";
+L[ "Hobbit" ] = "Hobbit";
+L[ "Beorning" ] = "Beorning";
+L[ "HighElf" ] = "High Elf";
 
 -- Free People Class
 L["Burglar"] = "Burglar";

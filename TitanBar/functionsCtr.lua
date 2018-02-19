@@ -8,12 +8,12 @@ function ImportCtr( value )
         import (AppCtrD.."Wallet");
         import (AppCtrD.."WalletToolTip");
         UpdateWallet();
-        WI["Ctr"]:SetPosition( _G.WILocX, _G.WILocY );
+        WI[ "Ctr" ]:SetPosition( _G.WILocX, _G.WILocY );
     elseif value == "MI" then --Money Infos
         if _G.MIWhere == 1 then 
             import (AppCtrD.."MoneyInfos");
             import (AppCtrD.."MoneyInfosToolTip");
-            MI["Ctr"]:SetPosition( _G.MILocX, _G.MILocY );
+            MI[ "Ctr" ]:SetPosition( _G.MILocX, _G.MILocY );
         end
         if _G.MIWhere ~= 3 then
             PlayerAtt = Player:GetAttributes();
@@ -31,7 +31,7 @@ function ImportCtr( value )
     elseif value == "DP" then --Destiny Points
         if _G.DPWhere == 1 then 
             import (AppCtrD.."DestinyPoints");
-            DP["Ctr"]:SetPosition( _G.DPLocX, _G.DPLocY );
+            DP[ "Ctr" ]:SetPosition( _G.DPLocX, _G.DPLocY );
         end
         if _G.DPWhere ~= 3 then 
             PlayerAtt = Player:GetAttributes();
@@ -45,74 +45,51 @@ function ImportCtr( value )
     elseif value == "SP" then --Shards
         if _G.SPWhere == 1 then 
             import (AppCtrD.."Shards");
-            SP["Ctr"]:SetPosition( _G.SPLocX, _G.SPLocY );
+            SP[ "Ctr" ]:SetPosition( _G.SPLocX, _G.SPLocY );
         end
-        if _G.SPWhere ~= 3 then
-            --LoadPlayerWallet();
-            --PlayerShard = PlayerCurrency["Shard"];
-            --AddCallback(PlayerShard, "QuantityChanged", 
-            --    function(sender, args) UpdateShards(); end
-            --    );
-            UpdateShards();
-        --else
-            --RemoveCallback(PlayerShard, "QuantityChanged");
-        end
+        if _G.SPWhere ~= 3 then UpdateShards(); end
     elseif value == "SM" then --Skirmish Marks
         if _G.SMWhere == 1 then 
             import (AppCtrD.."SkirmishMarks"); 
-            SM["Ctr"]:SetPosition( _G.SMLocX, _G.SMLocY );
+            SM[ "Ctr" ]:SetPosition( _G.SMLocX, _G.SMLocY );
         end
-        if _G.SMWhere ~= 3 then
-            UpdateMarks();
-        end
+        if _G.SMWhere ~= 3 then UpdateMarks(); end
     elseif value == "MC" then --Mithril Coins
         if _G.MCWhere == 1 then 
             import (AppCtrD.."MithrilCoins");
-            MC["Ctr"]:SetPosition( _G.MCLocX, _G.MCLocY );
+            MC[ "Ctr" ]:SetPosition( _G.MCLocX, _G.MCLocY );
         end
-        if _G.MCWhere ~= 3 then
-            UpdateMithril();
-        end
+        if _G.MCWhere ~= 3 then UpdateMithril(); end
 		elseif value == "YT" then --Yule Tokens
         if _G.YTWhere == 1 then 
             import (AppCtrD.."YuleToken"); 
-            YT["Ctr"]:SetPosition( _G.YTLocX, _G.YTLocY );
+            YT[ "Ctr" ]:SetPosition( _G.YTLocX, _G.YTLocY );
         end
-        if _G.YTWhere ~= 3 then
-            UpdateYule();
-        end
+        if _G.YTWhere ~= 3 then UpdateYule(); end
     elseif value == "HT" then --Tokens of Hytbold
         if _G.HTWhere == 1 then 
             import (AppCtrD.."TokensOfHytbold"); 
-            HT["Ctr"]:SetPosition( _G.HTLocX, _G.HTLocY );
+            HT[ "Ctr" ]:SetPosition( _G.HTLocX, _G.HTLocY );
         end
-        if _G.HTWhere ~= 3 then
-            UpdateHytboldTokens();
-        end
+        if _G.HTWhere ~= 3 then UpdateHytboldTokens(); end
     elseif value == "MP" then --Medallions
         if _G.MPWhere == 1 then 
             import (AppCtrD.."Medallions"); 
-            MP["Ctr"]:SetPosition( _G.MPLocX, _G.MPLocY ); 
+            MP[ "Ctr" ]:SetPosition( _G.MPLocX, _G.MPLocY ); 
         end
-        if _G.MPWhere ~= 3 then
-            UpdateMedallions();
-        end     
+        if _G.MPWhere ~= 3 then UpdateMedallions(); end     
     elseif value == "SL" then --Seals
         if _G.SLWhere == 1 then 
             import (AppCtrD.."Seals");
-            SL["Ctr"]:SetPosition( _G.SLLocX, _G.SLLocY );
+            SL[ "Ctr" ]:SetPosition( _G.SLLocX, _G.SLLocY );
         end
-        if _G.SLWhere ~= 3 then
-            UpdateSeals();
-        end
+        if _G.SLWhere ~= 3 then UpdateSeals(); end
     elseif value == "CP" then --Commendations
         if _G.CPWhere == 1 then 
             import (AppCtrD.."Commendations");
-            CP["Ctr"]:SetPosition( _G.CPLocX, _G.CPLocY );
+            CP[ "Ctr" ]:SetPosition( _G.CPLocX, _G.CPLocY );
         end
-        if _G.CPWhere ~= 3 then
-            UpdateCommendations();
-        end     
+        if _G.CPWhere ~= 3 then UpdateCommendations(); end     
     elseif value == "BI" then --Backpack Infos
         import (AppCtrD.."BagInfos");
         --import (AppCtrD.."BagInfosToolTip");
@@ -128,7 +105,7 @@ function ImportCtr( value )
         --    function(sender, args) UpdateBackpackInfos(); end
         --    ); --Add when workaround is not needed anymore
         UpdateBackpackInfos();
-        BI["Ctr"]:SetPosition( _G.BILocX, _G.BILocY );
+        BI[ "Ctr" ]:SetPosition( _G.BILocX, _G.BILocY );
     elseif value == "PI" then --Player Infos
         import (AppCtrD.."PlayerInfos");
         import (AppCtrD.."PlayerInfosToolTip");
@@ -168,17 +145,17 @@ function ImportCtr( value )
             end
             end);
         UpdatePlayersInfos();
-        PI["Ctr"]:SetPosition( _G.PILocX, _G.PILocY );
+        PI[ "Ctr" ]:SetPosition( _G.PILocX, _G.PILocY );
     elseif value == "DI" then --Durability Infos
         import (AppCtrD.."DurabilityInfos");
         import (AppCtrD.."DurabilityInfosToolTip");
         UpdateDurabilityInfos();
-        DI["Ctr"]:SetPosition( _G.DILocX, _G.DILocY );
+        DI[ "Ctr" ]:SetPosition( _G.DILocX, _G.DILocY );
     elseif value == "EI" then --Equipment Infos
         import (AppCtrD.."EquipInfos");
         import (AppCtrD.."EquipInfosToolTip");
         UpdateEquipsInfos();
-        EI["Ctr"]:SetPosition( _G.EILocX, _G.EILocY );
+        EI[ "Ctr" ]:SetPosition( _G.EILocX, _G.EILocY );
     elseif value == "PL" then --Player Location
         import (AppCtrD.."PlayerLoc");
         --AddCallback(Player, "LocationChanged", UpdatePlayerLoc(); end);
@@ -207,12 +184,12 @@ function ImportCtr( value )
             end
         end);
         UpdatePlayerLoc( pLLoc );
-        PL["Ctr"]:SetPosition( _G.PLLocX, _G.PLLocY );
+        PL[ "Ctr" ]:SetPosition( _G.PLLocX, _G.PLLocY );
     elseif value == "TI" then --Track Items
         import (AppCtrD.."TrackItems");
         import (AppCtrD.."TrackItemsToolTip");
         UpdateTrackItems();
-        TI["Ctr"]:SetPosition( _G.TILocX, _G.TILocY );
+        TI[ "Ctr" ]:SetPosition( _G.TILocX, _G.TILocY );
     elseif value == "IF" then --Infamy
         _G.InfamyRanks = { 
             [0] = 0, [1] = 500, [2] = 1250, [3] = 2750, [4] = 5750,
@@ -279,15 +256,15 @@ function ImportCtr( value )
             end
             end);
         UpdateInfamy();
-        IF["Ctr"]:SetPosition( _G.IFLocX, _G.IFLocY );
+        IF[ "Ctr" ]:SetPosition( _G.IFLocX, _G.IFLocY );
     elseif value == "DN" then --Day & Night Time
         import (AppCtrD.."DayNight");
         UpdateDayNight();
-        DN["Ctr"]:SetPosition( _G.DNLocX, _G.DNLocY );
+        DN[ "Ctr" ]:SetPosition( _G.DNLocX, _G.DNLocY );
     elseif value == "LP" then --LOTRO points
         if _G.LPWhere == 1 then 
             import (AppCtrD.."LOTROPoints");
-            LP["Ctr"]:SetPosition( _G.LPLocX, _G.LPLocY );
+            LP[ "Ctr" ]:SetPosition( _G.LPLocX, _G.LPLocY );
             UpdateLOTROPoints();
         end
         if _G.LPWhere ~= 3 then
@@ -331,10 +308,10 @@ function ImportCtr( value )
         if _G.ShowBT then UpdateGameTime("bt");
         elseif _G.ShowST then UpdateGameTime("st");
         else UpdateGameTime("gt") end
-        if _G.GTLocX + GT["Ctr"]:GetWidth() > screenWidth then 
-            _G.GTLocX = screenWidth - GT["Ctr"]:GetWidth();
+        if _G.GTLocX + GT[ "Ctr" ]:GetWidth() > screenWidth then 
+            _G.GTLocX = screenWidth - GT[ "Ctr" ]:GetWidth();
         end --Replace if out of screen
-        GT["Ctr"]:SetPosition( _G.GTLocX, _G.GTLocY );
+        GT[ "Ctr" ]:SetPosition( _G.GTLocX, _G.GTLocY );
     elseif value == "VT" then --Vault
         import (AppCtrD.."Vault");
         import (AppCtrD.."VaultToolTip");
@@ -342,7 +319,7 @@ function ImportCtr( value )
             function(sender, args) SavePlayerVault(); end
             );
         UpdateVault();
-        VT["Ctr"]:SetPosition( _G.VTLocX, _G.VTLocY );
+        VT[ "Ctr" ]:SetPosition( _G.VTLocX, _G.VTLocY );
     elseif value == "SS" then --Shared Storage
         import (AppCtrD.."SharedStorage");
         import (AppCtrD.."SharedStorageToolTip");
@@ -350,47 +327,47 @@ function ImportCtr( value )
             function(sender, args) SavePlayerSharedStorage(); end
             );
         UpdateSharedStorage();
-        SS["Ctr"]:SetPosition( _G.SSLocX, _G.SSLocY );
+        SS[ "Ctr" ]:SetPosition( _G.SSLocX, _G.SSLocY );
     elseif value == "ASP" then --Amroth Silver Piece
         if _G.ASPWhere == 1 then
             import (AppCtrD.."AmrothSilverPiece");
-            ASP["Ctr"]:SetPosition( _G.ASPLocX, _G.ASPLocY );
+            ASP[ "Ctr" ]:SetPosition( _G.ASPLocX, _G.ASPLocY );
         end
         if _G.ASPWhere ~= 3 then UpdateAmrothSilverPiece(); end
     elseif value == "SOM" then --Stars of Merit
         if _G.SOMWhere == 1 then
             import (AppCtrD.."StarsofMerit");
-            SOM["Ctr"]:SetPosition( _G.SOMLocX, _G.SOMLocY );
+            SOM[ "Ctr" ]:SetPosition( _G.SOMLocX, _G.SOMLocY );
         end
         if _G.SOMWhere ~= 3 then UpdateStarsofMerit(); end
     elseif value == "CGSP" then --Central Gondor Silver Piece
         if _G.CGSPWhere == 1 then
             import (AppCtrD.."CentralGondorSilverPiece");
-            CGSP["Ctr"]:SetPosition( _G.CGSPLocX, _G.CGSPLocY );
+            CGSP[ "Ctr" ]:SetPosition( _G.CGSPLocX, _G.CGSPLocY );
         end
         if _G.CGSPWhere ~= 3 then UpdateCentralGondorSilverPiece(); end
     elseif value == "GGB" then --Gift giver's Brand
         if _G.GGBWhere == 1 then
             import (AppCtrD.."GiftgiversBrand");
-            GGB["Ctr"]:SetPosition( _G.GGBLocX, _G.GGBLocY );
+            GGB[ "Ctr" ]:SetPosition( _G.GGBLocX, _G.GGBLocY );
         end
         if _G.GGBWhere ~= 3 then UpdateGiftgiversBrand(); end
     elseif value == "AOG" then --Ash of Gorgoroth
         if _G.AOGWhere == 1 then
             import (AppCtrD.."AshOfGorgoroth");
-            AOG["Ctr"]:SetPosition( _G.AOGLocX, _G.AOGLocY );
+            AOG[ "Ctr" ]:SetPosition( _G.AOGLocX, _G.AOGLocY );
         end
         if _G.AOGWhere ~= 3 then UpdateAshOfGorgoroth(); end
     elseif value == "BB" then --Bingo Badge
         if _G.BBWhere == 1 then
             import (AppCtrD.."BingoBadge");
-            BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY );
+            BB[ "Ctr" ]:SetPosition( _G.BBLocX, _G.BBLocY );
         end
         if _G.BBWhere ~= 3 then UpdateBingoBadge(); end
     elseif value == "LAT" then --Anniversary Token
         if _G.LATWhere == 1 then
             import (AppCtrD.."AnniversaryToken");
-            LAT["Ctr"]:SetPosition( _G.LATLocX, _G.LATLocY );
+            LAT[ "Ctr" ]:SetPosition( _G.LATLocX, _G.LATLocY );
         end
         if _G.LATWhere ~= 3 then UpdateAnniversaryToken(); end
     elseif value == "RP" then --Reputation Points
@@ -420,8 +397,8 @@ function ImportCtr( value )
                     end
                     -- check string if an accelerator was used
                     if GLocale == "de" then 
-                        cstr = string.match(rpMess, "Bonus");
-                    else cstr = string.match(rpMess, "bonus"); end
+                        cstr = string.match( rpMess, "Bonus" );
+                    else cstr = string.match( rpMess, "bonus" ); end
                     -- Accelerator was used, end of string is diffrent. 
                     -- Ex. (700 from bonus). instead of just a dot after the 
                     -- amount of points
@@ -435,34 +412,34 @@ function ImportCtr( value )
                         elseif GLocale == "de" then 
                             rpnPattern = "Euer Ruf bei der Gruppe \"([%a%p%u%l%s]*)\" wurde um"; 
                             rppPattern = "wurde um ([%d%p]*) erh\195\182ht";
-                            rpbPattern = "%(([%d%p]* durch Bonus";
+                            rpbPattern = "%(([%d%p]*) durch Bonus";
                         end
                     end
-                    if rpbPattern ~= nil then
-                        local rpBonus = string.match(rpMess, rpbPattern);
-                        rpBonus = string.gsub(rpBonus, ",", "");
-                        tot = PlayerReputation[PN]["RPACC"].P;
+                    if rpMess ~= nil and rpbPattern ~= nil then
+                        local rpBonus = string.match( rpMess, rpbPattern );
+                        rpBonus = string.gsub( rpBonus, ",", "" );
+                        tot = PlayerReputation[ PN ][ "RPACC" ].P;
                         tot = tot - rpBonus;
                         if tot < 0 then
                             tot = 0;
                         end
-                        PlayerReputation[PN]["RPACC"].P = string.format("%.0f", tot);
+                        PlayerReputation[ PN ][ "RPACC" ].P = string.format( "%.0f", tot );
                     end
-                    local rpName = string.match(rpMess,rpnPattern); 
+                    local rpName = string.match( rpMess,rpnPattern ); 
                     -- Reputation Name
-                    if rpName ~= nil then
-                        local rpPTS = string.match(rpMess, rppPattern);
-                        -- Reputaion points
-                        local rpPTS = string.gsub(rpPTS, ",", "");
+                    if rpMess ~= nil and rpName ~= nil then
+                        local rpPTS = string.match( rpMess, rppPattern );
+                        -- Reputation points
+                        local rpPTS = string.gsub( rpPTS, ",", "" );
                         -- Replace "," in 1,400 to get 1400
                         for i = 1, #RepOrder do
-                            local v = RepType[i];
-                            local name = RepOrder[i];
-                            if L[name] == rpName then
-                                local lastR = #RepTypes[v]
+                            local v = RepType[ i ];
+                            local name = RepOrder[ i ];
+                            if L[ name ] == rpName then
+                                local lastR = #RepTypes[ v ]
                                 -- Check if new points is equal or bigger 
                                 -- of the max points
-                                local tot = PlayerReputation[PN][name].P;
+                                local tot = PlayerReputation[ PN ][ name ].P;
                                 tot = tot + rpPTS;
                                 local max = tonumber( PlayerReputation[PN][name].R );
                                 if max == lastR and tot > 0 then
@@ -478,24 +455,24 @@ function ImportCtr( value )
                                     -- true, then calculate diff to add to next rank
                                     tot = tot - max;
                                     -- Change rank & points
-                                    PlayerReputation[PN][name].R = tostring(PlayerReputation[PN][name].R + 1);
+                                    PlayerReputation[ PN ][ name ].R = tostring( PlayerReputation[ PN ][ name ].R + 1 );
                                 elseif tot < 0 then
-                                    local newR = tonumber(PlayerReputation[PN][name].R ) - 1;
+                                    local newR = tonumber( PlayerReputation[ PN ][ name ].R ) - 1;
                                     isNewRNegative = newR;
                                     if v == 2 or v == 7 or v == 8 then
                                         isNewRNegative = isNewRNegative + 1;
                                     end
                                     if isNewRNegative >= 0 then
-                                        max = RPGR[ (newR) ];
-                                        PlayerReputation[PN][name].R = tostring(newR);
+                                        max = RPGR[ ( newR ) ];
+                                        PlayerReputation[ PN ][ name ].R = tostring( newR );
                                         tot = tot + max;
                                     end
                                 end
-                                if PlayerReputation[PN][name].R == lastR then
+                                if PlayerReputation[ PN ][ name ].R == lastR then
                                     tot = 0;
                                 end
                                 -- add points
-                                PlayerReputation[PN][name].P = string.format("%.0f", tot);
+                                PlayerReputation[ PN ][ name ].P = string.format( "%.0f", tot );
                                 break
                             end
                         end
@@ -504,7 +481,7 @@ function ImportCtr( value )
                 end
             end);
         UpdateReputation();
-        RP["Ctr"]:SetPosition( _G.RPLocX, _G.RPLocY );
+        RP[ "Ctr" ]:SetPosition( _G.RPLocX, _G.RPLocY );
     end
 end
 
@@ -706,14 +683,14 @@ function SavePlayerMoney( save )
 
     wallet[PN].Show = _G.SCM;
     wallet[PN].ShowToAll = _G.SCMA;
-    wallet[PN].Money = tostring(PlayerAtt:GetMoney());
+    wallet[PN].Money = tostring( PlayerAtt:GetMoney() );
 
     -- Calculate Gold/Silver/Copper Total
     GoldTot, SilverTot, CopperTot = 0, 0, 0;
     gold, silver, copper = 0, 0, 0;
     
-    for k,v in pairs(wallet) do
-        DecryptMoney(v.Money);
+    for k,v in pairs( wallet ) do
+        DecryptMoney( v.Money );
         if k == PN then
             if v.Show then
                 GoldTot = GoldTot + gold;
@@ -848,19 +825,19 @@ function UpdateSharedStorageGold( sender, args )
         if item ~= nil then
             local name = item:GetName()
             local count = item:GetQuantity()
-            if name == L["MGB"] then -- Gold Bag
-                sharedmoney = sharedmoney + (count * 1000000)
-            elseif name == L["MSB"] then -- Silver Bag
-                sharedmoney = sharedmoney + (count * 100000)
-            elseif name == L["MCB"] then -- Copper Bag
-                sharedmoney = sharedmoney + (count * 10000)
+            if name == L[ "MGB" ] then -- Gold Bag
+                sharedmoney = sharedmoney + ( count * 1000000 )
+            elseif name == L[ "MSB" ] then -- Silver Bag
+                sharedmoney = sharedmoney + ( count * 100000 )
+            elseif name == L[ "MCB" ] then -- Copper Bag
+                sharedmoney = sharedmoney + ( count * 10000 )
             end
         end
     end
-    wallet[L["MStorage"]] =  {
-        ["Show"] = true,
-        ["ShowToAll"] = true,
-        ["Money"] = tostring(sharedmoney)   
+    wallet[ L[ "MStorage" ] ] =  {
+        [ "Show" ] = true,
+        [ "ShowToAll" ] = true,
+        [ "Money" ] = tostring( sharedmoney )   
     }
     UpdateMoney()
 end

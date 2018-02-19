@@ -18,7 +18,7 @@ Version = Plugins["TitanBar"]:GetVersion();--> ** TitanBar current version **
 _G.TB = {};
 WalletOrder = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18 };
 windowOpen = true;
-_G.Debug = false;-- True will enable some functions when I'm debuging
+_G.Debug = false;-- True will enable some functions when I'm debugging
 
 -- BlendMode 1: Color / 2: Normal / 3: Multiply / 4: AlphaBlend / 5: Overlay / 
 -- 6: Grayscale / 7: Screen / 8: Undefined
@@ -86,7 +86,7 @@ frmMain();
 if PlayerAlign == 1 then 
     MenuItem = { L["MGSC"], L["MDP"], L["MSP"], L["MSM"], L["MMC"],
     L["MYT"], L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], 
-    L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MAOG"], L["MBB"], L["MLAT"]};
+    L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MAOG"], L["MBB"], L["MLAT"] };
 else MenuItem = { L["MCP"], L["MLP"] }; end
 
 TitanBarCommand = Turbine.ShellCommand()

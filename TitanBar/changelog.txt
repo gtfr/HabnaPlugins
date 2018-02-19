@@ -12,6 +12,13 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 =================================================
+v1.31.05 (January 29, 2018) (alpha)
+
+Fixed:
+- some major bugs in refactoring the wallet
+- German reputation tracking
+
+=================================================
 v1.31.01 (January 29, 2018) (alpha)
 
 Changed:

@@ -102,9 +102,9 @@ function RefreshWITTListBox()
 				end
 				--** Get width - set tooltip width **--
 				if tmWidth > totWidth then totWidth = tmWidth; end
-				WITTCtr:SetWidth(totWidth);
-				WITTListBox:SetWidth(totWidth);
-				_G.ToolTipWin:SetWidth( totWidth+40 );
+				WITTCtr:SetWidth( totWidth );
+				WITTListBox:SetWidth( totWidth );
+				_G.ToolTipWin:SetWidth( totWidth + 40 );
 				--**
 			else --All other control
 				--**v Icon v**

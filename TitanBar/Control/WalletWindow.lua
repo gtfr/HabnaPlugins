@@ -306,10 +306,10 @@ function RefreshWIListBox()
 				LPWCtr:SetVisible( false );
 				WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, WIDD:GetTop()+WIDD:GetHeight()+10 );
 
-				if wcur == L["MGSC"] then tw = _G.MIWhere;
+				if wcur == L["MGSC"] then tw = _G.MIWhere; -- 
 				elseif wcur == L["MDP"] then tw = _G.DPWhere; -- Destiny Points
-				elseif wcur == L["MSP"] then tw = _G.SPWhere;
-				elseif wcur == L["MSM"] then tw = _G.SMWhere;
+				elseif wcur == L["MSP"] then tw = _G.SPWhere; -- Shards
+				elseif wcur == L["MSM"] then tw = _G.SMWhere; -- Skirmish marks
 				elseif wcur == L["MMC"] then tw = _G.MCWhere; -- Mithril Coins
 				elseif wcur == L["MYT"] then tw = _G.YTWhere; -- Yule Tokens
 				elseif wcur == L["MHT"] then tw = _G.HTWhere; -- Tokens of Hytbold

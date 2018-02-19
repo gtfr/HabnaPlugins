@@ -5,24 +5,24 @@
 _G.EI = {}; -- Equipment Infos table in _G
 
 --  Control for equipment infos
-EI["Ctr"] = Turbine.UI.Control();
-EI["Ctr"]:SetParent( TB["win"] );
-EI["Ctr"]:SetMouseVisible( false );
-EI["Ctr"]:SetZOrder( 2 );
-EI["Ctr"]:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-EI["Ctr"]:SetSize( 32, 32 );
-EI["Ctr"]:SetBackColor( Turbine.UI.Color( EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue ) );
+EI[ "Ctr" ] = Turbine.UI.Control();
+EI[ "Ctr" ]:SetParent( TB["win"] );
+EI[ "Ctr" ]:SetMouseVisible( false );
+EI[ "Ctr" ]:SetZOrder( 2 );
+EI[ "Ctr" ]:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
+EI[ "Ctr" ]:SetSize( 32, 32 );
+EI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue ) );
 
 -- Player icon & infos on TitanBar
-EI["Icon"] = Turbine.UI.Control();
-EI["Icon"]:SetParent( EI["Ctr"] );
-EI["Icon"]:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
-EI["Icon"]:SetSize( 32, 32 );
---EI["Icon"]:SetPosition( 0, 0 );
-EI["Icon"]:SetBackground( 0x410f2ea5 );-- in-game icon 32x32
+EI[ "Icon" ] = Turbine.UI.Control();
+EI[ "Icon" ]:SetParent( EI[ "Ctr" ] );
+EI[ "Icon" ]:SetBlendMode( Turbine.UI.BlendMode.AlphaBlend );
+EI[ "Icon" ]:SetSize( 32, 32 );
+--EI[ "Icon" ]:SetPosition( 0, 0 );
+EI[ "Icon" ]:SetBackground( 0x410f2ea5 );-- in-game icon 32x32
 
-EI["Icon"].MouseMove = function( sender, args )
-	TB["win"].MouseMove();
+EI[ "Icon" ].MouseMove = function( sender, args )
+	TB[ "win" ].MouseMove();
 	if dragging then
 		MoveEICtr(sender, args);
 	else
@@ -43,13 +43,13 @@ EI["Icon"].MouseMove = function( sender, args )
 	end
 end
 
-EI["Icon"].MouseLeave = function( sender, args )
+EI[ "Icon" ].MouseLeave = function( sender, args )
 	ResetToolTipWin();
 	EITT = false;
 end
 
-EI["Icon"].MouseClick = function( sender, args )
-	TB["win"].MouseMove();
+EI[ "Icon" ].MouseClick = function( sender, args )
+	TB[ "win" ].MouseMove();
 	if ( args.Button == Turbine.UI.MouseButton.Left ) then
 		if not WasDrag then
 			
@@ -61,28 +61,28 @@ EI["Icon"].MouseClick = function( sender, args )
 	WasDrag = false;
 end
 
-EI["Icon"].MouseDown = function( sender, args )
+EI[ "Icon" ].MouseDown = function( sender, args )
 	if ( args.Button == Turbine.UI.MouseButton.Left ) then
-		EI["Ctr"]:SetZOrder( 3 );
+		EI[ "Ctr" ]:SetZOrder( 3 );
 		dragStartX = args.X;
 		dragStartY = args.Y;
 		dragging = true;
 	end
 end
 
-EI["Icon"].MouseUp = function( sender, args )
-	EI["Ctr"]:SetZOrder( 2 );
+EI[ "Icon" ].MouseUp = function( sender, args )
+	EI[ "Ctr" ]:SetZOrder( 2 );
 	dragging = false;
-	_G.EILocX = EI["Ctr"]:GetLeft();
+	_G.EILocX = EI[ "Ctr" ]:GetLeft();
 	settings.EquipInfos.X = string.format("%.0f", _G.EILocX);
-	_G.EILocY = EI["Ctr"]:GetTop();
+	_G.EILocY = EI[ "Ctr" ]:GetTop();
 	settings.EquipInfos.Y = string.format("%.0f", _G.EILocY);
 	SaveSettings( false );
 end
 
---[[
+--[[--]]-- I don't know why this label was commented out... But it's breaking things commented out - so let's uncomment and see what happens.
 EI["Lbl"] = Turbine.UI.Label();
-EI["Lbl"]:SetParent( EI["Ctr"] );
+EI["Lbl"]:SetParent( EI[ "Ctr" ] );
 EI["Lbl"]:SetFont( _G.TBFont );
 EI["Lbl"]:SetPosition( 0, 0 );
 --EI["Lbl"]:SetForeColor( Color["white"] );
@@ -133,7 +133,7 @@ end
 
 EI["Lbl"].MouseDown = function( sender, args )
 	if ( args.Button == Turbine.UI.MouseButton.Left ) then
-		EI["Ctr"]:SetZOrder( 3 );
+		EI[ "Ctr" ]:SetZOrder( 3 );
 		dragStartX = args.X;
 		dragStartY = args.Y;
 		dragging = true;
@@ -141,28 +141,28 @@ EI["Lbl"].MouseDown = function( sender, args )
 end
 
 EI["Lbl"].MouseUp = function( sender, args )
-	EI["Ctr"]:SetZOrder( 2 );
+	EI[ "Ctr" ]:SetZOrder( 2 );
 	dragging = false;
-	_G.EILocX = EI["Ctr"]:GetLeft();
+	_G.EILocX = EI[ "Ctr" ]:GetLeft();
 	settings.EquipInfos.X = string.format("%.0f", _G.EILocX);
-	_G.EILocY = EI["Ctr"]:GetTop();
+	_G.EILocY = EI[ "Ctr" ]:GetTop();
 	settings.EquipInfos.Y = string.format("%.0f", _G.EILocY);
 	SaveSettings( false );
 end
 --**^
-]]
+--]]
 function MoveEICtr(sender, args)
-	EI["Icon"].MouseLeave( sender, args );
-	local CtrLocX = EI["Ctr"]:GetLeft();
-	local CtrWidth = EI["Ctr"]:GetWidth();
+	EI[ "Icon" ].MouseLeave( sender, args );
+	local CtrLocX = EI[ "Ctr" ]:GetLeft();
+	local CtrWidth = EI[ "Ctr" ]:GetWidth();
 	CtrLocX = CtrLocX + ( args.X - dragStartX );
 	if CtrLocX < 0 then CtrLocX = 0; elseif CtrLocX + CtrWidth > screenWidth then CtrLocX = screenWidth - CtrWidth; end
 	
-	local CtrLocY = EI["Ctr"]:GetTop();
-	local CtrHeight = EI["Ctr"]:GetHeight();
+	local CtrLocY = EI[ "Ctr" ]:GetTop();
+	local CtrHeight = EI[ "Ctr" ]:GetHeight();
 	CtrLocY = CtrLocY + ( args.Y - dragStartY );
-	if CtrLocY < 0 then CtrLocY = 0; elseif CtrLocY + CtrHeight > TB["win"]:GetHeight() then CtrLocY = TB["win"]:GetHeight() - CtrHeight; end
+	if CtrLocY < 0 then CtrLocY = 0; elseif CtrLocY + CtrHeight > TB[ "win" ]:GetHeight() then CtrLocY = TB[ "win" ]:GetHeight() - CtrHeight; end
 
-	EI["Ctr"]:SetPosition( CtrLocX, CtrLocY );
+	EI[ "Ctr" ]:SetPosition( CtrLocX, CtrLocY );
 	WasDrag = true;
 end

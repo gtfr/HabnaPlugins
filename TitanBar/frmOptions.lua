@@ -2,38 +2,38 @@
 -- written by Habna
 -- rewritten by many
 
-WalletControls = {
-	"WI" = { "ShowHide" = ShowWallet, "Control" = WI[ "Ctr" ] },
-	"MI" = { "ShowHide" = ShowMoney, "Control" = MI[ "Ctr" ] },
-	"DP" = { "ShowHide" = ShowDestinyPoints, "Control" = DP[ "Ctr" ] },
-	"SP" = { "ShowHide" = ShowShards, "Control" = SP[ "Ctr" ] },
-	"SM" = { "ShowHide" = ShowSkirmishMarks, "Control" = SM[ "Ctr" ] },
-	"MC" = { "ShowHide" = ShowMithrilCoins, "Control" = MC[ "Ctr" ] },
-	"YT" = { "ShowHide" = ShowYuleToken, "Control" = YT[ "Ctr" ] },
-	"HT" = { "ShowHide" = ShowHytboldTokens, "Control" = HT[ "Ctr" ] },
-	"MP" = { "ShowHide" = ShowMedallions, "Control" = MP[ "Ctr" ] },
-	"SL" = { "ShowHide" = ShowSeals, "Control" = SL[ "Ctr" ] },
-	"CP" = { "ShowHide" = ShowCommendations, "Control" = CP[ "Ctr" ] },
-	"BI" = { "ShowHide" = ShowBagInfos, "Control" = BI[ "Ctr" ] },
-	"PI" = { "ShowHide" = ShowPlayerInfos, "Control" = PI[ "Ctr" ] },
-	"EI" = { "ShowHide" = ShowEquipInfos, "Control" = EI[ "Ctr" ] },
-	"DI" = { "ShowHide" = ShowDurabilityInfos, "Control" = DI[ "Ctr" ] },
-	"TI" = { "ShowHide" = ShowTrackItems, "Control" = TI[ "Ctr" ] },
-	"IF" = { "ShowHide" = ShowInfamy, "Control" = IF[ "Ctr" ] },
-	"VT" = { "ShowHide" = ShowVault, "Control" = VT[ "Ctr" ] },
-	"SS" = { "ShowHide" = ShowSharedStorage, "Control" = SS[ "Ctr" ] },
-	--"BK" = { "ShowHide" = ShowBank, "Control" = BK[ "Ctr" ] },
-	"DN" = { "ShowHide" = ShowDayNight, "Control" = DN[ "Ctr" ] },
-	"RP" = { "ShowHide" = ShowReputation, "Control" = RP[ "Ctr" ] },
-	"LP" = { "ShowHide" = ShowLOTROPoints, "Control" = LP[ "Ctr" ] },
-	"ASP" = { "ShowHide" = ShowAmrothSilverPiece, "Control" = ASP[ "Ctr" ] },
-	"SOM" = { "ShowHide" = ShowStarsofMerit, "Control" = SOM[ "Ctr" ] },
-	"CGSP" = { "ShowHide" = ShowCentralGondorSilverPiece, "Control" = CGSP[ "Ctr" ] },
-	"GGB" = { "ShowHide" = ShowGiftgiversBrand, "Control" = GGB[ "Ctr" ] },
-	"AOG" = { "ShowHide" = ShowAshOfGorgoroth, "Control" = AOG[ "Ctr" ] },
-	"BB" = { "ShowHide" = ShowBingoBadge, "Control" = BB[ "Ctr" ] },
-	"LAT" = { "ShowHide" = ShowAnniversaryToken "Control" = LAT[ "Ctr" ] }
-};
+
+local WalletControls = { };
+if WI ~= nil then WalletControls[ "WI" ] = { ShowHide = ShowWallet, Control = WI[ "Ctr" ] }; end
+if MI ~= nil then WalletControls[ "MI" ] = { ShowHide = ShowMoney, Control = MI[ "Ctr" ] }; end
+if DP ~= nil then WalletControls[ "DP" ] = { ShowHide = ShowDestinyPoints, Control = DP[ "Ctr" ] }; end
+if SP ~= nil then WalletControls[ "SP" ] = { ShowHide = ShowShards, Control = SP[ "Ctr" ] }; end
+if SM ~= nil then WalletControls[ "SM" ] = { ShowHide = ShowSkirmishMarks, Control = SM[ "Ctr" ] }; end
+if MC ~= nil then WalletControls[ "MC" ] = { ShowHide = ShowMithrilCoins, Control = MC[ "Ctr" ] }; end
+if YT ~= nil then WalletControls[ "YT" ] = { ShowHide = ShowYuleToken, Control = YT[ "Ctr" ] }; end
+if HT ~= nil then WalletControls[ "HT" ] = { ShowHide = ShowHytboldTokens, Control = HT[ "Ctr" ] }; end
+if MP ~= nil then WalletControls[ "MP" ] = { ShowHide = ShowMedallions, Control = MP[ "Ctr" ] }; end
+if SL ~= nil then WalletControls[ "SL" ] = { ShowHide = ShowSeals, Control = SL[ "Ctr" ] }; end
+if CP ~= nil then WalletControls[ "CP" ] = { ShowHide = ShowCommendations, Control = CP[ "Ctr" ] }; end
+if BI ~= nil then WalletControls[ "BI" ] = { ShowHide = ShowBagInfos, Control = BI[ "Ctr" ] }; end
+if PI ~= nil then WalletControls[ "PI" ] = { ShowHide = ShowPlayerInfos, Control = PI[ "Ctr" ] }; end
+if EI ~= nil then WalletControls[ "EI" ] = { ShowHide = ShowEquipInfos, Control = EI[ "Ctr" ] }; end
+if DI ~= nil then WalletControls[ "DI" ] = { ShowHide = ShowDurabilityInfos, Control = DI[ "Ctr" ] };end
+if TI ~= nil then WalletControls[ "TI" ] = { ShowHide = ShowTrackItems, Control = TI[ "Ctr" ] }; end
+if IF ~= nil then WalletControls[ "IF" ] = { ShowHide = ShowInfamy, Control = IF[ "Ctr" ] }; end
+if VT ~= nil then WalletControls[ "VT" ] = { ShowHide = ShowVault, Control = VT[ "Ctr" ] }; end
+if SS ~= nil then WalletControls[ "SS" ] = { ShowHide = ShowSharedStorage, Control = SS[ "Ctr" ] }; end
+--if BK ~= nil then WalletControls[ "BK" ] = { ShowHide = ShowBank, Control = BK[ "Ctr" ] }; end
+if DN ~= nil then WalletControls[ "DN" ] = { ShowHide = ShowDayNight, Control = DN[ "Ctr" ] }; end
+if RP ~= nil then WalletControls[ "RP" ] = { ShowHide = ShowReputation, Control = RP[ "Ctr" ] }; end
+if LP ~= nil then WalletControls[ "LP" ] = { ShowHide = ShowLOTROPoints, Control = LP[ "Ctr" ] }; end
+if ASP ~= nil then WalletControls[ "ASP" ] = { ShowHide = ShowAmrothSilverPiece, Control = ASP[ "Ctr" ] }; end
+if SOM ~= nil then WalletControls[ "SOM" ] = { ShowHide = ShowStarsofMerit, Control = SOM[ "Ctr" ] }; end
+if CGSP ~= nil then WalletControls[ "CGSP" ] = { ShowHide = ShowCentralGondorSilverPiece, Control = CGSP[ "Ctr" ] }; end
+if GGB ~= nil then WalletControls[ "GGB" ] = { ShowHide = ShowGiftgiversBrand, Control = GGB[ "Ctr" ] }; end
+if AOG ~= nil then WalletControls[ "AOG" ] = { ShowHide = ShowAshOfGorgoroth, Control = AOG[ "Ctr" ] }; end
+if BB ~= nil then WalletControls[ "BB" ] = { ShowHide = ShowBingoBadge, Control = BB[ "Ctr" ] }; end
+if LAT ~= nil then WalletControls[ "LAT" ] = { ShowHide = ShowAnniversaryToken, Control = LAT[ "Ctr" ] }; end
 
 tFonts = { "Arial12", "TrajanPro13", "TrajanPro14", "TrajanPro15", "TrajanPro16", "TrajanPro18", "TrajanPro19", "TrajanPro20", "TrajanPro21",
 			"TrajanPro23", "TrajanPro24", "TrajanPro25", "TrajanPro26", "TrajanPro28", "TrajanProBold16", "TrajanProBold22", "TrajanProBold24",
@@ -53,7 +53,7 @@ function frmOptions()
 	TB["win"].MouseLeave();
 	--itValue, tValue = 32, TBHeight;
 
-	import (AppClassD.."ComboBox");
+	import ( AppClassD .. "ComboBox" );
 	FontDD = HabnaPlugins.TitanBar.Class.ComboBox();
 
 	-- **v Set some window stuff v**
@@ -281,16 +281,16 @@ function ResizeControls()
 	if TBHeight > 30 then CTRHeight = 30; end--Set control maximum height
 	
 	for ItemID, ShowItem in pairs( WalletControls ) do
-		if ShowItem[ "ShowHide" ] then ShowItem[ "Control" ]:SetHeight( CTRHeight );
+		if ShowItem.ShowHide then ShowItem.Control:SetHeight( CTRHeight ); end
 		AjustIcon( ItemID );
 	end 
 
-	if ShowPlayerLoc then PL[ "Ctr" ]:SetHeight( CTRHeight ); PL["Lbl"]:SetHeight( CTRHeight ); end
-	if ShowGameTime  then GT[ "Ctr" ]:SetHeight( CTRHeight );	GT["Lbl"]:SetHeight( CTRHeight ); end
+	if ShowPlayerLoc then PL[ "Ctr" ]:SetHeight( CTRHeight ); PL[ "Lbl" ]:SetHeight( CTRHeight ); end
+	if ShowGameTime  then GT[ "Ctr" ]:SetHeight( CTRHeight );	GT[ "Lbl" ]:SetHeight( CTRHeight ); end
 end
 
 function ResizeIcon()
 	for ItemID, ShowItem in pairs( WalletControls ) do
-		if ShowItem[ "ShowHide" ] then AjustIcon( ItemID ); end
-	end 
+		if ShowItem.ShowHide then AjustIcon( ItemID ); end
+	end
 end

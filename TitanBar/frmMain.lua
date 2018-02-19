@@ -328,7 +328,7 @@ function frmMain()
 
 		--When player log out & log in with same character, the durability control show -1%
 		--Because equipment info are not avail when re-login, weird!
-		--if PlayerAlign == 1 and ShowDurabilityInfos then if DI["Lbl"]:GetText() == "-1%" then GetEquipmentInfos(); UpdateDurabilityInfos(); end end
+		--if PlayerAlign == 1 and ShowDurabilityInfos then if DI[ "Lbl" ]:GetText() == "-1%" then GetEquipmentInfos(); UpdateDurabilityInfos(); end end
 	end
 	--**
 end

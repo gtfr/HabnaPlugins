@@ -475,7 +475,7 @@ L["Man"] = "Mensch";-- Thx Wicky!
 L["Dwarf"] = "Zwerg";
 L["Hobbit"] = "Hobbit";
 L["Beorning"] = "Beorninger";
---L["HighElf"] = "High Elf";-- Needs Translation
+L["HighElf"] = "High Elf";-- Needs Translation
 
 -- Free People Class
 L["Burglar"] = "Schurke";

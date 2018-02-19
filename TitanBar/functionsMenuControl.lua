@@ -40,40 +40,40 @@ function UnloadControl( value )
 		if ShowBingoBadge then _G.BBWhere = 3; ShowHideBingoBadge(); end
 		if ShowAnniversaryToken then _G.LATWhere = 3; ShowHideAnniversaryToken(); end
 		elseif value == "this" then
-		if _G.sFromCtr == "WI" then	ShowHideWallet();
-		elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
-		elseif _G.sFromCtr == "DP" then	_G.DPWhere = 3; ShowHideDestinyPoints();
-		elseif _G.sFromCtr == "SP" then	_G.SPWhere = 3; ShowHideShards();
-		elseif _G.sFromCtr == "SM" then	_G.SMWhere = 3; ShowHideSkirmishMarks();
-		elseif _G.sFromCtr == "MC" then	_G.MCWhere = 3; ShowHideMithrilCoins();
-		elseif _G.sFromCtr == "YT" then	_G.YTWhere = 3; ShowHideYuleToken();
-		elseif _G.sFromCtr == "HT" then	_G.HTWhere = 3; ShowHideHytboldTokens();
-		elseif _G.sFromCtr == "MP" then	_G.MPWhere = 3; ShowHideMedallions();
-		elseif _G.sFromCtr == "SL" then	_G.SLWhere = 3; ShowHideSeals();
-		elseif _G.sFromCtr == "CP" then	_G.CPWhere = 3; ShowHideCommendations();
-		elseif _G.sFromCtr == "BI" then	ShowHideBackpackInfos(); opt_BI:SetChecked( false );
-		elseif _G.sFromCtr == "PI" then	ShowHidePlayerInfos(); opt_PI:SetChecked( false );
-		elseif _G.sFromCtr == "EI" then	ShowHideEquipInfos(); opt_EI:SetChecked( false );
-		elseif _G.sFromCtr == "DI" then	ShowHideDurabilityInfos(); opt_DI:SetChecked( false );
-		elseif _G.sFromCtr == "TI" then	ShowHideTrackItems(); opt_TI:SetChecked( false );
-		elseif _G.sFromCtr == "IF" then	ShowHideInfamy(); opt_IF:SetChecked( false );
-		elseif _G.sFromCtr == "VT" then	ShowHideVault(); opt_VT:SetChecked( false );
-		elseif _G.sFromCtr == "SS" then	ShowHideSharedStorage(); opt_SS:SetChecked( false );
-		--elseif _G.sFromCtr == "BK" then ShowHideBank(); opt_BK:SetChecked( false );
-		elseif _G.sFromCtr == "DN" then	ShowHideDayNight(); opt_DN:SetChecked( false );
-		elseif _G.sFromCtr == "RP" then	ShowHideReputation(); opt_RP:SetChecked( false );
-		elseif _G.sFromCtr == "LP" then	_G.LPWhere = 3; ShowHideLOTROPoints();
-		elseif _G.sFromCtr == "PL" then	ShowHidePlayerLoc(); opt_PL:SetChecked( false );
-		elseif _G.sFromCtr == "GT" then	ShowHideGameTime(); opt_GT:SetChecked( false );
-		elseif _G.sFromCtr == "ASP" then	_G.ASPWhere = 3; ShowHideAmrothSilverPiece();
-	   	elseif _G.sFromCtr == "SOM" then	_G.SOMWhere = 3; ShowHideStarsofMerit();
-	   	elseif _G.sFromCtr == "CGSP" then	_G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece();
-	   	elseif _G.sFromCtr == "GGB" then	_G.GGBWhere = 3; ShowHideGiftgiversBrand();
-	   	elseif _G.sFromCtr == "AOG" then	_G.AOGWhere = 3; ShowHideAshOfGorgoroth();
-	   	elseif _G.sFromCtr == "BB" then	_G.BBWhere = 3; ShowHideBingoBadge();
-	   	elseif _G.sFromCtr == "LAT" then	_G.LATWhere = 3; ShowHideAnniversaryToken();
+			if _G.sFromCtr == "WI" then ShowHideWallet();
+			elseif _G.sFromCtr == "Money" then _G.MIWhere = 3; ShowHideMoney();
+			elseif _G.sFromCtr == "DP" then _G.DPWhere = 3; ShowHideDestinyPoints();
+			elseif _G.sFromCtr == "SP" then _G.SPWhere = 3; ShowHideShards();
+			elseif _G.sFromCtr == "SM" then _G.SMWhere = 3; ShowHideSkirmishMarks();
+			elseif _G.sFromCtr == "MC" then _G.MCWhere = 3; ShowHideMithrilCoins();
+			elseif _G.sFromCtr == "YT" then _G.YTWhere = 3; ShowHideYuleToken();
+			elseif _G.sFromCtr == "HT" then _G.HTWhere = 3; ShowHideHytboldTokens();
+			elseif _G.sFromCtr == "MP" then _G.MPWhere = 3; ShowHideMedallions();
+			elseif _G.sFromCtr == "SL" then _G.SLWhere = 3; ShowHideSeals();
+			elseif _G.sFromCtr == "CP" then _G.CPWhere = 3; ShowHideCommendations();
+			elseif _G.sFromCtr == "BI" then ShowHideBackpackInfos(); opt_BI:SetChecked( false );
+			elseif _G.sFromCtr == "PI" then ShowHidePlayerInfos(); opt_PI:SetChecked( false );
+			elseif _G.sFromCtr == "EI" then ShowHideEquipInfos(); opt_EI:SetChecked( false );
+			elseif _G.sFromCtr == "DI" then ShowHideDurabilityInfos(); opt_DI:SetChecked( false );
+			elseif _G.sFromCtr == "TI" then ShowHideTrackItems(); opt_TI:SetChecked( false );
+			elseif _G.sFromCtr == "IF" then ShowHideInfamy(); opt_IF:SetChecked( false );
+			elseif _G.sFromCtr == "VT" then ShowHideVault(); opt_VT:SetChecked( false );
+			elseif _G.sFromCtr == "SS" then ShowHideSharedStorage(); opt_SS:SetChecked( false );
+			--elseif _G.sFromCtr == "BK" then ShowHideBank(); opt_BK:SetChecked( false );
+			elseif _G.sFromCtr == "DN" then ShowHideDayNight(); opt_DN:SetChecked( false );
+			elseif _G.sFromCtr == "RP" then ShowHideReputation(); opt_RP:SetChecked( false );
+			elseif _G.sFromCtr == "LP" then _G.LPWhere = 3; ShowHideLOTROPoints();
+			elseif _G.sFromCtr == "PL" then ShowHidePlayerLoc(); opt_PL:SetChecked( false );
+			elseif _G.sFromCtr == "GT" then ShowHideGameTime(); opt_GT:SetChecked( false );
+			elseif _G.sFromCtr == "ASP" then _G.ASPWhere = 3; ShowHideAmrothSilverPiece();
+			elseif _G.sFromCtr == "SOM" then _G.SOMWhere = 3; ShowHideStarsofMerit();
+			elseif _G.sFromCtr == "CGSP" then _G.CGSPWhere = 3; ShowHideCentralGondorSilverPiece();
+			elseif _G.sFromCtr == "GGB" then _G.GGBWhere = 3; ShowHideGiftgiversBrand();
+			elseif _G.sFromCtr == "AOG" then _G.AOGWhere = 3; ShowHideAshOfGorgoroth();
+			elseif _G.sFromCtr == "BB" then	_G.BBWhere = 3; ShowHideBingoBadge();
+			elseif _G.sFromCtr == "LAT" then _G.LATWhere = 3; ShowHideAnniversaryToken();
+			end
 		end
-	end
 
 	TB["win"].MouseLeave();
 end
@@ -124,169 +124,169 @@ function BGColor( cmd, value )
 	
 	if value == "ctr" then
 		WIbcAlpha, WIbcRed, WIbcGreen, WIbcBlue = tA, tR, tG, tB;
-		if ShowWallet then WI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowWallet then WI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		MIbcAlpha, MIbcRed, MIbcGreen, MIbcBlue = tA, tR, tG, tB;
-		if ShowMoney then MI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowMoney then MI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		DPbcAlpha, DPbcRed, DPbcGreen, DPbcBlue = tA, tR, tG, tB;
-		if ShowDestinyPoints then DP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowDestinyPoints then DP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue = tA, tR, tG, tB;
-		if ShowShards then SP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowShards then SP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue = tA, tR, tG, tB;
-		if ShowSkirmishMarks then SM["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowSkirmishMarks then SM[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue = tA, tR, tG, tB;
-		if ShowMithrilCoins then MC["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowMithrilCoins then MC[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue = tA, tR, tG, tB;
-		if ShowYuleToken then YT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowYuleToken then YT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue = tA, tR, tG, tB;
-		if ShowHytboldTokens then HT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowHytboldTokens then HT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue = tA, tR, tG, tB;
-		if ShowMedallions then MP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowMedallions then MP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue = tA, tR, tG, tB;
-		if ShowSeals then SL["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowSeals then SL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue = tA, tR, tG, tB;
-		if ShowCommendations then CP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowCommendations then CP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue = tA, tR, tG, tB;
-		if ShowBagInfos then BI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowBagInfos then BI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue = tA, tR, tG, tB;
-		if ShowPlayerInfos then PI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowPlayerInfos then PI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue = tA, tR, tG, tB;
-		if ShowEquipInfos then EI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowEquipInfos then EI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue = tA, tR, tG, tB;
-		if ShowDurabilityInfos then DI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowDurabilityInfos then DI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue = tA, tR, tG, tB;
-		if ShowTrackItems then TI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowTrackItems then TI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		IFbcAlpha, IFbcRed, IFbcGreen, IFbcBlue = tA, tR, tG, tB;
-		if ShowInfamy then IF["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowInfamy then IF[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		VTbcAlpha, VTbcRed, VTbcGreen, VTbcBlue = tA, tR, tG, tB;
-		if ShowVault then VT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowVault then VT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue = tA, tR, tG, tB;
-		if ShowSharedStorage then SS["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowSharedStorage then SS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 --		BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue = tA, tR, tG, tB;
---		if ShowBank then BK["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+--		if ShowBank then BK[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue = tA, tR, tG, tB;
-		if ShowDayNight then DN["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowDayNight then DN[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue = tA, tR, tG, tB;
-		if ShowReputation then RP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowReputation then RP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue = tA, tR, tG, tB;
-		if ShowLOTROPoints then LP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowLOTROPoints then LP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue = tA, tR, tG, tB;
-		if ShowPlayerLoc then PL["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowPlayerLoc then PL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue = tA, tR, tG, tB;
-		if ShowGameTime then GT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	end
+		if ShowGameTime then GT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );	end
 		ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = tA, tR, tG, tB;
-		if AmrothSilverPiece then ASP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowAmrothSilverPiece then ASP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = tA, tR, tG, tB;
-		if StarsofMerit then SOM["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowStarsofMerit then SOM[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue = tA, tR, tG, tB;
-		if CentralGondorSilverPiece then CGSP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowCentralGondorSilverPiece then CGSP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = tA, tR, tG, tB;
-		if GiftgiversBrand then GGB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowGiftgiversBrand then GGB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = tA, tR, tG, tB;
-		if AshOfGorgoroth then AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowAshOfGorgoroth then AOG[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
-		if BingoBadge then BB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
-		if AnniversaryToken then LAT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
+		if ShowAnniversaryToken then LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) ); end
 	elseif value == "all" then
 		BGColor( cmd, "ctr" );
 		BGColor( cmd, "TitanBar" );
 	elseif value == "this" then
 		if _G.sFromCtr == "WI" then
-			WI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			WI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "Money" then
 			MIbcAlpha, MIbcRed, MIbcGreen, MIbcBlue = tA, tR, tG, tB;
-			MI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			MI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "DP" then
 			DPbcAlpha, DPbcRed, DPbcGreen, DPbcBlue = tA, tR, tG, tB;
-			DP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			DP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "SP" then
 			SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue = tA, tR, tG, tB;
-			SP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			SP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "SM" then
 			SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue = tA, tR, tG, tB;
-			SM["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			SM[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "MC" then
 			MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue = tA, tR, tG, tB;
-			MC["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			MC[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "YT" then
 			YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue = tA, tR, tG, tB;
-			YT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			YT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "HT" then
 			HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue = tA, tR, tG, tB;
-			HT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			HT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "MP" then
 			MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue = tA, tR, tG, tB;
-			MP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			MP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "SL" then
 			SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue = tA, tR, tG, tB;
-			SL["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			SL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "CP" then
 			CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue = tA, tR, tG, tB;
-			CP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			CP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "BI" then
 			BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue = tA, tR, tG, tB;
-			BI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			BI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "PI" then
 			PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue = tA, tR, tG, tB;
-			PI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			PI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "EI" then
 			EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue = tA, tR, tG, tB;
-			EI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			EI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "DI" then
 			DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue = tA, tR, tG, tB;
-			DI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			DI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "TI" then
 			TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue = tA, tR, tG, tB;
-			TI["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			TI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "IF" then
 			IFbcAlpha, IFbcRed, IFbcGreen, IFbcBlue = tA, tR, tG, tB;
-			IF["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			IF[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "VT" then
 			VTbcAlpha, VTbcRed, VTbcGreen, VTbcBlue = tA, tR, tG, tB;
-			VT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			VT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "SS" then
 			SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue = tA, tR, tG, tB;
-			SS["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			SS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 --[[		elseif _G.sFromCtr == "BK" then
 			BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue = tA, tR, tG, tB;
-			BK["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );]]
+			BK[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );]]
 		elseif _G.sFromCtr == "DN" then
 			DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue = tA, tR, tG, tB;
-			DN["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			DN[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "RP" then
 			RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue = tA, tR, tG, tB;
-			RP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			RP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "LP" then
 			LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue = tA, tR, tG, tB;
-			LP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			LP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 
 		elseif _G.sFromCtr == "PL" then
 			PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue = tA, tR, tG, tB;
-			PL["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			PL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "GT" then
 			GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue = tA, tR, tG, tB;
-			GT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			GT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "ASP" then
 			ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = tA, tR, tG, tB;
-			ASP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			ASP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "SOM" then
 			SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = tA, tR, tG, tB;
-			SOM["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			SOM[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "CGSP" then
 			CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue = tA, tR, tG, tB;
-			CGSP["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			CGSP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "GGB" then
 			GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = tA, tR, tG, tB;
-			GGB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			GGB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "AOG" then
 			AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = tA, tR, tG, tB;
-			AOG["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			AOG[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "BB" then
 			BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = tA, tR, tG, tB;
-			BB["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			BB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		elseif _G.sFromCtr == "LAT" then
 			LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = tA, tR, tG, tB;
-			LAT["Ctr"]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
+			LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( tA, tR, tG, tB ) );
 		end
 	elseif value == "TitanBar" then
 		bcAlpha, bcRed, bcGreen, bcBlue = tA, tR, tG, tB;
@@ -296,4 +296,3 @@ function BGColor( cmd, value )
 	SaveSettings( true );
 	TB["win"].MouseLeave();
 end
---**^

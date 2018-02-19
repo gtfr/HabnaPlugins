@@ -814,7 +814,7 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.BBLocY = tonumber(settings.BingoBadge.Y);
 	_G.BBWhere = tonumber(settings.BingoBadge.W);
 	if _G.BBWhere == 3 and ShowBingoBadge then _G.BBWhere = 1; settings.BingoBadge.W = string.format("%.0f", _G.BBWhere); end
-	
+
 	if settings.AnniversaryToken == nil then settings.AnniversaryToken = {}; end
 	if settings.AnniversaryToken.V == nil then settings.AnniversaryToken.V = false; end
 	if settings.AnniversaryToken.A == nil then settings.AnniversaryToken.A = string.format("%.3f", tA); end
@@ -833,7 +833,7 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.LATLocY = tonumber(settings.AnniversaryToken.Y);
 	_G.LATWhere = tonumber(settings.AnniversaryToken.W);
 	if _G.LATWhere == 3 and ShowAnniversaryToken then _G.LATWhere = 1; settings.AnniversaryToken.W = string.format("%.0f", _G.LATWhere); end
-	
+
 	SaveSettings( false );
 	
 	--if settings.TitanBar.W ~= screenWidth then ReplaceCtr(); end --Replace control if screen width as changed
@@ -1221,7 +1221,7 @@ function SaveSettings(str)
 		settings.BingoBadge.X = string.format("%.0f", _G.BBLocX);
 		settings.BingoBadge.Y = string.format("%.0f", _G.BBLocY);
 		settings.BingoBadge.W = string.format("%.0f", _G.BBWhere);
-		
+
 		settings.AnniversaryToken = {};
 		settings.AnniversaryToken.V = ShowAnniversaryToken;
 		settings.AnniversaryToken.A = string.format("%.3f", LATbcAlpha);
@@ -1273,13 +1273,13 @@ function ResetSettings()
 	ShowLOTROPoints, LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue, _G.LPLocX, _G.LPLocY, _G.LPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for LOTRO points Control
 	ShowPlayerLoc, PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue, _G.PLLocX, _G.PLLocX = true, tA, tR, tG, tB, screenWidth - 205, tY; --for Player Location Control
 	ShowGameTime, _G.Clock24h, _G.ShowST, _G.ShowBT, GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue, _G.GTLocX, _G.GTLocX = true, false, false, false, tA, tR, tG, tB, screenWidth - 60, tY --for Game time Control
-	AmrothSilverPiece, ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue, _G.ASPLocX, _G.ASPLocY, _G.ASPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Amroth Silver Piece Control
-	StarsofMerit, SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue, _G.SOMLocX, _G.SOMLocY, _G.SOMWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Stars of Merit Control
-	CentralGondorSilverPiece, CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue, _G.CGSPLocX, _G.CGSPLocY, _G.CGSPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Central Gondor Silver Piece Control
-	GiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
-	AshOfGorgoroth, AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue, _G.AOGLocX, _G.AOGLocY, _G.AOGWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Gorgoroth Control
-	BingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
-	AnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
+	ShowAmrothSilverPiece, ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue, _G.ASPLocX, _G.ASPLocY, _G.ASPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Amroth Silver Piece Control
+	ShowStarsofMerit, SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue, _G.SOMLocX, _G.SOMLocY, _G.SOMWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Stars of Merit Control
+	ShowCentralGondorSilverPiece, CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue, _G.CGSPLocX, _G.CGSPLocY, _G.CGSPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Central Gondor Silver Piece Control
+	ShowGiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
+	ShowAshOfGorgoroth, AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue, _G.AOGLocX, _G.AOGLocY, _G.AOGWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Gorgoroth Control
+	ShowBingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
+	ShowAnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
 		
 	SaveSettings( true ); --True: Get & save all settings table to file. / False: only save settings table to file.
 	ReloadTitanBar();
@@ -1296,156 +1296,156 @@ function ReplaceCtr()
 	local oldLocX = settings.Wallet.X / oldScreenWidth;
 	_G.WILocX = oldLocX * screenWidth;
 	settings.Wallet.X = string.format("%.0f", _G.WILocX);
-	if ShowWallet then WI["Ctr"]:SetPosition( _G.WILocX, _G.WILocY ); end
+	if ShowWallet then WI[ "Ctr" ]:SetPosition( _G.WILocX, _G.WILocY ); end
 
 	oldLocX = settings.Money.X / oldScreenWidth;
 	_G.MILocX = oldLocX * screenWidth;
 	settings.Money.X = string.format("%.0f", _G.MILocX);
-	if ShowMoney and _G.MIWhere == 1 then MI["Ctr"]:SetPosition( _G.MILocX, _G.MILocY ); end
+	if ShowMoney and _G.MIWhere == 1 then MI[ "Ctr" ]:SetPosition( _G.MILocX, _G.MILocY ); end
 	
 	oldLocX = settings.DestinyPoints.X / oldScreenWidth;
 	_G.DPLocX = oldLocX * screenWidth;
 	settings.DestinyPoints.X = string.format("%.0f", _G.DPLocX);
-	if ShowDestinyPoints and _G.DPWhere == 1 then DP["Ctr"]:SetPosition( _G.DPLocX, _G.DPLocY ); end
+	if ShowDestinyPoints and _G.DPWhere == 1 then DP[ "Ctr" ]:SetPosition( _G.DPLocX, _G.DPLocY ); end
 
 	oldLocX = settings.Shards.X / oldScreenWidth;
 	_G.SPLocX = oldLocX * screenWidth;
 	settings.Shards.X = string.format("%.0f", _G.SPLocX);
-	if ShowShards and _G.SPWhere == 1 then SP["Ctr"]:SetPosition( _G.SPLocX, _G.SPLocY ); end
+	if ShowShards and _G.SPWhere == 1 then SP[ "Ctr" ]:SetPosition( _G.SPLocX, _G.SPLocY ); end
 
 	oldLocX = settings.SkirmishMarks.X / oldScreenWidth;
 	_G.SMLocX = oldLocX * screenWidth;
 	settings.SkirmishMarks.X = string.format("%.0f", _G.SMLocX);
-	if ShowSkirmishMarks and _G.SMWhere == 1 then SM["Ctr"]:SetPosition( _G.SMLocX, _G.SMLocY ); end
+	if ShowSkirmishMarks and _G.SMWhere == 1 then SM[ "Ctr" ]:SetPosition( _G.SMLocX, _G.SMLocY ); end
 	
 	oldLocX = settings.MithrilCoins.X / oldScreenWidth;
 	_G.MCLocX = oldLocX * screenWidth;
 	settings.MithrilCoins.X = string.format("%.0f", _G.MCLocX);
-	if ShowMithrilCoins and _G.MCWhere == 1 then MC["Ctr"]:SetPosition( _G.MCLocX, _G.MCLocY ); end
+	if ShowMithrilCoins and _G.MCWhere == 1 then MC[ "Ctr" ]:SetPosition( _G.MCLocX, _G.MCLocY ); end
 	
 	oldLocX = settings.YuleToken.X / oldScreenWidth;
 	_G.YTLocX = oldLocX * screenWidth;
 	settings.YuleToken.X = string.format("%.0f", _G.YTLocX);
-	if ShowYuleToken and _G.YTWhere == 1 then YT["Ctr"]:SetPosition( _G.YTLocX, _G.YTLocY ); end
+	if ShowYuleToken and _G.YTWhere == 1 then YT[ "Ctr" ]:SetPosition( _G.YTLocX, _G.YTLocY ); end
 
 	ldLocX = settings.HytboldTokens.X / oldScreenWidth;
 	_G.HTLocX = oldLocX * screenWidth;
 	settings.HytboldTokens.X = string.format("%.0f", _G.HTLocX);
-	if ShowHytboldTokens and _G.HTWhere == 1 then HT["Ctr"]:SetPosition( _G.HTLocX, _G.HTLocY ); end
+	if ShowHytboldTokens and _G.HTWhere == 1 then HT[ "Ctr" ]:SetPosition( _G.HTLocX, _G.HTLocY ); end
 	
 	oldLocX = settings.Medallions.X / oldScreenWidth;
 	_G.MPLocX = oldLocX * screenWidth;
 	settings.Medallions.X = string.format("%.0f", _G.MPLocX);
-	if ShowMedallions and _G.MPWhere == 1 then MP["Ctr"]:SetPosition( _G.MPLocX, _G.MPLocY ); end
+	if ShowMedallions and _G.MPWhere == 1 then MP[ "Ctr" ]:SetPosition( _G.MPLocX, _G.MPLocY ); end
 
 	oldLocX = settings.Seals.X / oldScreenWidth;
 	_G.SLLocX = oldLocX * screenWidth;
 	settings.Seals.X = string.format("%.0f", _G.SLLocX);
-	if ShowSeals and _G.SLWhere == 1 then SL["Ctr"]:SetPosition( _G.SLLocX, _G.SLLocY ); end
+	if ShowSeals and _G.SLWhere == 1 then SL[ "Ctr" ]:SetPosition( _G.SLLocX, _G.SLLocY ); end
 
 	oldLocX = settings.Commendations.X / oldScreenWidth;
 	_G.CPLocX = oldLocX * screenWidth;
 	settings.Commendations.X = string.format("%.0f", _G.CPLocX);
-	if ShowCommendations and _G.CPWhere == 1 then CP["Ctr"]:SetPosition( _G.CPLocX, _G.CPLocY ); end
+	if ShowCommendations and _G.CPWhere == 1 then CP[ "Ctr" ]:SetPosition( _G.CPLocX, _G.CPLocY ); end
 
 	oldLocX = settings.BagInfos.X / oldScreenWidth;
 	_G.BILocX = oldLocX * screenWidth;
 	settings.BagInfos.X = string.format("%.0f", _G.BILocX);
-	if ShowBagInfos then BI["Ctr"]:SetPosition( _G.BILocX, _G.BILocY ); end
+	if ShowBagInfos then BI[ "Ctr" ]:SetPosition( _G.BILocX, _G.BILocY ); end
 
 	oldLocX = settings.PlayerInfos.X / oldScreenWidth;
 	_G.PILocX = oldLocX * screenWidth;
 	settings.PlayerInfos.X = string.format("%.0f", _G.PILocX);
-	if ShowPlayerInfos then PI["Ctr"]:SetPosition( _G.PILocX, _G.PILocY ); end
+	if ShowPlayerInfos then PI[ "Ctr" ]:SetPosition( _G.PILocX, _G.PILocY ); end
 
 	oldLocX = settings.EquipInfos.X / oldScreenWidth;
 	_G.EILocX = oldLocX * screenWidth;
 	settings.EquipInfos.X = string.format("%.0f", _G.EILocX);
-	if ShowEquipInfos then EI["Ctr"]:SetPosition( _G.EILocX, _G.EILocY ); end
+	if ShowEquipInfos then EI[ "Ctr" ]:SetPosition( _G.EILocX, _G.EILocY ); end
 
 	oldLocX = settings.DurabilityInfos.X / oldScreenWidth;
 	_G.DILocX = oldLocX * screenWidth;
 	settings.DurabilityInfos.X = string.format("%.0f", _G.DILocX);
-	if ShowDurabilityInfos then DI["Ctr"]:SetPosition( _G.DILocX, _G.DILocY ); end
+	if ShowDurabilityInfos then DI[ "Ctr" ]:SetPosition( _G.DILocX, _G.DILocY ); end
 
 	oldLocX = settings.PlayerLoc.X / oldScreenWidth;
 	_G.PLLocX = oldLocX * screenWidth;
 	settings.PlayerLoc.X = string.format("%.0f", _G.PLLocX);
-	if ShowPlayerLoc then PL["Ctr"]:SetPosition( _G.PLLocX, _G.PLLocY ); end
+	if ShowPlayerLoc then PL[ "Ctr" ]:SetPosition( _G.PLLocX, _G.PLLocY ); end
 
 	oldLocX = settings.TrackItems.X / oldScreenWidth;
 	_G.TILocX = oldLocX * screenWidth;
 	settings.TrackItems.X = string.format("%.0f", _G.TILocX);
-	if ShowTrackItems then TI["Ctr"]:SetPosition( _G.TILocX, _G.TILocY ); end
+	if ShowTrackItems then TI[ "Ctr" ]:SetPosition( _G.TILocX, _G.TILocY ); end
 
 	oldLocX = settings.Infamy.X / oldScreenWidth;
 	_G.IFLocX = oldLocX * screenWidth;
 	settings.Infamy.X = string.format("%.0f", _G.IFLocX);
-	if ShowInfamy then IF["Ctr"]:SetPosition( _G.IFLocX, _G.IFLocY ); end
+	if ShowInfamy then IF[ "Ctr" ]:SetPosition( _G.IFLocX, _G.IFLocY ); end
 
 	oldLocX = settings.Vault.X / oldScreenWidth;
 	_G.VTLocX = oldLocX * screenWidth;
 	settings.Vault.X = string.format("%.0f", _G.VTLocX);
-	if ShowVault then VT["Ctr"]:SetPosition( _G.VTLocX, _G.VTLocY ); end
+	if ShowVault then VT[ "Ctr" ]:SetPosition( _G.VTLocX, _G.VTLocY ); end
 
 	oldLocX = settings.SharedStorage.X / oldScreenWidth;
 	_G.SSLocX = oldLocX * screenWidth;
 	settings.SharedStorage.X = string.format("%.0f", _G.SSLocX);
-	if ShowSharedStorage then SS["Ctr"]:SetPosition( _G.SSLocX, _G.SSLocY ); end
+	if ShowSharedStorage then SS[ "Ctr" ]:SetPosition( _G.SSLocX, _G.SSLocY ); end
 
 	--oldLocX = settings.Bank.X / oldScreenWidth;
 	--_G.BKLocX = oldLocX * screenWidth;
 	--settings.Bank.X = string.format("%.0f", _G.BKLocX);
-	--if ShowBank then BK["Ctr"]:SetPosition( _G.BKLocX, _G.BKLocY ); end
+	--if ShowBank then BK[ "Ctr" ]:SetPosition( _G.BKLocX, _G.BKLocY ); end
 
 	oldLocX = settings.DayNight.X / oldScreenWidth;
 	_G.DNLocX = oldLocX * screenWidth;
 	settings.DayNight.X = string.format("%.0f", _G.DNLocX);
-	if ShowDayNight then DN["Ctr"]:SetPosition( _G.DNLocX, _G.DNLocY ); end
+	if ShowDayNight then DN[ "Ctr" ]:SetPosition( _G.DNLocX, _G.DNLocY ); end
 
 	oldLocX = settings.Reputation.X / oldScreenWidth;
 	_G.RPLocX = oldLocX * screenWidth;
 	settings.Reputation.X = string.format("%.0f", _G.RPLocX);
-	if ShowReputation then RP["Ctr"]:SetPosition( _G.RPLocX, _G.RPLocY ); end
+	if ShowReputation then RP[ "Ctr" ]:SetPosition( _G.RPLocX, _G.RPLocY ); end
 
 	oldLocX = settings.LOTROPoints.X / oldScreenWidth;
 	_G.LPLocX = oldLocX * screenWidth;
 	settings.LOTROPoints.X = string.format("%.0f", _G.LPLocX);
-	if ShowLOTROPoints and _G.LPWhere == 1 then LP["Ctr"]:SetPosition( _G.LPLocX, _G.LPLocY ); end
+	if ShowLOTROPoints and _G.LPWhere == 1 then LP[ "Ctr" ]:SetPosition( _G.LPLocX, _G.LPLocY ); end
 
 	oldLocX = settings.GameTime.X / oldScreenWidth;
 	_G.GTLocX = oldLocX * screenWidth;
 	settings.GameTime.X = string.format("%.0f", _G.GTLocX);
-	if ShowGameTime then GT["Ctr"]:SetPosition( _G.GTLocX, _G.GTLocY ); end
+	if ShowGameTime then GT[ "Ctr" ]:SetPosition( _G.GTLocX, _G.GTLocY ); end
 	
 	oldLocX = settings.AmrothSilverPiece.X / oldScreenWidth;
 	_G.ASPLocX = oldLocX * screenWidth;
 	settings.AmrothSilverPiece.X = string.format("%.0f", _G.ASPLocX);
-	if ShowAmrothSilverPiece and _G.ASPWhere == 1 then ASP["Ctr"]:SetPosition( _G.ASPLocX, _G.ASPLocY ); end
+	if ShowAmrothSilverPiece and _G.ASPWhere == 1 then ASP[ "Ctr" ]:SetPosition( _G.ASPLocX, _G.ASPLocY ); end
 	oldLocX = settings.StarsofMerit.X / oldScreenWidth;
 	_G.SOMLocX = oldLocX * screenWidth;
 	settings.StarsofMerit.X = string.format("%.0f", _G.SOMLocX);
-	if ShowStarsofMerit and _G.SOMWhere == 1 then SOM["Ctr"]:SetPosition( _G.SOMLocX, _G.SOMLocY ); end
+	if ShowStarsofMerit and _G.SOMWhere == 1 then SOM[ "Ctr" ]:SetPosition( _G.SOMLocX, _G.SOMLocY ); end
 	oldLocX = settings.CentralGondorSilverPiece.X / oldScreenWidth;
 	_G.CGSPLocX = oldLocX * screenWidth;
 	settings.CentralGondorSilverPiece.X = string.format("%.0f", _G.CGSPLocX);
-	if ShowCentralGondorSilverPiece and _G.CGSPWhere == 1 then CGSP["Ctr"]:SetPosition( _G.CGSPLocX, _G.CGSPLocY ); end
+	if ShowCentralGondorSilverPiece and _G.CGSPWhere == 1 then CGSP[ "Ctr" ]:SetPosition( _G.CGSPLocX, _G.CGSPLocY ); end
 	oldLocX = settings.GiftgiversBrand.X / oldScreenWidth;
 	_G.GGBLocX = oldLocX * screenWidth;
 	settings.GiftgiversBrand.X = string.format("%.0f", _G.GGBLocX);
-	if ShowGiftgiversBrand and _G.GGBWhere == 1 then GGB["Ctr"]:SetPosition( _G.GGBLocX, _G.GGBLocY ); end
+	if ShowGiftgiversBrand and _G.GGBWhere == 1 then GGB[ "Ctr" ]:SetPosition( _G.GGBLocX, _G.GGBLocY ); end
 	oldLocX = settings.AshOfGorgoroth.X / oldScreenWidth;
 	_G.AOGLocX = oldLocX * screenWidth;
 	settings.AshOfGorgoroth.X = string.format("%.0f", _G.AOGLocX);
-	if ShowAshOfGorgoroth and _G.AOGWhere == 1 then AOG["Ctr"]:SetPosition( _G.AOGLocX, _G.AOGLocY ); end
+	if ShowAshOfGorgoroth and _G.AOGWhere == 1 then AOG[ "Ctr" ]:SetPosition( _G.AOGLocX, _G.AOGLocY ); end
 	oldLocX = settings.BingoBadge.X / oldScreenWidth;
 	_G.BBLocX = oldLocX * screenWidth;
 	settings.BingoBadge.X = string.format("%.0f", _G.BBLocX);
-	if ShowBingoBadge and _G.BBWhere == 1 then BB["Ctr"]:SetPosition( _G.BBLocX, _G.BBLocY ); end
+	if ShowBingoBadge and _G.BBWhere == 1 then BB[ "Ctr" ]:SetPosition( _G.BBLocX, _G.BBLocY ); end
 	oldLocX = settings.AnniversaryToken.X / oldScreenWidth;
 	_G.LATLocX = oldLocX * screenWidth;
 	settings.AnniversaryToken.X = string.format("%.0f", _G.LATLocX);
-	if ShowAnniversaryToken and _G.LATWhere == 1 then LAT["Ctr"]:SetPosition( _G.LATLocX, _G.LATLocY ); end
+	if ShowAnniversaryToken and _G.LATWhere == 1 then LAT[ "Ctr" ]:SetPosition( _G.LATLocX, _G.LATLocY ); end
 	
 	SaveSettings( false );
 	write( L["TBSSCD"] );
