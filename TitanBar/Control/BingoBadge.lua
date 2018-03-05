@@ -2,7 +2,7 @@
 -- Written by ShoeMaker
 
 
-_G.BB = {};
+_G.BB = {}; -- Bingo Badge table in _G
 
 --**v Control of Bingo Badges v**
 BB["Ctr"] = Turbine.UI.Control();
@@ -71,7 +71,7 @@ BB["Lbl"].MouseClick = function( sender, args )
 			
 		end
 	elseif ( args.Button == Turbine.UI.MouseButton.Right ) then
-		_G.sFroBBtr = "BB";
+		_G.sFromCtr = "BB";
 		ControlMenu:ShowMenu();
 	end
 	WasDrag = false;

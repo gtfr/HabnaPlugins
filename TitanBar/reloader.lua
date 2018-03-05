@@ -1,7 +1,6 @@
 -- reloader.lua
 -- written by Habna
 
-
 import "Turbine.UI";
 
 ReloadTitanBar = Turbine.UI.Control();

@@ -65,7 +65,7 @@ function ImportCtr( value )
             import (AppCtrD.."YuleToken"); 
             YT[ "Ctr" ]:SetPosition( _G.YTLocX, _G.YTLocY );
         end
-        if _G.YTWhere ~= 3 then UpdateYule(); end
+        if _G.YTWhere ~= 3 then UpdateYuleToken(); end
     elseif value == "HT" then --Tokens of Hytbold
         if _G.HTWhere == 1 then 
             import (AppCtrD.."TokensOfHytbold"); 
@@ -352,12 +352,12 @@ function ImportCtr( value )
             GGB[ "Ctr" ]:SetPosition( _G.GGBLocX, _G.GGBLocY );
         end
         if _G.GGBWhere ~= 3 then UpdateGiftgiversBrand(); end
-    elseif value == "AOG" then --Ash of Gorgoroth
-        if _G.AOGWhere == 1 then
-            import (AppCtrD.."AshOfGorgoroth");
-            AOG[ "Ctr" ]:SetPosition( _G.AOGLocX, _G.AOGLocY );
+    elseif value == "AOE" then --Ash of Gorgoroth
+        if _G.AOEWhere == 1 then
+            import (AppCtrD.."AshOfEnchantment");
+            AOE[ "Ctr" ]:SetPosition( _G.AOELocX, _G.AOELocY );
         end
-        if _G.AOGWhere ~= 3 then UpdateAshOfGorgoroth(); end
+        if _G.AOEWhere ~= 3 then UpdateAshOfEnchantment(); end
     elseif value == "BB" then --Bingo Badge
         if _G.BBWhere == 1 then
             import (AppCtrD.."BingoBadge");
@@ -399,7 +399,7 @@ function ImportCtr( value )
                     if GLocale == "de" then 
                         cstr = string.match( rpMess, "Bonus" );
                     else cstr = string.match( rpMess, "bonus" ); end
-                    -- Accelerator was used, end of string is diffrent. 
+                    -- Accelerator was used, end of string is different. 
                     -- Ex. (700 from bonus). instead of just a dot after the 
                     -- amount of points
                     if cstr ~= nil then
@@ -1025,21 +1025,21 @@ function SavePlayerLOTROPoints()
 end
 
 function UpdateCurrency( str )
-    if str == pwShard and ShowShards then UpdateShards(); end
-    if str == pwMark and ShowSkirmishMarks then UpdateMarks(); end
-    if str == pwMedallion and ShowMedallions then UpdateMedallions(); end
-    if str == pwSeal and ShowSeals then UpdateSeals(); end
-    if str == pwCommendation and ShowCommendations then UpdateCommendations(); end
-    if str == pwMithril and ShowMithril then UpdateMithril(); end
-    if str == pwYule and ShowYule then UpdateYule(); end
-    if str == pwHytbold and ShowHytboldTokens then UpdateHytboldTokens(); end
-    if str == pwAmrothSilverPiece and ShowAmrothSilverPiece then UpdateAmrothSilverPiece(); end
-    if str == pwStarsofMerit and ShowStarsofMerit then UpdateStarsofMerit(); end
-    if str == pwCentralGondorSilverPiece and ShowCentralGondorSilverPiece then UpdateCentralGondorSilverPiece(); end
-    if str == pwGiftgiversBrand and ShowGiftgiversBrand then UpdateGiftgiversBrand(); end
-    if str == pwAshOfGorgoroth and ShowAshOfGorgoroth then UpdateAshOfGorgoroth(); end
-    if str == pwBingoBadge and ShowBingoBadge then UpdateBingoBadge(); end
-    if str == pwAnniversaryToken and ShowAnniversaryToken then UpdateAnniversaryToken(); end
+    if str == L[ "MSP" ] and ShowShards then UpdateShards(); end
+    if str == L[ "MSM" ] and ShowSkirmishMarks then UpdateMarks(); end
+    if str == L[ "MMP" ] and ShowMedallions then UpdateMedallions(); end
+    if str == L[ "MSL" ] and ShowSeals then UpdateSeals(); end
+    if str == L[ "MCP" ] and ShowCommendations then UpdateCommendations(); end
+    if str == L[ "MMC" ] and ShowMithril then UpdateMithril(); end
+    if str == L[ "MYT" ] and ShowYuleToken then UpdateYuleToken(); end
+    if str == L[ "MHT" ] and ShowHytboldTokens then UpdateHytboldTokens(); end
+    if str == L[ "MASP" ] and ShowAmrothSilverPiece then UpdateAmrothSilverPiece(); end
+    if str == L[ "MSOM" ] and ShowStarsofMerit then UpdateStarsofMerit(); end
+    if str == L[ "MCGSP" ] and ShowCentralGondorSilverPiece then UpdateCentralGondorSilverPiece(); end
+    if str == L[ "MGGB" ] and ShowGiftgiversBrand then UpdateGiftgiversBrand(); end
+    if str == L[ "MAOE" ] and ShowAshOfEnchantment then UpdateAshOfEnchantment(); end
+    if str == L[ "MBB" ] and ShowBingoBadge then UpdateBingoBadge(); end
+    if str == L[ "MLAT" ] and ShowAnniversaryToken then UpdateAnniversaryToken(); end
 end
 
 function GetCurrency( str )

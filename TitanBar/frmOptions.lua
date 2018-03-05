@@ -31,7 +31,7 @@ if ASP ~= nil then WalletControls[ "ASP" ] = { ShowHide = ShowAmrothSilverPiece,
 if SOM ~= nil then WalletControls[ "SOM" ] = { ShowHide = ShowStarsofMerit, Control = SOM[ "Ctr" ] }; end
 if CGSP ~= nil then WalletControls[ "CGSP" ] = { ShowHide = ShowCentralGondorSilverPiece, Control = CGSP[ "Ctr" ] }; end
 if GGB ~= nil then WalletControls[ "GGB" ] = { ShowHide = ShowGiftgiversBrand, Control = GGB[ "Ctr" ] }; end
-if AOG ~= nil then WalletControls[ "AOG" ] = { ShowHide = ShowAshOfGorgoroth, Control = AOG[ "Ctr" ] }; end
+if AOE ~= nil then WalletControls[ "AOE" ] = { ShowHide = ShowAshOfEnchantment, Control = AOE[ "Ctr" ] }; end
 if BB ~= nil then WalletControls[ "BB" ] = { ShowHide = ShowBingoBadge, Control = BB[ "Ctr" ] }; end
 if LAT ~= nil then WalletControls[ "LAT" ] = { ShowHide = ShowAnniversaryToken, Control = LAT[ "Ctr" ] }; end
 

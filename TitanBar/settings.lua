@@ -7,34 +7,10 @@
 function LoadSettings()-- I'm confused as to what most of this is... Most of these strings should be in localization files, and I believe they are - so why are they here too?  Deprecated code that hasn't been cleaned up yet?
 	if GLocale == "de" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsDE" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwYule, pwHytbold = "Scherbe", "Zeichen", "Medaillon", "Siegel", "Anerkennung", "Mithril-M\195\188nze", "Yule Token", "M\195\188nze von Hytbold";
-		pwAmrothSilverPiece = "Amroth-Silberstck"
-		pwStarsofMerit = "Stern des Verdienst"
-		pwCentralGondorSilverPiece = "Zentralgondorisches Silberst\195\188ck"
-		pwGiftgiversBrand = "Zeichen des Schenkenden"
-		pwAshOfGorgoroth = "Asche von Gorgoroth"
-		pwBingoBadge = "Bingo Badge"
-		pwAnniversaryToken = "Anniversary Token"
 	elseif GLocale == "en" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsEN" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwYule, pwHytbold = "Shard", "Mark", "Medallion", "Seal", "Commendation", "Mithril Coin", "Yule Token", "Token of Hytbold";
-		pwAmrothSilverPiece = "Amroth Silver Piece"
-		pwStarsofMerit = "Star of Merit"
-		pwCentralGondorSilverPiece = "Central Gondor Silver Piece"
-		pwGiftgiversBrand = "Gift-giver's Brand"
-		pwAshOfGorgoroth = "Ash of Gorgoroth"
-		pwBingoBadge = "Bingo Badge"
-		pwAnniversaryToken = "Anniversary Token"
 	elseif GLocale == "fr" then
 		settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "TitanBarSettingsFR" );
-		pwShard, pwMark, pwMedallion, pwSeal, pwCommendation, pwMithril, pwYule, pwHytbold = "Eclat", "Marque", "M\195\169daillon", "Sceau", "Citation", "Pi\195\168ce de mithril", "Yule Token", "Jeton d'Hytbold";
-		pwAmrothSilverPiece = "Pice d'argent d'Amroth"
-		pwStarsofMerit = "Star of Merit"
-		pwCentralGondorSilverPiece = "Central Gondor Silver Piece"
-		pwGiftgiversBrand = "Gift-giver's Brand"
-		pwAshOfGorgoroth = "Ash of Gorgoroth"
-		pwBingoBadge = "Bingo Badge"
-		pwAnniversaryToken = "Anniversary Token"
 	end
 	
 	tA, tR, tG, tB, tX, tY, tW = 0.3, 0.3, 0.3, 0.3, 0, 0, 3; --Default alpha, red, green, blue, X, Y pos of control, Show where
@@ -777,24 +753,24 @@ function LoadSettings()-- I'm confused as to what most of this is... Most of the
 	_G.GGBWhere = tonumber(settings.GiftgiversBrand.W);
 	if _G.GGBWhere == 3 and ShowGiftgiversBrand then _G.GGBWhere = 1; settings.GiftgiversBrand.W = string.format("%.0f", _G.GGBWhere); end --Remove after Oct, 15th 2013
 
-	if settings.AshOfGorgoroth == nil then settings.AshOfGorgoroth = {}; end
-	if settings.AshOfGorgoroth.V == nil then settings.AshOfGorgoroth.V = false; end
-	if settings.AshOfGorgoroth.A == nil then settings.AshOfGorgoroth.A = string.format("%.3f", tA); end
-	if settings.AshOfGorgoroth.R == nil then settings.AshOfGorgoroth.R = string.format("%.3f", tR); end
-	if settings.AshOfGorgoroth.G == nil then settings.AshOfGorgoroth.G = string.format("%.3f", tG); end
-	if settings.AshOfGorgoroth.B == nil then settings.AshOfGorgoroth.B = string.format("%.3f", tB); end
-	if settings.AshOfGorgoroth.X == nil then settings.AshOfGorgoroth.X = string.format("%.0f", tX); end
-	if settings.AshOfGorgoroth.Y == nil then settings.AshOfGorgoroth.Y = string.format("%.0f", tY); end
-	if settings.AshOfGorgoroth.W == nil then settings.AshOfGorgoroth.W = string.format("%.0f", tW); end
-	ShowAshOfGorgoroth = settings.AshOfGorgoroth.V;
-	AOGbcAlpha = tonumber(settings.AshOfGorgoroth.A);
-	AOGbcRed = tonumber(settings.AshOfGorgoroth.R);
-	AOGbcGreen = tonumber(settings.AshOfGorgoroth.G);
-	AOGbcBlue = tonumber(settings.AshOfGorgoroth.B);
-	_G.AOGLocX = tonumber(settings.AshOfGorgoroth.X);
-	_G.AOGLocY = tonumber(settings.AshOfGorgoroth.Y);
-	_G.AOGWhere = tonumber(settings.AshOfGorgoroth.W);
-	if _G.AOGWhere == 3 and ShowAshOfGorgoroth then _G.AOGWhere = 1; settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere); end
+	if settings.AshOfEnchantment == nil then settings.AshOfEnchantment = {}; end
+	if settings.AshOfEnchantment.V == nil then settings.AshOfEnchantment.V = false; end
+	if settings.AshOfEnchantment.A == nil then settings.AshOfEnchantment.A = string.format("%.3f", tA); end
+	if settings.AshOfEnchantment.R == nil then settings.AshOfEnchantment.R = string.format("%.3f", tR); end
+	if settings.AshOfEnchantment.G == nil then settings.AshOfEnchantment.G = string.format("%.3f", tG); end
+	if settings.AshOfEnchantment.B == nil then settings.AshOfEnchantment.B = string.format("%.3f", tB); end
+	if settings.AshOfEnchantment.X == nil then settings.AshOfEnchantment.X = string.format("%.0f", tX); end
+	if settings.AshOfEnchantment.Y == nil then settings.AshOfEnchantment.Y = string.format("%.0f", tY); end
+	if settings.AshOfEnchantment.W == nil then settings.AshOfEnchantment.W = string.format("%.0f", tW); end
+	ShowAshOfEnchantment = settings.AshOfEnchantment.V;
+	AOEbcAlpha = tonumber(settings.AshOfEnchantment.A);
+	AOEbcRed = tonumber(settings.AshOfEnchantment.R);
+	AOEbcGreen = tonumber(settings.AshOfEnchantment.G);
+	AOEbcBlue = tonumber(settings.AshOfEnchantment.B);
+	_G.AOELocX = tonumber(settings.AshOfEnchantment.X);
+	_G.AOELocY = tonumber(settings.AshOfEnchantment.Y);
+	_G.AOEWhere = tonumber(settings.AshOfEnchantment.W);
+	if _G.AOEWhere == 3 and ShowAshOfEnchantment then _G.AOEWhere = 1; settings.AshOfEnchantment.W = string.format("%.0f", _G.AOEWhere); end
 	
 	if settings.BingoBadge == nil then settings.BingoBadge = {}; end
 	if settings.BingoBadge.V == nil then settings.BingoBadge.V = false; end
@@ -1202,15 +1178,15 @@ function SaveSettings(str)
 		settings.GiftgiversBrand.Y = string.format("%.0f", _G.GGBLocY);
 		settings.GiftgiversBrand.W = string.format("%.0f", _G.GGBWhere);
 		
-		settings.AshOfGorgoroth = {};
-		settings.AshOfGorgoroth.V = ShowAshOfGorgoroth;
-		settings.AshOfGorgoroth.A = string.format("%.3f", AOGbcAlpha);
-		settings.AshOfGorgoroth.R = string.format("%.3f", AOGbcRed);
-		settings.AshOfGorgoroth.G = string.format("%.3f", AOGbcGreen);
-		settings.AshOfGorgoroth.B = string.format("%.3f", AOGbcBlue);
-		settings.AshOfGorgoroth.X = string.format("%.0f", _G.AOGLocX);
-		settings.AshOfGorgoroth.Y = string.format("%.0f", _G.AOGLocY);
-		settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere);
+		settings.AshOfEnchantment = {};
+		settings.AshOfEnchantment.V = ShowAshOfEnchantment;
+		settings.AshOfEnchantment.A = string.format("%.3f", AOEbcAlpha);
+		settings.AshOfEnchantment.R = string.format("%.3f", AOEbcRed);
+		settings.AshOfEnchantment.G = string.format("%.3f", AOEbcGreen);
+		settings.AshOfEnchantment.B = string.format("%.3f", AOEbcBlue);
+		settings.AshOfEnchantment.X = string.format("%.0f", _G.AOELocX);
+		settings.AshOfEnchantment.Y = string.format("%.0f", _G.AOELocY);
+		settings.AshOfEnchantment.W = string.format("%.0f", _G.AOEWhere);
 		
 		settings.BingoBadge = {};
 		settings.BingoBadge.V = ShowBingoBadge;
@@ -1277,7 +1253,7 @@ function ResetSettings()
 	ShowStarsofMerit, SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue, _G.SOMLocX, _G.SOMLocY, _G.SOMWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Stars of Merit Control
 	ShowCentralGondorSilverPiece, CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue, _G.CGSPLocX, _G.CGSPLocY, _G.CGSPWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Central Gondor Silver Piece Control
 	ShowGiftgiversBrand, GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue, _G.GGBLocX, _G.GGBLocY, _G.GGBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Gift giver's Brand Control
-	ShowAshOfGorgoroth, AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue, _G.AOGLocX, _G.AOGLocY, _G.AOGWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Gorgoroth Control
+	ShowAshOfEnchantment, AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue, _G.AOELocX, _G.AOELocY, _G.AOEWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Ash of Enchantment Control
 	ShowBingoBadge, BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue, _G.BBLocX, _G.BBLocY, _G.BBWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Bingo Badge Control
 	ShowAnniversaryToken, LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue, _G.LATLocX, _G.LATLocY, _G.LATWhere = false, tA, tR, tG, tB, tX, tY, tW; --for Anniversary Token Control
 		
@@ -1434,10 +1410,10 @@ function ReplaceCtr()
 	_G.GGBLocX = oldLocX * screenWidth;
 	settings.GiftgiversBrand.X = string.format("%.0f", _G.GGBLocX);
 	if ShowGiftgiversBrand and _G.GGBWhere == 1 then GGB[ "Ctr" ]:SetPosition( _G.GGBLocX, _G.GGBLocY ); end
-	oldLocX = settings.AshOfGorgoroth.X / oldScreenWidth;
-	_G.AOGLocX = oldLocX * screenWidth;
-	settings.AshOfGorgoroth.X = string.format("%.0f", _G.AOGLocX);
-	if ShowAshOfGorgoroth and _G.AOGWhere == 1 then AOG[ "Ctr" ]:SetPosition( _G.AOGLocX, _G.AOGLocY ); end
+	oldLocX = settings.AshOfEnchantment.X / oldScreenWidth;
+	_G.AOELocX = oldLocX * screenWidth;
+	settings.AshOfEnchantment.X = string.format("%.0f", _G.AOELocX);
+	if ShowAshOfEnchantment and _G.AOEWhere == 1 then AOE[ "Ctr" ]:SetPosition( _G.AOELocX, _G.AOELocY ); end
 	oldLocX = settings.BingoBadge.X / oldScreenWidth;
 	_G.BBLocX = oldLocX * screenWidth;
 	settings.BingoBadge.X = string.format("%.0f", _G.BBLocX);

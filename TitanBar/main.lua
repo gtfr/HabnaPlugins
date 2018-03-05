@@ -86,7 +86,7 @@ frmMain();
 if PlayerAlign == 1 then 
     MenuItem = { L["MGSC"], L["MDP"], L["MSP"], L["MSM"], L["MMC"],
     L["MYT"], L["MHT"], L["MMP"], L["MSL"], L["MCP"], L["MLP"], 
-    L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MAOG"], L["MBB"], L["MLAT"] };
+    L["MASP"], L["MSOM"], L["MCGSP"], L["MGGB"], L["MAOE"], L["MBB"], L["MLAT"] };
 else MenuItem = { L["MCP"], L["MLP"] }; end
 
 TitanBarCommand = Turbine.ShellCommand()

@@ -239,10 +239,10 @@ function frmWalletWindow()
 			_G.GGBWhere = SelIndex; settings.GiftgiversBrand.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowGiftgiversBrand then ShowHideGiftgiversBrand(); end
 			else if ShowGiftgiversBrand then ShowHideGiftgiversBrand(); end end
-		elseif wcur == L["MAOG"] then
-			_G.AOGWhere = SelIndex; settings.AshOfGorgoroth.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowAshOfGorgoroth then ShowHideAshOfGorgoroth(); end
-			else if ShowAshOfGorgoroth then ShowHideAshOfGorgoroth(); end end
+		elseif wcur == L["MAOE"] then
+			_G.AOEWhere = SelIndex; settings.AshOfEnchantment.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowAshOfEnchantment then ShowHideAshOfEnchantment(); end
+			else if ShowAshOfEnchantment then ShowHideAshOfEnchantment(); end end
 		elseif wcur == L["MBB"] then
 			_G.BBWhere = SelIndex; settings.BingoBadge.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowBingoBadge then ShowHideBingoBadge(); end
@@ -325,7 +325,7 @@ function RefreshWIListBox()
 				elseif wcur == L["MSOM"] then tw = _G.SOMWhere; -- Stars of Merit
 				elseif wcur == L["MCGSP"] then tw = _G.CGSPWhere; -- Central Gondor Silver Piece
 				elseif wcur == L["MGGB"] then tw = _G.GGBWhere; -- Gift Giver's Brand
-				elseif wcur == L["MAOG"] then tw = _G.AOGWhere; -- Ash of Gorgoroth
+				elseif wcur == L["MAOE"] then tw = _G.AOEWhere; -- Ash of Gorgoroth
 				elseif wcur == L["MBB"] then tw = _G.BBWhere; -- Bingo Badges
 				elseif wcur == L["MLAT"] then tw = _G.LATWhere; -- Anniversary Tokens
 				end

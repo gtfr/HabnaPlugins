@@ -1,8 +1,8 @@
--- Yule Token.lua
+-- YuleToken.lua
 -- Written by ShoeMaker
 
 
-_G.YT = {}; -- Yule Token table in _G
+_G.YT = {}; -- YuleToken table in _G
 
 --**v Control of Yule Token v**
 YT["Ctr"] = Turbine.UI.Control();

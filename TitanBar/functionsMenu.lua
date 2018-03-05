@@ -479,17 +479,19 @@ function ShowHideGiftgiversBrand()
 	end
 	GGB[ "Ctr" ]:SetVisible( ShowGiftgiversBrand );
 end
-function ShowHideAshOfGorgoroth()
-	ShowAshOfGorgoroth = not ShowAshOfGorgoroth;
-	settings.AshOfGorgoroth.V = ShowAshOfGorgoroth;
-	settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere);
+function ShowHideAshOfEnchantment()
+	ShowAshOfEnchantment = not ShowAshOfEnchantment;
+	settings.AshOfEnchantment.V = ShowAshOfEnchantment;
+	settings.AshOfEnchantment.W = string.format("%.0f", _G.AOEWhere);
 	SaveSettings( false );
-	ImportCtr( "AOG" );
-	if ShowAshOfGorgoroth then
-		AOG[ "Ctr" ]:SetBackColor( Turbine.UI.Color( AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue ) );
+	ImportCtr( "AOE" );
+	if ShowAshOfEnchantment then
+		AOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue ) );
 	end
-	AOG[ "Ctr" ]:SetVisible( ShowAshOfGorgoroth );
+	AOE[ "Ctr" ]:SetVisible( ShowAshOfEnchantment );
 end
+-- **^
+-- **v Show/Hide Bingo Badges v**
 function ShowHideBingoBadge()
 	ShowBingoBadge = not ShowBingoBadge;
 	settings.BingoBadge.V = ShowBingoBadge;

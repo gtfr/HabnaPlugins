@@ -90,7 +90,7 @@ function frmBackground()
 	if sFrom == "SOM" then curSelAlpha =SOMbcAlpha; curSelRed = SOMbcRed; curSelGreen = SOMbcGreen; curSelBlue = SOMbcBlue; end
 	if sFrom == "CGSP" then curSelAlpha =CGSPbcAlpha; curSelRed = CGSPbcRed; curSelGreen = CGSPbcGreen; curSelBlue = CGSPbcBlue; end
 	if sFrom == "GGB" then curSelAlpha =GGBbcAlpha; curSelRed = GGBbcRed; curSelGreen = GGBbcGreen; curSelBlue = GGBbcBlue; end
-	if sFrom == "AOG" then curSelAlpha =AOGbcAlpha; curSelRed = AOGbcRed; curSelGreen = AOGbcGreen; curSelBlue = AOGbcBlue; end
+	if sFrom == "AOE" then curSelAlpha =AOEbcAlpha; curSelRed = AOEbcRed; curSelGreen = AOEbcGreen; curSelBlue = AOEbcBlue; end
 	if sFrom == "BB" then curSelAlpha =BBbcAlpha; curSelRed = BBbcRed; curSelGreen = BBbcGreen; curSelBlue = BBbcBlue; end
 	if sFrom == "LAT" then curSelAlpha =LATbcAlpha; curSelRed = LATbcRed; curSelGreen = LATbcGreen; curSelBlue = LATbcBlue; end
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
@@ -327,7 +327,7 @@ function UpdateBCvariable()
 		SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
-		AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	else
@@ -361,7 +361,7 @@ function UpdateBCvariable()
 		if sFrom == "SOM" then SOMbcAlpha = curSelAlpha; SOMbcRed = curSelRed; SOMbcGreen = curSelGreen; SOMbcBlue = curSelBlue; end
 		if sFrom == "CGSP" then CGSPbcAlpha = curSelAlpha; CGSPbcRed = curSelRed; CGSPbcGreen = curSelGreen; CGSPbcBlue = curSelBlue; end
 		if sFrom == "GGB" then GGBbcAlpha = curSelAlpha; GGBbcRed = curSelRed; GGBbcGreen = curSelGreen; GGBbcBlue = curSelBlue; end
-		if sFrom == "AOG" then AOGbcAlpha = curSelAlpha; AOGbcRed = curSelRed; AOGbcGreen = curSelGreen; AOGbcBlue = curSelBlue; end
+		if sFrom == "AOE" then AOEbcAlpha = curSelAlpha; AOEbcRed = curSelRed; AOEbcGreen = curSelGreen; AOEbcBlue = curSelBlue; end
 		if sFrom == "BB" then BBbcAlpha = curSelAlpha; BBbcRed = curSelRed; BBbcGreen = curSelGreen; BBbcBlue = curSelBlue; end
 		if sFrom == "LAT" then LATbcAlpha = curSelAlpha; LATbcRed = curSelRed; LATbcGreen = curSelGreen; LATbcBlue = curSelBlue; end
 	end

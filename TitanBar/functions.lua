@@ -293,11 +293,11 @@ function ShowToolTipWin( ToShow )
 		if not TBTop then y = h; end
 		TTW = createToolTipWin( x, y, w, h, bblTo, L["GGBh"], L["EIt2"], 
             L["EIt3"] );
-	elseif ToShow == "AOG" then -- Ash of Gorgoroth
+	elseif ToShow == "AOE" then -- Ash of Gorgoroth
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
 		h = 65;
 		if not TBTop then y = h; end
-		TTW = createToolTipWin( x, y, w, h, bblTo, L["AOGh"], L["EIt2"], 
+		TTW = createToolTipWin( x, y, w, h, bblTo, L["AOEh"], L["EIt2"], 
             L["EIt3"] );
 	elseif ToShow == "BB" then -- Bingo Badge
 		if w + mouseX > screenWidth then bblTo = "right"; x = w - 10; end
@@ -429,7 +429,7 @@ end
 --**v Update Shards currency on TitanBar v**
 function UpdateShards()
 	if _G.SPWhere == 1 then
-		SP[ "Lbl" ]:SetText( GetCurrency( pwShard ) );
+		SP[ "Lbl" ]:SetText( GetCurrency( L[ "MSP" ] ) );
 		SP[ "Lbl" ]:SetSize( SP[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "SP" );
 	end
@@ -438,7 +438,7 @@ end
 --**v Update Marks currency on TitanBar v**
 function UpdateMarks()
 	if _G.SMWhere == 1 then
-		SM[ "Lbl" ]:SetText( GetCurrency( pwMark ) );
+		SM[ "Lbl" ]:SetText( GetCurrency( L[ "MSM" ] ) );
 		SM[ "Lbl" ]:SetSize( SM[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "SM" );
 	end
@@ -447,16 +447,16 @@ end
 --**v Update Mithril Coins currency on TitanBar v**
 function UpdateMithril()
 	if _G.MCWhere == 1 then
-		MC[ "Lbl" ]:SetText( GetCurrency( pwMithril ) );
+		MC[ "Lbl" ]:SetText( GetCurrency( L[ "MMC" ] ) );
 		MC[ "Lbl" ]:SetSize( MC[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "MC" );
 	end
 end
 --**^
 --**v Update Yule Tokens currency on TitanBar v**
-function UpdateYule()
+function UpdateYuleToken()
 	if _G.YTWhere == 1 then
-		YT[ "Lbl" ]:SetText( GetCurrency( pwYule ) );
+		YT[ "Lbl" ]:SetText( GetCurrency( L[ "MYT" ] ) );
 		YT[ "Lbl" ]:SetSize( YT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "YT" );
 	end
@@ -465,7 +465,7 @@ end
 --**v Update Tokens of Hytbold currency on TitanBar v**
 function UpdateHytboldTokens()
 	if _G.HTWhere == 1 then
-		HT[ "Lbl" ]:SetText( GetCurrency( pwHytbold ) );
+		HT[ "Lbl" ]:SetText( GetCurrency( L[ "MHT" ] ) );
 		HT[ "Lbl" ]:SetSize( HT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "HT" );
 	end
@@ -474,7 +474,7 @@ end
 --**v Update Medallions currency on TitanBar v**
 function UpdateMedallions()
 	if _G.MPWhere == 1 then
-		MP[ "Lbl" ]:SetText( GetCurrency( pwMedallion ) );
+		MP[ "Lbl" ]:SetText( GetCurrency( L[ "MMP" ] ) );
 		MP[ "Lbl" ]:SetSize( MP[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "MP" );
 	end
@@ -483,7 +483,7 @@ end
 --**v Update Seals currency on TitanBar v**
 function UpdateSeals()
 	if _G.SLWhere == 1 then
-		SL[ "Lbl" ]:SetText( GetCurrency( pwSeal ) );
+		SL[ "Lbl" ]:SetText( GetCurrency( L[ "MSL" ] ) );
 		SL[ "Lbl" ]:SetSize( SL[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "SL" );
 	end
@@ -492,7 +492,7 @@ end
 --**v Update Commendations currency on TitanBar v**
 function UpdateCommendations()
 	if _G.CPWhere == 1 then
-		CP[ "Lbl" ]:SetText( GetCurrency( pwCommendation ) );
+		CP[ "Lbl" ]:SetText( GetCurrency( L[ "MCP" ] ) );
 		CP[ "Lbl" ]:SetSize( CP[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "CP" );
 	end
@@ -512,7 +512,7 @@ end
 --**v Update Amroth Silver Piece currency on TitanBar v**
 function UpdateAmrothSilverPiece()
 	if _G.ASPWhere == 1 then
-		ASP[ "Lbl" ]:SetText( GetCurrency( pwAmrothSilverPiece ) );
+		ASP[ "Lbl" ]:SetText( GetCurrency( L[ "MASP" ] ) );
 		ASP[ "Lbl" ]:SetSize( ASP[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "ASP" );
 	end
@@ -521,7 +521,7 @@ end
 --**v Update Stars of Merit currency on TitanBar v**
 function UpdateStarsofMerit()
 	if _G.SOMWhere == 1 then
-		SOM[ "Lbl" ]:SetText( GetCurrency( pwStarsofMerit ) );
+		SOM[ "Lbl" ]:SetText( GetCurrency( L[ "MSOM" ] ) );
 		SOM[ "Lbl" ]:SetSize( SOM[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "SOM" );
 	end
@@ -530,7 +530,7 @@ end
 --**v Update Central Gondor Silver Piece currency on TitanBar v**
 function UpdateCentralGondorSilverPiece()
 	if _G.CGSPWhere == 1 then
-		CGSP[ "Lbl" ]:SetText( GetCurrency( pwCentralGondorSilverPiece ) );
+		CGSP[ "Lbl" ]:SetText( GetCurrency( L[ "MCGSP" ] ) );
 		CGSP[ "Lbl" ]:SetSize( CGSP[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "CGSP" );
 	end
@@ -539,25 +539,25 @@ end
 --**v Update Gift giver's Brand currency on TitanBar v**
 function UpdateGiftgiversBrand()
 	if _G.GGBWhere == 1 then
-		GGB[ "Lbl" ]:SetText( GetCurrency( pwGiftgiversBrand ) );
+		GGB[ "Lbl" ]:SetText( GetCurrency( L[ "MGGB" ] ) );
 		GGB[ "Lbl" ]:SetSize( GGB[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "GGB" );
 	end
 end
 --**^
 --**v Update Ash of Gorgoroth currency on TitanBar v**
-function UpdateAshOfGorgoroth()
-	if _G.AOGWhere == 1 then
-		AOG[ "Lbl" ]:SetText( GetCurrency( pwAshOfGorgoroth ) );
-		AOG[ "Lbl" ]:SetSize( AOG[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
-		AjustIcon( "AOG" );
+function UpdateAshOfEnchantment()
+	if _G.AOEWhere == 1 then
+		AOE[ "Lbl" ]:SetText( GetCurrency( L[ "MAOE" ] ) );
+		AOE[ "Lbl" ]:SetSize( AOE[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
+		AjustIcon( "AOE" );
 	end
 end
 --**^
 --**v Update Bingo Badge currency on TitanBar v**
 function UpdateBingoBadge()
 	if _G.BBWhere == 1 then
-		BB[ "Lbl" ]:SetText( GetCurrency( pwBingoBadge ) );
+		BB[ "Lbl" ]:SetText( GetCurrency( L[ "MBB" ] ) );
 		BB[ "Lbl" ]:SetSize( BB[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "BB" );
 	end
@@ -566,7 +566,7 @@ end
 --**v Update Anniversary Token currency on TitanBar v**
 function UpdateAnniversaryToken()
 	if _G.LATWhere == 1 then
-		LAT[ "Lbl" ]:SetText( GetCurrency( pwAnniversaryToken ) );
+		LAT[ "Lbl" ]:SetText( GetCurrency( L[ "MLAT" ] ) );
 		LAT[ "Lbl" ]:SetSize( LAT[ "Lbl" ]:GetTextLength() * NM, CTRHeight ); 
 		AjustIcon( "LAT" );
 	end
@@ -909,7 +909,7 @@ function ChangeColor(tColor)
 		if ShowStarsofMerit then SOM[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowCentralGondorSilverPiece then CGSP[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowGiftgiversBrand then GGB[ "Ctr" ]:SetBackColor( tColor ); end
-		if ShowAshOfGorgoroth then AOG[ "Ctr" ]:SetBackColor( tColor ); end
+		if ShowAshOfEnchantment then AOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowBingoBadge then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if ShowAniversaryToken then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 	else
@@ -943,7 +943,7 @@ function ChangeColor(tColor)
 		if sFrom == "SOM" then SOM[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "CGSP" then CGSP[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "GGB" then GGB[ "Ctr" ]:SetBackColor( tColor ); end
-		if sFrom == "AOG" then AOG[ "Ctr" ]:SetBackColor( tColor ); end
+		if sFrom == "AOE" then AOE[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "BB" then BB[ "Ctr" ]:SetBackColor( tColor ); end
 		if sFrom == "LAT" then LAT[ "Ctr" ]:SetBackColor( tColor ); end
 	end
@@ -1172,12 +1172,12 @@ function AjustIcon(str)
 		GGB[ "Ctr" ]:SetSize( GGB[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
 		GGB[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
 		GGB[ "Icon" ]:SetStretchMode( 3 );
-	elseif str == "AOG" then
-		AOG[ "Icon" ]:SetStretchMode( 1 );
-		AOG[ "Icon" ]:SetPosition(AOG[ "Lbl" ]:GetLeft()+AOG[ "Lbl" ]:GetWidth()+3,Y);
-		AOG[ "Ctr" ]:SetSize( AOG[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
-		AOG[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
-		AOG[ "Icon" ]:SetStretchMode( 3 );
+	elseif str == "AOE" then
+		AOE[ "Icon" ]:SetStretchMode( 1 );
+		AOE[ "Icon" ]:SetPosition(AOE[ "Lbl" ]:GetLeft()+AOE[ "Lbl" ]:GetWidth()+3,Y);
+		AOE[ "Ctr" ]:SetSize( AOE[ "Icon" ]:GetLeft() + TBIconSize, CTRHeight );
+		AOE[ "Icon" ]:SetSize( TBIconSize, TBIconSize );
+		AOE[ "Icon" ]:SetStretchMode( 3 );
 	elseif str == "BB" then
 		BB[ "Icon" ]:SetStretchMode( 1 );
 		BB[ "Icon" ]:SetPosition(BB[ "Lbl" ]:GetLeft()+BB[ "Lbl" ]:GetWidth()+3,Y);
