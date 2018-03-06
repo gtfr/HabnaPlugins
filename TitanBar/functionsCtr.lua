@@ -907,7 +907,10 @@ function LoadPlayerReputation()
         "RPJG", "RPCG", "RPSG", "RPTG", "RPWoG", "RPWeG", "RPMG",
         -- Host of the West
         "RPHOTW", "RPHOTWA", "RPHOTWW", "RPHOTWP",
+        -- Plateau of Gorgoroth
         "RPCOG", "RPEOFBs", "RPEOFBn", "RPRSC",
+        -- Mirkwood
+        "RPDOE", "RPEOF", "RPMOD",
         -- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
@@ -924,7 +927,11 @@ function LoadPlayerReputation()
         -- Crafting guilds
         5, 5, 5, 5, 5, 5, 5,
         -- Host of the West
-        3, 1, 1, 1, 3, 8, 8, 9,
+        3, 1, 1, 1,
+        -- Plateau of Gorgoroth
+        3, 8, 8, 9,
+        -- Mirkwood
+        1, 1, 1,
         -- Special Event
         6, 7, 7,
         -- Accelerator

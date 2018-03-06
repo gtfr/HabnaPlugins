@@ -250,6 +250,9 @@ L[ "RPCCLE" ]  = "Ligue des Chasseurs de Poulets d'Eriador";
 L[ "RPTAA" ]   = "La confr\195\168rie de la cervoise";
 L[ "RPTIL" ]   = "La Ligue des Tavernes";
 L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
+L[ "RPDOE" ] = "Nains d'Erebor"; --thx bornfight
+L[ "RPEOF" ] = "Elfes de Felegoth"; --thx bornfight
+L[ "RPMOD" ] = "Hommes de Dale"; -- thx bornfight
 
 -- All reputation standings
 L[ "RPMSR" ] = "Statut maximum atteint";

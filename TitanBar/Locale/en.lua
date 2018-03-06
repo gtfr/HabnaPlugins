@@ -277,6 +277,9 @@ L[ "RCCLE3" ] = "Major Leaguer";
 L[ "RCCLE4" ] = "All-star";
 L[ "RCCLE5" ] = "Hall of Famer";
 L[ "RPBR" ] = "Bonus Remaining";
+L[ "RPDOE" ] = "Dwarves of Erebor";
+L[ "RPEOF" ] = "Elves of Felegoth";
+L[ "RPMOD" ] = "Men of Dale";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renown"; L[ "IFIF" ] = "Total renown:";
