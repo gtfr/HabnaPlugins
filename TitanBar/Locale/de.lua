@@ -50,7 +50,7 @@ L[ "MReputation" ] = "Ruf";
 L[ "MLP" ] = "LOTRO Punkte";
 L[ "LPh" ] = "Dies sind Ihre LOTRO Punkte";
 -- Mithril Coins control
-L[ "MMC" ] = "Mithril-M\195\188nzen";
+L[ "MMC" ] = "Mithril-M\195\188nze";
 L[ "MCh" ] = "Deine Mithril-M\195\188nzen";
 -- Yule Tokens control
 L[ "MYT" ] = "Yule-Zeichen";
@@ -68,7 +68,7 @@ L[ "SMh" ] = "Deine Scharm\195\188tzel-Zeichen";--Thx DaBear78! --Scharmützel
 L[ "MDP" ] = "Schicksalspunkte";
 L[ "DPh" ] = "Deine Schicksalspunkte";--Thx DaBear78!
 -- Shards control
-L[ "MSP" ] = "Scherben";
+L[ "MSP" ] = "Scherbe";
 L[ "SPh" ] = "Deine Scherben";--Thx DaBear78!
 -- Tokens of Hytbold control
 L[ "MHT" ] = "Zeichen der Hytbold";
@@ -243,7 +243,7 @@ L[ "RPCOG" ]   = "Eroberung von Gorgoroth";
 L[ "RPEOFBs" ] = "Feind des s\195\188dlichen Fushaum Bal";-- Feind des südlichen Fushaum Bal
 L[ "RPEOFBn" ] = "Feind des n\195\182rdlichen Fushaum Bal";-- Feind des nördlichen Fushaum Bal
 L[ "RPRSC" ]   = "Rothimmel-Sippe";-- Red Sky Clan -- Thanks bornfight#0574 on Discord
-L[ "RPDoE" ]   = "DZwerge von Erebor";-- Dwarves of Erebor -- Thanks bornfight#0574 on Discord
+L[ "RPDoE" ]   = "Zwerge von Erebor";-- Dwarves of Erebor -- Thanks bornfight#0574 on Discord
 L[ "RPEoF" ]   = "Elben von Felegoth";-- Elves of Felegoth -- Thanks bornfight#0574 on Discord
 L[ "RPMoD" ]   = "Menschen von Thal";-- Men of Dale -- Thanks bornfight#0574 on Discord
 L[ "RPCCLE" ]  = "H\195\188hnerjagd-Liga von Eriador";
