@@ -53,8 +53,8 @@ L[ "LPh" ] = "These are your LOTRO points";
 L[ "MMC" ] = "Mithril Coin";
 L[ "MCh" ] = "These are your Mitril coins";
 -- Yule Tokens control
-L[ "MYT" ] = "Yule Token";
-L[ "YTh" ] = "These are your Yule Tokens";
+L[ "MYT" ] = "Yule Festival Token";
+L[ "YTh" ] = "These are your Yule Festival Tokens";
 -- Anniversary Tokens control
 L[ "MLAT" ] = "Anniversary Token";
 L[ "LATh" ] = "These are your Anniversary Tokens";

@@ -53,14 +53,14 @@ L[ "LPh" ] = "Dies sind Ihre LOTRO Punkte";
 L[ "MMC" ] = "Mithril-M\195\188nze";
 L[ "MCh" ] = "Deine Mithril-M\195\188nzen";
 -- Yule Tokens control
-L[ "MYT" ] = "Yule-Zeichen";
+L[ "MYT" ] = "Julfest-M\195\188nze";
 L[ "YTh" ] = "Dies sind eure Yule-Tokens";
 -- Anniversary Tokens control
-L[ "MLAT" ] = "Anniversary Token";
-L[ "LATh" ] = "Dies sind eure Anniversary Tokens";
+L[ "MLAT" ] = "Jubil\195\164umsm\195\188nze";
+L[ "LATh" ] = "Dies sind eure Jubil\195\164umsm\195\188nzen";
 -- Bingo Badge control
-L[ "MBB" ] = "Bingo Badge";
-L[ "BBh" ] = "These are your Bingo Badges";
+L[ "MBB" ] = "Bingo-Abzeichen";
+L[ "BBh" ] = "These are your Bingo-Abzeichen";
 -- Skirmish marks control
 L[ "MSM" ] = "Zeichen";
 L[ "SMh" ] = "Deine Scharm\195\188tzel-Zeichen";--Thx DaBear78! --Scharmützel
@@ -243,9 +243,9 @@ L[ "RPCOG" ]   = "Eroberung von Gorgoroth";
 L[ "RPEOFBs" ] = "Feind des s\195\188dlichen Fushaum Bal";-- Feind des südlichen Fushaum Bal
 L[ "RPEOFBn" ] = "Feind des n\195\182rdlichen Fushaum Bal";-- Feind des nördlichen Fushaum Bal
 L[ "RPRSC" ]   = "Rothimmel-Sippe";-- Red Sky Clan -- Thanks bornfight#0574 on Discord
-L[ "RPDoE" ]   = "Zwerge von Erebor";-- Dwarves of Erebor -- Thanks bornfight#0574 on Discord
-L[ "RPEoF" ]   = "Elben von Felegoth";-- Elves of Felegoth -- Thanks bornfight#0574 on Discord
-L[ "RPMoD" ]   = "Menschen von Thal";-- Men of Dale -- Thanks bornfight#0574 on Discord
+L[ "RPDOE" ]   = "Zwerge vom Erebor";-- Dwarves of Erebor -- Thanks bornfight#0574 on Discord
+L[ "RPEOF" ]   = "Elben von Felegoth";-- Elves of Felegoth -- Thanks bornfight#0574 on Discord
+L[ "RPMOD" ]   = "Menschen von Thal";-- Men of Dale -- Thanks bornfight#0574 on Discord
 L[ "RPCCLE" ]  = "H\195\188hnerjagd-Liga von Eriador";
 L[ "RPTAA" ]   = "Die Bier-Genossenschaft";
 L[ "RPTIL" ]   = "Die Gasthausliga";
@@ -277,9 +277,6 @@ L[ "RCCLE3" ] = "Major Leaguer";
 L[ "RCCLE4" ] = "All-star";
 L[ "RCCLE5" ] = "Hall of Famer";
 L[ "RPBR" ] = "Verbleibender Bonus";
-L[ "RPDOE" ] = "Zwerge von Erebor"; -- thx bornfight
-L[ "RPEOF" ] = "Elben von Felegoth"; -- thx bornfight
-L[ "RPMOD" ] = "Menschen von Thal"; -- thx bornfight
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Ansehen"; L[ "IFIF" ] = "Gesamtes Ansehen:";
