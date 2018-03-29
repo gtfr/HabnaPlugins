@@ -415,19 +415,19 @@ function ImportCtr( value )
                             rpbPattern = "%(([%d%p]*) durch Bonus";
                         end
                     end
-                    if rpMess ~= nil and rpbPattern ~= nil then
-                        local rpBonus = string.match( rpMess, rpbPattern );
-                        rpBonus = string.gsub( rpBonus, ",", "" );
-                        tot = PlayerReputation[ PN ][ "RPACC" ].P;
-                        tot = tot - rpBonus;
-                        if tot < 0 then
-                            tot = 0;
-                        end
-                        PlayerReputation[ PN ][ "RPACC" ].P = string.format( "%.0f", tot );
-                    end
                     local rpName = string.match( rpMess,rpnPattern ); 
                     -- Reputation Name
                     if rpMess ~= nil and rpName ~= nil then
+                        if rpbPattern ~= nil then
+                            local rpBonus = string.match( rpMess, rpbPattern );
+                            rpBonus = string.gsub( rpBonus, ",", "" );
+                            tot = PlayerReputation[ PN ][ "RPACC" ].P;
+                            tot = tot - rpBonus;
+                            if tot < 0 then
+                                tot = 0;
+                            end
+                            PlayerReputation[ PN ][ "RPACC" ].P = string.format( "%.0f", tot );
+                        end
                         local rpPTS = string.match( rpMess, rppPattern );
                         -- Reputation points
                         local rpPTS = string.gsub( rpPTS, ",", "" );
