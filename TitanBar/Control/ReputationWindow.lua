@@ -89,6 +89,8 @@ function frmReputationWindow()
             local row = RPListBox:GetItem(i);
             if string.find(string.lower(row.repLbl:GetText()),filterText) == nil then
                 row:SetHeight(0);
+            else
+                row:SetHeight(20);
             end
         end
     end
