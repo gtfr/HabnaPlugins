@@ -1,5 +1,6 @@
 -- background.lua
 -- Written by Habna
+-- Rewritten by many
 
 
 function frmBackground()
@@ -66,7 +67,7 @@ function frmBackground()
 	if sFrom == "SP" then curSelAlpha = SPbcAlpha; curSelRed = SPbcRed; curSelGreen = SPbcGreen; curSelBlue = SPbcBlue; end
 	if sFrom == "SM" then curSelAlpha = SMbcAlpha; curSelRed = SMbcRed; curSelGreen = SMbcGreen; curSelBlue = SMbcBlue; end
 	if sFrom == "MC" then curSelAlpha = MCbcAlpha; curSelRed = MCbcRed; curSelGreen = MCbcGreen; curSelBlue = MCbcBlue; end
---	if sFrom == "YT" then curSelAlpha = YTbcAlpha; curSelRed = YTbcRed; curSelGreen = YTbcGreen; curSelBlue = YTbcBlue; end
+	if sFrom == "YT" then curSelAlpha = YTbcAlpha; curSelRed = YTbcRed; curSelGreen = YTbcGreen; curSelBlue = YTbcBlue; end
 	if sFrom == "HT" then curSelAlpha = HTbcAlpha; curSelRed = HTbcRed; curSelGreen = HTbcGreen; curSelBlue = HTbcBlue; end
 	if sFrom == "MP" then curSelAlpha = MPbcAlpha; curSelRed = MPbcRed; curSelGreen = MPbcGreen; curSelBlue = MPbcBlue; end
 	if sFrom == "SL" then curSelAlpha = SLbcAlpha; curSelRed = SLbcRed; curSelGreen = SLbcGreen; curSelBlue = SLbcBlue; end
@@ -83,17 +84,15 @@ function frmBackground()
 	if sFrom == "DN" then curSelAlpha = DNbcAlpha; curSelRed = DNbcRed; curSelGreen = DNbcGreen; curSelBlue = DNbcBlue; end
 	if sFrom == "RP" then curSelAlpha = RPbcAlpha; curSelRed = RPbcRed; curSelGreen = RPbcGreen; curSelBlue = RPbcBlue; end
 	if sFrom == "LP" then curSelAlpha = LPbcAlpha; curSelRed = LPbcRed; curSelGreen = LPbcGreen; curSelBlue = LPbcBlue; end
-
 	if sFrom == "PL" then curSelAlpha = PLbcAlpha; curSelRed = PLbcRed; curSelGreen = PLbcGreen; curSelBlue = PLbcBlue; end
 	if sFrom == "GT" then curSelAlpha = GTbcAlpha; curSelRed = GTbcRed; curSelGreen = GTbcGreen; curSelBlue = GTbcBlue; end
-
-	-- AU3 MARKER 1 - DO NOT REMOVE
 	if sFrom == "ASP" then curSelAlpha =ASPbcAlpha; curSelRed = ASPbcRed; curSelGreen = ASPbcGreen; curSelBlue = ASPbcBlue; end
 	if sFrom == "SOM" then curSelAlpha =SOMbcAlpha; curSelRed = SOMbcRed; curSelGreen = SOMbcGreen; curSelBlue = SOMbcBlue; end
 	if sFrom == "CGSP" then curSelAlpha =CGSPbcAlpha; curSelRed = CGSPbcRed; curSelGreen = CGSPbcGreen; curSelBlue = CGSPbcBlue; end
 	if sFrom == "GGB" then curSelAlpha =GGBbcAlpha; curSelRed = GGBbcRed; curSelGreen = GGBbcGreen; curSelBlue = GGBbcBlue; end
-	if sFrom == "AOG" then curSelAlpha =AOGbcAlpha; curSelRed = AOGbcRed; curSelGreen = AOGbcGreen; curSelBlue = AOGbcBlue; end
-	-- AU3 MARKER 1 END
+	if sFrom == "AOE" then curSelAlpha =AOEbcAlpha; curSelRed = AOEbcRed; curSelGreen = AOEbcGreen; curSelBlue = AOEbcBlue; end
+	if sFrom == "BB" then curSelAlpha =BBbcAlpha; curSelRed = BBbcRed; curSelGreen = BBbcGreen; curSelBlue = BBbcBlue; end
+	if sFrom == "LAT" then curSelAlpha =LATbcAlpha; curSelRed = LATbcRed; curSelGreen = LATbcGreen; curSelBlue = LATbcBlue; end
 	curAlpha, curColor.R, curColor.G, curColor.B = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	curSelColor:SetBackColor( Turbine.UI.Color( curSelAlpha, curSelRed, curSelGreen, curSelBlue ) );
 	-- **^
@@ -101,7 +100,7 @@ function frmBackground()
 	local buttonSave = Turbine.UI.Lotro.Button();
 	buttonSave:SetParent( wBackground );
 	buttonSave:SetText( L["BWSave"] );
-	buttonSave:SetSize( buttonSave:GetTextLength() * 10, 15 ); --Auto size with text lenght
+	buttonSave:SetSize( buttonSave:GetTextLength() * 10, 15 ); --Auto size with text length
 	buttonSave:SetPosition( wBackground:GetWidth() - buttonSave:GetWidth() - 15 , wBackground:GetHeight() - 34 );
 	buttonSave:SetVisible( true );
 
@@ -145,7 +144,7 @@ function frmBackground()
 	buttonDefault:SetParent( wBackground );
 	buttonDefault:SetPosition( 23, wBackground:GetHeight() - 34 );
 	buttonDefault:SetText( L["BWDef"] );
-	buttonDefault:SetSize( buttonDefault:GetTextLength() * 10, 15 ); --Auto size with text lenght
+	buttonDefault:SetSize( buttonDefault:GetTextLength() * 10, 15 ); --Auto size with text length
 	buttonDefault:SetVisible( true );
 
 	buttonDefault.Click = function(sender, args)
@@ -165,7 +164,7 @@ function frmBackground()
 	buttonBlack:SetParent( wBackground );
 	buttonBlack:SetPosition( buttonDefault:GetLeft() + buttonDefault:GetWidth() + 5, wBackground:GetHeight() - 34 );
 	buttonBlack:SetText( L["BWBlack"] );
-	buttonBlack:SetSize( buttonBlack:GetTextLength() * 10, 15 ); --Auto size with text lenght
+	buttonBlack:SetSize( buttonBlack:GetTextLength() * 10, 15 ); --Auto size with text length
 	buttonBlack:SetVisible( true );
 
 	buttonBlack.Click = function(sender, args)
@@ -185,7 +184,7 @@ function frmBackground()
 	buttonTrans:SetParent( wBackground );
 	buttonTrans:SetPosition( buttonBlack:GetLeft() + buttonBlack:GetWidth() + 5, wBackground:GetHeight() - 34 );
 	buttonTrans:SetText( L["BWTrans"] );
-	buttonTrans:SetSize( buttonTrans:GetTextLength() * 10, 15 ); --Auto size with text lenght
+	buttonTrans:SetSize( buttonTrans:GetTextLength() * 10, 15 ); --Auto size with text length
 	buttonTrans:SetVisible( true );
 
 	buttonTrans.Click = function(sender, args)
@@ -320,17 +319,17 @@ end
 function UpdateBCvariable()
 	curSelAlpha = curAlpha;
 	if BGWToAll then
-		bcAlpha, WIbcAlpha, MIbcAlpha, DPbcAlpha, SPbcAlpha, SMbcAlpha, MCbcAlpha, HTbcAlpha, MPbcAlpha, SLbcAlpha, CPbcAlpha, BIbcAlpha, PIbcAlpha, EIbcAlpha, DIbcAlpha, TIbcAlpha, IFbcAlpha, VTbcAlpha, SSbcAlpha, BKbcAlpha, DNbcAlpha, RPbcAlpha, LPbcAlpha, PLbcAlpha, GTbcAlpha--[[, YTbcAlpha]] = --[[curSelAlpha,]] curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha,curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha;
-		bcRed, WIbcRed, MIbcRed, DPbcRed, SPbcRed, SMbcRed, MCbcRed,HTbcRed, MPbcRed, SLbcRed, CPbcRed, BIbcRed, PIbcRed, EIbcRed, DIbcRed, TIbcRed, IFbcRed, VTbcRed, SSbcRed, BKbcRed, DNbcRed, RPbcRed, LPbcRed, PLbcRed, GTbcRed--[[, YTbcRed]] = --[[ curSelRed,]] curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed;
-		bcGreen, WIbcGreen, MIbcGreen, DPbcGreen, SPbcGreen, SMbcGreen, MCbcGreen,HTbcGreen, MPbcGreen, SLbcGreen, CPbcGreen, BIbcGreen, PIbcGreen, EIbcGreen, DIbcGreen, TIbcGreen, IFbcGreen, VTbcGreen, SSbcGreen, BKbcGreen, DNbcGreen, RPbcGreen, LPbcGreen, PLbcGreen, GTbcGreen--[[, YTbcGreen]]= --[[ curSelGreen,]] curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen,curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen;
-		bcBlue, WIbcBlue, MIbcBlue, DPbcBlue, SPbcBlue, SMbcBlue, MCbcBlue,HTbcBlue, MPbcBlue, SLbcBlue, CPbcBlue, BIbcBlue, PIbcBlue, EIbcBlue, DIbcBlue, TIbcBlue, IFbcBlue, VTbcBlue, SSbcBlue, BKbcBlue, DNbcBlue, RPbcBlue, LPbcBlue, PLbcBlue, GTbcBlue--[[, YTbcBlue]] = --[[curSelBlue,]] curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue;
-		-- AU3 MARKER 2 - DO NOT REMOVE
+		bcAlpha, WIbcAlpha, MIbcAlpha, DPbcAlpha, SPbcAlpha, SMbcAlpha, MCbcAlpha, HTbcAlpha, MPbcAlpha, SLbcAlpha, CPbcAlpha, BIbcAlpha, PIbcAlpha, EIbcAlpha, DIbcAlpha, TIbcAlpha, IFbcAlpha, VTbcAlpha, SSbcAlpha, BKbcAlpha, DNbcAlpha, RPbcAlpha, LPbcAlpha, PLbcAlpha, GTbcAlpha, YTbcAlpha = curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha,curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha, curSelAlpha;
+		bcRed, WIbcRed, MIbcRed, DPbcRed, SPbcRed, SMbcRed, MCbcRed,HTbcRed, MPbcRed, SLbcRed, CPbcRed, BIbcRed, PIbcRed, EIbcRed, DIbcRed, TIbcRed, IFbcRed, VTbcRed, SSbcRed, BKbcRed, DNbcRed, RPbcRed, LPbcRed, PLbcRed, GTbcRed, YTbcRed =  curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed, curSelRed;
+		bcGreen, WIbcGreen, MIbcGreen, DPbcGreen, SPbcGreen, SMbcGreen, MCbcGreen,HTbcGreen, MPbcGreen, SLbcGreen, CPbcGreen, BIbcGreen, PIbcGreen, EIbcGreen, DIbcGreen, TIbcGreen, IFbcGreen, VTbcGreen, SSbcGreen, BKbcGreen, DNbcGreen, RPbcGreen, LPbcGreen, PLbcGreen, GTbcGreen, YTbcGreen= curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen,curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen, curSelGreen;
+		bcBlue, WIbcBlue, MIbcBlue, DPbcBlue, SPbcBlue, SMbcBlue, MCbcBlue,HTbcBlue, MPbcBlue, SLbcBlue, CPbcBlue, BIbcBlue, PIbcBlue, EIbcBlue, DIbcBlue, TIbcBlue, IFbcBlue, VTbcBlue, SSbcBlue, BKbcBlue, DNbcBlue, RPbcBlue, LPbcBlue, PLbcBlue, GTbcBlue, YTbcBlue = curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue, curSelBlue;
 		ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 		GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
-		AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
-		-- AU3 MARKER 2 END
+		AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
+		LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue = curSelAlpha, curSelRed, curSelGreen, curSelBlue;
 	else
 		if sFrom == "TitanBar" then bcAlpha = curSelAlpha; bcRed = curSelRed; bcGreen = curSelGreen; bcBlue = curSelBlue; end
 		if sFrom == "WI" then WIbcAlpha = curSelAlpha; WIbcRed = curSelRed; WIbcGreen = curSelGreen; WIbcBlue = curSelBlue; end
@@ -339,7 +338,7 @@ function UpdateBCvariable()
 		if sFrom == "SP" then SPbcAlpha = curSelAlpha; SPbcRed = curSelRed; SPbcGreen = curSelGreen; SPbcBlue = curSelBlue; end
 		if sFrom == "SM" then SMbcAlpha = curSelAlpha; SMbcRed = curSelRed; SMbcGreen = curSelGreen; SMbcBlue = curSelBlue; end
 		if sFrom == "MC" then MCbcAlpha = curSelAlpha; MCbcRed = curSelRed; MCbcGreen = curSelGreen; MCbcBlue = curSelBlue; end
---		if sFrom == "YT" then YTbcAlpha = curSelAlpha; YTbcRed = curSelRed; YTbcGreen = curSelGreen; YTbcBlue = curSelBlue; end
+		if sFrom == "YT" then YTbcAlpha = curSelAlpha; YTbcRed = curSelRed; YTbcGreen = curSelGreen; YTbcBlue = curSelBlue; end
 		if sFrom == "HT" then HTbcAlpha = curSelAlpha; HTbcRed = curSelRed; HTbcGreen = curSelGreen; HTbcBlue = curSelBlue; end
 		if sFrom == "MP" then MPbcAlpha = curSelAlpha; MPbcRed = curSelRed; MPbcGreen = curSelGreen; MPbcBlue = curSelBlue; end
 		if sFrom == "SL" then SLbcAlpha = curSelAlpha; SLbcRed = curSelRed; SLbcGreen = curSelGreen; SLbcBlue = curSelBlue; end
@@ -356,15 +355,14 @@ function UpdateBCvariable()
 		if sFrom == "DN" then DNbcAlpha = curSelAlpha; DNbcRed = curSelRed; DNbcGreen = curSelGreen; DNbcBlue = curSelBlue; end
 		if sFrom == "RP" then RPbcAlpha = curSelAlpha; RPbcRed = curSelRed; RPbcGreen = curSelGreen; RPbcBlue = curSelBlue; end
 		if sFrom == "LP" then LPbcAlpha = curSelAlpha; LPbcRed = curSelRed; LPbcGreen = curSelGreen; LPbcBlue = curSelBlue; end
-
 		if sFrom == "PL" then PLbcAlpha = curSelAlpha; PLbcRed = curSelRed; PLbcGreen = curSelGreen; PLbcBlue = curSelBlue; end
 		if sFrom == "GT" then GTbcAlpha = curSelAlpha; GTbcRed = curSelRed; GTbcGreen = curSelGreen; GTbcBlue = curSelBlue; end
-		-- AU3 MARKER 3 - DO NOT REMOVE
 		if sFrom == "ASP" then ASPbcAlpha = curSelAlpha; ASPbcRed = curSelRed; ASPbcGreen = curSelGreen; ASPbcBlue = curSelBlue; end
 		if sFrom == "SOM" then SOMbcAlpha = curSelAlpha; SOMbcRed = curSelRed; SOMbcGreen = curSelGreen; SOMbcBlue = curSelBlue; end
 		if sFrom == "CGSP" then CGSPbcAlpha = curSelAlpha; CGSPbcRed = curSelRed; CGSPbcGreen = curSelGreen; CGSPbcBlue = curSelBlue; end
 		if sFrom == "GGB" then GGBbcAlpha = curSelAlpha; GGBbcRed = curSelRed; GGBbcGreen = curSelGreen; GGBbcBlue = curSelBlue; end
-		if sFrom == "AOG" then AOGbcAlpha = curSelAlpha; AOGbcRed = curSelRed; AOGbcGreen = curSelGreen; AOGbcBlue = curSelBlue; end
-		-- AU3 MARKER 3 END
+		if sFrom == "AOE" then AOEbcAlpha = curSelAlpha; AOEbcRed = curSelRed; AOEbcGreen = curSelGreen; AOEbcBlue = curSelBlue; end
+		if sFrom == "BB" then BBbcAlpha = curSelAlpha; BBbcRed = curSelRed; BBbcGreen = curSelGreen; BBbcBlue = curSelBlue; end
+		if sFrom == "LAT" then LATbcAlpha = curSelAlpha; LATbcRed = curSelRed; LATbcGreen = curSelGreen; LATbcBlue = curSelBlue; end
 	end
 end

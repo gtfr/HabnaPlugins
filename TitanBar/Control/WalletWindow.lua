@@ -1,5 +1,6 @@
 -- WalletWindow.lua
 -- Written by Habna
+-- Rewritten by Many
 
 
 function frmWalletWindow()
@@ -10,7 +11,7 @@ function frmWalletWindow()
 	-- **v Set some window stuff v**
 	_G.wWI = Turbine.UI.Lotro.Window();
 	if GLocale == "de" then w = 300; else w = 280; end
-	_G.wWI:SetSize( w, 420 ); --280x260
+	_G.wWI:SetSize( w, 500 ); --280x260
     _G.wWI:SetPosition( WIWLeft, WIWTop );
 	_G.wWI:SetText( L["MBag"] );
 	_G.wWI:SetVisible( true );
@@ -173,7 +174,7 @@ function frmWalletWindow()
 	WIbutSave = Turbine.UI.Lotro.Button();
 	WIbutSave:SetParent( WIWCtr );
 	WIbutSave:SetText( L["PWSave"] );
-	WIbutSave:SetSize( WIbutSave:GetTextLength() * 10, 15 ); --Auto size with text lenght
+	WIbutSave:SetSize( WIbutSave:GetTextLength() * 10, 15 ); --Auto size with text length
 	--WIbutSave:SetEnabled( true );
 
 	WIbutSave.Click = function( sender, args )
@@ -202,10 +203,10 @@ function frmWalletWindow()
 			_G.MCWhere = SelIndex; settings.MithrilCoins.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowMithrilCoins then ShowHideMithrilCoins(); end
 			else if ShowMithrilCoins then ShowHideMithrilCoins(); end end
---[[		elseif wcur == L["MYT"] then
-			_G.YTWhere = SelIndex; settings.YuleTokens.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowYuleTokens then ShowHideYuleTokens(); end
-			else if ShowYuleTokens then ShowHideYuleTokens(); end end --]]
+		elseif wcur == L["MYT"] then
+			_G.YTWhere = SelIndex; settings.YuleToken.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowYuleToken then ShowHideYuleToken(); end
+			else if ShowYuleToken then ShowHideYuleToken(); end end
 		elseif wcur == L["MHT"] then
 			_G.HTWhere = SelIndex; settings.HytboldTokens.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowHytboldTokens then ShowHideHytboldTokens(); end
@@ -222,7 +223,6 @@ function frmWalletWindow()
 			_G.CPWhere = SelIndex; settings.Commendations.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowCommendations then ShowHideCommendations(); end
 			else if ShowCommendations then ShowHideCommendations(); end end
-		-- AU3 MARKER 1 - DO NOT REMOVE
 		elseif wcur == L["MASP"] then
 			_G.ASPWhere = SelIndex; settings.AmrothSilverPiece.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowAmrothSilverPiece then ShowHideAmrothSilverPiece(); end
@@ -239,11 +239,18 @@ function frmWalletWindow()
 			_G.GGBWhere = SelIndex; settings.GiftgiversBrand.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowGiftgiversBrand then ShowHideGiftgiversBrand(); end
 			else if ShowGiftgiversBrand then ShowHideGiftgiversBrand(); end end
-		elseif wcur == L["MAOG"] then
-			_G.AOGWhere = SelIndex; settings.AshOfGorgoroth.W = string.format("%.0f", SelIndex);
-			if SelIndex == 1 then if not ShowAshOfGorgoroth then ShowHideAshOfGorgoroth(); end
-			else if ShowAshOfGorgoroth then ShowHideAshOfGorgoroth(); end end
-		-- AU3 MARKER 1 END
+		elseif wcur == L["MAOE"] then
+			_G.AOEWhere = SelIndex; settings.AshOfEnchantment.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowAshOfEnchantment then ShowHideAshOfEnchantment(); end
+			else if ShowAshOfEnchantment then ShowHideAshOfEnchantment(); end end
+		elseif wcur == L["MBB"] then
+			_G.BBWhere = SelIndex; settings.BingoBadge.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowBingoBadge then ShowHideBingoBadge(); end
+			else if ShowBingoBadge then ShowHideBingoBadge(); end end
+		elseif wcur == L["MLAT"] then
+			_G.LATWhere = SelIndex; settings.AnniversaryToken.W = string.format("%.0f", SelIndex);
+			if SelIndex == 1 then if not ShowAnniversaryToken then ShowHideAnniversaryToken(); end
+			else if ShowAnniversaryToken then ShowHideAnniversaryToken(); end end
 		elseif wcur == L["MLP"] then
 			_G.LPWhere = SelIndex; settings.LOTROPoints.W = string.format("%.0f", SelIndex);
 			if SelIndex == 1 then if not ShowLOTROPoints then ShowHideLOTROPoints(); end
@@ -299,24 +306,28 @@ function RefreshWIListBox()
 				LPWCtr:SetVisible( false );
 				WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, WIDD:GetTop()+WIDD:GetHeight()+10 );
 
-				if wcur == L["MGSC"] then tw = _G.MIWhere;
+				if wcur == L["MGSC"] then tw = _G.MIWhere; -- 
 				elseif wcur == L["MDP"] then tw = _G.DPWhere; -- Destiny Points
-				elseif wcur == L["MSP"] then tw = _G.SPWhere;
-				elseif wcur == L["MSM"] then tw = _G.SMWhere;
+				elseif wcur == L["MSP"] then tw = _G.SPWhere; -- Shards
+				elseif wcur == L["MSM"] then tw = _G.SMWhere; -- Skirmish marks
 				elseif wcur == L["MMC"] then tw = _G.MCWhere; -- Mithril Coins
---				elseif wcur == L["MYT"] then tw = _G.YTWhere; -- Yule Tokens
-				elseif wcur == L["MHT"] then tw = _G.HTWhere;
-				elseif wcur == L["MMP"] then tw = _G.MPWhere;
-				elseif wcur == L["MSL"] then tw = _G.SLWhere;
-				elseif wcur == L["MCP"] then tw = _G.CPWhere;
-				elseif wcur == L["MLP"] then tw = _G.LPWhere; LPWCtr:SetVisible( true ); WItxtLOTROPTS:SetText( _G.LOTROPTS ); WItxtLOTROPTS:Focus(); WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, LPWCtr:GetTop()+LPWCtr:GetHeight()+10); -- LOTRO Points
-				-- AU3 MARKER 2 - DO NOT REMOVE
-				elseif wcur == L["MASP"] then tw = _G.ASPWhere;
-				elseif wcur == L["MSOM"] then tw = _G.SOMWhere;
-				elseif wcur == L["MCGSP"] then tw = _G.CGSPWhere;
-				elseif wcur == L["MGGB"] then tw = _G.GGBWhere;
-				elseif wcur == L["MAOG"] then tw = _G.AOGWhere;
-				-- AU3 MARKER 2 END
+				elseif wcur == L["MYT"] then tw = _G.YTWhere; -- Yule Tokens
+				elseif wcur == L["MHT"] then tw = _G.HTWhere; -- Tokens of Hytbold
+				elseif wcur == L["MMP"] then tw = _G.MPWhere; -- Medallions
+				elseif wcur == L["MSL"] then tw = _G.SLWhere; -- Seals
+				elseif wcur == L["MCP"] then tw = _G.CPWhere; -- Commendations
+				elseif wcur == L["MLP"] then tw = _G.LPWhere; -- LOTRO Points
+				LPWCtr:SetVisible( true ); -- LOTRO Points
+				WItxtLOTROPTS:SetText( _G.LOTROPTS ); -- LOTRO Points
+				WItxtLOTROPTS:Focus(); -- LOTRO Points
+				WIbutSave:SetPosition( WIWCtr:GetWidth()/2 - WIbutSave:GetWidth()/2, LPWCtr:GetTop()+LPWCtr:GetHeight()+10); -- LOTRO Points
+				elseif wcur == L["MASP"] then tw = _G.ASPWhere; -- Amroth Silver Piece
+				elseif wcur == L["MSOM"] then tw = _G.SOMWhere; -- Stars of Merit
+				elseif wcur == L["MCGSP"] then tw = _G.CGSPWhere; -- Central Gondor Silver Piece
+				elseif wcur == L["MGGB"] then tw = _G.GGBWhere; -- Gift Giver's Brand
+				elseif wcur == L["MAOE"] then tw = _G.AOEWhere; -- Ash of Gorgoroth
+				elseif wcur == L["MBB"] then tw = _G.BBWhere; -- Bingo Badges
+				elseif wcur == L["MLAT"] then tw = _G.LATWhere; -- Anniversary Tokens
 				end
 				for k, v in pairs(WICBO) do if k == tonumber(tw) then WIDD:SetSelection(k); end end
 

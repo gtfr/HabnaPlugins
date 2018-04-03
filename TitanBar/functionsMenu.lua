@@ -12,12 +12,12 @@ function ShowHideWallet()
 	if ShowWallet then
 		--write( "TitanBar: Showing wallet control");
 		ImportCtr( "WI" );
-		WI["Ctr"]:SetBackColor( Turbine.UI.Color( WIbcAlpha, WIbcRed, WIbcGreen, WIbcBlue ) );
+		WI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( WIbcAlpha, WIbcRed, WIbcGreen, WIbcBlue ) );
 	else
 		--write( "TitanBar: Hiding wallet control");
 		if _G.frmWI then wWI:Close(); end
 	end
-	WI["Ctr"]:SetVisible( ShowWallet );
+	WI[ "Ctr" ]:SetVisible( ShowWallet );
 	opt_WI:SetChecked( ShowWallet );
 end
 -- **^
@@ -31,12 +31,12 @@ function ShowHideMoney()
 	if ShowMoney then
 		--write( "TitanBar: Showing money");
 		--ImportCtr( "MI" );
-		MI["Ctr"]:SetBackColor( Turbine.UI.Color( MIbcAlpha, MIbcRed, MIbcGreen, MIbcBlue ) );
+		MI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( MIbcAlpha, MIbcRed, MIbcGreen, MIbcBlue ) );
 	else
 		--write( "TitanBar: Hiding money");
 		if _G.frmMI then wMI:Close(); end
 	end
-	MI["Ctr"]:SetVisible( ShowMoney );
+	MI[ "Ctr" ]:SetVisible( ShowMoney );
 end
 -- **^
 -- **v Show/Hide Destiny Points v**
@@ -47,9 +47,9 @@ function ShowHideDestinyPoints()
 	SaveSettings( false );
 	ImportCtr( "DP" );
 	if ShowDestinyPoints then
-		DP["Ctr"]:SetBackColor( Turbine.UI.Color( DPbcAlpha, DPbcRed, DPbcGreen, DPbcBlue ) );
+		DP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( DPbcAlpha, DPbcRed, DPbcGreen, DPbcBlue ) );
 	end
-	DP["Ctr"]:SetVisible( ShowDestinyPoints );
+	DP[ "Ctr" ]:SetVisible( ShowDestinyPoints );
 end
 -- **^
 -- **v Show/Hide Shards v**
@@ -60,9 +60,9 @@ function ShowHideShards()
 	SaveSettings( false );
 	ImportCtr( "SP" );
 	if ShowShards then
-		SP["Ctr"]:SetBackColor( Turbine.UI.Color( SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue ) );
+		SP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SPbcAlpha, SPbcRed, SPbcGreen, SPbcBlue ) );
 	end
-	SP["Ctr"]:SetVisible( ShowShards );
+	SP[ "Ctr" ]:SetVisible( ShowShards );
 end
 -- **^
 -- **v Show/Hide Skirmish marks v**
@@ -73,9 +73,9 @@ function ShowHideSkirmishMarks()
 	SaveSettings( false );
 	ImportCtr( "SM" );
 	if ShowSkirmishMarks then
-		SM["Ctr"]:SetBackColor( Turbine.UI.Color( SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue ) );
+		SM[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SMbcAlpha, SMbcRed, SMbcGreen, SMbcBlue ) );
 	end
-	SM["Ctr"]:SetVisible( ShowSkirmishMarks );
+	SM[ "Ctr" ]:SetVisible( ShowSkirmishMarks );
 end
 -- **^
 -- **v Show/Hide Mithril Coins v**
@@ -86,25 +86,23 @@ function ShowHideMithrilCoins()
 	SaveSettings( false );
 	ImportCtr( "MC" );
 	if ShowMithrilCoins then
-		MC["Ctr"]:SetBackColor( Turbine.UI.Color( MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue ) );
+		MC[ "Ctr" ]:SetBackColor( Turbine.UI.Color( MCbcAlpha, MCbcRed, MCbcGreen, MCbcBlue ) );
 	end
-	MC["Ctr"]:SetVisible( ShowMithrilCoins );
+	MC[ "Ctr" ]:SetVisible( ShowMithrilCoins );
 end
 -- **^
 -- **v Show/Hide Yule Tokens v**
---[[
-function ShowHideYuleTokens()
-	ShowYuleTokens = not ShowYuleTokens;
-	settings.YuleTokens.V = ShowYuleTokens;
-	settings.YuleTokens.W = string.format("%.0f", _G.YTWhere);
+function ShowHideYuleToken()
+	ShowYuleToken = not ShowYuleToken;
+	settings.YuleToken.V = ShowYuleToken;
+	settings.YuleToken.W = string.format("%.0f", _G.YTWhere);
 	SaveSettings( false );
 	ImportCtr( "YT" );
-	if ShowYuleTokens then
-		YT["Ctr"]:SetBackColor( Turbine.UI.Color( YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue ) );
+	if ShowYuleToken then
+		YT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( YTbcAlpha, YTbcRed, YTbcGreen, YTbcBlue ) );
 	end
-	YT["Ctr"]:SetVisible( ShowYuleTokens );
+	YT[ "Ctr" ]:SetVisible( ShowYuleToken );
 end
---]]
 -- **^
 -- **v Show/Hide Tokens of Hytbold v**
 function ShowHideHytboldTokens()
@@ -114,9 +112,9 @@ function ShowHideHytboldTokens()
 	SaveSettings( false );
 	ImportCtr( "HT" );
 	if ShowHytboldTokens then
-		HT["Ctr"]:SetBackColor( Turbine.UI.Color( HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue ) );
+		HT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( HTbcAlpha, HTbcRed, HTbcGreen, HTbcBlue ) );
 	end
-	HT["Ctr"]:SetVisible( ShowHytboldTokens );
+	HT[ "Ctr" ]:SetVisible( ShowHytboldTokens );
 end
 -- **^
 -- **v Show/Hide Medallions v**
@@ -127,9 +125,9 @@ function ShowHideMedallions()
 	SaveSettings( false );
 	ImportCtr( "MP" );
 	if ShowMedallions then
-		MP["Ctr"]:SetBackColor( Turbine.UI.Color( MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue ) );
+		MP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( MPbcAlpha, MPbcRed, MPbcGreen, MPbcBlue ) );
 	end
-	MP["Ctr"]:SetVisible( ShowMedallions );
+	MP[ "Ctr" ]:SetVisible( ShowMedallions );
 end
 -- **^
 -- **v Show/Hide Seals v**
@@ -140,9 +138,9 @@ function ShowHideSeals()
 	SaveSettings( false );
 	ImportCtr( "SL" );
 	if ShowSeals then
-		SL["Ctr"]:SetBackColor( Turbine.UI.Color( SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue ) );
+		SL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SLbcAlpha, SLbcRed, SLbcGreen, SLbcBlue ) );
 	end
-	SL["Ctr"]:SetVisible( ShowSeals );
+	SL[ "Ctr" ]:SetVisible( ShowSeals );
 end
 -- **^
 -- **v Show/Hide Commendations v**
@@ -153,9 +151,9 @@ function ShowHideCommendations()
 	SaveSettings( false );
 	ImportCtr( "CP" );
 	if ShowCommendations then
-		CP["Ctr"]:SetBackColor( Turbine.UI.Color( CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue ) );
+		CP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( CPbcAlpha, CPbcRed, CPbcGreen, CPbcBlue ) );
 	end
-	CP["Ctr"]:SetVisible( ShowCommendations );
+	CP[ "Ctr" ]:SetVisible( ShowCommendations );
 end
 -- **^
 -- **v Show/Hide LOTRO Points v**
@@ -166,11 +164,11 @@ function ShowHideLOTROPoints()
 	SaveSettings( false );
 	ImportCtr( "LP" );
 	if ShowLOTROPoints then
-		LP["Ctr"]:SetBackColor( Turbine.UI.Color( LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue ) );
+		LP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( LPbcAlpha, LPbcRed, LPbcGreen, LPbcBlue ) );
 	else
 		if _G.frmLP then wLP:Close(); end
 	end
-	LP["Ctr"]:SetVisible( ShowLOTROPoints );
+	LP[ "Ctr" ]:SetVisible( ShowLOTROPoints );
 end
 -- **^
 -- **v Show/Hide backpack Infos v**
@@ -180,13 +178,13 @@ function ShowHideBackpackInfos()
 	SaveSettings( false );
 	if ShowBagInfos then
 		ImportCtr( "BI" );
-		BI["Ctr"]:SetBackColor( Turbine.UI.Color( BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue ) );
+		BI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( BIbcAlpha, BIbcRed, BIbcGreen, BIbcBlue ) );
 	else
 		RemoveCallback(backpack, "ItemAdded");
 		RemoveCallback(backpack, "ItemRemoved");
 		if _G.frmBI then wBI:Close(); end
 	end
-	BI["Ctr"]:SetVisible( ShowBagInfos );
+	BI[ "Ctr" ]:SetVisible( ShowBagInfos );
 	opt_BI:SetChecked( ShowBagInfos );
 end
 --**^
@@ -197,13 +195,13 @@ function ShowHidePlayerInfos()
 	SaveSettings( false );
 	if ShowPlayerInfos then
 		ImportCtr( "PI" );
-		PI["Ctr"]:SetBackColor( Turbine.UI.Color( PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue ) );
+		PI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( PIbcAlpha, PIbcRed, PIbcGreen, PIbcBlue ) );
 	else
 		RemoveCallback(Player, "LevelChanged");
 		RemoveCallback(Player, "NameChanged");
 		RemoveCallback(Turbine.Chat, "Received", XPcb);
 	end
-	PI["Ctr"]:SetVisible( ShowPlayerInfos );
+	PI[ "Ctr" ]:SetVisible( ShowPlayerInfos );
 	opt_PI:SetChecked( ShowPlayerInfos );
 end
 --**^
@@ -217,13 +215,13 @@ function ShowHideEquipInfos()
 		AddCallback(PlayerEquipment, "ItemEquipped", function(sender, args) if ShowEquipInfos then GetEquipmentInfos(); UpdateEquipsInfos(); end end);
 		AddCallback(PlayerEquipment, "ItemUnequipped", function(sender, args) ItemUnEquippedTimer:SetWantsUpdates( true ); end); --Workaround
 		ImportCtr( "EI" );
-		EI["Ctr"]:SetBackColor( Turbine.UI.Color( EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue ) );
+		EI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( EIbcAlpha, EIbcRed, EIbcGreen, EIbcBlue ) );
 	else
 		RemoveCallback(PlayerEquipment, "ItemEquipped");
 		RemoveCallback(PlayerEquipment, "ItemUnequipped");
 		if _G.frmEI then wEI:Close(); end
 	end
-	EI["Ctr"]:SetVisible( ShowEquipInfos );
+	EI[ "Ctr" ]:SetVisible( ShowEquipInfos );
 	opt_EI:SetChecked( ShowEquipInfos );
 end
 --**^
@@ -237,13 +235,13 @@ function ShowHideDurabilityInfos()
 		AddCallback(PlayerEquipment, "ItemEquipped", function(sender, args) if ShowEquipInfos then GetEquipmentInfos(); UpdateEquipsInfos(); end if ShowDurabilityInfos then GetEquipmentInfos(); UpdateDurabilityInfos(); end end);
 		AddCallback(PlayerEquipment, "ItemUnequipped", function(sender, args) ItemUnEquippedTimer:SetWantsUpdates( true ); end); --Workaround
 		ImportCtr( "DI" );
-		DI["Ctr"]:SetBackColor( Turbine.UI.Color( DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue ) );
+		DI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( DIbcAlpha, DIbcRed, DIbcGreen, DIbcBlue ) );
 	else
 		RemoveCallback(PlayerEquipment, "ItemEquipped");
 		RemoveCallback(PlayerEquipment, "ItemUnequipped");
 		if _G.frmDI then wDI:Close(); end
 	end
-	DI["Ctr"]:SetVisible( ShowDurabilityInfos );
+	DI[ "Ctr" ]:SetVisible( ShowDurabilityInfos );
 	opt_DI:SetChecked( ShowDurabilityInfos );
 end
 --**^
@@ -254,11 +252,11 @@ function ShowHideTrackItems()
 	SaveSettings( false );
 	if ShowTrackItems then
 		ImportCtr( "TI" );
-		TI["Ctr"]:SetBackColor( Turbine.UI.Color( TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue ) );
+		TI[ "Ctr" ]:SetBackColor( Turbine.UI.Color( TIbcAlpha, TIbcRed, TIbcGreen, TIbcBlue ) );
 	else
 		if _G.frmTI then wTI:Close(); end
 	end
-	TI["Ctr"]:SetVisible( ShowTrackItems );
+	TI[ "Ctr" ]:SetVisible( ShowTrackItems );
 	opt_TI:SetChecked( ShowTrackItems );
 end
 --**^
@@ -269,12 +267,12 @@ function ShowHideInfamy()
 	SaveSettings( false );
 	if ShowInfamy then
 		ImportCtr( "IF" );
-		IF["Ctr"]:SetBackColor( Turbine.UI.Color( IFbcAlpha, IFbcRed, IFbcGreen, IFbcBlue ) );
+		IF[ "Ctr" ]:SetBackColor( Turbine.UI.Color( IFbcAlpha, IFbcRed, IFbcGreen, IFbcBlue ) );
 	else
 		RemoveCallback(Turbine.Chat, "Received", IFcb);
 		if _G.frmIF then wIF:Close(); end
 	end
-	IF["Ctr"]:SetVisible( ShowInfamy );
+	IF[ "Ctr" ]:SetVisible( ShowInfamy );
 	opt_IF:SetChecked( ShowInfamy );
 end
 -- **^
@@ -285,12 +283,12 @@ function ShowHideVault()
 	SaveSettings( false );
 	if ShowVault then
 		ImportCtr( "VT" );
-		VT["Ctr"]:SetBackColor( Turbine.UI.Color( VTbcAlpha, VTbcRed, VTbcGreen, VTbcBlue ) );
+		VT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( VTbcAlpha, VTbcRed, VTbcGreen, VTbcBlue ) );
 	else
 		RemoveCallback(vaultpack, "CountChanged");
 		if _G.frmVT then wVT:Close(); end
 	end
-	VT["Ctr"]:SetVisible( ShowVault );
+	VT[ "Ctr" ]:SetVisible( ShowVault );
 	opt_VT:SetChecked( ShowVault );
 end
 -- **^
@@ -301,12 +299,12 @@ function ShowHideSharedStorage()
 	SaveSettings( false );
 	if ShowSharedStorage then
 		ImportCtr( "SS" );
-		SS["Ctr"]:SetBackColor( Turbine.UI.Color( SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue ) );
+		SS[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SSbcAlpha, SSbcRed, SSbcGreen, SSbcBlue ) );
 	else
 		RemoveCallback(sspack, "CountChanged");
 		if _G.frmSS then wSS:Close(); end
 	end
-	SS["Ctr"]:SetVisible( ShowSharedStorage );
+	SS[ "Ctr" ]:SetVisible( ShowSharedStorage );
 	opt_SS:SetChecked( ShowSharedStorage );
 end
 -- **^
@@ -317,10 +315,10 @@ function ShowHideBank()
 	SaveSettings( false );
 	if ShowBank then
 		ImportCtr( "BK" );
-		BK["Ctr"]:SetBackColor( Turbine.UI.Color( BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue ) );
+		BK[ "Ctr" ]:SetBackColor( Turbine.UI.Color( BKbcAlpha, BKbcRed, BKbcGreen, BKbcBlue ) );
 	else
 	end
-	BK["Ctr"]:SetVisible( ShowBank );
+	BK[ "Ctr" ]:SetVisible( ShowBank );
 	opt_BK:SetChecked( ShowBank );
 end
 -- **^
@@ -331,11 +329,11 @@ function ShowHideDayNight()
 	SaveSettings( false );
 	if ShowDayNight then
 		ImportCtr( "DN" );
-		DN["Ctr"]:SetBackColor( Turbine.UI.Color( DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue ) );
+		DN[ "Ctr" ]:SetBackColor( Turbine.UI.Color( DNbcAlpha, DNbcRed, DNbcGreen, DNbcBlue ) );
 	else
 		if _G.frmDN then wDN:Close(); end
 	end
-	DN["Ctr"]:SetVisible( ShowDayNight );
+	DN[ "Ctr" ]:SetVisible( ShowDayNight );
 	opt_DN:SetChecked( ShowDayNight );
 end
 -- **^
@@ -346,12 +344,12 @@ function ShowHideReputation()
 	SaveSettings( false );
 	if ShowReputation then
 		ImportCtr( "RP" );
-		RP["Ctr"]:SetBackColor( Turbine.UI.Color( RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue ) );
+		RP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( RPbcAlpha, RPbcRed, RPbcGreen, RPbcBlue ) );
 	else
 		RemoveCallback(Turbine.Chat, "Received", RPcb);
 		if _G.frmRP then wRP:Close(); end
 	end
-	RP["Ctr"]:SetVisible( ShowReputation );
+	RP[ "Ctr" ]:SetVisible( ShowReputation );
 	opt_RP:SetChecked( ShowReputation );
 end
 -- **^
@@ -363,11 +361,11 @@ function ShowHidePlayerLoc()
 	SaveSettings( false );
 	if ShowPlayerLoc then
 		ImportCtr( "PL" );
-		PL["Ctr"]:SetBackColor( Turbine.UI.Color( PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue ) );
+		PL[ "Ctr" ]:SetBackColor( Turbine.UI.Color( PLbcAlpha, PLbcRed, PLbcGreen, PLbcBlue ) );
 	else
 		RemoveCallback(Turbine.Chat, "Received", PLcb);
 	end
-	PL["Ctr"]:SetVisible( ShowPlayerLoc );
+	PL[ "Ctr" ]:SetVisible( ShowPlayerLoc );
 	opt_PL:SetChecked( ShowPlayerLoc );
 end
 --**^
@@ -378,11 +376,11 @@ function ShowHideGameTime()
 	SaveSettings( false );
 	if ShowGameTime then
 		ImportCtr( "GT" );
-		GT["Ctr"]:SetBackColor( Turbine.UI.Color( GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue ) );
+		GT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( GTbcAlpha, GTbcRed, GTbcGreen, GTbcBlue ) );
 	else
 		if _G.frmGT then wGT:Close(); end
 	end
-	GT["Ctr"]:SetVisible( ShowGameTime );
+	GT[ "Ctr" ]:SetVisible( ShowGameTime );
 	opt_GT:SetChecked( ShowGameTime );
 end
 --**^
@@ -396,7 +394,7 @@ function SavePlayerProfile()
 	-- The table key is saved with "," in DE & FR clients. Ex. [1,000000]. This causes a parse error.
 	-- If you change [1,000000] to [1.000000] error is not there any more. [1] would be easier! Why all those zeroes!
 	-- So LOTRO saves the table key in the client language, but lua is unable to read it since "," is a special character.
-	-- LOTRO just has to save the key in english and the value in the client language.
+	-- LOTRO just has to save the key in English and the value in the client language.
 
 	-- So I'm converting the key [1,000000] into a string like this ["1"]
 	-- That's VindarPatch's doing, it converts the whole table into string (key and value)
@@ -444,9 +442,9 @@ function ShowHideAmrothSilverPiece()
 	SaveSettings( false );
 	ImportCtr( "ASP" );
 	if ShowAmrothSilverPiece then
-		ASP["Ctr"]:SetBackColor( Turbine.UI.Color( ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue ) );
+		ASP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( ASPbcAlpha, ASPbcRed, ASPbcGreen, ASPbcBlue ) );
 	end
-	ASP["Ctr"]:SetVisible( ShowAmrothSilverPiece );
+	ASP[ "Ctr" ]:SetVisible( ShowAmrothSilverPiece );
 end
 function ShowHideStarsofMerit()
 	ShowStarsofMerit = not ShowStarsofMerit;
@@ -455,9 +453,9 @@ function ShowHideStarsofMerit()
 	SaveSettings( false );
 	ImportCtr( "SOM" );
 	if ShowStarsofMerit then
-		SOM["Ctr"]:SetBackColor( Turbine.UI.Color( SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue ) );
+		SOM[ "Ctr" ]:SetBackColor( Turbine.UI.Color( SOMbcAlpha, SOMbcRed, SOMbcGreen, SOMbcBlue ) );
 	end
-	SOM["Ctr"]:SetVisible( ShowStarsofMerit );
+	SOM[ "Ctr" ]:SetVisible( ShowStarsofMerit );
 end
 function ShowHideCentralGondorSilverPiece()
 	ShowCentralGondorSilverPiece = not ShowCentralGondorSilverPiece;
@@ -466,9 +464,9 @@ function ShowHideCentralGondorSilverPiece()
 	SaveSettings( false );
 	ImportCtr( "CGSP" );
 	if ShowCentralGondorSilverPiece then
-		CGSP["Ctr"]:SetBackColor( Turbine.UI.Color( CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue ) );
+		CGSP[ "Ctr" ]:SetBackColor( Turbine.UI.Color( CGSPbcAlpha, CGSPbcRed, CGSPbcGreen, CGSPbcBlue ) );
 	end
-	CGSP["Ctr"]:SetVisible( ShowCentralGondorSilverPiece );
+	CGSP[ "Ctr" ]:SetVisible( ShowCentralGondorSilverPiece );
 end
 function ShowHideGiftgiversBrand()
 	ShowGiftgiversBrand = not ShowGiftgiversBrand;
@@ -477,18 +475,42 @@ function ShowHideGiftgiversBrand()
 	SaveSettings( false );
 	ImportCtr( "GGB" );
 	if ShowGiftgiversBrand then
-		GGB["Ctr"]:SetBackColor( Turbine.UI.Color( GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue ) );
+		GGB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( GGBbcAlpha, GGBbcRed, GGBbcGreen, GGBbcBlue ) );
 	end
-	GGB["Ctr"]:SetVisible( ShowGiftgiversBrand );
+	GGB[ "Ctr" ]:SetVisible( ShowGiftgiversBrand );
 end
-function ShowHideAshOfGorgoroth()
-	ShowAshOfGorgoroth = not ShowAshOfGorgoroth;
-	settings.AshOfGorgoroth.V = ShowAshOfGorgoroth;
-	settings.AshOfGorgoroth.W = string.format("%.0f", _G.AOGWhere);
+function ShowHideAshOfEnchantment()
+	ShowAshOfEnchantment = not ShowAshOfEnchantment;
+	settings.AshOfEnchantment.V = ShowAshOfEnchantment;
+	settings.AshOfEnchantment.W = string.format("%.0f", _G.AOEWhere);
 	SaveSettings( false );
-	ImportCtr( "AOG" );
-	if ShowAshOfGorgoroth then
-		AOG["Ctr"]:SetBackColor( Turbine.UI.Color( AOGbcAlpha, AOGbcRed, AOGbcGreen, AOGbcBlue ) );
+	ImportCtr( "AOE" );
+	if ShowAshOfEnchantment then
+		AOE[ "Ctr" ]:SetBackColor( Turbine.UI.Color( AOEbcAlpha, AOEbcRed, AOEbcGreen, AOEbcBlue ) );
 	end
-	AOG["Ctr"]:SetVisible( ShowAshOfGorgoroth );
+	AOE[ "Ctr" ]:SetVisible( ShowAshOfEnchantment );
+end
+-- **^
+-- **v Show/Hide Bingo Badges v**
+function ShowHideBingoBadge()
+	ShowBingoBadge = not ShowBingoBadge;
+	settings.BingoBadge.V = ShowBingoBadge;
+	settings.BingoBadge.W = string.format("%.0f", _G.BBWhere);
+	SaveSettings( false );
+	ImportCtr( "BB" );
+	if ShowBingoBadge then
+		BB[ "Ctr" ]:SetBackColor( Turbine.UI.Color( BBbcAlpha, BBbcRed, BBbcGreen, BBbcBlue ) );
+	end
+	BB[ "Ctr" ]:SetVisible( ShowBingoBadge );
+end
+function ShowHideAnniversaryToken()
+	ShowAnniversaryToken = not ShowAnniversaryToken;
+	settings.AnniversaryToken.V = ShowAnniversaryToken;
+	settings.AnniversaryToken.W = string.format( "%.0f", _G.LATWhere );
+	SaveSettings( false );
+	ImportCtr( "LAT" );
+	if ShowAnniversaryToken then
+		LAT[ "Ctr" ]:SetBackColor( Turbine.UI.Color( LATbcAlpha, LATbcRed, LATbcGreen, LATbcBlue ) );
+	end
+	LAT[ "Ctr" ]:SetVisible( ShowAnniversaryToken );
 end

@@ -1,6 +1,39 @@
 -- frmOptions.lua
 -- written by Habna
+-- rewritten by many
 
+
+local WalletControls = { };
+if WI ~= nil then WalletControls[ "WI" ] = { ShowHide = ShowWallet, Control = WI[ "Ctr" ] }; end
+if MI ~= nil then WalletControls[ "MI" ] = { ShowHide = ShowMoney, Control = MI[ "Ctr" ] }; end
+if DP ~= nil then WalletControls[ "DP" ] = { ShowHide = ShowDestinyPoints, Control = DP[ "Ctr" ] }; end
+if SP ~= nil then WalletControls[ "SP" ] = { ShowHide = ShowShards, Control = SP[ "Ctr" ] }; end
+if SM ~= nil then WalletControls[ "SM" ] = { ShowHide = ShowSkirmishMarks, Control = SM[ "Ctr" ] }; end
+if MC ~= nil then WalletControls[ "MC" ] = { ShowHide = ShowMithrilCoins, Control = MC[ "Ctr" ] }; end
+if YT ~= nil then WalletControls[ "YT" ] = { ShowHide = ShowYuleToken, Control = YT[ "Ctr" ] }; end
+if HT ~= nil then WalletControls[ "HT" ] = { ShowHide = ShowHytboldTokens, Control = HT[ "Ctr" ] }; end
+if MP ~= nil then WalletControls[ "MP" ] = { ShowHide = ShowMedallions, Control = MP[ "Ctr" ] }; end
+if SL ~= nil then WalletControls[ "SL" ] = { ShowHide = ShowSeals, Control = SL[ "Ctr" ] }; end
+if CP ~= nil then WalletControls[ "CP" ] = { ShowHide = ShowCommendations, Control = CP[ "Ctr" ] }; end
+if BI ~= nil then WalletControls[ "BI" ] = { ShowHide = ShowBagInfos, Control = BI[ "Ctr" ] }; end
+if PI ~= nil then WalletControls[ "PI" ] = { ShowHide = ShowPlayerInfos, Control = PI[ "Ctr" ] }; end
+if EI ~= nil then WalletControls[ "EI" ] = { ShowHide = ShowEquipInfos, Control = EI[ "Ctr" ] }; end
+if DI ~= nil then WalletControls[ "DI" ] = { ShowHide = ShowDurabilityInfos, Control = DI[ "Ctr" ] };end
+if TI ~= nil then WalletControls[ "TI" ] = { ShowHide = ShowTrackItems, Control = TI[ "Ctr" ] }; end
+if IF ~= nil then WalletControls[ "IF" ] = { ShowHide = ShowInfamy, Control = IF[ "Ctr" ] }; end
+if VT ~= nil then WalletControls[ "VT" ] = { ShowHide = ShowVault, Control = VT[ "Ctr" ] }; end
+if SS ~= nil then WalletControls[ "SS" ] = { ShowHide = ShowSharedStorage, Control = SS[ "Ctr" ] }; end
+--if BK ~= nil then WalletControls[ "BK" ] = { ShowHide = ShowBank, Control = BK[ "Ctr" ] }; end
+if DN ~= nil then WalletControls[ "DN" ] = { ShowHide = ShowDayNight, Control = DN[ "Ctr" ] }; end
+if RP ~= nil then WalletControls[ "RP" ] = { ShowHide = ShowReputation, Control = RP[ "Ctr" ] }; end
+if LP ~= nil then WalletControls[ "LP" ] = { ShowHide = ShowLOTROPoints, Control = LP[ "Ctr" ] }; end
+if ASP ~= nil then WalletControls[ "ASP" ] = { ShowHide = ShowAmrothSilverPiece, Control = ASP[ "Ctr" ] }; end
+if SOM ~= nil then WalletControls[ "SOM" ] = { ShowHide = ShowStarsofMerit, Control = SOM[ "Ctr" ] }; end
+if CGSP ~= nil then WalletControls[ "CGSP" ] = { ShowHide = ShowCentralGondorSilverPiece, Control = CGSP[ "Ctr" ] }; end
+if GGB ~= nil then WalletControls[ "GGB" ] = { ShowHide = ShowGiftgiversBrand, Control = GGB[ "Ctr" ] }; end
+if AOE ~= nil then WalletControls[ "AOE" ] = { ShowHide = ShowAshOfEnchantment, Control = AOE[ "Ctr" ] }; end
+if BB ~= nil then WalletControls[ "BB" ] = { ShowHide = ShowBingoBadge, Control = BB[ "Ctr" ] }; end
+if LAT ~= nil then WalletControls[ "LAT" ] = { ShowHide = ShowAnniversaryToken, Control = LAT[ "Ctr" ] }; end
 
 tFonts = { "Arial12", "TrajanPro13", "TrajanPro14", "TrajanPro15", "TrajanPro16", "TrajanPro18", "TrajanPro19", "TrajanPro20", "TrajanPro21",
 			"TrajanPro23", "TrajanPro24", "TrajanPro25", "TrajanPro26", "TrajanPro28", "TrajanProBold16", "TrajanProBold22", "TrajanProBold24",
@@ -11,23 +44,23 @@ tFontsF = { "1107296297", "1107296258", "1107296268", "1107296263", "1107296267"
 			"1107296277", "1107296326", "1107296293", "1107296294", "1107296298", "1107296275",	"1107296292", "1107296274", "1107296273", "1107296276",
 			"1107296279", "1107296264", "1107296257", "1107296280", "1107296281", "1107296278", "1107296282", "1107296283" };
 
-aAutoHide = { L["OPAHD"], L["OPAHE"], L["OPAHC"] };
+aAutoHide = { L[ "OPAHD" ], L[ "OPAHE" ], L[ "OPAHC" ] };
 
-aIconSize = { L["OPISS"], L["OPISL"] }; --Small & Large
---aIconSize = { L["OPISS"], L["OPISM"], L["OPISL"] }; --Small, Medium & Large
+aIconSize = { L[ "OPISS" ], L[ "OPISL" ] }; --Small & Large
+--aIconSize = { L[ "OPISS" ], L[ "OPISM" ], L[ "OPISL" ] }; --Small, Medium & Large
 
 function frmOptions()
 	TB["win"].MouseLeave();
 	--itValue, tValue = 32, TBHeight;
 
-	import (AppClassD.."ComboBox");
+	import ( AppClassD .. "ComboBox" );
 	FontDD = HabnaPlugins.TitanBar.Class.ComboBox();
 
 	-- **v Set some window stuff v**
 	wOptions = Turbine.UI.Lotro.Window()
 	wOptions:SetSize( 275, 275 );
 	wOptions:SetPosition( OPWLeft, OPWTop );
-	wOptions:SetText( L["OPWTitle"] );
+	wOptions:SetText( L[ "OPWTitle" ] );
 	wOptions:SetWantsKeyEvents( true );
 	wOptions:SetVisible( true );
 	--wOptions:SetZOrder( 2 );
@@ -54,17 +87,17 @@ function frmOptions()
 
 	wOptions.MouseUp = function( sender, args )
 		dragging = false;
-		settings.Options.L = string.format("%.0f", wOptions:GetLeft());
-		settings.Options.T = string.format("%.0f", wOptions:GetTop());
+		settings.Options.L = string.format( "%.0f", wOptions:GetLeft() );
+		settings.Options.T = string.format( "%.0f", wOptions:GetTop() );
 		OPWLeft, OPWTop = wOptions:GetPosition();
 		SaveSettings( false );
 	end
 
 	wOptions.Closing = function( sender, args ) -- Function for the Upper right X icon
-		FontDD.dropDownWindow:SetVisible(false);
-		AutoDD.dropDownWindow:SetVisible(false);
+		FontDD.dropDownWindow:SetVisible( false );
+		AutoDD.dropDownWindow:SetVisible( false );
 		wOptions:SetWantsKeyEvents( false );
-		if TBAutoHide == L["OPAHE"] then windowOpen = true; TB["win"].MouseLeave(); end
+		if TBAutoHide == L[ "OPAHE" ] then windowOpen = true; TB[ "win" ].MouseLeave(); end
 		wOptions = nil;
 		opt_options:SetEnabled( true );
 	end
@@ -74,9 +107,9 @@ function frmOptions()
 	local lblHeight = Turbine.UI.Label();
 	lblHeight:SetParent( wOptions );
 	lblHeight:SetPosition( 25, 40 );
-	lblHeight:SetText( L["OPHText"] );
+	lblHeight:SetText( L[ "OPHText" ] );
 	lblHeight:SetSize( wOptions:GetWidth() - 25, 15 );
-	lblHeight:SetForeColor( Color["rustedgold"] );
+	lblHeight:SetForeColor( Color[ "rustedgold" ] );
 	-- **^
 	-- **v Set the scrollbar v**
 	wScrollBar = Turbine.UI.Lotro.ScrollBar();
@@ -90,10 +123,10 @@ function frmOptions()
 
 	wScrollBar.ValueChanged = function( sender, args )
 		local tValue = wScrollBar:GetValue();
-		TB["win"]:SetHeight( tValue );
+		TB[ "win" ]:SetHeight( tValue );
 		lblHeightV:SetText( tValue );
 		TBHeight = tValue;
-		settings.TitanBar.H = string.format("%.0f", tValue);
+		settings.TitanBar.H = string.format( "%.0f", tValue );
 		SaveSettings( false );
 
 		--Size Control if height is less 30px & stop at 30px if more 30px
@@ -113,9 +146,9 @@ function frmOptions()
 	lblFont = Turbine.UI.Label();
 	lblFont:SetParent( wOptions );
 	lblFont:SetPosition( 25, wScrollBar:GetTop() + 20 );
-	lblFont:SetText( L["OPFText"] );
+	lblFont:SetText( L[ "OPFText" ] );
 	lblFont:SetSize( wOptions:GetWidth() - 25, 15 );
-	lblFont:SetForeColor( Color["rustedgold"] );
+	lblFont:SetForeColor( Color[ "rustedgold" ] );
 	
 	FontDD:SetParent( wOptions );
 	FontDD:SetSize( 159, 19 );
@@ -123,16 +156,16 @@ function frmOptions()
 	FontDD.label:SetText( TBFontT );
 
 	FontDD.dropDownWindow:SetParent( wOptions );
-	FontDD.dropDownWindow:SetPosition(FontDD:GetLeft(), FontDD:GetTop() + FontDD:GetHeight()+2);
+	FontDD.dropDownWindow:SetPosition( FontDD:GetLeft(), FontDD:GetTop() + FontDD:GetHeight() + 2 );
 
-	for k,v in pairs(tFonts) do
-		FontDD:AddItem(v, k);
-		if v == TBFontT then FontDD:SetSelection(k); end
+	for k,v in pairs( tFonts ) do
+		FontDD:AddItem( v, k );
+		if v == TBFontT then FontDD:SetSelection( k ); end
 	end
 
 	FontDD.ItemChanged = function( sender, args ) -- The event that's executed when a menu item is clicked.
 		settings.TitanBar.ZT = "Font";
-		settings.TitanBar.F = tFontsF[args.selection];
+		settings.TitanBar.F = tFontsF[ args.selection ];
 		settings.TitanBar.T = FontDD.label:GetText();
 		SaveSettings( false );
 		ReloadTitanBar();
@@ -143,9 +176,9 @@ function frmOptions()
 	lblAuto = Turbine.UI.Label();
 	lblAuto:SetParent( wOptions );
 	lblAuto:SetPosition( 25, FontDD:GetTop() + 30 );
-	lblAuto:SetText( L["OPAText"] );
+	lblAuto:SetText( L[ "OPAText" ] );
 	lblAuto:SetSize( wOptions:GetWidth() - 25, 15 );
-	lblAuto:SetForeColor( Color["rustedgold"] );
+	lblAuto:SetForeColor( Color[ "rustedgold" ] );
 	
 	AutoDD = HabnaPlugins.TitanBar.Class.ComboBox();
 	AutoDD:SetParent( wOptions );
@@ -154,18 +187,18 @@ function frmOptions()
 	AutoDD.label:SetText( TBFontT );
 
 	AutoDD.dropDownWindow:SetParent( wOptions );
-	AutoDD.dropDownWindow:SetPosition(AutoDD:GetLeft(), AutoDD:GetTop() + AutoDD:GetHeight()+2);
+	AutoDD.dropDownWindow:SetPosition( AutoDD:GetLeft(), AutoDD:GetTop() + AutoDD:GetHeight() + 2 );
 
-	for k,v in pairs(aAutoHide) do
-		AutoDD:AddItem(v, k);
-		if v == TBAutoHide then AutoDD:SetSelection(k); end
+	for k,v in pairs( aAutoHide ) do
+		AutoDD:AddItem( v, k );
+		if v == TBAutoHide then AutoDD:SetSelection( k ); end
 	end
 
 	AutoDD.ItemChanged = function( sender, args ) -- The event that's executed when a menu item is clicked.
 		TBAutoHide = AutoDD.label:GetText();
 		settings.Options.H = TBAutoHide;
-		if TBAutoHide == L["OPAHE"] then windowOpen = true; AutoHideCtr:SetWantsUpdates( true );
-		elseif TBAutoHide == L["OPAHD"] or TBAutoHide == L["OPAHC"] then windowOpen = false; AutoHideCtr:SetWantsUpdates( true ); end
+		if TBAutoHide == L[ "OPAHE" ] then windowOpen = true; AutoHideCtr:SetWantsUpdates( true );
+		elseif TBAutoHide == L[ "OPAHD" ] or TBAutoHide == L[ "OPAHC" ] then windowOpen = false; AutoHideCtr:SetWantsUpdates( true ); end
 		SaveSettings( false );
 	end
 	-- **^
@@ -173,9 +206,9 @@ function frmOptions()
 	lblIconSize = Turbine.UI.Label();
 	lblIconSize:SetParent( wOptions );
 	lblIconSize:SetPosition( 25, AutoDD:GetTop() + 30 );
-	lblIconSize:SetText( L["OPIText"] );
+	lblIconSize:SetText( L[ "OPIText" ] );
 	lblIconSize:SetSize( wOptions:GetWidth() - 25, 15 );
-	lblIconSize:SetForeColor( Color["rustedgold"] );
+	lblIconSize:SetForeColor( Color[ "rustedgold" ] );
 	
 	wIconScrollBar = Turbine.UI.Lotro.ScrollBar();
 	wIconScrollBar:SetParent( wOptions );
@@ -190,7 +223,7 @@ function frmOptions()
 		local itValue = wIconScrollBar:GetValue();
 		lblIconSizeV:SetText( itValue );
 		TBIconSize = itValue;
-		settings.Options.I = string.format("%.0f", itValue);
+		settings.Options.I = string.format( "%.0f", itValue );
 		SaveSettings( false );
 		ResizeIcon();
 	end
@@ -201,7 +234,7 @@ function frmOptions()
 	lblIconSizeV:SetPosition( wIconScrollBar:GetLeft() + wIconScrollBar:GetWidth() + 5, wIconScrollBar:GetTop() );
 	lblIconSizeV:SetText( wIconScrollBar:GetValue() );
 	lblIconSizeV:SetSize( 20, 15 );
-	lblIconSizeV:SetForeColor( Color["rustedgold"] );
+	lblIconSizeV:SetForeColor( Color[ "rustedgold" ] );
 	-- **^
 	-- **v Set TitanBar at Top of screen - Check box v**
 	local TBTopCB = Turbine.UI.Lotro.CheckBox();
@@ -212,26 +245,26 @@ function frmOptions()
 	--TBTopCB:SetVisible( true );
 	--TBTopCB:SetEnabled( false );
 	TBTopCB:SetChecked( TBTop );
-	TBTopCB:SetForeColor( Color["rustedgold"] );
+	TBTopCB:SetForeColor( Color[ "rustedgold" ] );
 
 	TBTopCB.CheckedChanged = function( sender, args )
 		TBTop = TBTopCB:IsChecked();
 		settings.TitanBar.D = TBTop;
 		SaveSettings( false );
-		if TBTop then TB["win"]:SetTop( 0 );
-		else TB["win"]:SetTop( screenHeight - TBHeight ); end
-		if TBAutoHide == L["OPAHE"] then windowOpen = true; AutoHideCtr:SetWantsUpdates( true );
-		elseif TBAutoHide == L["OPAHD"] or TBAutoHide == L["OPAHC"] then windowOpen = false; AutoHideCtr:SetWantsUpdates( true ); end
+		if TBTop then TB[ "win" ]:SetTop( 0 );
+		else TB[ "win" ]:SetTop( screenHeight - TBHeight ); end
+		if TBAutoHide == L[ "OPAHE" ] then windowOpen = true; AutoHideCtr:SetWantsUpdates( true );
+		elseif TBAutoHide == L[ "OPAHD" ] or TBAutoHide == L[ "OPAHC" ] then windowOpen = false; AutoHideCtr:SetWantsUpdates( true ); end
 	end
 	-- **^
 	
 	local PILayoutCB = Turbine.UI.Lotro.CheckBox();
 	PILayoutCB:SetParent( wOptions );
-	PILayoutCB:SetText( L["Layout"] );
+	PILayoutCB:SetText( L[ "Layout" ] );
 	PILayoutCB:SetPosition(TBTopCB:GetLeft(), TBTopCB:GetTop()+20);
 	PILayoutCB:SetSize( PILayoutCB:GetTextLength() * 8.5, 30 ); --Auto size with text length
 	PILayoutCB:SetChecked( PILayout );
-	PILayoutCB:SetForeColor( Color["rustedgold"] );
+	PILayoutCB:SetForeColor( Color[ "rustedgold" ] );
 	
 	PILayoutCB.CheckedChanged = function( sender, args )
 		PILayout = PILayoutCB:IsChecked();
@@ -246,126 +279,18 @@ function ResizeControls()
 	CTRHeight = TBHeight;
 
 	if TBHeight > 30 then CTRHeight = 30; end--Set control maximum height
+	
+	for ItemID, ShowItem in pairs( WalletControls ) do
+		if ShowItem.ShowHide then ShowItem.Control:SetHeight( CTRHeight ); end
+		AjustIcon( ItemID );
+	end 
 
-	if ShowWallet then WI["Ctr"]:SetHeight( CTRHeight );
-		AjustIcon("WI");
-	end
-	if ShowMoney then MI["Ctr"]:SetHeight( CTRHeight ); MI["GCtr"]:SetHeight( CTRHeight ); MI["GLblT"]:SetHeight( CTRHeight ); MI["GLbl"]:SetHeight( CTRHeight ); MI["SLblT"]:SetHeight( CTRHeight ); MI["SLbl"]:SetHeight( CTRHeight ); MI["CLblT"]:SetHeight( CTRHeight ); MI["CLbl"]:SetHeight( CTRHeight );
-		AjustIcon("MI");
-	end
-	if ShowDestinyPoints then DP["Ctr"]:SetHeight( CTRHeight ); DP["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("DP");
-	end
-	if ShowShards then SP["Ctr"]:SetHeight( CTRHeight ); SP["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("SP");
-	end
-	if ShowSkirmishMarks then SM["Ctr"]:SetHeight( CTRHeight ); SM["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("SM");
-	end
-	if ShowMithrilCoins then MC["Ctr"]:SetHeight( CTRHeight ); MC["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("MC");
-	end
---[[	if ShowYuleTokens then YT["Ctr"]:SetHeight( CTRHeight ); YT["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("YT");
-	end--]]
-	if ShowHytboldTokens then HT["Ctr"]:SetHeight( CTRHeight ); HT["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("HT");
-	end
-	if ShowMedallions then MP["Ctr"]:SetHeight( CTRHeight ); MP["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("MP");
-	end
-	if ShowSeals then SL["Ctr"]:SetHeight( CTRHeight ); SL["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("SL");
-	end
-	if ShowCommendations then CP["Ctr"]:SetHeight( CTRHeight ); CP["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("CP");
-	end
-	if ShowBagInfos then BI["Ctr"]:SetHeight( CTRHeight ); BI["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("BI");
-	end
-	if ShowPlayerInfos then PI["Ctr"]:SetHeight( CTRHeight ); PI["Lvl"]:SetHeight( CTRHeight ); PI["Name"]:SetHeight( CTRHeight );
-		AjustIcon("PI");
-	end
-	if ShowEquipInfos then EI["Ctr"]:SetHeight( CTRHeight ); EI["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("EI");
-	end
-	if ShowDurabilityInfos then DI["Ctr"]:SetHeight( CTRHeight ); DI["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("DI");
-	end
-	if ShowTrackItems then TI["Ctr"]:SetHeight( CTRHeight );
-		AjustIcon("TI");
-	end
-	if ShowInfamy then IF["Ctr"]:SetHeight( CTRHeight );
-		AjustIcon("IF");
-	end
-	if ShowVault then VT["Ctr"]:SetHeight( CTRHeight );
-		AjustIcon("VT");
-	end
-	if ShowSharedStorage then SS["Ctr"]:SetHeight( CTRHeight );
-		AjustIcon("SS");
-	end
-	--if ShowBank then BK["Ctr"]:SetHeight( CTRHeight );
-		--AjustIcon("BK");
-	--end
-	if ShowDayNight then DN["Ctr"]:SetHeight( CTRHeight );
-		AjustIcon("DN");
-	end
-	if ShowReputation then RP["Ctr"]:SetHeight( CTRHeight );
-		AjustIcon("RP");
-	end
-	if ShowLOTROPoints then LP["Ctr"]:SetHeight( CTRHeight ); LP["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("LP");
-	end
-	-- AU3 MARKER 1 - DO NOT REMOVE
-	if ShowAmrothSilverPiece then ASP["Ctr"]:SetHeight( CTRHeight ); ASP["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("ASP");
-	end
-	if ShowStarsofMerit then SOM["Ctr"]:SetHeight( CTRHeight ); SOM["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("SOM");
-	end
-	if ShowCentralGondorSilverPiece then CGSP["Ctr"]:SetHeight( CTRHeight ); CGSP["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("CGSP");
-	end
-	if ShowGiftgiversBrand then GGB["Ctr"]:SetHeight( CTRHeight ); GGB["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("GGB");
-	end
-	if ShowAshOfGorgoroth then AOG["Ctr"]:SetHeight( CTRHeight ); AOG["Lbl"]:SetHeight( CTRHeight );
-		AjustIcon("AOG");
-	end
-	-- AU3 MARKER 1 END
-	if ShowPlayerLoc then PL["Ctr"]:SetHeight( CTRHeight ); PL["Lbl"]:SetHeight( CTRHeight ); end
-	if ShowGameTime then GT["Ctr"]:SetHeight( CTRHeight );	GT["Lbl"]:SetHeight( CTRHeight ); end
+	if ShowPlayerLoc then PL[ "Ctr" ]:SetHeight( CTRHeight ); PL[ "Lbl" ]:SetHeight( CTRHeight ); end
+	if ShowGameTime  then GT[ "Ctr" ]:SetHeight( CTRHeight );	GT[ "Lbl" ]:SetHeight( CTRHeight ); end
 end
 
 function ResizeIcon()
-	if ShowWallet then AjustIcon("WI"); end
-	if ShowMoney then AjustIcon("MI"); end
-	if ShowDestinyPoints then AjustIcon("DP"); end
-	if ShowShards then AjustIcon("SP"); end
-	if ShowSkirmishMarks then AjustIcon("SM"); end
-	if ShowMithrilCoins then AjustIcon("MC"); end
---	if ShowYuleTokens then AjustIcon("YT"); end
-	if ShowHytboldTokens then AjustIcon("HT"); end
-	if ShowMedallions then AjustIcon("MP"); end
-	if ShowSeals then AjustIcon("SL"); end
-	if ShowCommendations then AjustIcon("CP"); end
-	if ShowBagInfos then AjustIcon("BI"); end
-	if ShowPlayerInfos then AjustIcon("PI"); end
-	if ShowEquipInfos then AjustIcon("EI"); end
-	if ShowDurabilityInfos then AjustIcon("DI"); end
-	if ShowTrackItems then AjustIcon("TI"); end
-	if ShowInfamy then AjustIcon("IF"); end
-	if ShowVault then AjustIcon("VT"); end
-	if ShowSharedStorage then AjustIcon("SS"); end
-	--if ShowBank then AjustIcon("BK"); end
-	if ShowDayNight then AjustIcon("DN"); end
-	if ShowReputation then AjustIcon("RP"); end
-	if ShowLOTROPoints then AjustIcon("LP"); end
-	-- AU3 MARKER 2 - DO NOT REMOVE
-	if ShowAmrothSilverPiece then AjustIcon("ASP"); end
-	if ShowStarsofMerit then AjustIcon("SOM"); end
-	if ShowCentralGondorSilverPiece then AjustIcon("CGSP"); end
-	if ShowGiftgiversBrand then AjustIcon("GGB"); end
-	if ShowAshOfGorgoroth then AjustIcon("AOG"); end
-	-- AU3 MARKER 2 END
+	for ItemID, ShowItem in pairs( WalletControls ) do
+		if ShowItem.ShowHide then AjustIcon( ItemID ); end
+	end
 end
