@@ -12,6 +12,14 @@ Known Issues:
 - Some low res icons; searching for replacements.
 
 =================================================
+v1.31.07 (April 03, 2018)
+
+Now with more refactoring!
+
+Fixed:
+- some minor localization errors
+
+=================================================
 v1.31.05 (January 29, 2018) (alpha)
 
 Fixed:
