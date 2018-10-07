@@ -280,6 +280,7 @@ L[ "RPBR" ] = "Bonus Remaining";
 L[ "RPDOE" ] = "Dwarves of Erebor";
 L[ "RPEOF" ] = "Elves of Felegoth";
 L[ "RPMOD" ] = "Men of Dale";
+L[ "RPGME" ] = "Grey Mountains Expedition";
 
 -- Infamy/Renown window
 if PlayerAlign == 1 then L[ "IFWTitle" ] = "Renown"; L[ "IFIF" ] = "Total renown:";

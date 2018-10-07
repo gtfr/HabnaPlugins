@@ -250,6 +250,7 @@ L[ "RPCCLE" ]  = "H\195\188hnerjagd-Liga von Eriador";
 L[ "RPTAA" ]   = "Die Bier-Genossenschaft";
 L[ "RPTIL" ]   = "Die Gasthausliga";
 L[ "RPACC" ]   = "Rufbeschleunigung";
+L[ "RPGME" ] = "Expedition ins Graue Gebirge"; -- Grey Mountains Expedition -- Thx bornfight
 
 -- All reputation standings
 L[ "RPMSR" ] = "Maximale Geltung erreicht";-- Thx DaBear78!

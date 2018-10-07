@@ -253,6 +253,7 @@ L[ "RPACC" ]   = "Acc\195\168l\195\168ration de r\195\168putation";
 L[ "RPDOE" ] = "Nains d'Erebor"; --thx bornfight
 L[ "RPEOF" ] = "Elfes de Felegoth"; --thx bornfight
 L[ "RPMOD" ] = "Hommes de Dale"; -- thx bornfight
+L[ "RPGME" ] = "Exp\195\168dition des Montagnes Grises"; -- Grey Mountains Expedition -- Thx bornfight
 
 -- All reputation standings
 L[ "RPMSR" ] = "Statut maximum atteint";

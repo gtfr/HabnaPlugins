@@ -909,8 +909,8 @@ function LoadPlayerReputation()
         "RPHOTW", "RPHOTWA", "RPHOTWW", "RPHOTWP",
         -- Plateau of Gorgoroth
         "RPCOG", "RPEOFBs", "RPEOFBn", "RPRSC",
-        -- Mirkwood
-        "RPDOE", "RPEOF", "RPMOD",
+        -- Strongholds of the North
+        "RPDOE", "RPEOF", "RPMOD", "RPGME"
         -- Special Event
         "RPCCLE", "RPTAA", "RPTIL",
         -- Reputation Accelerator
@@ -931,7 +931,7 @@ function LoadPlayerReputation()
         -- Plateau of Gorgoroth
         3, 8, 8, 9,
         -- Mirkwood
-        1, 1, 1,
+        11, 1, 1, 1,
         -- Special Event
         6, 7, 7,
         -- Accelerator
@@ -948,6 +948,7 @@ function LoadPlayerReputation()
         [8] = {"RPBL2", "RPBL1", "RPGL1"}, -- fushaum
         [9] = {"RPBL1", "RPGL1", "RPGL2", "RPGL3"}, -- red sky clan
         [10] = {"RPBR"}, -- Accelerator
+        [11] = {"RPGL1", "RPGL2", "RPGL3", "RPGL4", "RPGL5", "RPGL6", "RPGL7"}, -- why another??? Dwarfs of Erebor
     };
     PlayerReputation = Turbine.PluginData.Load(
         Turbine.DataScope.Server, "TitanBarReputation");
